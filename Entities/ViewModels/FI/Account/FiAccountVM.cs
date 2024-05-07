@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.ViewModels.FI.Account
 {
@@ -61,6 +62,7 @@ namespace Entities.ViewModels.FI.Account
         public decimal Debit { get; set; }
         public decimal Credit { get; set; }
         public string Date { get; set; }
+        public DateTime date { get; set; }
         public int No { get; set; }
         public string Description { get; set; }
         public string StartDate { get; set; }

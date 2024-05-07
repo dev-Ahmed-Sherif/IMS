@@ -561,7 +561,8 @@ namespace DAL.FI.Account
                             Name = fiAccount.Name,
                             Debit = Math.Round(fiEntryDetails.Debit, 2),
                             Credit = Math.Round(fiEntryDetails.Credit, 2),
-                            Date = fiEntry.Date.ToString(),
+                            Date = fiEntry.Date.ToString("dd/MM/yyyy"),
+                            date = fiEntry.Date,
                             No = fiEntry.No,
                             Description = fiEntry.Description,
                             StartDate = startDate.ToShortDateString(),
@@ -569,7 +570,7 @@ namespace DAL.FI.Account
                             Section = fiEntry.Journal.Section.Name,
                         };
 
-            var result = query.OrderBy(e => e.Date).ToList();
+            var result = query.OrderBy(e => e.date).ToList();
             return result;
         }
         public List<AccountItemWithParent> GetDataWithParentByCode(string code, DateTime startDate, DateTime endDate)
@@ -593,14 +594,15 @@ namespace DAL.FI.Account
                             Name = fiAccount.Id == fiAccountParent.ParentId ? fiAccountParent.Account.Name : "",
                             Debit = Math.Round(fiEntryDetails.Debit, 2),
                             Credit = Math.Round(fiEntryDetails.Credit, 2),
-                            Date = fiEntry.Date.ToString(),
+                            Date = fiEntry.Date.ToString("dd/MM/yyyy"),
+                            date = fiEntry.Date,
                             No = fiEntry.No,
                             Description = fiEntry.Description,
                             StartDate = startDate.ToShortDateString(),
                             EndDate = endDate.ToShortDateString(),
                             Section = fiEntry.Journal.Section.Name,
                         };
-            var result = query.OrderBy(e => e.Date).ToList();
+            var result = query.OrderBy(e => e.date).ToList();
             return result;
         }
         //public List<AccountItemVM> Search(search searchModel)
