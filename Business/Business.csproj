@@ -1,0 +1,281 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ApplicationIcon />
+		<OutputType>Library</OutputType>
+		<StartupObject />
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<Optimize>false</Optimize>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="ReportsFiles\AccountMasterDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\AccountMasterReport.rdlc" />
+		<None Remove="ReportsFiles\AccountProfitLoseActivityReport.rdlc" />
+		<None Remove="ReportsFiles\FIAccountACReport.rdlc" />
+		<None Remove="ReportsFiles\FIAccountCFReport.rdlc" />
+		<None Remove="ReportsFiles\FIAccountREReport.rdlc" />
+		<None Remove="ReportsFiles\FIEntryDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\FIEntryReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountACReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountComStockWithdrawTotalReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountCreditAccountsReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountDebitAccountsReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountGoodsActivityReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountIncomeByMonthReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountIncomeStatementReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountInvestComkWithdrawTotalReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountInvestCompReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountPermanentAdvancesReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountProfitLoseActivityReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountSuppliersReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountTemporaryAdvancesReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountTradingActivityReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountWaterAndWasteWaterIncomeStatementReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\EntryCostCenterReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\EntryStatisticalItemReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\FiWithdrawToCostCenterReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmpAttendPermissionReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmpAttendScheduleReport.rdlc" />
+		<None Remove="ReportsFiles\HR\Employee.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeAppraisalReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeAttendanceReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
+		<None Remove="ReportsFiles\ItemsTransactionReport.rdlc" />
+		<None Remove="ReportsFiles\OpeningStockDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\OpeningStockReport.rdlc" />
+		<None Remove="ReportsFiles\StockItemsSumReport.rdlc" />
+		<None Remove="ReportsFiles\StockTakingDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\StockTakingReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\OpeningStockCommodityStockReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\OpeningStockInvestComponentReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StockTakingCommodityStockReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StockTakingInvestComponentReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StoreAfterTakingReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StoreBeforeTakingReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StoreTakingComStockReport.rdlc" />
+		<None Remove="ReportsFiles\Stock\StoreTakingInvestComReport.rdlc" />
+		<None Remove="ReportsFiles\Store\EmployeeExchangeDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\Store\EmployeeExchangeReport.rdlc" />
+		<None Remove="ReportsFiles\Store\EmployeeOpeningDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\Store\EmployeeOpeningReport.rdlc" />
+		<None Remove="ReportsFiles\Store\ItemQtyInStoresReport.rdlc" />
+		<None Remove="ReportsFiles\Store\WithdrawToCostCenterComAllReport.rdlc" />
+		<None Remove="ReportsFiles\Store\WithdrawToCostCenterComMaterialReport.rdlc" />
+		<None Remove="ReportsFiles\Store\WithdrawToCostCenterComReport.rdlc" />
+		<None Remove="ReportsFiles\Store\WithdrawToCostCenterInvestReport.rdlc" />
+		<None Remove="ReportsFiles\STRAddDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\STRAddReport.rdlc" />
+		<None Remove="ReportsFiles\STRItemsReport.rdlc" />
+		<None Remove="ReportsFiles\STRItemsTransactionReport.rdlc" />
+		<None Remove="ReportsFiles\STRWithdrawDetailsReport.rdlc" />
+		<None Remove="ReportsFiles\STRWithdrawReport.rdlc" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="ReportsFiles\FinancialStatment\AccountACReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountComStockWithdrawTotalReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountCreditAccountsReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountDebitAccountsReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountGoodsActivityReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountIncomeByMonthReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountIncomeStatementReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountInvestComkWithdrawTotalReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountInvestCompReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountMasterDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountMasterReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountPermanentAdvancesReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountREReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountSuppliersReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountTemporaryAdvancesReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountWaterAndWasteWaterIncomeStatementReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\EntryDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\EntryCostCenterReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\EntryStatisticalItemReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\EntryReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountProfitLoseActivityReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountTradingActivityReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\FiWithdrawToCostCenterReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmpAttendPermissionReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmpAttendScheduleReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\Employee.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeAppraisalReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeAttendanceReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmpPositionReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmpVacationReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\OpeningStockCommodityStockReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\OpeningStockInvestComponentReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StoreAfterTakingReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StoreBeforeTakingReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StoreTakingComStockReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StoreTakingInvestComReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\EmployeeExchangeDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\EmployeeExchangeReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\EmployeeOpeningDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\EmployeeOpeningReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\ItemQtyInStoresReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\ItemsTransactionReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\OpeningStockDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\OpeningStockReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StockTakingInvestComponentReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StockTakingCommodityStockReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StockTakingDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Stock\StockTakingReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\AddDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\AddReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\ItemsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\ItemsTakingReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\WithdrawDetailsReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\WithdrawReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\WithdrawToCostCenterComAllReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\WithdrawToCostCenterComMaterialReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\Store\WithdrawToCostCenterInvestReport.rdlc">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ReportViewerCore.NETCore" Version="15.1.19" />
+		<PackageReference Include="System.CodeDom" Version="8.0.0" />
+
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DAL\DAL.csproj" />
+		<ProjectReference Include="..\Entities\Entities.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="reportstr.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>reportstr.xsd</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="reportstr.xsd">
+			<Generator>MSDataSetGenerator</Generator>
+			<LastGenOutput>reportstr.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="SE\" />
+	</ItemGroup>
+</Project>

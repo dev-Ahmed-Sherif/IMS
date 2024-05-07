@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>IMS</RootNamespace>
+		<AssemblyName>IMS</AssemblyName>
+		<StartupObject>
+		</StartupObject>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<Optimize>false</Optimize>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<WarningLevel>2</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="wwwroot\STRAdd\638448111342028664.jpeg" />
+		<None Include="wwwroot\STRAdd\638448126606493676.jpeg" />
+		<None Include="wwwroot\STRAdd\638448129943642951.jpeg" />
+		<None Include="wwwroot\STRAdd\638448131061326123.jpeg" />
+		<None Include="wwwroot\STRProduct\11_638379009643208228.png" />
+		<None Include="wwwroot\STRProduct\638448080918727943.jpeg" />
+		<None Include="wwwroot\STRProduct\638448085708479746.jpeg" />
+		<None Include="wwwroot\STRProduct\638448092268328035.jpeg" />
+		<None Include="wwwroot\STRProduct\638448092945932281.jpeg" />
+		<None Include="wwwroot\STRProduct\638448094378565896.jpeg" />
+		<None Include="wwwroot\STRProduct\Web capture_12-2-2024_141158_127.0.0.1_638448075268102689.jpeg" />
+		<None Include="wwwroot\STRProduct\Web capture_12-2-2024_141158_127.0.0.1_638448077958752720.jpeg" />
+		<None Include="wwwroot\STRProduct\Web capture_12-2-2024_141158_127.0.0.1_638448078670719239.jpeg" />
+		<None Include="wwwroot\STRProduct\Web capture_12-2-2024_141158_127.0.0.1_638448079210028736.jpeg" />
+		<None Include="wwwroot\STRProduct\Web capture_12-2-2024_141158_127.0.0.1_638448079558205911.jpeg" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.4.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
+		<PackageReference Include="System.Drawing.Common" Version="8.0.3" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Business\Business.csproj" />
+		<ProjectReference Include="..\DAL\DAL.csproj" />
+		<ProjectReference Include="..\Entities\Entities.csproj" />
+	</ItemGroup>
+</Project>

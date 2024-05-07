@@ -1,0 +1,8 @@
+﻿AppDbContext.cs			I put in it simulation to database
+appsettings.json		we put in it all the connection strings I may use
+Startup.cs				We select which connection string I will use
+
+PM> add-migration InitialDatabaseMigration
+PM> update-database		updates database design (not the data)
+
+AppDbInitialer.cs		to send data to database table

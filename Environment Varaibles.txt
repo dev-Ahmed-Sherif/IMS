@@ -1,0 +1,15 @@
+to set the variables in machine environment:
+setx SecretKey "AllahAkbarMoha23adasdfjklsadfSADF342342b"
+setx ValidIssuer "http://localhost:44335"
+setx ValidAudience "http://localhost:44335"
+setx ConnectionString "Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;User=Hussien;Password=P@$$w0rd;Integrated Security=False;Pooling=False; MultipleActiveResultSets=True;TrustServerCertificate=True;"
+
+to set the variables in IIS environment:
+1-Go to your application in IIS and choose Configuration Editor.
+2-Select Configuration Editor
+3-Choose system.webServer/aspNetCore (RC2 and RTM) or system.webServer/httpPlatform (RC1) in Section combobox under the header name
+4-Choose Applicationhost.config ... in From combobox.
+5-Right click on enviromentVariables element, select 'environmentVariables' element, then Edit Items. enter image description here
+6-Set your environment variables.
+7-Close the window and click Apply.
+

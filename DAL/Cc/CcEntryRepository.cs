@@ -1,0 +1,154 @@
+﻿using Entities.Models.Cc;
+using Entities.ViewModels.Cc;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DAL.Cc
+{
+    public class CcEntryRepository
+    {
+        private AppDbContext _context;
+        public CcEntryRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+        //----------------
+        //add function
+        //----------------
+        public string Add(CcEntryGeneralVM Add)
+        {
+            try
+            {
+                var _Add = new CcEntry()
+                {
+                    No = Add.No,
+                    Description = Add.Description,
+                    Date = Add.Date,
+                    CreditTotal = Add.CreditTotal,
+                    DebitTotal = Add.DebitTotal,
+                    Balance = Add.Balance,
+                    CreatedByID = Add.TransactionUserId,
+                    CreationDate = DateTime.Now
+
+                };
+                _context.CcEntry.Add(_Add);
+                _context.SaveChanges();
+                return _Add.Id.ToString();
+            }
+
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+        //-------------------
+        //update function
+        //-------------------
+        public string Update(CcEntryVM update)
+        {
+            
+                var _update = _context.CcEntry.Single(n => n.Id == update.Id);
+               
+                    _update.No = update.No;
+                    _update.Description = update.Description;
+                    _update.Date = update.Date;
+                    _update.CreditTotal = update.CreditTotal;
+                    _update.DebitTotal = update.DebitTotal;
+                    _update.Balance = update.Balance;
+                    _update.UpdateByID = update.TransactionUserId;
+                    _update.CreationDate = DateTime.Now;
+
+                    _context.SaveChanges();
+                    return "Succeeded";
+             
+        }
+
+        //-------------------
+        //delet function
+        //-------------------
+
+        public string Delete(int dele_Id)
+        {
+         
+                var _dele = _context.CcEntry.Single(n => n.Id == dele_Id);
+              
+                    _context.CcEntry.Remove(_dele);
+                    _context.SaveChanges();
+                    return "Succeeded";
+            
+
+        }
+        //----------------
+        //get function
+        //-----------------
+        public List<CcEntryGetVM> GetAll()
+            => _context.CcEntry.Select(n => new CcEntryGetVM
+            {
+                Id = n.Id,
+                No = n.No,
+                Description = n.Description,
+                Date = n.Date,
+                CreditTotal = n.CreditTotal,
+                DebitTotal = n.DebitTotal,
+                Balance = n.Balance,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id
+            }).ToList();
+        public CcEntryGetVM GetById(int itemId)
+            => _context.CcEntry.Select(n => new CcEntryGetVM
+            {
+                Id = n.Id,
+                No = n.No,
+                Description = n.Description,
+                Date = n.Date,
+                CreditTotal = n.CreditTotal,
+                DebitTotal = n.DebitTotal,
+                Balance = n.Balance,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id
+            }).FirstOrDefault(n => n.Id == itemId);
+        //----------------------------------------------------------
+        // GET Pagenation { Data with ( page , pagesize )} 
+        //----------------------------------------------------------
+        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize)
+        {
+            var totalCount = _context.CcEntry.Count();
+            List<CcEntryGetVM> Item = _context.CcEntry
+                .OrderByDescending(Item => Item.CreationDate)
+                .Skip((page) * pageSize)
+                .Take(pageSize)
+                .Select(n => new CcEntryGetVM
+                {
+                    Id = n.Id,
+                    No = n.No,
+                    Description = n.Description,
+                    Date = n.Date,
+                    CreditTotal = n.CreditTotal,
+                    DebitTotal = n.DebitTotal,
+                    Balance = n.Balance,
+                    CreateUserName = n.CreatedBy.Name,
+                    TransactionUserId = n.CreatedBy.Id
+                })
+                .ToList();
+
+            var paginatedResult = new PaginatedResult<CcEntryGetVM>
+            {
+                Items = Item,
+                TotalItems = totalCount,
+                Page = page,
+                PageSize = pageSize
+            };
+
+            return paginatedResult;
+        }
+        public class PaginatedResult<T>
+        {
+            public List<T> Items { get; set; }
+            public int TotalItems { get; set; }
+            public int Page { get; set; }
+            public int PageSize { get; set; }
+        }
+    }
+}
