@@ -70,21 +70,21 @@ namespace IMS.Controllers.FI.Account
             return Ok(Account);
         }
         [HttpGet("get/data/by/Code/{code}/{startDate}/{endDate}")]
-        public IActionResult GetDataByCode(string code, DateTime startDate, DateTime endDate)
+        public IActionResult GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
         {
-            var Account = _FiAccountService.GetDataByCode(code, startDate, endDate);
+            var Account = _FiAccountService.GetAccountMasterReportData(code, startDate, endDate);
             return Ok(Account);
         }
         [HttpGet("get/sub/data/by/Parent/Code/{code}/{codeLength}/{startDate}/{endDate}")]
-        public IActionResult GetSubDataByParentCode(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
+        public IActionResult GetAccountMasterDetailsReportData(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
         {
             var Account = _FiAccountService.GetSubDataByParentCode(code, codeLength, startDate, endDate, sectionId);
             return Ok(Account);
         }
         [HttpGet("get/data/with/parent/by/Code/{code}/{startDate}/{endDate}")]
-        public IActionResult GetDataWithParentByCode(string code, DateTime startDate, DateTime endDate)
+        public IActionResult GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
         {
-            var Account = _FiAccountService.GetDataWithParentByCode(code, startDate, endDate);
+            var Account = _FiAccountService.GetAccountMasterDetailsReportData(code, startDate, endDate);
             return Ok(Account);
         }
         [HttpGet("get/data/by/Hierarchy/{startDate}/{endDate}")]

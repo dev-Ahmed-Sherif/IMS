@@ -78,17 +78,17 @@ namespace Business.FI.Account
         {
             return _FiRepository.GetSubDataByParentCode(code, codeLength, startDate, endDate, sectionId);
         }
-        public List<AccountItemByCode> GetDataByCode(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemByCode> GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
         {
-            return _FiRepository.GetDataByCode(code, startDate, endDate);
+            return _FiRepository.GetAccountMasterReportData(code, startDate, endDate);
         }
-        public List<AccountItemWithParent> GetDataWithParentByCode(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
         {
-            return _FiRepository.GetDataWithParentByCode(code, startDate, endDate);
+            return _FiRepository.GetAccountMasterDetailsReportData(code, startDate, endDate);
         }
-        public List<withdrawToCostCenter> WithdrawToCostCenter(int sectionId, DateTime startDate, DateTime endDate)
+        public List<withdrawToCostCenter> GetWithdrawToCostCenterReportData(int sectionId, DateTime startDate, DateTime endDate)
         {
-            return _FiRepository.WithdrawToCostCenter(sectionId, startDate, endDate);
+            return _FiRepository.GetWithdrawToCostCenterReportData(sectionId, startDate, endDate);
         }
         //public List<AccountItemVM> Search(search searchModel)
         //{
@@ -119,31 +119,11 @@ namespace Business.FI.Account
             List<AccountItemVM> FIAccountREAdd = new List<AccountItemVM>();
             List<AccountItemVM> FIAccountRERemove = new List<AccountItemVM>();
 
-            List<AccountItemByCode> AccountMaster;
-            List<AccountItemWithParent> AccountMasterDetails;
-
             List<withdrawToCostCenter> BeforeFilterWithdrawToCostCenterData;
             List<withdrawToCostCenter> WithdrawToCostCenterData = new List<withdrawToCostCenter>();
 
             switch (reportName)
             {
-                case "AccountREReport":
-                    {
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
-                        for (int i = 0; i < FIAccountRE.Count; i++)
-                        {
-                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
-                            {
-                                if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                                {
-                                    FIAccountREAdd.Add(FIAccountRE[i]);
-                                }
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
-                    }
-
-                    break;
                 case "AccountInvestCompReport":
                     {
                         List<string> CommodityStockCodes = new List<string>
@@ -247,6 +227,56 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
                     }
+                    break;
+                case "FiWithdrawToCostCenterReport":
+                    {
+                        List<string> InvestCompCodes = new List<string>
+                        {
+                            "خامات و مدخلات انتاج",
+                            "وقود و زيوت و شحومات",
+                            "قطع غيار ومواد و مهمات",
+                            "مشتريات بغرض البيع",
+                        };
+                        BeforeFilterWithdrawToCostCenterData = GetWithdrawToCostCenterReportData(sectionId, startDate, endDate);
+                        for (int i = 0; i < BeforeFilterWithdrawToCostCenterData.Count; i++)
+                        {
+                            if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("311"))
+                            {
+                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[0];
+                            }
+                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("312"))
+                            {
+                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[1];
+                            }
+                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("313"))
+                            {
+                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[2];
+                            }
+                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("34"))
+                            {
+                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[3];
+                            }
+                            WithdrawToCostCenterData.Add(BeforeFilterWithdrawToCostCenterData[i]);
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "FiWithdrawDetailsToCostCenter", Value = WithdrawToCostCenterData });
+                    }
+                    break;
+                case "AccountREReport":
+                    {
+                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        for (int i = 0; i < FIAccountRE.Count; i++)
+                        {
+                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
+                            {
+                                if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                                {
+                                    FIAccountREAdd.Add(FIAccountRE[i]);
+                                }
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
+                    }
+
                     break;
                 case "AccountACReport":
                     {
@@ -369,47 +399,14 @@ namespace Business.FI.Account
                     break;
                 case "AccountMasterReport":
                     {
-                        AccountMaster = GetDataByCode(code, startDate, endDate);
+                        List<AccountItemByCode> AccountMaster = GetAccountMasterReportData(code, startDate, endDate);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountMaster", Value = AccountMaster });
                     }
                     break;
                 case "AccountMasterDetailsReport":
                     {
-                        AccountMasterDetails = GetDataWithParentByCode(code, startDate, endDate);
+                        List<AccountItemWithParent> AccountMasterDetails = GetAccountMasterDetailsReportData(code, startDate, endDate);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountMasterDetails", Value = AccountMasterDetails });
-                    }
-                    break;
-                case "FiWithdrawToCostCenterReport":
-                    {
-                        List<string> InvestCompCodes = new List<string>
-                        {
-                            "خامات و مدخلات انتاج",
-                            "وقود و زيوت و شحومات",
-                            "قطع غيار ومواد و مهمات",
-                            "مشتريات بغرض البيع",
-                        };
-                        BeforeFilterWithdrawToCostCenterData = WithdrawToCostCenter(sectionId, startDate, endDate);
-                        for (int i = 0; i < BeforeFilterWithdrawToCostCenterData.Count; i++)
-                        {
-                            if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("311"))
-                            {
-                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[0];
-                            }
-                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("312"))
-                            {
-                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[1];
-                            }
-                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("313"))
-                            {
-                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[2];
-                            }
-                            else if (BeforeFilterWithdrawToCostCenterData[i].AccountCode.StartsWith("34"))
-                            {
-                                BeforeFilterWithdrawToCostCenterData[i].AccountName = InvestCompCodes[3];
-                            }
-                            WithdrawToCostCenterData.Add(BeforeFilterWithdrawToCostCenterData[i]);
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "FiWithdrawDetailsToCostCenter", Value = WithdrawToCostCenterData });
                     }
                     break;
                 case "AccountWaterAndWasteWaterIncomeStatementReport":

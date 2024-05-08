@@ -49,7 +49,6 @@ namespace DAL.FI.Account
 
 
         }
-
         //----------------------------------------------
         // Update (FI)_account { where id == Account.id } 
         //----------------------------------------------
@@ -75,7 +74,6 @@ namespace DAL.FI.Account
 
 
         }
-
         //------------------------------------------------
         // Dellete (FI)_account { where id == Account_id }
         //------------------------------------------------
@@ -106,7 +104,6 @@ namespace DAL.FI.Account
             return "Succeeded";
 
         }
-
         //--------------------------------------------------------------------------------------
         // Select * (FI)_account { with CreateUserName , UpdateUserName , FiAccountHierarchyId }
         //--------------------------------------------------------------------------------------
@@ -167,7 +164,6 @@ namespace DAL.FI.Account
 
             return paginatedResult;
         }
-
         public class PaginatedResult<T>
         {
             public List<T> Items { get; set; }
@@ -175,7 +171,6 @@ namespace DAL.FI.Account
             public int Page { get; set; }
             public int PageSize { get; set; }
         }
-
         //-------------------------------------------------------------------------------------------------------------
         // Select * (FI)_account where {id = AccountID} { with CreateUserName , UpdateUserName , FiAccountHierarchyId } 
         //-------------------------------------------------------------------------------------------------------------
@@ -194,8 +189,6 @@ namespace DAL.FI.Account
                     CreateUserName = n.CreatedBy.Name,
                     UpdateUserName = n.UpdateBy.Name
                 }).Single(n => n.Id == ID);
-
-
         //-------------------------------------------------------------------------------------------------------------
         // Select * (FI)_account where {Name = AccountName} { with CreateUserName , UpdateUserName , FiAccountHierarchyId } 
         //-------------------------------------------------------------------------------------------------------------
@@ -376,65 +369,6 @@ namespace DAL.FI.Account
             return result;
 
         }
-
-        //public List<AccountItemVM> GetAllDataByHierarchy(DateTime startDate, DateTime endDate)
-        //{
-        //    var query = from fiAccount in _context.FiAccount
-        //                select new AccountItemVM
-        //                {
-        //                    Id = fiAccount.Id,
-        //                    Code = fiAccount.Code,
-        //                    Name = fiAccount.Name,
-
-        //                    AccountSubNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                                     join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-        //                                                     where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
-        //                                                     select (fiEntryDetails.Debit)).Sum(), 2),
-
-        //                    AccountSubNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                                      join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-        //                                                      where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
-        //                                                      select (fiEntryDetails.Credit)).Sum(), 2),
-
-        //                    AccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                                join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-        //                                                where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
-        //                                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-        //                    AccountNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-        //                                             from fiEntry in entryGroup.DefaultIfEmpty()
-        //                                             join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-        //                                             from fiAccountParent in parentGroup.DefaultIfEmpty()
-        //                                             where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
-        //                                             select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-        //                    AccountNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                                   join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-        //                                                   from fiEntry in entryGroup.DefaultIfEmpty()
-        //                                                   join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-        //                                                   from fiAccountParent in parentGroup.DefaultIfEmpty()
-        //                                                   where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
-        //                                                   select (fiEntryDetails.Credit)).Sum(), 2),
-
-        //                    AccountNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-        //                                                  join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-        //                                                  from fiEntry in entryGroup.DefaultIfEmpty()
-        //                                                  join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-        //                                                  from fiAccountParent in parentGroup.DefaultIfEmpty()
-        //                                                  where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
-        //                                                  select (fiEntryDetails.Debit)).Sum(), 2),
-
-        //                    ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-        //                    StartDate = startDate.ToShortDateString(),
-        //                    EndDate = endDate.ToShortDateString(),
-        //                    Section = (from fiEntry in _context.FiEntry select(fiEntry.Section.Name)).ToString(),
-        //                };
-
-        //    var result = query.ToList();
-        //    return result;
-
-        //}
         public List<AccountItemVM> GetSubDataByParentCode(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
         {
             DateTime prevStartDate = startDate.AddYears(-1);
@@ -535,7 +469,6 @@ namespace DAL.FI.Account
 
 
         }
-
         private static AccountItemVM Positive(AccountItemVM e)
         {
             e.AccountSubNet = e.AccountSubNet >= 0 ? e.AccountSubNet : e.AccountSubNet * -1;
@@ -544,7 +477,7 @@ namespace DAL.FI.Account
             e.PrevAccountNet = e.PrevAccountNet >= 0 ? e.PrevAccountNet : e.PrevAccountNet * -1;
             return e;
         }
-        public List<AccountItemByCode> GetDataByCode(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemByCode> GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
         {
             var query = from fiEntryDetails in _context.FiEntryDetails
                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
@@ -573,7 +506,7 @@ namespace DAL.FI.Account
             var result = query.OrderBy(e => e.date).ToList();
             return result;
         }
-        public List<AccountItemWithParent> GetDataWithParentByCode(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
         {
             var query = from fiEntryDetails in _context.FiEntryDetails
                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
@@ -638,7 +571,7 @@ namespace DAL.FI.Account
 
         //}
 
-        public List<withdrawToCostCenter> WithdrawToCostCenter(int sectionId, DateTime startDate, DateTime endDate)
+        public List<withdrawToCostCenter> GetWithdrawToCostCenterReportData(int sectionId, DateTime startDate, DateTime endDate)
         {
             var query = (from section in _context.ImsSection
                          join costCenter in _context.CcCostCenter on section.Id equals costCenter.SectionId
@@ -669,7 +602,6 @@ namespace DAL.FI.Account
 
             return query;
         }
-
         public async Task<List<FiAccountItemBalancesViewModel>> GetAccountItemsByAccountCodeReportData(string accountCode, int fiscalYearId)
         {
             var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
@@ -691,7 +623,6 @@ namespace DAL.FI.Account
                 .Select(InitData)
                 .ToList();
         }
-
         private static FiAccountItemBalancesViewModel InitData(FiAccountItem e)
         {
             FiEntryDetails beginningEntry =
@@ -820,7 +751,6 @@ namespace DAL.FI.Account
             var depreciationAccountCodeString = string.Join("", depreciationAccountCode);
             return depreciationAccountCodeString;
         }
-
         private static string ConvertFixedAssetDepreciationToFixedAssetAccountCode(string fixedAssetDepreciationAccountCode)
         {
             List<char> code = fixedAssetDepreciationAccountCode.ToList();
