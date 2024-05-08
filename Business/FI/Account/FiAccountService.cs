@@ -70,21 +70,21 @@ namespace Business.FI.Account
             return _FiRepository.GetByName(accountName);
         }
 
-        public List<AccountItemVM> GetAllDataByHierarchy(int sectionId, DateTime startDate, DateTime endDate)
+        public List<AccountItemVM> GetStoreAccountsReportData(DateTime startDate, DateTime endDate, int sectionId)
         {
-            return _FiRepository.GetAllDataByHierarchy(sectionId, startDate, endDate);
+            return _FiRepository.GetStoreAccountsReportData(startDate,endDate,sectionId);
         }
-        public List<AccountItemVM> GetSubDataByParentCode(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
+        public List<AccountItemVM> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
         {
-            return _FiRepository.GetSubDataByParentCode(code, codeLength, startDate, endDate, sectionId);
+            return _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
         }
-        public List<AccountItemByCode> GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemByCode> GetAccountMasterReportData(string code, int fiscalYearId)
         {
-            return _FiRepository.GetAccountMasterReportData(code, startDate, endDate);
+            return _FiRepository.GetAccountMasterReportData(code,fiscalYearId);
         }
-        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code,int fiscalYearId)
         {
-            return _FiRepository.GetAccountMasterDetailsReportData(code, startDate, endDate);
+            return _FiRepository.GetAccountMasterDetailsReportData(code, fiscalYearId);
         }
         public List<withdrawToCostCenter> GetWithdrawToCostCenterReportData(int sectionId, DateTime startDate, DateTime endDate)
         {
@@ -95,7 +95,7 @@ namespace Business.FI.Account
         //    return _FiRepository.Search(searchModel);
         //}
 
-        public async Task<byte[]> GenerateReportAsync(string reportName, string reportType, int sectionId, DateTime startDate, DateTime endDate, string code, DateTime PrevstartDate, DateTime PrevendDate, int fiscalYearId)
+        public async Task<byte[]> GenerateStoreAccountsReport(string reportName, string reportType,DateTime startDate,DateTime endDate,int sectionId)
         {
             // get report file
             string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("Business.dll", string.Empty);
@@ -111,16 +111,8 @@ namespace Business.FI.Account
                 ReportPath = rdclFilePath
             };
 
-            List<AccountItemVM> AccountActivity = new List<AccountItemVM>();
-            List<AccountItemVM> AccountActivityProfit = new List<AccountItemVM>();
-            List<AccountItemVM> AccountActivityLose = new List<AccountItemVM>();
-
             List<AccountItemVM> FIAccountRE;
             List<AccountItemVM> FIAccountREAdd = new List<AccountItemVM>();
-            List<AccountItemVM> FIAccountRERemove = new List<AccountItemVM>();
-
-            List<withdrawToCostCenter> BeforeFilterWithdrawToCostCenterData;
-            List<withdrawToCostCenter> WithdrawToCostCenterData = new List<withdrawToCostCenter>();
 
             switch (reportName)
             {
@@ -139,7 +131,7 @@ namespace Business.FI.Account
                             "1215",
                             "1216",
                         };
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetStoreAccountsReportData(startDate, endDate, sectionId);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (CommodityStockCodes.Contains(FIAccountRE[i].Code))
@@ -168,7 +160,7 @@ namespace Business.FI.Account
                             "1613",
                             "164",
                         };
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetStoreAccountsReportData(startDate, endDate, sectionId);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (InvestCompCodes.Contains(FIAccountRE[i].Code))
@@ -191,7 +183,7 @@ namespace Business.FI.Account
                             "313",
                             "34",
                         };
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetStoreAccountsReportData(startDate, endDate, sectionId);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (InvestCompCodes.Contains(FIAccountRE[i].Code))
@@ -214,7 +206,7 @@ namespace Business.FI.Account
                             "1215",
                             "1216",
                         };
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetStoreAccountsReportData(startDate, endDate, sectionId);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (InvestCompCodes.Contains(FIAccountRE[i].Code))
@@ -237,6 +229,8 @@ namespace Business.FI.Account
                             "قطع غيار ومواد و مهمات",
                             "مشتريات بغرض البيع",
                         };
+                        List<withdrawToCostCenter> BeforeFilterWithdrawToCostCenterData;
+                        List<withdrawToCostCenter> WithdrawToCostCenterData = new List<withdrawToCostCenter>();
                         BeforeFilterWithdrawToCostCenterData = GetWithdrawToCostCenterReportData(sectionId, startDate, endDate);
                         for (int i = 0; i < BeforeFilterWithdrawToCostCenterData.Count; i++)
                         {
@@ -261,9 +255,40 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "FiWithdrawDetailsToCostCenter", Value = WithdrawToCostCenterData });
                     }
                     break;
+            }
+
+            byte[] renderedBytes = report.Render(reportType);
+            return renderedBytes;
+        }
+        public async Task<byte[]> GenerateFinancialCenterReportAsync(string reportName, string reportType, int fiscalYearId, string code)
+        {
+            // get report file
+            string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("Business.dll", string.Empty);
+            string rdclFilePath = string.Format("{0}ReportsFiles\\FinancialStatment\\{1}.rdlc", fileDirPath, reportName);
+
+            // file encoding
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Encoding.GetEncoding("utf-8");
+
+            // prepare data for report
+            LocalReport report = new()
+            {
+                ReportPath = rdclFilePath
+            };
+
+            List<AccountItemVM> AccountActivity = new List<AccountItemVM>();
+            List<AccountItemVM> AccountActivityProfit = new List<AccountItemVM>();
+            List<AccountItemVM> AccountActivityLose = new List<AccountItemVM>();
+
+            List<AccountItemVM> FIAccountRE;
+            List<AccountItemVM> FIAccountREAdd = new List<AccountItemVM>();
+            List<AccountItemVM> FIAccountRERemove = new List<AccountItemVM>();
+
+            switch (reportName)
+            {
                 case "AccountREReport":
                     {
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
@@ -280,7 +305,7 @@ namespace Business.FI.Account
                     break;
                 case "AccountACReport":
                     {
-                        FIAccountRE = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
@@ -311,7 +336,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetSubDataByParentCode(itemCode, 4, startDate, endDate, sectionId);
+                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -341,7 +366,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetSubDataByParentCode(itemCode, 5, startDate, endDate, sectionId);
+                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -360,11 +385,11 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
-                        ReportParameter startDateParam = new() { Name = "StartDate" };
-                        startDateParam.Values.Add(startDate.ToShortDateString());
-                        ReportParameter endDateParam = new() { Name = "EndDate" };
-                        endDateParam.Values.Add(endDate.ToShortDateString());
-                        report.SetParameters([startDateParam, endDateParam]);
+                        //ReportParameter startDateParam = new() { Name = "StartDate" };
+                        //startDateParam.Values.Add(startDate.ToShortDateString());
+                        //ReportParameter endDateParam = new() { Name = "EndDate" };
+                        //endDateParam.Values.Add(endDate.ToShortDateString());
+                        //report.SetParameters([startDateParam, endDateParam]);
                     }
                     break;
                 case "AccountGoodsActivityReport":
@@ -377,7 +402,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetSubDataByParentCode(itemCode, 5, startDate, endDate, sectionId);
+                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -399,13 +424,13 @@ namespace Business.FI.Account
                     break;
                 case "AccountMasterReport":
                     {
-                        List<AccountItemByCode> AccountMaster = GetAccountMasterReportData(code, startDate, endDate);
+                        List<AccountItemByCode> AccountMaster = GetAccountMasterReportData(code, fiscalYearId);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountMaster", Value = AccountMaster });
                     }
                     break;
                 case "AccountMasterDetailsReport":
                     {
-                        List<AccountItemWithParent> AccountMasterDetails = GetAccountMasterDetailsReportData(code, startDate, endDate);
+                        List<AccountItemWithParent> AccountMasterDetails = GetAccountMasterDetailsReportData(code, fiscalYearId);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountMasterDetails", Value = AccountMasterDetails });
                     }
                     break;
@@ -427,7 +452,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -519,7 +544,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetAllDataByHierarchy(sectionId, startDate, endDate);
+                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -606,7 +631,6 @@ namespace Business.FI.Account
             byte[] renderedBytes = report.Render(reportType);
             return renderedBytes;
         }
-
         public async Task<List<FiAccountItemBalancesViewModel>> GetPublicPrivateReportData(int fiscalYearId)
         {
             var publicSuppliers =
@@ -640,7 +664,7 @@ namespace Business.FI.Account
             return _FiRepository.GetChangeInOwnersEquityReportData(fiscalYearId);
         }
 
-        public async Task<List<FixedAssetsFinancialCenterViewModel>> TestAsync(int fiscalYearId)
+        public async Task<List<FixedAssetsFinancialCenterViewModel>> GetFixedAssetsFinancialCenterData(int fiscalYearId)
         {
             return await _FiRepository.GetFixedAssetsFinancialCenterData(fiscalYearId);
         }

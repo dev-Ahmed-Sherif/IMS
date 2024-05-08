@@ -20,7 +20,7 @@ namespace DAL.STR.StoreOpen
     public class StrOpeningStockRepository
     {
         private AppDbContext _context;
-        public StrFiscalYearRepository _strFiscalRepository;
+        private StrFiscalYearRepository _strFiscalRepository;
         public StrOpeningStockRepository
             (AppDbContext context, StrFiscalYearRepository strFiscalRepository)
         {

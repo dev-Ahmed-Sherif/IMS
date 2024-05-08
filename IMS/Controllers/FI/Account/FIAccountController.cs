@@ -70,29 +70,29 @@ namespace IMS.Controllers.FI.Account
             return Ok(Account);
         }
         [HttpGet("get/data/by/Code/{code}/{startDate}/{endDate}")]
-        public IActionResult GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
+        public IActionResult GetAccountMasterReportData(string code,int fiscalYearId)
         {
-            var Account = _FiAccountService.GetAccountMasterReportData(code, startDate, endDate);
+            var Account = _FiAccountService.GetAccountMasterReportData(code, fiscalYearId);
             return Ok(Account);
         }
-        [HttpGet("get/sub/data/by/Parent/Code/{code}/{codeLength}/{startDate}/{endDate}")]
-        public IActionResult GetAccountMasterDetailsReportData(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
-        {
-            var Account = _FiAccountService.GetSubDataByParentCode(code, codeLength, startDate, endDate, sectionId);
-            return Ok(Account);
-        }
+        //[HttpGet("get/sub/data/by/Parent/Code/{code}/{codeLength}/{startDate}/{endDate}")]
+        //public IActionResult GetAccountMasterDetailsReportData(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
+        //{
+        //    var Account = _FiAccountService.GetSubDataByParentCode(code, codeLength, startDate, endDate, sectionId);
+        //    return Ok(Account);
+        //}
         [HttpGet("get/data/with/parent/by/Code/{code}/{startDate}/{endDate}")]
-        public IActionResult GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
+        public IActionResult GetAccountMasterDetailsReportData(string code, int fiscalYearId)
         {
-            var Account = _FiAccountService.GetAccountMasterDetailsReportData(code, startDate, endDate);
+            var Account = _FiAccountService.GetAccountMasterDetailsReportData(code, fiscalYearId);
             return Ok(Account);
         }
-        [HttpGet("get/data/by/Hierarchy/{startDate}/{endDate}")]
-        public IActionResult GetAllDataByHierarchy(int sectionId, DateTime startDate, DateTime endDate)
-        {
-            var Account = _FiAccountService.GetAllDataByHierarchy(sectionId, startDate, endDate);
-            return Ok(Account);
-        }
+        //[HttpGet("get/data/by/Hierarchy/{startDate}/{endDate}")]
+        //public IActionResult GetAllDataByHierarchy( int fiscalYearId,string code,int codeLength)
+        //{
+        //    var Account = _FiAccountService.GetAllDataByHierarchy(fiscalYearId, code,codeLength);
+        //    return Ok(Account);
+        //}
         //[HttpGet("search")]
         //public IActionResult Search([FromQuery] search searchModel)
         //{
@@ -100,38 +100,38 @@ namespace IMS.Controllers.FI.Account
         //    return Ok(Add);
         //}
         [HttpGet("get/Report")]
-        public async Task<IActionResult> Get([FromQuery] ReportAccount searchModel, int sectionId, DateTime startDate, DateTime endDate, string code, DateTime PrevstartDate, DateTime PrevendDate, int fiscalYearId)
+        public async Task<IActionResult> Get([FromQuery] ReportAccount searchModel, DateTime startDate, DateTime endDate, int sectionId)
         {
-            byte[] reportFileByString = await _FiAccountService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, sectionId, startDate, endDate, code, PrevstartDate, PrevendDate, fiscalYearId);
+            byte[] reportFileByString = await _FiAccountService.GenerateStoreAccountsReport(searchModel.reportName, searchModel.reportType, startDate, endDate, sectionId);
             return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
         }
 
-        [HttpGet("Private-Public-Suppliers/Report")]
-        public async Task<IActionResult> Test(int fiscalYearId)
+        [HttpGet("get/FinancialCenter/Report")]
+        public async Task<IActionResult> GetFinancialCenterReportData([FromQuery] ReportAccount searchModel, int fiscalYearId, string code)
         {
-            var response = await _FiAccountService.GetPublicPrivateReportData(fiscalYearId);
-            return Ok(response);
+            byte[] reportFileByString = await _FiAccountService.GenerateFinancialCenterReportAsync(searchModel.reportName, searchModel.reportType, fiscalYearId, code);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
         }
 
-        [HttpGet("CreditAccounts/Report")]
-        public async Task<IActionResult> CreditAccounts(int fiscalYearId)
-        {
-            var response = await _FiAccountService.GetCreditAccountsReportData(fiscalYearId);
-            return Ok(response);
-        }
+        //[HttpGet("CreditAccounts/Report")]
+        //public async Task<IActionResult> CreditAccounts(int fiscalYearId)
+        //{
+        //    var response = await _FiAccountService.GetCreditAccountsReportData(fiscalYearId);
+        //    return Ok(response);
+        //}
 
-        [HttpGet("ChangeInOwnersEquityReportData/Report")]
-        public IActionResult GetChangeInOwnersEquityReportData(int fiscalYearId)
-        {
-            var response = _FiAccountService.GetChangeInOwnersEquityReportData(fiscalYearId);
-            return Ok(response);
-        }
+        //[HttpGet("ChangeInOwnersEquityReportData/Report")]
+        //public IActionResult GetChangeInOwnersEquityReportData(int fiscalYearId)
+        //{
+        //    var response = _FiAccountService.GetChangeInOwnersEquityReportData(fiscalYearId);
+        //    return Ok(response);
+        //}
 
-        [HttpGet("Test")]
-        public async Task<IActionResult> TestAsync(int fiscalYearId)
-        {
-            return Ok(await _FiAccountService.TestAsync(fiscalYearId));
-        }
+        //[HttpGet("GetFixedAssetsFinancialCenterData/Report")]
+        //public async Task<IActionResult> GetFixedAssetsFinancialCenterData(int fiscalYearId)
+        //{
+        //    return Ok(await _FiAccountService.GetFixedAssetsFinancialCenterData(fiscalYearId));
+        //}
 
     }
 }

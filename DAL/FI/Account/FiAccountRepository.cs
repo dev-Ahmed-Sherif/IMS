@@ -1,16 +1,20 @@
-﻿using Entities.Constants.FiConstants;
+﻿using DAL.STR.General;
+using Entities.ViewModels.STR.General;
+using Entities.Constants.FiConstants;
 using Entities.Models.FI.Account;
 using Entities.Models.FI.Entry;
 using Entities.Models.STR.Add;
 using Entities.Models.STR.General;
 using Entities.ReportViewModels;
 using Entities.ViewModels.FI.Account;
+using Entities.ViewModels.STR.General;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DAL.FI.Account
 {
@@ -18,10 +22,12 @@ namespace DAL.FI.Account
     {
 
         private AppDbContext _context;
+        private StrFiscalYearRepository _strFiscalRepository;
 
-        public FiAccountRepository(AppDbContext context)
+        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository)
         {
             _context = context;
+            _strFiscalRepository = strFiscalRepository;
         }
 
         //---------------------
@@ -190,7 +196,7 @@ namespace DAL.FI.Account
                     UpdateUserName = n.UpdateBy.Name
                 }).Single(n => n.Id == ID);
         //-------------------------------------------------------------------------------------------------------------
-        // Select * (FI)_account where {Name = AccountName} { with CreateUserName , UpdateUserName , FiAccountHierarchyId } 
+        // Select * (FI)_account where {Name = AccountName} {aaath CreateUserName , UpdateUserName , FiAccountHierarchyId } 
         //-------------------------------------------------------------------------------------------------------------
         public List<FiAccountGetVM> GetByName(string accountName)
         {
@@ -209,97 +215,23 @@ namespace DAL.FI.Account
                 })
                .ToList();
         }
-
-        public List<AccountItemVM> GetAllDataByHierarchy(int sectionId, DateTime startDate, DateTime endDate)
+        public List<AccountItemVM> GetStoreAccountsReportData(DateTime startDate, DateTime endDate, int sectionId)
         {
             List<AccountItemVM> result;
-            DateTime prevStartDate = startDate.AddYears(-1);
-            DateTime prevEndDate = endDate.AddYears(-1);
 
             if (sectionId != 0)
             {
-
+                
                 string section =
-                    _context
-                    .FiEntry
-                    .First(e => e.Journal.SectionId == sectionId)
-                    .Journal
-                    .Section
-                    .Name;
-
+                        _context
+                        .FiEntry
+                        .First(e => e.Journal.SectionId == sectionId)
+                        .Journal
+                        .Section
+                        .Name;
                 var query = from fiAccount in _context.FiAccount
                             select new AccountItemVM
-                            {
-                                Id = fiAccount.Id,
-                                Code = fiAccount.Code,
-                                CodeInt = Int32.Parse(fiAccount.Code),
-                                Name = fiAccount.Name,
 
-                                AccountSubNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                                 join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-                                                                 where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                                 select (fiEntryDetails.Debit)).Sum(), 2),
-
-                                AccountSubNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                                  join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-                                                                  where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                                  select (fiEntryDetails.Credit)).Sum(), 2),
-
-                                AccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                            join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-                                                            where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                            select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-                                AccountNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                                                         from fiEntry in entryGroup.DefaultIfEmpty()
-                                                         join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                                                         from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                                         where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-                                AccountNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                               join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                                                               from fiEntry in entryGroup.DefaultIfEmpty()
-                                                               join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                                                               from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                                               where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                               select (fiEntryDetails.Credit)).Sum(), 2),
-
-                                AccountNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                              join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                                                              from fiEntry in entryGroup.DefaultIfEmpty()
-                                                              join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                                                              from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                                              where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
-                                                              select (fiEntryDetails.Debit)).Sum(), 2),
-                                PrevAccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                                join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-                                                                where fiEntry.Date >= prevStartDate && fiEntry.Date < prevEndDate && fiEntryDetails.AccountId == fiAccount.Id
-                                                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-                                PrevAccountNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                                                             from fiEntry in entryGroup.DefaultIfEmpty()
-                                                             join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                                                             from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                                             where fiEntry.Date >= prevStartDate && fiEntry.Date < prevEndDate && fiAccountParent.ParentId == fiAccount.Id
-                                                             select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
-
-                                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-                                StartDate = startDate.ToString("dd/MM/yyyy"),
-                                EndDate = endDate.ToString("dd/MM/yyyy"),
-                                Section = section,
-                            };
-
-                result = query.Select(e => Positive(e)).ToList();
-            }
-            else
-            {
-
-
-                var query = from fiAccount in _context.FiAccount
-                            select new AccountItemVM
                             {
                                 Id = fiAccount.Id,
                                 Code = fiAccount.Code,
@@ -344,18 +276,67 @@ namespace DAL.FI.Account
                                                               from fiAccountParent in parentGroup.DefaultIfEmpty()
                                                               where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
                                                               select (fiEntryDetails.Debit)).Sum(), 2),
-                                PrevAccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                                join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
-                                                                where fiEntry.Date >= prevStartDate && fiEntry.Date < prevEndDate && fiEntryDetails.AccountId == fiAccount.Id
-                                                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
+                           
 
-                                PrevAccountNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                                                             from fiEntry in entryGroup.DefaultIfEmpty()
-                                                             join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                                                             from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                                             where fiEntry.Date >= prevStartDate && fiEntry.Date < prevEndDate && fiAccountParent.ParentId == fiAccount.Id
-                                                             select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
+                                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                                StartDate = startDate.ToString("dd/MM/yyyy"),
+                                EndDate = endDate.ToString("dd/MM/yyyy"),
+                                Section = section,
+                            };
+
+                result = query.Select(e => Positive(e)).ToList();
+            }
+            else
+            {
+                var query = from fiAccount in _context.FiAccount
+                            select new AccountItemVM
+
+                            {
+                                Id = fiAccount.Id,
+                                Code = fiAccount.Code,
+                                CodeInt = Int32.Parse(fiAccount.Code),
+                                Name = fiAccount.Name,
+
+                                AccountSubNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                                 join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
+                                                                 where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
+                                                                 select (fiEntryDetails.Debit)).Sum(), 2),
+
+                                AccountSubNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                                  join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
+                                                                  where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
+                                                                  select (fiEntryDetails.Credit)).Sum(), 2),
+
+                                AccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                            join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
+                                                            where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
+                                                            select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
+
+                                AccountNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                         from fiEntry in entryGroup.DefaultIfEmpty()
+                                                         join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                         from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                         where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
+                                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
+
+                                AccountNetCredit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                               join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                               from fiEntry in entryGroup.DefaultIfEmpty()
+                                                               join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                               from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                               where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
+                                                               select (fiEntryDetails.Credit)).Sum(), 2),
+
+                                AccountNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                              join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                              from fiEntry in entryGroup.DefaultIfEmpty()
+                                                              join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                              from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                              where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiAccountParent.ParentId == fiAccount.Id
+                                                              select (fiEntryDetails.Debit)).Sum(), 2),
+
+
                                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
                                 StartDate = startDate.ToString("dd/MM/yyyy"),
                                 EndDate = endDate.ToString("dd/MM/yyyy"),
@@ -365,25 +346,21 @@ namespace DAL.FI.Account
                 result = query.Select(e => Positive(e)).ToList();
             }
 
-
             return result;
 
         }
-        public List<AccountItemVM> GetSubDataByParentCode(string code, int codeLength, DateTime startDate, DateTime endDate, int sectionId)
+        public List<AccountItemVM> GetFinancialCenterReportData(int fiscalYearId, string code, int codeLength)
         {
+            FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
+            DateTime startDate = fiscalYear.StartDate;
+            DateTime endDate = fiscalYear.EndDate;
             DateTime prevStartDate = startDate.AddYears(-1);
             DateTime prevEndDate = endDate.AddYears(-1);
 
-            if (sectionId != 0)
+            if (codeLength != 0)
             {
-
-                string section =
-                    _context
-                    .FiEntry
-                    .First(e => e.Journal.SectionId == sectionId)
-                    .Journal
-                    .Section
-                    .Name;
+                
+                
                 var query = from fiAccount in _context.FiAccount
                             where fiAccount.Code.StartsWith(code) || fiAccount.Code.Length < codeLength
                             select new AccountItemVM
@@ -477,8 +454,11 @@ namespace DAL.FI.Account
             e.PrevAccountNet = e.PrevAccountNet >= 0 ? e.PrevAccountNet : e.PrevAccountNet * -1;
             return e;
         }
-        public List<AccountItemByCode> GetAccountMasterReportData(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemByCode> GetAccountMasterReportData(string code,int fiscalYearId)
         {
+            FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
+            DateTime startDate = fiscalYear.StartDate;
+            DateTime endDate = fiscalYear.EndDate;
             var query = from fiEntryDetails in _context.FiEntryDetails
                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                         from fiEntry in entryGroup.DefaultIfEmpty()
@@ -506,8 +486,11 @@ namespace DAL.FI.Account
             var result = query.OrderBy(e => e.date).ToList();
             return result;
         }
-        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, DateTime startDate, DateTime endDate)
+        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, int fiscalYearId)
         {
+            FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
+            DateTime startDate = fiscalYear.StartDate;
+            DateTime endDate = fiscalYear.EndDate;
             var query = from fiEntryDetails in _context.FiEntryDetails
                         join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                         from fiEntry in entryGroup.DefaultIfEmpty()
@@ -570,7 +553,6 @@ namespace DAL.FI.Account
         //    return items;
 
         //}
-
         public List<withdrawToCostCenter> GetWithdrawToCostCenterReportData(int sectionId, DateTime startDate, DateTime endDate)
         {
             var query = (from section in _context.ImsSection
@@ -692,7 +674,6 @@ namespace DAL.FI.Account
             return result;
 
         }
-
         public async Task<List<FixedAssetsFinancialCenterViewModel>> GetFixedAssetsFinancialCenterData(int fiscalYearId)
         {
 
