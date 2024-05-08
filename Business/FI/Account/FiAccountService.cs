@@ -732,6 +732,34 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
                     }
                     break;
+                case "AccountDebitAccountsReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                    }
+                    break;
+                case "AccountIncomeByMonthReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                    }
+                    break;
+                case "AccountPermanentAdvancesReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                    }
+                    break;
+                case "AccountTemporaryAdvancesReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                    }
+                    break;
             }
 
             byte[] renderedBytes = report.Render(reportType);
