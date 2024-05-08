@@ -611,6 +611,91 @@ namespace Business.FI.Account
                         //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
                     }
                     break;
+                case "AccountProductionAndAddedValueReport":
+                    {
+                        List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
+                        List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
+                        List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
+
+                        List<string> Revenues = new List<string>
+                        {
+                            "41",
+                            "411",
+                            "412",
+                            "413",
+                            "414",
+                            "415",
+                            "416",
+                            "417",
+                            "42",
+                        };
+                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (Revenues.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAdd.Add(AccountActivity[i]);
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
+
+                        List<string> Invest = new List<string>
+                        {
+
+                            "433",
+                            "434",
+                            "435",
+
+                        };
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (Invest.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAddOne.Add(AccountActivity[i]);
+
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+
+                        List<string> codes = new List<string>
+                        {
+                            "352",
+                            "353",
+                            "354",
+                        };
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (codes.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAddTwo.Add(AccountActivity[i]);
+
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
+
+                        List<string> Revenues2 = new List<string>
+                        {
+                            "442",
+                            "443",
+                            "444",
+                            "445",
+                            "446",
+                            "447",
+                            "448",
+
+                        };
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (Revenues2.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAddThree.Add(AccountActivity[i]);
+
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                    }
+                    break;
                 case "AccountCreditAccountsReport":
                     {
                         List<FiAccountItemBalancesViewModel> CreditAccounts;
