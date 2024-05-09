@@ -791,7 +791,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>تقرير المركز المالي الارباح والخسائر (إجمالي النشاط)</Value>
+                      <Value>تقرير انتاج وقيمة مضافة</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>20pt</FontSize>
@@ -829,86 +829,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox124">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!Section.Value, "AccountProfit")</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>18pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Color>#1b77a3</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox105</rd:DefaultName>
-              <Top>2.1755cm</Top>
-              <Left>12.3894cm</Left>
-              <Height>0.86458cm</Height>
-              <Width>4.405cm</Width>
-              <ZIndex>3</ZIndex>
-              <Visibility>
-                <Hidden>=IIf(First(Fields!Section.Value, "AccountProfit") = "",True,False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox125">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>قطاع</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>18pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Color>#1b77a3</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox105</rd:DefaultName>
-              <Top>2.1755cm</Top>
-              <Left>16.1557cm</Left>
-              <Height>0.85576cm</Height>
-              <Width>2.79104cm</Width>
-              <ZIndex>4</ZIndex>
-              <Visibility>
-                <Hidden>=IIf(First(Fields!Section.Value, "AccountProfit") = "",True,False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox47">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -934,7 +854,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Left>19.73392cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.69222cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -970,7 +890,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Left>15.65777cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.65094cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1006,7 +926,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Left>12.79048cm</Left>
               <Height>0.9175cm</Height>
               <Width>2.26347cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1042,7 +962,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Left>8.51808cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.85948cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1078,7 +998,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Left>1.02711cm</Left>
               <Height>0.9175cm</Height>
               <Width>6.57049cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
