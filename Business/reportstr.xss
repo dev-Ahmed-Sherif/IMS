@@ -40,7 +40,7 @@
     <Shape ID="DesignTable:FIAccountRe" ZOrder="14" X="680" Y="82" Height="28" Width="161" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="252" SplitterPosition="24" />
     <Shape ID="DesignTable:FiWithdrawToCostCenter" ZOrder="31" X="675" Y="166" Height="28" Width="211" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="24" />
     <Shape ID="DesignTable:STRWithdrawToCostCenter" ZOrder="23" X="366" Y="48" Height="28" Width="224" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="330" SplitterPosition="24" />
-    <Shape ID="DesignTable:AccountItem" ZOrder="5" X="899" Y="169" Height="28" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="158" SplitterPosition="24" />
+    <Shape ID="DesignTable:AccountItem" ZOrder="5" X="899" Y="169" Height="28" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="24" />
     <Shape ID="DesignTable:AccountProfitOne" ZOrder="2" X="485" Y="138" Height="28" Width="162" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="24" />
     <Shape ID="DesignTable:AccountProfitTwo" ZOrder="1" X="310" Y="139" Height="28" Width="171" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="24" />
     <Shape ID="DesignTable:AccountProfitThree" ZOrder="3" X="427" Y="230" Height="28" Width="179" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="215" SplitterPosition="24" />

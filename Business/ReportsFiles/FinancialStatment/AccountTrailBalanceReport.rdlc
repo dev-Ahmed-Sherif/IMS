@@ -134,10 +134,10 @@
               <Width>3.05883cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.60906cm</Width>
+              <Width>5.37094cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.97009cm</Width>
+              <Width>3.28759cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -867,14 +867,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Name">
+                    <Textbox Name="AccountName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Name.Value</Value>
+                              <Value>=Fields!AccountName.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -887,7 +887,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Name</rd:DefaultName>
+                      <rd:DefaultName>AccountName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -910,7 +910,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Code.Value</Value>
+                              <Value>=Fields!AccountCode.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -969,9 +969,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <DataSetName>AccountItemReport</DataSetName>
         <Top>0.33032cm</Top>
-        <Left>1.0185cm</Left>
+        <Left>0.58012cm</Left>
         <Height>2.54083cm</Height>
-        <Width>28.21572cm</Width>
+        <Width>28.2951cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1359,6 +1359,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <DataField>CreditBalance</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="AccountName">
+          <DataField>AccountName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountCode">
+          <DataField>AccountCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Code">
           <DataField>Code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1366,7 +1374,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\Github\22-4\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountItem</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

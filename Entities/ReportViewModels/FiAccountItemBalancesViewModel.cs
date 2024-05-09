@@ -10,6 +10,9 @@ namespace Entities.ReportViewModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string AccountName { get; set; }
+        public string Code { get; set; }
+        public string AccountCode { get; set; }
         public decimal BeginningDebit { get; set; }
         public decimal BeginningCredit { get; set; }
         public decimal WithinPeriodDebit { get; set; }

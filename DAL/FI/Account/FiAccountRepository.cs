@@ -627,6 +627,9 @@ namespace DAL.FI.Account
             {
                 Id = e.Id,
                 Name = e.Name,
+                Code = e.Code,
+                AccountName = e.Account.Name,
+                AccountCode = e.Account.Code,
                 BeginningCredit = beginningEntry.Credit,
                 BeginningDebit = beginningEntry.Debit,
                 WithinPeriodCredit = creditWithinPeriod,
