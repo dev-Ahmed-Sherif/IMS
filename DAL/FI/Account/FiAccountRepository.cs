@@ -740,6 +740,18 @@ namespace DAL.FI.Account
             var fixedAssetAccountCodeString = string.Join("", fixedAssetAccountCode);
             return fixedAssetAccountCodeString;
         }
+
+        public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
+        {
+            List<string> codes =  _context.FiAccount.Select(e=> e.Code).ToList();
+            List<FiAccountItemBalancesViewModel> triaBalance = new List<FiAccountItemBalancesViewModel>();
+            foreach (var code in codes)
+            {
+
+                triaBalance.AddRange(await GetAccountItemsByAccountCodeReportData(code, fiscalYearId));
+            }
+            return triaBalance;
+        }
     }
 
 }

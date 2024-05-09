@@ -713,9 +713,9 @@ namespace Business.FI.Account
                     break;
                 case "AccountTrailBalanceReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiAccountItemBalancesViewModel> TrailBalance;
+                        TrailBalance = await TriaBalance(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = TrailBalance });
                     }
                     break;
                 case "AccountChangeOwnerShipRightsReport":
@@ -734,30 +734,30 @@ namespace Business.FI.Account
                     break;
                 case "AccountDebitAccountsReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiAccountItemBalancesViewModel> DebitAccounts = new List<FiAccountItemBalancesViewModel>();
+                        //AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "DebitBalances", Value = DebitAccounts });
                     }
                     break;
                 case "AccountIncomeByMonthReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiAccountItemBalancesViewModel> Revenues = new List<FiAccountItemBalancesViewModel>();
+                        //AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Revenues", Value = Revenues });
                     }
                     break;
                 case "AccountPermanentAdvancesReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiAccountItemBalancesViewModel> PermanentAdvances = new List<FiAccountItemBalancesViewModel>();
+                        //AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "PermanentAdvances", Value = PermanentAdvances });
                     }
                     break;
                 case "AccountTemporaryAdvancesReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiAccountItemBalancesViewModel> TemporaryAdvances = new List<FiAccountItemBalancesViewModel>();
+                        //AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = TemporaryAdvances });
                     }
                     break;
             }
@@ -801,6 +801,11 @@ namespace Business.FI.Account
         public async Task<List<FixedAssetsFinancialCenterViewModel>> GetFixedAssetsFinancialCenterData(int fiscalYearId)
         {
             return await _FiRepository.GetFixedAssetsFinancialCenterData(fiscalYearId);
+        }
+
+        public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
+        {
+            return await _FiRepository.TriaBalance(fiscalYearId);
         }
     }
 }

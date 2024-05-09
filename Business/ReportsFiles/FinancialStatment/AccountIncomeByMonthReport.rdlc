@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AccountProfit">
+    <DataSet Name="Revenues">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -60,7 +60,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -500,7 +500,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>AccountProfit</DataSetName>
+            <DataSetName>Revenues</DataSetName>
             <Top>0.83688cm</Top>
             <Left>2.97998cm</Left>
             <Height>1.99376cm</Height>
