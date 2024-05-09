@@ -22,6 +22,8 @@
 		<None Remove="ReportsFiles\FIEntryDetailsReport.rdlc" />
 		<None Remove="ReportsFiles\FIEntryReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountACReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountCashFlowsReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountComStockWithdrawTotalReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountCreditAccountsReport.rdlc" />
@@ -32,10 +34,12 @@
 		<None Remove="ReportsFiles\FinancialStatment\AccountInvestComkWithdrawTotalReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountInvestCompReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountPermanentAdvancesReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountProductionAndAddedValueReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountProfitLoseActivityReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountSuppliersReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountTemporaryAdvancesReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountTradingActivityReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountTrailBalanceReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountWaterAndWasteWaterIncomeStatementReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\EntryCostCenterReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\EntryStatisticalItemReport.rdlc" />
@@ -81,6 +85,12 @@
 		<Content Include="ReportsFiles\FinancialStatment\AccountACReport.rdlc">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountCashFlowsReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
@@ -117,6 +127,9 @@
 		<Content Include="ReportsFiles\FinancialStatment\AccountPermanentAdvancesReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountProductionAndAddedValueReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountREReport.rdlc">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
@@ -124,6 +137,9 @@
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountTemporaryAdvancesReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\AccountTrailBalanceReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountWaterAndWasteWaterIncomeStatementReport.rdlc">

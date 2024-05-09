@@ -701,86 +701,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox124">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Fields!Section.Value</Value>
-                  <Style>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>18pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>#1b77a3</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox105</rd:DefaultName>
-          <Top>1.88446cm</Top>
-          <Left>12.03457cm</Left>
-          <Height>0.86458cm</Height>
-          <Width>4.405cm</Width>
-          <ZIndex>3</ZIndex>
-          <Visibility>
-            <Hidden>=IIf(First(Fields!Section.Value, "AccountMaster") = "",True,False)</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox125">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>قطاع</Value>
-                  <Style>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>18pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>#1b77a3</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox105</rd:DefaultName>
-          <Top>1.88446cm</Top>
-          <Left>15.80087cm</Left>
-          <Height>0.85576cm</Height>
-          <Width>2.79104cm</Width>
-          <ZIndex>4</ZIndex>
-          <Visibility>
-            <Hidden>=IIf(First(Fields!Section.Value, "AccountMaster") = "",True,False)</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox47">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -806,7 +726,7 @@
           <Left>19.37909cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.69222cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -842,7 +762,7 @@
           <Left>15.30294cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.65094cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -878,7 +798,7 @@
           <Left>12.43565cm</Left>
           <Height>0.9175cm</Height>
           <Width>2.26347cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -914,7 +834,7 @@
           <Left>8.16325cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.85948cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -950,7 +870,7 @@
           <Left>1.51475cm</Left>
           <Height>0.9937cm</Height>
           <Width>5.56917cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

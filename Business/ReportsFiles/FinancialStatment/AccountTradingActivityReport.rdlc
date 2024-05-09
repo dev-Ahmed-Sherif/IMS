@@ -360,7 +360,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -397,7 +396,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -470,7 +468,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -507,7 +504,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -794,7 +790,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -831,7 +826,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -904,7 +898,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -941,7 +934,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1070,7 +1062,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!StartDate.Value</Value>
+                      <Value>=Fields!StartDate.Value</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
@@ -1142,7 +1134,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!EndDate.Value</Value>
+                      <Value>=Fields!EndDate.Value</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
@@ -1208,7 +1200,7 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox1">
+            <Textbox Name="Textbox12">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -1217,7 +1209,6 @@
                     <TextRun>
                       <Value>قطاع الشؤن المالية والادارية</Value>
                       <Style>
-                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1232,7 +1223,6 @@
                     <TextRun>
                       <Value>ادارة الحسابات</Value>
                       <Style>
-                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1243,11 +1233,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.91833cm</Top>
-              <Left>1.47973cm</Left>
-              <Height>1.42021cm</Height>
-              <Width>6.57049cm</Width>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>0.62729cm</Top>
+              <Left>1.03403cm</Left>
+              <Height>1.63188cm</Height>
+              <Width>6.41993cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -1280,91 +1270,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox48</rd:DefaultName>
-              <Top>2.60713cm</Top>
-              <Left>1.47973cm</Left>
-              <Height>0.9175cm</Height>
-              <Width>6.57049cm</Width>
+              <Top>2.40028cm</Top>
+              <Left>1.48382cm</Left>
+              <Height>0.9937cm</Height>
+              <Width>5.56917cm</Width>
               <ZIndex>7</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox124">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!Section.Value, "AccountLose")</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>18pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Color>#1b77a3</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox105</rd:DefaultName>
-              <Top>1.90639cm</Top>
-              <Left>12.70462cm</Left>
-              <Height>0.86458cm</Height>
-              <Width>4.405cm</Width>
-              <ZIndex>8</ZIndex>
-              <Visibility>
-                <Hidden>=IIf(First(Fields!Section.Value, "AccountProfit") = "",True,False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox125">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>قطاع</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>18pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Color>#1b77a3</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox105</rd:DefaultName>
-              <Top>1.90639cm</Top>
-              <Left>16.47092cm</Left>
-              <Height>0.85576cm</Height>
-              <Width>2.79104cm</Width>
-              <ZIndex>9</ZIndex>
-              <Visibility>
-                <Hidden>=IIf(First(Fields!Section.Value, "AccountProfit") = "",True,False)</Hidden>
-              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
