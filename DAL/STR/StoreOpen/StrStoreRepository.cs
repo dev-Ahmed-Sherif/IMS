@@ -137,5 +137,6 @@ namespace DAL.STR.StoreOpen
             //var maxNo = from item in StrItem where( item=> item.GroupId == GroupId ) select item.No;
 
         }
+       
     }
 }

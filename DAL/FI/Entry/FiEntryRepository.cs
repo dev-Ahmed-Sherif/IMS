@@ -39,7 +39,7 @@ namespace DAL.FI.Entry
         }
         public string Add(FiEntryGeneralVM ID)
         {
-            bool exists = _context.FiEntry.Any(s => s.No == ID.No);
+            bool exists = _context.FiEntry.Any(s => s.No == ID.No&& s.Journal.FiscalYearId==ID.FiscalYearId);
             if (exists)
             {
                 return " Number of entry already exists.";
@@ -69,7 +69,7 @@ namespace DAL.FI.Entry
         //------------------------------------------
         public string Update(FiEntryVM ID)
         {
-            bool exists = _context.FiEntry.Any(s => s.No == ID.No && s.Id != ID.Id);
+            bool exists = _context.FiEntry.Any(s => s.No == ID.No && s.Id != ID.Id && s.Journal.FiscalYearId == ID.FiscalYearId);
             if (exists)
             {
                 return " Number of entry already exists.";
