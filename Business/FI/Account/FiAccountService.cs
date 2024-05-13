@@ -619,15 +619,13 @@ namespace Business.FI.Account
 
                         List<string> Revenues = new List<string>
                         {
-                            "41",
+                           
                             "411",
                             "412",
-                            "413",
                             "414",
                             "415",
-                            "416",
-                            "417",
-                            "42",
+                             "417",
+                            
                         };
                         AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
@@ -639,29 +637,28 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
 
-                        List<string> Invest = new List<string>
-                        {
+                        //List<string> Invest = new List<string>
+                        //{
 
-                            "433",
-                            "434",
-                            "435",
+                        //    "433",
+                        //    "434",
+                        //    "435",
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Invest.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddOne.Add(AccountActivity[i]);
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Invest.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddOne.Add(AccountActivity[i]);
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
 
                         List<string> codes = new List<string>
                         {
-                            "352",
-                            "353",
-                            "354",
+                            
+                            "34",
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
@@ -675,14 +672,8 @@ namespace Business.FI.Account
 
                         List<string> Revenues2 = new List<string>
                         {
-                            "442",
-                            "443",
-                            "444",
-                            "445",
-                            "446",
-                            "447",
-                            "448",
-
+                            "332",
+                           
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
