@@ -606,6 +606,8 @@ namespace DAL.FI.Account
                 e.FiEntryDetails
                 .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
 
+
+
             var list = accountItemsRelatedToAccount.ToList();
 
             var query = accountItemsRelatedToAccount.ToQueryString();
