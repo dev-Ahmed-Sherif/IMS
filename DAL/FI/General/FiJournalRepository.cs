@@ -22,8 +22,12 @@ namespace DAL.FI.General
         //--------------------
         public string Add(FiJournalGeneralVM ID)
         {
-           
-                var _Row = new FiJournal()
+            bool exists = _context.FiJournal.Any(s => s.No == ID.No && s.FiscalYearId == ID.FiscalYearId);
+            if (exists)
+            {
+                return " Number of entry already exists.";
+            }
+            var _Row = new FiJournal()
                 {
                     No = ID.No,
                     Description = ID.Description,
@@ -43,8 +47,13 @@ namespace DAL.FI.General
         //-------------------------------------------------------
         public string Update(FiJournalVM ID)
         {
-          
-                var _Row = _context.FiJournal.Single(n => n.Id == ID.Id);
+            bool exists = _context.FiJournal.Any(s => s.No == ID.No && s.Id != ID.Id && s.FiscalYearId == ID.FiscalYearId);
+            if (exists)
+            {
+                return " Number of entry already exists.";
+            }
+
+            var _Row = _context.FiJournal.Single(n => n.Id == ID.Id);
                
                     _Row.No = ID.No;
                     _Row.Description = ID.Description;
@@ -136,9 +145,9 @@ namespace DAL.FI.General
                 query = query.Where(p => p.Description.Contains(searchModel.Description));
             }
 
-            var results = query.Select(n => n.ToFiJournalVM(searchModel.StartDate.Value, searchModel.EndDate.Value)).ToList();
+            //var results = query.Select(n => n.ToFiJournalVM(searchModel.StartDate.Value, searchModel.EndDate.Value)).ToList();
 
-
+            var results = query.Select(n => n.ToFiJournalVM()).ToList();
             return results;
 
 

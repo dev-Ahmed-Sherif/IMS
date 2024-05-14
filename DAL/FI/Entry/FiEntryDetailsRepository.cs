@@ -20,8 +20,13 @@ namespace DAL.FI.Entry
         //-------------------------
         public string Add(FiEntryDetailsGeneralVM entryDetail)
         {
-           
-                var _item = new FiEntryDetails()
+            bool exists = _context.FiEntryDetails.Any(s => s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId);
+            if (exists)
+            {
+                return " ChechNo of entry already exists.";
+            }
+
+            var _item = new FiEntryDetails()
                 {
                     Credit = entryDetail.Credit,
                     Debit = entryDetail.Debit,
@@ -44,8 +49,13 @@ namespace DAL.FI.Entry
         //-------------------------------------------------------
         public string Update(FiEntryDetailsVM entryDetail)
         {
-            
-                var _item = _context.FiEntryDetails.Single(n => n.Id == entryDetail.Id);
+            bool exists = _context.FiEntryDetails.Any(s =>( s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&&s.Id!=entryDetail.Id);
+            if (exists)
+            {
+                return " ChechNo of entry already exists.";
+            }
+
+            var _item = _context.FiEntryDetails.Single(n => n.Id == entryDetail.Id);
                
                     _item.Credit = entryDetail.Credit;
                     _item.Debit = entryDetail.Debit;
@@ -83,18 +93,34 @@ namespace DAL.FI.Entry
             => _context.FiEntryDetails.Select(
                 n => new FiEntryDetailsGetVM
                 {
+                    //Id = n.Id,
+                    //Credit = n.Credit,
+                    //Debit = n.Debit,
+                    //Description = n.Description ?? "",
+                    //CheckNo = n.CheckNo ??0,
+                    //AccountName = n.Account.Name,
+                    //FiAccountItemId = n.FiAccountItemId ??0,
+                    //AccountItemName = n.FiAccountItem.Name??"",
+                    //EntryId = n.EntryId,
+                    //AccountId = n.AccountId,
+                    //CostCenterId=n.CostCenterId ??0,
+                    //CreateUserName = n.CreatedBy.Name,
+                    //UpdateUserName = n.UpdateBy.Name?? ""
+                    ///
                     Id = n.Id,
                     Credit = n.Credit,
                     Debit = n.Debit,
-                    Description = n.Description,
-                    CheckNo = n.CheckNo,
+                    Description = n.Description ?? "",
+                    CheckNo = n.CheckNo ?? 0,
+                    CostCenterName = n.CostCenterId != null ? n.CostCenter.Name : "",
+                    CostCenterId = n.CostCenterId ?? 0,
                     AccountName = n.Account.Name,
-                    FiAccountItemId = n.FiAccountItemId,
-                    AccountItemName = n.FiAccountItem.Name,
+                    FiAccountItemId = n.FiAccountItemId ?? 0,
+                    AccountItemName = n.FiAccountItemId != null ? n.FiAccountItem.Name : "",
                     EntryId = n.EntryId,
                     AccountId = n.AccountId,
                     CreateUserName = n.CreatedBy.Name,
-                    UpdateUserName = n.UpdateBy.Name
+                    UpdateUserName = n.UpdateBy.Name ?? "",
                 }).ToList();
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 

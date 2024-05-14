@@ -12,7 +12,7 @@ namespace Entities.ExtensionMethods.FI.General
             {
                 Id = fi.Id,
                 No = fi.No,
-                Description = fi.Description,
+                Description = fi.Description ?? "",
                 TransactionUserId = fi.CreatedBy.Id,
                 CreateUserName = fi.CreatedBy.Name,
                 FiscalYearId = fi.FiscalYearId,
