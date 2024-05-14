@@ -788,7 +788,7 @@ namespace Business.FI.Account
                 await
                 _FiRepository
                 .GetAccountItemsByAccountCodeReportData
-                (AccountsCodes.حسابات_دائنة_متنوعة, fiscalYearId);
+                (AccountsCodes.حسابات_دائنة_أخرى, fiscalYearId);
 
             return creditAccounts;
         }

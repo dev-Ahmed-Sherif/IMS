@@ -23,7 +23,7 @@ namespace Entities.Models.FI.Account
         //--------------------------------------------------------------------
         // Relation { EntryDetails } +++ {Navigation Primary => AccountItemId } 
         //--------------------------------------------------------------------
-        public virtual ICollection<FiEntryDetails> FiEntryDetails { get; set; }
+        public virtual ICollection<FiEntryDetails>? FiEntryDetails { get; set; }
 
         //---------------------------------------------------------------------
         // Relation { PrUser => Account } +++ {View Model => TransactionUserId} 

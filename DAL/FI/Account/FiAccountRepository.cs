@@ -590,13 +590,23 @@ namespace DAL.FI.Account
             var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
                 throw new KeyNotFoundException("Fiscal Year Id Key Not Found");
 
+            //IQueryable<FiAccountItem> accountItemsRelatedToAccount =
+            //_context
+            //.FiAccountItem
+            //.Where(e => string.Equals(e.Account.Code, accountCode))
+            //.Where(e =>
+            //    e.FiEntryDetails
+            //    .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+
             IQueryable<FiAccountItem> accountItemsRelatedToAccount =
             _context
             .FiAccountItem
-            .Where(e => string.Equals(e.Account.Code, accountCode))
+            .Where(e => e.Code.StartsWith(accountCode))
             .Where(e =>
                 e.FiEntryDetails
                 .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+
+            var list = accountItemsRelatedToAccount.ToList();
 
             var query = accountItemsRelatedToAccount.ToQueryString();
 
@@ -608,35 +618,43 @@ namespace DAL.FI.Account
         }
         private static FiAccountItemBalancesViewModel InitData(FiAccountItem e)
         {
-            FiEntryDetails beginningEntry =
-                e.FiEntryDetails
-                .OrderBy(e => e.Entry.Date)
-                .First();
-
-            decimal creditWithinPeriod =
-                e.FiEntryDetails
-                .Where(e => e.Id != beginningEntry.Id)
-                .Sum(e => e.Credit);
-
-            decimal debitWithinPeriod =
-                e.FiEntryDetails
-                 .Where(e => e.Id != beginningEntry.Id)
-                .Sum(e => e.Debit);
-
-            return new FiAccountItemBalancesViewModel
+            if (e.FiEntryDetails.Count != 0)
             {
-                Id = e.Id,
-                Name = e.Name,
-                Code = e.Code,
-                AccountName = e.Account.Name,
-                AccountCode = e.Account.Code,
-                BeginningCredit = beginningEntry.Credit,
-                BeginningDebit = beginningEntry.Debit,
-                WithinPeriodCredit = creditWithinPeriod,
-                WithinPeriodDebit = debitWithinPeriod,
-                CreditBalance = creditWithinPeriod + beginningEntry.Credit,
-                DebitBalance = debitWithinPeriod + beginningEntry.Debit,
-            };
+                FiEntryDetails beginningEntry =
+               e.FiEntryDetails
+               .OrderBy(e => e.Entry.Date)
+               .First();
+
+                decimal creditWithinPeriod =
+                    e.FiEntryDetails
+                    .Where(e => e.Id != beginningEntry.Id)
+                    .Sum(e => e.Credit);
+
+                decimal debitWithinPeriod =
+                    e.FiEntryDetails
+                     .Where(e => e.Id != beginningEntry.Id)
+                    .Sum(e => e.Debit);
+
+                return new FiAccountItemBalancesViewModel
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Code = e.Code,
+                    AccountName = e.Account.Name,
+                    AccountCode = e.Account.Code,
+                    BeginningCredit = beginningEntry.Credit,
+                    BeginningDebit = beginningEntry.Debit,
+                    WithinPeriodCredit = creditWithinPeriod,
+                    WithinPeriodDebit = debitWithinPeriod,
+                    CreditBalance = creditWithinPeriod + beginningEntry.Credit,
+                    DebitBalance = debitWithinPeriod + beginningEntry.Debit,
+                };
+            }
+            else
+            {
+                return null;
+            }
+            
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
