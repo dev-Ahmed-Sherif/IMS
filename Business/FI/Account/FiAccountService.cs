@@ -705,7 +705,7 @@ namespace Business.FI.Account
                 case "AccountTrailBalanceReport":
                     {
                         List<FiAccountItemBalancesViewModel> TrailBalance;
-                        TrailBalance = await TriaBalance(fiscalYearId);
+                        TrailBalance = await GetTriaBalanceReportData(fiscalYearId);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = TrailBalance });
                     }
                     break;
@@ -751,6 +751,13 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = TemporaryAdvances });
                     }
                     break;
+                case "QualitativeAnalysisListReport":
+                    {
+                        List<AccountItemVM> QualitativeAnalysis = new List<AccountItemVM>();
+                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = QualitativeAnalysis });
+                    }
+                    break;
             }
 
             byte[] renderedBytes = report.Render(reportType);
@@ -794,9 +801,9 @@ namespace Business.FI.Account
             return await _FiRepository.GetFixedAssetsFinancialCenterData(fiscalYearId);
         }
 
-        public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
+        public async Task<List<FiAccountItemBalancesViewModel>> GetTriaBalanceReportData(int fiscalYearId)
         {
-            return await _FiRepository.TriaBalance(fiscalYearId);
+            return await _FiRepository.GetTriaBalanceReportData(fiscalYearId);
         }
     }
 }
