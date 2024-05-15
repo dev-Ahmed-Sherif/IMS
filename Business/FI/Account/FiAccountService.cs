@@ -616,6 +616,7 @@ namespace Business.FI.Account
                         List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
                         List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
                         List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
+                        List<AccountItemVM> FIAccountREAddfour = new List<AccountItemVM>();
 
                         List<string> Revenues = new List<string>
                         {
@@ -637,23 +638,8 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
 
-                        //List<string> Invest = new List<string>
-                        //{
-
-                        //    "433",
-                        //    "434",
-                        //    "435",
-
-                        //};
-                        //for (int i = 0; i < AccountActivity.Count; i++)
-                        //{
-                        //    if (Invest.Contains(AccountActivity[i].Code))
-                        //    {
-                        //        FIAccountREAddOne.Add(AccountActivity[i]);
-
-                        //    }
-                        //}
-                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+                       
+                       
 
                         List<string> codes = new List<string>
                         {
@@ -685,8 +671,31 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
                         //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+
+
+                        List<string> Invest = new List<string>
+                        {
+
+                            "3635",
+                            "3636",
+
+
+                        };
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (Invest.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAddfour.Add(AccountActivity[i]);
+
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitfour", Value = FIAccountREAddfour });
+
                     }
                     break;
+
+
+
                 case "AccountCreditAccountsReport":
                     {
                         List<FiAccountItemBalancesViewModel> CreditAccounts;
