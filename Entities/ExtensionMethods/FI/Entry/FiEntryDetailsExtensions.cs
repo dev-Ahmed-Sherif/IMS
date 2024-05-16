@@ -22,7 +22,8 @@ namespace Entities.ExtensionMethods.FI.Entry
                 EntryId = n.EntryId,
                 AccountId = n.AccountId,
                 CreateUserName = n.CreatedBy.Name,
-                UpdateUserName = n.UpdateBy.Name??"",
+                UpdateUserName = n.UpdateByID!=null?n.UpdateBy.Name:"",
+                
                 HeaderJournalNo = n.Entry.Journal.No,
                 HeaderFiscalYear = n.Entry.Journal.FiscalYear.fiscalyear,
                 HeaderEntrySourceTypeName = n.Entry.FiEntrySourceType.Name??"",

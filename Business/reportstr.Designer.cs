@@ -17208,6 +17208,14 @@ namespace Business {
             
             private global::System.Data.DataColumn columnCode;
             
+            private global::System.Data.DataColumn columnAccountId;
+            
+            private global::System.Data.DataColumn columnBeginningBalance;
+            
+            private global::System.Data.DataColumn columnChangeWithinPeriod;
+            
+            private global::System.Data.DataColumn columnEndingBalance;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AccountItemDataTable() {
@@ -17323,6 +17331,38 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AccountIdColumn {
+                get {
+                    return this.columnAccountId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BeginningBalanceColumn {
+                get {
+                    return this.columnBeginningBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ChangeWithinPeriodColumn {
+                get {
+                    return this.columnChangeWithinPeriod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EndingBalanceColumn {
+                get {
+                    return this.columnEndingBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17358,7 +17398,7 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AccountItemRow AddAccountItemRow(string Name, string BeginningDebit, string BeginningCredit, string WithinPeriodDebit, string WithinPeriodCredit, string DebitBalance, string CreditBalance, string AccountName, string AccountCode, string Code) {
+            public AccountItemRow AddAccountItemRow(string Name, string BeginningDebit, string BeginningCredit, string WithinPeriodDebit, string WithinPeriodCredit, string DebitBalance, string CreditBalance, string AccountName, string AccountCode, string Code, string AccountId, string BeginningBalance, string ChangeWithinPeriod, string EndingBalance) {
                 AccountItemRow rowAccountItemRow = ((AccountItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -17370,7 +17410,11 @@ namespace Business {
                         CreditBalance,
                         AccountName,
                         AccountCode,
-                        Code};
+                        Code,
+                        AccountId,
+                        BeginningBalance,
+                        ChangeWithinPeriod,
+                        EndingBalance};
                 rowAccountItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccountItemRow);
                 return rowAccountItemRow;
@@ -17403,6 +17447,10 @@ namespace Business {
                 this.columnAccountName = base.Columns["AccountName"];
                 this.columnAccountCode = base.Columns["AccountCode"];
                 this.columnCode = base.Columns["Code"];
+                this.columnAccountId = base.Columns["AccountId"];
+                this.columnBeginningBalance = base.Columns["BeginningBalance"];
+                this.columnChangeWithinPeriod = base.Columns["ChangeWithinPeriod"];
+                this.columnEndingBalance = base.Columns["EndingBalance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17428,6 +17476,14 @@ namespace Business {
                 base.Columns.Add(this.columnAccountCode);
                 this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCode);
+                this.columnAccountId = new global::System.Data.DataColumn("AccountId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountId);
+                this.columnBeginningBalance = new global::System.Data.DataColumn("BeginningBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBeginningBalance);
+                this.columnChangeWithinPeriod = new global::System.Data.DataColumn("ChangeWithinPeriod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChangeWithinPeriod);
+                this.columnEndingBalance = new global::System.Data.DataColumn("EndingBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEndingBalance);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34100,6 +34156,70 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AccountId {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountItem.AccountIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountId\' in table \'AccountItem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountItem.AccountIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BeginningBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountItem.BeginningBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BeginningBalance\' in table \'AccountItem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountItem.BeginningBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ChangeWithinPeriod {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountItem.ChangeWithinPeriodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChangeWithinPeriod\' in table \'AccountItem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountItem.ChangeWithinPeriodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EndingBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountItem.EndingBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EndingBalance\' in table \'AccountItem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountItem.EndingBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableAccountItem.NameColumn);
             }
@@ -34216,6 +34336,54 @@ namespace Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCodeNull() {
                 this[this.tableAccountItem.CodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAccountIdNull() {
+                return this.IsNull(this.tableAccountItem.AccountIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAccountIdNull() {
+                this[this.tableAccountItem.AccountIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBeginningBalanceNull() {
+                return this.IsNull(this.tableAccountItem.BeginningBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBeginningBalanceNull() {
+                this[this.tableAccountItem.BeginningBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsChangeWithinPeriodNull() {
+                return this.IsNull(this.tableAccountItem.ChangeWithinPeriodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetChangeWithinPeriodNull() {
+                this[this.tableAccountItem.ChangeWithinPeriodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEndingBalanceNull() {
+                return this.IsNull(this.tableAccountItem.EndingBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEndingBalanceNull() {
+                this[this.tableAccountItem.EndingBalanceColumn] = global::System.Convert.DBNull;
             }
         }
         

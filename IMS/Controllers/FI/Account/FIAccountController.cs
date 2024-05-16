@@ -69,6 +69,13 @@ namespace IMS.Controllers.FI.Account
             var Account = _FiAccountService.GetByName(Name);
             return Ok(Account);
         }
+        [HttpGet("getparent/By/code/{code}")]
+        public IActionResult Getparent(string code)
+        {
+            var Account = _FiAccountService.Getparent(code);
+            return Ok(Account);
+        }
+
         [HttpGet("get/data/by/Code/{code}/{startDate}/{endDate}")]
         public IActionResult GetAccountMasterReportData(string code,int fiscalYearId)
         {
