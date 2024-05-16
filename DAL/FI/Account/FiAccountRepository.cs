@@ -24,11 +24,12 @@ namespace DAL.FI.Account
 
         private AppDbContext _context;
         private StrFiscalYearRepository _strFiscalRepository;
-
-        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository)
+        private FiEntryDetailsRepository _entryDetails;
+        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository, FiEntryDetailsRepository entryDetails)
         {
             _context = context;
             _strFiscalRepository = strFiscalRepository;
+            _entryDetails = entryDetails;
         }
 
         //---------------------
@@ -591,15 +592,33 @@ namespace DAL.FI.Account
             var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
                 throw new KeyNotFoundException("Fiscal Year Id Key Not Found");
 
-            IQueryable<FiAccountItem> accountItemsRelatedToAccount =
+            //IQueryable<FiAccountItem> accountItemsRelatedToAccount =
+            //_context
+            //.FiAccountItem
+            //.Where(e => string.Equals(e.Account.Code, accountCode))
+            //.Where(e =>
+            //    e.FiEntryDetails
+            //    .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+
+           IQueryable <FiAccountItem> accountItemsRelatedToAccount =
             _context
             .FiAccountItem
-            .Where(e => string.Equals(e.Account.Code, accountCode))
-            .Where(e =>
+            .Where(e => e.Code.StartsWith(accountCode))
+            .Where(e => e.FiEntryDetails != null &&
                 e.FiEntryDetails
-                .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+                .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId && ed.IsDeleted != true));
 
-            var query = accountItemsRelatedToAccount.ToQueryString();
+            var list = accountItemsRelatedToAccount.ToList();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    var item = _context.FiEntryDetails.Where(e => list[i].Id == 3417 || list[i].Id == 3423).ToList();
+            //    for (int j = 0; j < item.Count; j++)
+            //    {
+            //        list[i].FiEntryDetails.Add(item[j]);
+            //    }
+            //}
+            //var listWithEntryDetails = list;
+            //var query = accountItemsRelatedToAccount.ToQueryString();
 
             return
                 accountItemsRelatedToAccount
@@ -609,21 +628,51 @@ namespace DAL.FI.Account
         }
         private static FiAccountItemBalancesViewModel InitData(FiAccountItem e)
         {
-            FiEntryDetails beginningEntry =
-                e.FiEntryDetails
-                .OrderBy(e => e.Entry.Date)
-                .First();
+            //SqlDataReader rdr = (SqlDataReader)e.FiEntryDetails;
+            //bool isDeleted = rdr.IsDBNull(e.FiEntryDetails.Select(e => e.IsDeleted).ToString());
+            FiEntryDetails beginningEntry = new FiEntryDetails();
+            decimal creditWithinPeriod = 0, debitWithinPeriod = 0;
+            try
+            {
+                beginningEntry =
+                   e.FiEntryDetails
+                   .OrderBy(e => e.Entry.Date)
+                   .First();
 
-            decimal creditWithinPeriod =
-                e.FiEntryDetails
-                .Where(e => e.Id != beginningEntry.Id)
-                .Sum(e => e.Credit);
+                creditWithinPeriod =
+                   e.FiEntryDetails
+                   .Where(e => e.Id != beginningEntry.Id)
+                   .Sum(e => e.Credit);
 
-            decimal debitWithinPeriod =
-                e.FiEntryDetails
-                 .Where(e => e.Id != beginningEntry.Id)
-                .Sum(e => e.Debit);
+                debitWithinPeriod =
+                   e.FiEntryDetails
+                    .Where(e => e.Id != beginningEntry.Id)
+                   .Sum(e => e.Debit);
+            }
+            catch(Exception ex)
+            {
+                if (ex != null)
+                {
 
+
+                    //beginningEntry =
+                    //    e.FiEntryDetails
+                    //    .Where(ed => ed.FiAccountItemId == e.Id)
+                    //    .OrderBy(e => e.Entry.Date)
+                    //    .First();
+
+                    //creditWithinPeriod =
+                    //    e.FiEntryDetails
+                    //    .Where(e => e.Id != beginningEntry.Id)
+                    //    .Sum(e => e.Credit);
+
+                    //debitWithinPeriod =
+                    //   e.FiEntryDetails
+                    //    .Where(e => e.Id != beginningEntry.Id)
+                    //   .Sum(e => e.Debit);
+                }
+                
+            }
             return new FiAccountItemBalancesViewModel
             {
                 Id = e.Id,
@@ -638,6 +687,8 @@ namespace DAL.FI.Account
                 CreditBalance = creditWithinPeriod + beginningEntry.Credit,
                 DebitBalance = debitWithinPeriod + beginningEntry.Debit,
             };
+
+
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
@@ -745,16 +796,107 @@ namespace DAL.FI.Account
             return fixedAssetAccountCodeString;
         }
 
-        public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
-        {
-            List<string> codes =  _context.FiAccount.Select(e=> e.Code).ToList();
-            List<FiAccountItemBalancesViewModel> triaBalance = new List<FiAccountItemBalancesViewModel>();
-            foreach (var code in codes)
-            {
+        //public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
+        //{
+        //    List<string> codes =  _context.FiAccount.Select(e=> e.Code).ToList();
+        //    List<FiAccountItemBalancesViewModel> triaBalance = new List<FiAccountItemBalancesViewModel>();
+        //    foreach (var code in codes)
+        //    {
 
-                triaBalance.AddRange(await GetAccountItemsByAccountCodeReportData(code, fiscalYearId));
+        //        triaBalance.AddRange(await GetTriaBalanceReportData(code, fiscalYearId));
+        //    }
+        //    return triaBalance;
+        //}
+        public async Task<List<FiAccountItemBalancesViewModel>> GetTriaBalanceReportData( int fiscalYearId)
+        {
+            var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
+                throw new KeyNotFoundException("Fiscal Year Id Key Not Found");
+
+            //IQueryable<FiAccount> accountItemsRelatedToAccount =
+            //_context
+            //.FiAccount
+            //.Where(e => string.Equals(e.Code, accountCode))
+            //.Where(e =>
+            //    e.FiEntryDetails
+            //    .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+
+            IQueryable<FiAccount> fiAccounts =
+            _context
+            .FiAccount
+            .Where(e =>
+                e.FiEntryDetails
+                .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
+
+            var list = fiAccounts.ToList();
+
+            var query = fiAccounts.ToQueryString();
+
+            return
+                fiAccounts
+                .ToList()
+                .Select(InitDataTriaBalance)
+                .ToList();
+        }
+        private static FiAccountItemBalancesViewModel InitDataTriaBalance(FiAccount e)
+        {
+            FiEntryDetails beginningEntry = new FiEntryDetails();
+            decimal creditWithinPeriod = 0, debitWithinPeriod = 0;
+            try
+            {
+                beginningEntry =
+                   e.FiEntryDetails
+                   .OrderBy(e => e.Entry.Date)
+                   .First();
+
+                creditWithinPeriod =
+                   e.FiEntryDetails
+                   .Where(e => e.Id != beginningEntry.Id)
+                   .Sum(e => e.Credit);
+
+                debitWithinPeriod =
+                   e.FiEntryDetails
+                    .Where(e => e.Id != beginningEntry.Id)
+                   .Sum(e => e.Debit);
             }
-            return triaBalance;
+            catch (Exception ex)
+            {
+                if (ex != null)
+                {
+
+
+                    //beginningEntry =
+                    //    e.FiEntryDetails
+                    //    .Where(ed => ed.FiAccountItemId == e.Id)
+                    //    .OrderBy(e => e.Entry.Date)
+                    //    .First();
+
+                    //creditWithinPeriod =
+                    //    e.FiEntryDetails
+                    //    .Where(e => e.Id != beginningEntry.Id)
+                    //    .Sum(e => e.Credit);
+
+                    //debitWithinPeriod =
+                    //   e.FiEntryDetails
+                    //    .Where(e => e.Id != beginningEntry.Id)
+                    //   .Sum(e => e.Debit);
+                }
+
+            }
+            return new FiAccountItemBalancesViewModel
+            {
+                Id = e.Id,
+                Name = e.Name,
+                Code = e.Code,
+                AccountName = e.Name,
+                AccountCode = e.Code,
+                BeginningCredit = beginningEntry.Credit,
+                BeginningDebit = beginningEntry.Debit,
+                WithinPeriodCredit = creditWithinPeriod,
+                WithinPeriodDebit = debitWithinPeriod,
+                CreditBalance = creditWithinPeriod + beginningEntry.Credit,
+                DebitBalance = debitWithinPeriod + beginningEntry.Debit,
+            };
+
         }
         public string Getparent(string code)
         {

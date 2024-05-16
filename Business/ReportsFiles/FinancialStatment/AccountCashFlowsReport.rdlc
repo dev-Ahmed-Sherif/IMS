@@ -363,7 +363,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Top>0.53231cm</Top>
         <Left>1.6021cm</Left>
         <Height>1.96729cm</Height>
-        <Width>25.90028cm</Width>
+        <Width>25.90027cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1022,7 +1022,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>FIAccountRe</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

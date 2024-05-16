@@ -619,18 +619,17 @@ namespace Business.FI.Account
                         List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
                         List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
                         List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
+                        List<AccountItemVM> FIAccountREAddfour = new List<AccountItemVM>();
 
                         List<string> Revenues = new List<string>
                         {
-                            "41",
+                           
                             "411",
                             "412",
-                            "413",
                             "414",
                             "415",
-                            "416",
-                            "417",
-                            "42",
+                             "417",
+                            
                         };
                         AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
@@ -642,29 +641,13 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
 
-                        List<string> Invest = new List<string>
-                        {
-
-                            "433",
-                            "434",
-                            "435",
-
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Invest.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddOne.Add(AccountActivity[i]);
-
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+                       
+                       
 
                         List<string> codes = new List<string>
                         {
-                            "352",
-                            "353",
-                            "354",
+                            
+                            "34",
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
@@ -678,14 +661,8 @@ namespace Business.FI.Account
 
                         List<string> Revenues2 = new List<string>
                         {
-                            "442",
-                            "443",
-                            "444",
-                            "445",
-                            "446",
-                            "447",
-                            "448",
-
+                            "332",
+                           
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
@@ -697,8 +674,31 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
                         //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+
+
+                        List<string> Invest = new List<string>
+                        {
+
+                            "3635",
+                            "3636",
+
+
+                        };
+                        for (int i = 0; i < AccountActivity.Count; i++)
+                        {
+                            if (Invest.Contains(AccountActivity[i].Code))
+                            {
+                                FIAccountREAddfour.Add(AccountActivity[i]);
+
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitfour", Value = FIAccountREAddfour });
+
                     }
                     break;
+
+
+
                 case "AccountCreditAccountsReport":
                     {
                         List<FiAccountItemBalancesViewModel> CreditAccounts;
@@ -717,7 +717,7 @@ namespace Business.FI.Account
                 case "AccountTrailBalanceReport":
                     {
                         List<FiAccountItemBalancesViewModel> TrailBalance;
-                        TrailBalance = await TriaBalance(fiscalYearId);
+                        TrailBalance = await GetTriaBalanceReportData(fiscalYearId);
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = TrailBalance });
                     }
                     break;
@@ -732,7 +732,7 @@ namespace Business.FI.Account
                     {
                         List<FiAccountItemBalancesViewModel> AccountSuppliers;
                         AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = AccountSuppliers });
                     }
                     break;
                 case "AccountDebitAccountsReport":
@@ -763,6 +763,13 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = TemporaryAdvances });
                     }
                     break;
+                case "QualitativeAnalysisListReport":
+                    {
+                        List<AccountItemVM> QualitativeAnalysis = new List<AccountItemVM>();
+                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = QualitativeAnalysis });
+                    }
+                    break;
             }
 
             byte[] renderedBytes = report.Render(reportType);
@@ -791,7 +798,7 @@ namespace Business.FI.Account
                 await
                 _FiRepository
                 .GetAccountItemsByAccountCodeReportData
-                (AccountsCodes.حسابات_دائنة_متنوعة, fiscalYearId);
+                (AccountsCodes.حسابات_دائنة_أخرى, fiscalYearId);
 
             return creditAccounts;
         }
@@ -806,9 +813,9 @@ namespace Business.FI.Account
             return await _FiRepository.GetFixedAssetsFinancialCenterData(fiscalYearId);
         }
 
-        public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
+        public async Task<List<FiAccountItemBalancesViewModel>> GetTriaBalanceReportData(int fiscalYearId)
         {
-            return await _FiRepository.TriaBalance(fiscalYearId);
+            return await _FiRepository.GetTriaBalanceReportData(fiscalYearId);
         }
     }
 }

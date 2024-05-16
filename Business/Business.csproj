@@ -44,6 +44,7 @@
 		<None Remove="ReportsFiles\FinancialStatment\EntryCostCenterReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\EntryStatisticalItemReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\FiWithdrawToCostCenterReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\QualitativeAnalysisListReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpAttendPermissionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpAttendScheduleReport.rdlc" />
 		<None Remove="ReportsFiles\HR\Employee.rdlc" />
@@ -165,6 +166,9 @@
 		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\FiWithdrawToCostCenterReport.rdlc">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\FinancialStatment\QualitativeAnalysisListReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpAttendPermissionReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
