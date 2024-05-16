@@ -696,9 +696,6 @@ namespace Business.FI.Account
 
                     }
                     break;
-
-
-
                 case "AccountCreditAccountsReport":
                     {
                         List<FiAccountItemBalancesViewModel> CreditAccounts;
@@ -766,7 +763,7 @@ namespace Business.FI.Account
                 case "QualitativeAnalysisListReport":
                     {
                         List<AccountItemVM> QualitativeAnalysis = new List<AccountItemVM>();
-                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, "3", 0);
                         report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = QualitativeAnalysis });
                     }
                     break;
