@@ -24,12 +24,12 @@ namespace DAL.FI.Account
 
         private AppDbContext _context;
         private StrFiscalYearRepository _strFiscalRepository;
-        private FiEntryDetailsRepository _entryDetails;
-        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository, FiEntryDetailsRepository entryDetails)
+        
+        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository)
         {
             _context = context;
             _strFiscalRepository = strFiscalRepository;
-            _entryDetails = entryDetails;
+           
         }
 
         //---------------------
