@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics.Eventing.Reader;
 
 namespace DAL.FI.Entry
 {
@@ -20,10 +21,10 @@ namespace DAL.FI.Entry
         //-------------------------
         public string Add(FiEntryDetailsGeneralVM entryDetail)
         {
-            bool exists = _context.FiEntryDetails.Any(s => s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId);
+            bool exists = _context.FiEntryDetails.Any(s => (s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&& s.EntryId == entryDetail.EntryId);
             if (exists)
             {
-                return " ChechNo of entry already exists.";
+                return " ChecKNo or accountId of entry already exists.";
             }
 
             var _item = new FiEntryDetails()
@@ -49,7 +50,7 @@ namespace DAL.FI.Entry
         //-------------------------------------------------------
         public string Update(FiEntryDetailsVM entryDetail)
         {
-            bool exists = _context.FiEntryDetails.Any(s =>( s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&&s.Id!=entryDetail.Id);
+            bool exists = _context.FiEntryDetails.Any(s =>( s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&&s.Id==entryDetail.Id);
             if (exists)
             {
                 return " ChechNo of entry already exists.";
@@ -128,27 +129,41 @@ namespace DAL.FI.Entry
         public PaginatedResult<FiEntryDetailsGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
             var totalCount = _context.FiEntryDetails.Where(n => n.EntryId == HeaderId).Count();
-            List<int> fientryD = _context.FiEntryDetails
-                .Where(sus => sus.EntryId == HeaderId)
-                .Select(sus => sus.EntryId)
-                .ToList();
-            List<FiEntryDetailsGetVM> Item = _context.FiEntryDetails
-                .Where(n => fientryD.Contains(n.EntryId))
-                .OrderByDescending(Item => Item.CreationDate)
-                .Skip((page) * pageSize)
-                .Take(pageSize)
-                .Select(n => n.ToFiEntryDetailsVM())
-                .ToList();
 
-            var paginatedResult = new PaginatedResult<FiEntryDetailsGetVM>
+            if (totalCount == 0)
             {
-                Items = Item,
-                TotalItems = totalCount,
-                Page = page,
-                PageSize = pageSize
-            };
+                return new PaginatedResult<FiEntryDetailsGetVM>
+                {
+                    Items = new List<FiEntryDetailsGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int> fientryD = _context.FiEntryDetails
+                    .Where(sus => sus.EntryId == HeaderId)
+                    .Select(sus => sus.EntryId)
+                    .ToList();
+                List<FiEntryDetailsGetVM> Item = _context.FiEntryDetails
+                    .Where(n => fientryD.Contains(n.EntryId))
+                    .OrderByDescending(Item => Item.CreationDate)
+                    .Skip((page) * pageSize)
+                    .Take(pageSize)
+                    .Select(n => n.ToFiEntryDetailsVM())
+                .ToList();
 
-            return paginatedResult;
+                var paginatedResult = new PaginatedResult<FiEntryDetailsGetVM>
+                {
+                    Items = Item,
+                    TotalItems = totalCount,
+                    Page = page,
+                    PageSize = pageSize
+                };
+
+
+
+                return paginatedResult;
+           
         }
         public class PaginatedResult<T>
         {

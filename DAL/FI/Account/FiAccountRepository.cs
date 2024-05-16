@@ -15,6 +15,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
+using Microsoft.Identity.Client;
 
 namespace DAL.FI.Account
 {
@@ -60,7 +61,7 @@ namespace DAL.FI.Account
         //----------------------------------------------
         public string Update(FiAccountVM ID)
         {
-            bool exists = _context.FiAccount.Any(s => s.Name == ID.Name || s.Code == ID.Code && s.Id != ID.Id);
+            bool exists = _context.FiAccount.Any(s => (s.Name == ID.Name || s.Code == ID.Code )&& s.Id != ID.Id);
             if (exists)
             {
                 return " Name or code  already exists.";
@@ -658,7 +659,7 @@ namespace DAL.FI.Account
 
             FiChangeInOwnersEquityViewModel result = new()
             {
-                AccountId = account.Id,
+                AccountCode= account.Code,
                 AccountName = account.Name,
                 BeginningBalance = (firstEntry?.Credit - firstEntry?.Debit) ?? 0,
                 ChangeWithinPeriod = filteredEntryDetails.Skip(1).Sum(e => e.Credit - e.Debit),
@@ -755,6 +756,58 @@ namespace DAL.FI.Account
             }
             return triaBalance;
         }
+        public string Getparent(string code)
+        {
+
+
+
+            var maxLength = code.Length;
+            var parentcode = code.Substring(0,maxLength-1);
+
+            var matchingAccounts = _context.FiAccount
+                .Where(fiAccount => fiAccount.Code.StartsWith(parentcode))
+                .Select(e=>e.Code).First();
+
+          
+            return matchingAccounts.ToString();
+        }
+        //public List<FiAccountGetVM> Getparent(string code)
+        //{
+
+
+
+        //    //var query = from fiAccount in _context.FiAccount
+        //    //            where fiAccount.Code.StartsWith(code)
+        //    //            select fiAccount.Code;
+
+        //    //var result = query.ToList();
+
+        //    //return result;
+        //    var maxLength = code.Length;
+        //    var parentcode = code.Substring(0, maxLength - 1);
+
+        //    var matchingAccounts = _context.FiAccount
+        //        .Where(fiAccount => fiAccount.Code.StartsWith(code))
+        //        .ToList();
+
+        //    if (matchingAccounts.Count == 0)
+        //    {
+        //        // Return an empty list or handle the case when no matching accounts are found
+        //        return new List<FiAccountGetVM>();
+        //    }
+
+        //    var query = from fiAccount in matchingAccounts
+        //                where fiAccount.Code.Length <= maxLength
+        //                select new FiAccountGetVM
+        //                {
+        //                    Name = fiAccount.Name,
+        //                    Code = fiAccount.Code
+        //                };
+
+        //    return query.ToList();
+
+        //}
+
     }
 
 }

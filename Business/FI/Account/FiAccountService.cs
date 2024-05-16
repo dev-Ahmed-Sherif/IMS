@@ -69,7 +69,10 @@ namespace Business.FI.Account
         {
             return _FiRepository.GetByName(accountName);
         }
-
+        public string Getparent(string code)
+        {
+            return _FiRepository.Getparent(code);
+        }
         public List<AccountItemVM> GetStoreAccountsReportData(DateTime startDate, DateTime endDate, int sectionId)
         {
             return _FiRepository.GetStoreAccountsReportData(startDate,endDate,sectionId);
@@ -720,9 +723,9 @@ namespace Business.FI.Account
                     break;
                 case "AccountChangeOwnerShipRightsReport":
                     {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        List<FiChangeInOwnersEquityViewModel> AccountSuppliers;
+                        AccountSuppliers =  GetChangeInOwnersEquityReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItem", Value = AccountSuppliers });
                     }
                     break;
                 case "AccountCashFlowsReport":

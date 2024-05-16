@@ -45,7 +45,7 @@ namespace DAL.FI.Account
         //-----------------------------------------------------------------
         public string Update(FiAccountHierarchyVM ID)
         {
-            bool exists = _context.FiAccountHierarchy.Any(s => s.Name == ID.Name || s.Level == ID.level && s.Id != ID.Id);
+            bool exists = _context.FiAccountHierarchy.Any(s => (s.Name == ID.Name || s.Level == ID.level) && s.Id != ID.Id);
             if (exists)
             {
                 return " Name or level  already exists.";
