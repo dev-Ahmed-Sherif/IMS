@@ -19,14 +19,14 @@ namespace IMS.Controllers
         public IActionResult Add([FromBody] GeneralDepartmentgeneralVM Gdep)
         {
             var _response = _GeneralDepartmentService.Add(Gdep);
-            return Ok(_response);
+            return new JsonResult(_response);
         }
 
         [HttpPut("update")]
         public IActionResult Update([FromBody] GeneralDepartmentVM Gdep)
         {
             var _response = _GeneralDepartmentService.Update(Gdep);
-            return Ok(_response);
+            return new JsonResult(_response);
         }
 
         [HttpDelete("delete/{id}")]

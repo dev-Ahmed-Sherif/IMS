@@ -31,7 +31,7 @@ namespace IMS.Controllers.HR
             return new JsonResult(_response);
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("delete/{ID}")]
         public IActionResult Delete(int ID)
         {
             var _response = _EmployeeVacationService.Delete(ID);
@@ -45,7 +45,7 @@ namespace IMS.Controllers.HR
             return Ok(allEmployeeVacation);
         }
 
-        [HttpGet("get/{id}")]
+        [HttpGet("get/{ID}")]
         public IActionResult GetById(int ID)
         {
             var EmployeeVacation = _EmployeeVacationService.GetById(ID);
