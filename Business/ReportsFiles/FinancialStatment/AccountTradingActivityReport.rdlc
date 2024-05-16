@@ -1062,7 +1062,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!StartDate.Value</Value>
+                      <Value>=First(Fields!StartDate.Value, "AccountLose")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
@@ -1134,7 +1134,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!EndDate.Value</Value>
+                      <Value>=First(Fields!EndDate.Value, "AccountLose")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>

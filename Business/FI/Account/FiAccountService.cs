@@ -729,7 +729,7 @@ namespace Business.FI.Account
                     {
                         List<FiAccountItemBalancesViewModel> AccountSuppliers;
                         AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = AccountSuppliers });
                     }
                     break;
                 case "AccountDebitAccountsReport":
