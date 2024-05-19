@@ -17,11 +17,11 @@ namespace DAL.STR.Add
     public class StrAddRepository
     {
         private AppDbContext _context;
-
         public StrAddRepository(AppDbContext context)
         {
             _context = context;
         }
+
         public int GetLastNo(int StoreId, int FiscalYearId)
         {
             int maxNo = _context.StrAdd.Where(item => item.StoreId == StoreId && item.FiscalYearId == FiscalYearId).Select(item => item.No).DefaultIfEmpty().Max();
@@ -220,69 +220,8 @@ namespace DAL.STR.Add
 
 
         }
-        public List<StrAddGetVM> GetAll() => _context.StrAdd.Select(n => new StrAddGetVM
-        {
-            Id = n.Id,
-            No = n.No,
-            Date = n.Date,
-            Total = n.Total,
-            EntryNo = n.EntryNo,
-            Notes = n.Notes,
-            Attachment = n.Attachment,
-            SourceStoreId = n.SourceStoreId,
-            SourceStoreName = n.SourceStore.Name,
-            StoreId = n.StoreId,
-            StoreName = n.STR_Store.Name,
-            SellerId = n.SellerId,
-            SellerName = n.Seller.Name,
-            EmployeeId = n.EmployeeId,
-            EmployeeName = n.Employee.Name,
-            CreateUserName = n.CreatedBy.Name,
-            TransactionUserId = n.CreatedBy.Id,
-            fiscalyear = n.fiscalyear.fiscalyear,
-            FiscalYearId = n.FiscalYearId,
-            AddTypeId = n.AddTypeId,
-            AddTypeName = n.AddType.Name,
-            CommodityId = n.CommodityId,
-            CommodityName = n.STR_Commodity.Name,
-            Type = n.Type,
-            ApprovalStatusId = n.ApprovalStatusId,
-            ApprovalStatusName = n.ApprovalStatus.Name,
-            withdrawId = n.withdrawId,
-            WithDrawNo = n.withdraw.No
-        }).ToList();
-        public StrAddGetVM GetById(int sTR_AddId) => _context.StrAdd.Select(n => new StrAddGetVM
-        {
-            Id = n.Id,
-            No = n.No,
-            Date = n.Date,
-            SourceStoreId = n.SourceStoreId,
-            SourceStoreName = n.SourceStore.Name,
-            StoreId = n.StoreId,
-            StoreName = n.STR_Store.Name,
-            SellerId = n.SellerId,
-            SellerName = n.Seller.Name,
-            EmployeeId = n.EmployeeId,
-            EmployeeName = n.Employee.Name,
-            CreateUserName = n.CreatedBy.Name,
-            TransactionUserId = n.CreatedBy.Id,
-            Notes = n.Notes,
-            Attachment = n.Attachment,
-            Total = n.Total,
-            EntryNo = n.EntryNo,
-            fiscalyear = n.fiscalyear.fiscalyear,
-            FiscalYearId = n.FiscalYearId,
-            ApprovalStatusId = n.ApprovalStatusId,
-            ApprovalStatusName = n.ApprovalStatus.Name,
-            withdrawId = n.withdrawId,
-            WithDrawNo = n.withdraw.No,
-            AddTypeId = n.AddTypeId,
-            AddTypeName = n.AddType.Name,
-            CommodityId = n.CommodityId,
-            CommodityName = n.STR_Commodity.Name,
-            Type = n.Type
-        }).Single(n => n.Id == sTR_AddId);
-
+        public List<StrAddGetVM> GetAll() => _context.StrAdd.Select(n => n.ToStrAddGetVM()).ToList();
+        public StrAddGetVM GetById(int sTR_AddId) => _context.StrAdd.Select(n => n.ToStrAddGetVM()).Single(n => n.Id == sTR_AddId);
         public List<StrAddGetVM> Search(searchadd searchModel)
         {
 
@@ -375,54 +314,6 @@ namespace DAL.STR.Add
 
 
         }
-
-        //public List<StrAddGetVM> GetByUserId(int userId, int? rowSize)
-        //{
-        //    int size = 100;
-        //    if (rowSize != null) size = (int)rowSize;
-        //    List<int> storeIds = _context.StrUserStore
-        //        .Where(sus => sus.UserId == userId)
-        //        .Select(sus => sus.StoreId)
-        //        .ToList();
-
-        //    List<StrAddGetVM> result = _context.StrAdd
-        //        .Where(sa => storeIds.Contains(sa.StoreId))
-        //        .Select(n => new StrAddGetVM
-        //        {
-        //            Id = n.Id,
-        //            No = n.No,
-        //            Date = n.Date,
-        //            Total = n.Total,
-        //            EntryNo = n.EntryNo,
-        //            Notes = n.Notes,
-        //            Attachment = n.Attachment,
-        //            SourceStoreId = n.SourceStoreId,
-        //            SourceStoreName = n.STR_Store1.Name,
-        //            StoreId = n.StoreId,
-        //            StoreName = n.STR_Store.Name,
-        //            SellerId = n.SellerId,
-        //            SellerName = n.PRO_Seller.Name,
-        //            EmployeeId = n.EmployeeId,
-        //            EmployeeName = n.HR_Employee.Name,
-        //            CreateUserName = n.CreatedBy.Name,
-        //            TransactionUserId = n.CreatedBy.Id,
-        //            fiscalyear = n.fiscalyear.fiscalyear,
-        //            FiscalYearId = n.FiscalYearId,
-        //            Type = n.Type,
-        //            ApprovalStatusId = n.ApprovalStatusId,
-        //            ApprovalStatusName = n.ApprovalStatus.Name,
-        //            withdrawId = n.withdrawId,
-        //            WithDrawNo = n.withdraw.No
-        //        })
-        //        .OrderByDescending(on => on.Date).Take(size).ToList();
-
-        //    return result;
-        //}
-
-
-        //-----------------------------------------------
-        // Select data form entry by page and page size 
-        //-----------------------------------------------
         public PaginatedResult<StrAddGetVM> GetByEmployeeStores(int employeeId, int page, int pageSize, int fiscalYearId)
         {
             var totalCount = _context.StrAdd.Count();
