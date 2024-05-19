@@ -19,22 +19,22 @@ namespace IMS.Controllers.STR.StoreOpen
         [HttpPost("Add")]
         public IActionResult Add([FromBody] StrOpeningStockDetailsGeneralVM opening_Stock_Details)
         {
-            _opening_StockDetialsService.Add(opening_Stock_Details);
-            return Ok();
+            var _response = _opening_StockDetialsService.Add(opening_Stock_Details);
+            return new JsonResult(_response);
         }
 
         [HttpPut("update")]
         public IActionResult Update([FromBody] StrOpeningStockDetailsVM opening_Stock_Details)
         {
             var updatedOpening_Stock_Details = _opening_StockDetialsService.Update(opening_Stock_Details);
-            return Ok(updatedOpening_Stock_Details);
+            return new JsonResult(updatedOpening_Stock_Details);
         }
 
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
-            _opening_StockDetialsService.Delete(id);
-            return Ok();
+            var _response = _opening_StockDetialsService.Delete(id);
+            return new JsonResult(_response);
         }
 
         [HttpGet("get/all")]

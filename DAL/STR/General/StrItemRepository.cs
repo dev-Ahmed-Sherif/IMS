@@ -1,5 +1,7 @@
 ﻿using DAL.STR.Add;
 using DAL.STR.StoreOpen;
+using Entities.ExtensionMethods;
+using Entities.ExtensionMethods.STR.General;
 using Entities.ExtensionMethods.STR.StoreOpen;
 using Entities.Models.STR.Add;
 using Entities.Models.STR.General;
@@ -165,56 +167,63 @@ namespace DAL.STR.General
         //------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //------------------------------------------------
+        //public PaginatedResult<StrItemGetVM> GetAllByPagination(int page, int pageSize)
+        //{
+        //    var totalCount = _context.StrItem.Count();
+        //    List<StrItemGetVM> Item = _context.StrItem
+        //        .OrderByDescending(Item => Item.CreationDate)
+        //        .Skip((page) * pageSize)
+        //        .Take(pageSize)
+        //        .Select(n => new StrItemGetVM
+        //        {
+        //            Id = n.Id,
+        //            No = n.No,
+        //            Name = n.Name,
+        //            FullCode = n.FullCode,
+        //            Type = n.Type,
+        //            IsActive = n.IsActive,
+        //            CommodityId = n.CommodityId,
+        //            Commoditycode = n.STR_Commodity.Code,
+        //            CommodityName = n.STR_Commodity.Name,
+        //            GradeId = n.GradeId,
+        //            Gradecode = n.STR_Grade.Code,
+        //            GradeName = n.STR_Grade.Name,
+        //            PlatoonId = n.PlatoonId,
+        //            Platooncode = n.STR_Platoon.Code,
+        //            PlatoonName = n.STR_Platoon.Name,
+        //            GroupId = n.GroupId,
+        //            Groupcode = n.STR_Group.Code,
+        //            GroupName = n.STR_Group.Name,
+        //            UnitId = n.UnitId,
+        //            UnitName = n.STR_Unit.Name,
+        //        })
+        //        .ToList();
+
+
+        //    var paginatedResult = new PaginatedResult<StrItemGetVM>
+        //    {
+        //        Items = Item,
+        //        TotalItems = totalCount,
+        //        Page = page,
+        //        PageSize = pageSize
+        //    };
+
+        //    return paginatedResult;
+        //}
         public PaginatedResult<StrItemGetVM> GetAllByPagination(int page, int pageSize)
         {
-            var totalCount = _context.StrItem.Count();
-            List<StrItemGetVM> Item = _context.StrItem
-                .OrderByDescending(Item => Item.CreationDate)
-                .Skip((page) * pageSize)
-                .Take(pageSize)
-                .Select(n => new StrItemGetVM
-                {
-                    Id = n.Id,
-                    No = n.No,
-                    Name = n.Name,
-                    FullCode = n.FullCode,
-                    Type = n.Type,
-                    IsActive = n.IsActive,
-                    CommodityId = n.CommodityId,
-                    Commoditycode = n.STR_Commodity.Code,
-                    CommodityName = n.STR_Commodity.Name,
-                    GradeId = n.GradeId,
-                    Gradecode = n.STR_Grade.Code,
-                    GradeName = n.STR_Grade.Name,
-                    PlatoonId = n.PlatoonId,
-                    Platooncode = n.STR_Platoon.Code,
-                    PlatoonName = n.STR_Platoon.Name,
-                    GroupId = n.GroupId,
-                    Groupcode = n.STR_Group.Code,
-                    GroupName = n.STR_Group.Name,
-                    UnitId = n.UnitId,
-                    UnitName = n.STR_Unit.Name,
-                })
-                .ToList();
+            var Entries = _context.StrItem
+                .OrderByDescending(Entry => Entry.CreationDate);
 
-            var paginatedResult = new PaginatedResult<StrItemGetVM>
-            {
-                Items = Item,
-                TotalItems = totalCount,
-                Page = page,
-                PageSize = pageSize
-            };
-
-            return paginatedResult;
+            return Entries.ToPaginatedResult(page, pageSize, e => e.ToStrItemGetVM());
         }
-
-        public class PaginatedResult<T>
-        {
-            public List<T> Items { get; set; }
-            public int TotalItems { get; set; }
-            public int Page { get; set; }
-            public int PageSize { get; set; }
-        }
+       // public class PaginatedResult<T>
+        //{
+        //    public List<T> Items { get; set; }
+        //    public int TotalItems { get; set; }
+        //    public int Page { get; set; } 
+        //    public int PageSize { get; set; }
+        //}
         public StrItemGetVM GetById(int itemId) => _context.StrItem.Select(n => new StrItemGetVM { Id = n.Id, No = n.No, Name = n.Name, FullCode = n.FullCode, Type = n.Type, IsActive = n.IsActive, CommodityId = n.CommodityId, Commoditycode = n.STR_Commodity.Code, CommodityName = n.STR_Commodity.Name, GradeId = n.GradeId, Gradecode = n.STR_Grade.Code, GradeName = n.STR_Grade.Name, PlatoonId = n.PlatoonId, Platooncode = n.STR_Platoon.Code, PlatoonName = n.STR_Platoon.Name, GroupId = n.GroupId, Groupcode = n.STR_Group.Code, GroupName = n.STR_Group.Name, UnitId = n.UnitId, UnitName = n.STR_Unit.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).Single(n => n.Id == itemId);
 
         // public StrItemGetVM GetItemByName(string itemName) => _context.StrItem.Select(n => new StrItemGetVM { Id = n.Id, No = n.No, Name = n.Name, FullCode = n.FullCode, Type = n.Type, IsActive = n.IsActive, CommodityId = n.CommodityId, Commoditycode = n.STR_Commodity.Code, CommodityName = n.STR_Commodity.Name, GradeId = n.GradeId, Gradecode = n.STR_Grade.Code, GradeName = n.STR_Grade.Name, PlatoonId = n.PlatoonId, Platooncode = n.STR_Platoon.Code, PlatoonName = n.STR_Platoon.Name, GroupId = n.GroupId, Groupcode = n.STR_Group.Code, GroupName = n.STR_Group.Name, UnitId = n.UnitId, UnitName = n.STR_Unit.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).FirstOrDefault(n => n.Name.Contains.(itemName));
@@ -284,6 +293,49 @@ namespace DAL.STR.General
 
 
             return results;
+
+
+        }
+        public PaginatedResult<StrItemGetVM> SearchPagination(searchgeneral searchModel, int page, int pageSize)
+        {
+            var query = _context.StrItem.AsQueryable();
+            if (searchModel.PlatoonId.HasValue)
+            {
+                query = query.Where(p => p.PlatoonId == searchModel.PlatoonId);
+            }
+            if (searchModel.GradeId.HasValue)
+            {
+                query = query.Where(p => p.GradeId == searchModel.GradeId);
+            }
+            if (searchModel.GroupId.HasValue)
+            {
+                query = query.Where(p => p.GroupId == searchModel.GroupId);
+            }
+
+            if (searchModel.CommodityId.HasValue)
+            {
+                query = query.Where(p => p.CommodityId == searchModel.CommodityId);
+            }
+            if (searchModel.UnitId.HasValue)
+            {
+                query = query.Where(p => p.UnitId == searchModel.UnitId);
+            }
+            if (!string.IsNullOrEmpty(searchModel.Name))
+            {
+                query = query.Where(p => p.Name.Contains(searchModel.Name));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Type))
+            {
+                query = query.Where(p => p.Type == searchModel.Type);
+            }
+            if (!string.IsNullOrEmpty(searchModel.FullCode))
+            {
+                query = query.Where(p => p.FullCode == searchModel.FullCode);
+            }
+
+         
+            return query.ToPaginatedResult(page, pageSize,e => e.ToStrItemGetVM());
+
 
 
         }

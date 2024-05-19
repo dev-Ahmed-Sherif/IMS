@@ -33,7 +33,7 @@ namespace IMS.Controllers
         public IActionResult Delete(int id)
         {
             var _response = _GeneralDepartmentService.Delete(id);
-            return Ok(_response);
+            return new JsonResult(_response);
         }
 
         [HttpGet("get/all")]
