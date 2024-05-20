@@ -812,7 +812,7 @@ namespace Business.FI.Account
                             }
                             for (int j = 0; j < wages.Count; j++)
                             {
-                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
+                                if (QualitativeAnalysis[i].Code.Equals(wages[j]))
                                 {
                                     materialsData.Add(QualitativeAnalysis[i]);
                                 }
@@ -883,45 +883,6 @@ namespace Business.FI.Account
 
                         decimal sumFirstBranch = sumMaterials + sumWages + sumExpenses + sumPurchasesForSale + sumVariousBurdensAndLosses;
 
-                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
-                        {
-                            for (int j = 0; j < materials.Count; j++)
-                            {
-                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
-                                {
-                                    materialsData.Add(QualitativeAnalysis[i]);
-                                }
-                            }
-                            for (int j = 0; j < wages.Count; j++)
-                            {
-                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
-                                {
-                                    materialsData.Add(QualitativeAnalysis[i]);
-                                }
-                            }
-                            for (int j = 0; j < purchasedServices.Count; j++)
-                            {
-                                if (QualitativeAnalysis[i].Code.Equals(purchasedServices[j]))
-                                {
-                                    materialsData.Add(QualitativeAnalysis[i]);
-                                }
-                            }
-                            for (int j = 0; j < destruction.Count; j++)
-                            {
-                                if (QualitativeAnalysis[i].Code.Equals(destruction[j]))
-                                {
-                                    materialsData.Add(QualitativeAnalysis[i]);
-                                }
-                            }
-                            for (int j = 0; j < restExpenses.Count; j++)
-                            {
-                                if (QualitativeAnalysis[i].Code.Equals(restExpenses[j]))
-                                {
-                                    materialsData.Add(QualitativeAnalysis[i]);
-                                }
-                            }
-                        }
-
                         List<string> productionCosts1 = new List<string> { "361","3611","3612","3613","3614","3615","3616" };
                         decimal sumProductionCosts1 = 0;
                         List<string> productionCosts2 = new List<string> { "362", "3621", "3622", "3623"};
@@ -932,6 +893,58 @@ namespace Business.FI.Account
                         decimal sumProductionCosts4 = 0;
                         List<string> productionCosts5 = new List<string> { "3633", "3634", "3635", "3635", "3636" };
                         decimal sumProductionCosts5 = 0;
+
+                        List<AccountItemVM> productionCosts1Data = new List<AccountItemVM>(),
+                                            productionCosts2Data = new List<AccountItemVM>(),
+                                            productionCosts3Data = new List<AccountItemVM>(),
+                                            productionCosts4Data = new List<AccountItemVM>(),
+                                            productionCosts5Data = new List<AccountItemVM>();
+
+
+                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
+                        {
+                            for (int j = 0; j < productionCosts1.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(productionCosts1[j]))
+                                {
+                                    productionCosts1Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < productionCosts2.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(productionCosts2[j]))
+                                {
+                                    productionCosts2Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < productionCosts3.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(productionCosts3[j]))
+                                {
+                                    productionCosts3Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < productionCosts4.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(productionCosts4[j]))
+                                {
+                                    productionCosts4Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < productionCosts5.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(productionCosts5[j]))
+                                {
+                                    productionCosts5Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                        }
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "ProductionCosts1Data", Value = productionCosts1Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ProductionCosts2Data", Value = productionCosts2Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ProductionCosts3Data", Value = productionCosts3Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ProductionCosts4Data", Value = productionCosts4Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ProductionCosts5Data", Value = productionCosts5Data });
 
                         decimal sumProductionCosts = sumProductionCosts1 + sumProductionCosts2 + sumProductionCosts3 + sumProductionCosts4
                                                     + sumProductionCosts5;
@@ -947,6 +960,57 @@ namespace Business.FI.Account
                         List<string> marketingCosts5 = new List<string> { "3733", "3734", "3735", "3735", "3736" };
                         decimal sumMarketingCosts5 = 0;
 
+                        List<AccountItemVM> marketingCosts1Data = new List<AccountItemVM>(),
+                                            marketingCosts2Data = new List<AccountItemVM>(),
+                                            marketingCosts3Data = new List<AccountItemVM>(),
+                                            marketingCosts4Data = new List<AccountItemVM>(),
+                                            marketingCosts5Data = new List<AccountItemVM>();
+
+                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
+                        {
+                            for (int j = 0; j < marketingCosts1.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(marketingCosts1[j]))
+                                {
+                                    marketingCosts1Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < marketingCosts2.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(marketingCosts2[j]))
+                                {
+                                    marketingCosts2Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < marketingCosts3.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(marketingCosts3[j]))
+                                {
+                                    marketingCosts3Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < marketingCosts4.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(marketingCosts4[j]))
+                                {
+                                    marketingCosts4Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < marketingCosts5.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(marketingCosts5[j]))
+                                {
+                                    marketingCosts5Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                        }
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts1Data", Value = marketingCosts1Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts2Data", Value = marketingCosts2Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts3Data", Value = marketingCosts3Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts4Data", Value = marketingCosts4Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts5Data", Value = marketingCosts5Data });
+
                         decimal sumMarketingCosts = sumMarketingCosts1 + sumMarketingCosts2 + sumMarketingCosts3 + sumMarketingCosts4 
                                                     +sumMarketingCosts5;
 
@@ -961,10 +1025,59 @@ namespace Business.FI.Account
                         List<string> administrativeCosts5 = new List<string> { "3833", "3834", "3835", "3835", "3836" };
                         decimal sumAdministrativeCosts5 = 0;
 
+                        List<AccountItemVM> AdministrativeCosts1Data = new List<AccountItemVM>(),
+                                            AdministrativeCosts2Data = new List<AccountItemVM>(),
+                                            AdministrativeCosts3Data = new List<AccountItemVM>(),
+                                            AdministrativeCosts4Data = new List<AccountItemVM>(),
+                                            AdministrativeCosts5Data = new List<AccountItemVM>();
+
+                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
+                        {
+                            for (int j = 0; j < administrativeCosts1.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(administrativeCosts1[j]))
+                                {
+                                    AdministrativeCosts1Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < administrativeCosts2.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(administrativeCosts2[j]))
+                                {
+                                    AdministrativeCosts2Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < administrativeCosts3.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(administrativeCosts3[j]))
+                                {
+                                    AdministrativeCosts3Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < administrativeCosts4.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(administrativeCosts4[j]))
+                                {
+                                    AdministrativeCosts4Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < administrativeCosts5.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(administrativeCosts5[j]))
+                                {
+                                    AdministrativeCosts5Data.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                        }
+
                         decimal sumAdministrativeCosts = sumAdministrativeCosts1 + sumAdministrativeCosts2 + sumAdministrativeCosts3
                                                         + sumAdministrativeCosts4 + sumAdministrativeCosts5;
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = QualitativeAnalysis });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AdministrativeCosts1Data", Value = AdministrativeCosts1Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AdministrativeCosts2Data", Value = AdministrativeCosts2Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AdministrativeCosts3Data", Value = AdministrativeCosts3Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AdministrativeCosts4Data", Value = AdministrativeCosts4Data });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AdministrativeCosts5Data", Value = AdministrativeCosts5Data });
                     }
                     break;
             }
