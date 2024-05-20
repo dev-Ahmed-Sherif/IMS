@@ -28,18 +28,18 @@ namespace DAL.FI.Entry
             }
 
             var _item = new FiEntryDetails()
-                {
-                    Credit = entryDetail.Credit,
-                    Debit = entryDetail.Debit,
-                    Description = entryDetail.Description,
-                    CheckNo = entryDetail.CheckNo,
-                    AccountId = entryDetail.AccountId,
-                    FiAccountItemId = entryDetail.FiAccountItemId,
-                    EntryId = entryDetail.EntryId,
-                    CostCenterId = entryDetail.CostCenterId,
-                    CreatedByID = entryDetail.TransactionUserId,
-                    CreationDate = DateTime.Now
-                };
+            {
+                Credit = entryDetail.Credit,
+                Debit = entryDetail.Debit,
+                Description = entryDetail.Description,
+                CheckNo = entryDetail.CheckNo,
+                AccountId = entryDetail.AccountId,
+                FiAccountItemId = entryDetail.FiAccountItemId,
+                EntryId = entryDetail.EntryId,
+                CostCenterId = entryDetail.CostCenterId,
+                CreatedByID = entryDetail.TransactionUserId,
+                CreationDate = DateTime.Now
+            };
                 _context.FiEntryDetails.Add(_item);
                 _context.SaveChanges();
                 return _item.Id.ToString();

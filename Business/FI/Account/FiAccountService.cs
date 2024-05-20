@@ -762,8 +762,208 @@ namespace Business.FI.Account
                     break;
                 case "QualitativeAnalysisListReport":
                     {
-                        List<AccountItemVM> QualitativeAnalysis = new List<AccountItemVM>();
-                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, "3", 0);
+                        List<AccountItemVM> QualitativeAnalysis, 
+                                            materialsData = new List<AccountItemVM>(), 
+                                            wagesData = new List<AccountItemVM>(), 
+                                            purchasedServicesData = new List<AccountItemVM>(),
+                                            destructionData = new List<AccountItemVM>(), 
+                                            restExpensesData = new List<AccountItemVM>(), 
+                                            purchasesForSalesData = new List<AccountItemVM>(),
+                                            burdensAndLossesData = new List<AccountItemVM>(),
+                                            variousBurdensAndLossesData = new List<AccountItemVM>(),
+                                            restBurdensAndLossesData = new List<AccountItemVM>();
+
+                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, "3", 7);
+                        List<string> materials = new List<string>{ "31" ,"311","312","313","314","315","316"};
+                        decimal sumMaterials = 0;
+
+                        List<string> wages = new List<string> { "32","321","322","323" };
+                        decimal sumWages = 0;                        
+
+                        List<string> purchasedServices = new List<string> { "33","331","3311","3312","3314","3315","3316","3317","3318" };
+                        decimal sumPurchasedServices = 0;
+
+                        List<string> destruction = new List<string> { "332","3321","3322" };
+                        decimal sumDestruction = 0;                     
+
+                        List<string> restExpenses = new List<string> { "333", "334", "335", "336" };
+                        decimal sumRestExpenses = 0;
+
+                        decimal sumExpenses = sumPurchasedServices + sumDestruction + sumRestExpenses;
+
+                        List<string> purchasesForSale = new List<string> { "34" };
+                        decimal sumPurchasesForSale = 0;
+
+                        List<string> burdensAndLosses = new List<string> { "35","351","352","353" };
+
+                        List<string> variousBurdensAndLosses = new List<string> { "354", "3541", "3542", "3543" ,"3544","3545"};
+
+                        decimal sumVariousBurdensAndLosses = 0;
+                        List<string> restBurdensAndLosses = new List<string> { "355", "356", "357", "358", "359" };
+
+                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
+                        {
+                            for (int j = 0; j < materials.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < wages.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < purchasedServices.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(purchasedServices[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < destruction.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(destruction[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < restExpenses.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(restExpenses[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < purchasesForSale.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(purchasesForSale[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < burdensAndLosses.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(burdensAndLosses[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < variousBurdensAndLosses.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(variousBurdensAndLosses[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < restBurdensAndLosses.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(restBurdensAndLosses[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+
+                        }
+
+                        //materialsData = materialsData.OrderBy(e => e.Code).ToList();
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "MaterialsData", Value = materialsData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "WagesData", Value = wagesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PurchasedServicesData", Value = purchasedServicesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "DestructionData", Value = destructionData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RestExpensesData", Value = restExpensesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PurchasesForSalesData", Value = purchasesForSalesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "BurdensAndLossesData", Value = burdensAndLossesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "VariousBurdensAndLossesData", Value = variousBurdensAndLossesData });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RestBurdensAndLossesData", Value = restBurdensAndLossesData });
+
+                        decimal sumFirstBranch = sumMaterials + sumWages + sumExpenses + sumPurchasesForSale + sumVariousBurdensAndLosses;
+
+                        for (int i = 0; i < QualitativeAnalysis.Count; i++)
+                        {
+                            for (int j = 0; j < materials.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < wages.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(materials[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < purchasedServices.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(purchasedServices[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < destruction.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(destruction[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                            for (int j = 0; j < restExpenses.Count; j++)
+                            {
+                                if (QualitativeAnalysis[i].Code.Equals(restExpenses[j]))
+                                {
+                                    materialsData.Add(QualitativeAnalysis[i]);
+                                }
+                            }
+                        }
+
+                        List<string> productionCosts1 = new List<string> { "361","3611","3612","3613","3614","3615","3616" };
+                        decimal sumProductionCosts1 = 0;
+                        List<string> productionCosts2 = new List<string> { "362", "3621", "3622", "3623"};
+                        decimal sumProductionCosts2 = 0;
+                        List<string> productionCosts3 = new List<string> { "363", "3631", "36311", "36312", "36314", "36315", "36316", "36317", "36318" };
+                        decimal sumProductionCosts3 = 0;
+                        List<string> productionCosts4 = new List<string> { "3632", "36321", "36322" };
+                        decimal sumProductionCosts4 = 0;
+                        List<string> productionCosts5 = new List<string> { "3633", "3634", "3635", "3635", "3636" };
+                        decimal sumProductionCosts5 = 0;
+
+                        decimal sumProductionCosts = sumProductionCosts1 + sumProductionCosts2 + sumProductionCosts3 + sumProductionCosts4
+                                                    + sumProductionCosts5;
+
+                        List<string> marketingCosts1 = new List<string> { "371", "3711", "3712", "3713", "3714", "3715", "3716" };
+                        decimal sumMarketingCosts1 = 0;
+                        List<string> marketingCosts2 = new List<string> { "372", "3721", "3722", "3723" };
+                        decimal sumMarketingCosts2 = 0;
+                        List<string> marketingCosts3 = new List<string> { "373", "3731", "37311", "37312", "37314", "37315", "37316", "37317", "37318" };
+                        decimal sumMarketingCosts3 = 0;
+                        List<string> marketingCosts4 = new List<string> { "3732", "37321", "37322" };
+                        decimal sumMarketingCosts4 = 0;
+                        List<string> marketingCosts5 = new List<string> { "3733", "3734", "3735", "3735", "3736" };
+                        decimal sumMarketingCosts5 = 0;
+
+                        decimal sumMarketingCosts = sumMarketingCosts1 + sumMarketingCosts2 + sumMarketingCosts3 + sumMarketingCosts4 
+                                                    +sumMarketingCosts5;
+
+                        List<string> administrativeCosts1 = new List<string> { "381", "3811", "3812", "3813", "3814", "3815", "3816" };
+                        decimal sumAdministrativeCosts1 = 0;
+                        List<string> administrativeCosts2 = new List<string> { "382", "3821", "3822", "3823" };
+                        decimal sumAdministrativeCosts2 = 0;
+                        List<string> administrativeCosts3 = new List<string> { "383", "3831", "38311", "38312", "38314", "38315", "38316", "38317", "38318" };
+                        decimal sumAdministrativeCosts3 = 0;
+                        List<string> administrativeCosts4 = new List<string> { "3832", "38321", "38322" };
+                        decimal sumAdministrativeCosts4 = 0;
+                        List<string> administrativeCosts5 = new List<string> { "3833", "3834", "3835", "3835", "3836" };
+                        decimal sumAdministrativeCosts5 = 0;
+
+                        decimal sumAdministrativeCosts = sumAdministrativeCosts1 + sumAdministrativeCosts2 + sumAdministrativeCosts3
+                                                        + sumAdministrativeCosts4 + sumAdministrativeCosts5;
+
                         report.DataSources.Add(new ReportDataSource() { Name = "TemporaryAdvances", Value = QualitativeAnalysis });
                     }
                     break;

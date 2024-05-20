@@ -371,7 +371,7 @@ namespace DAL.FI.Account
                 
                 
                 var query = from fiAccount in _context.FiAccount
-                            where fiAccount.Code.StartsWith(code) || fiAccount.Code.Length < codeLength
+                            where fiAccount.Code.StartsWith(code) && fiAccount.Code.Length < codeLength
                             select new AccountItemVM
                             {
                                 Id = fiAccount.Id,
