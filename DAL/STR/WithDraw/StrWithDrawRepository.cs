@@ -36,7 +36,7 @@ namespace DAL.STR.WithDraw
         }
         public async Task<string> Add(StrWithdrawGeneralVM types)
         {
-            if (!types.CostCenterId.HasValue || !types.DestStoreId.HasValue) throw new Exception("CostCenterId or DestStoreId is required");
+            if (!types.CostCenterId.HasValue &&!types.DestStoreId.HasValue) throw new Exception("CostCenterId or DestStoreId is required");
                 var _withdraw = new StrWithDraw()
                 {
                     Type = types.Type,

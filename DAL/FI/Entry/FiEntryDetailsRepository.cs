@@ -50,7 +50,7 @@ namespace DAL.FI.Entry
         //-------------------------------------------------------
         public string Update(FiEntryDetailsVM entryDetail)
         {
-            bool exists = _context.FiEntryDetails.Any(s =>s.AccountId == entryDetail.AccountId&& s.EntryId == entryDetail.EntryId && s.Id==entryDetail.Id);
+            bool exists = _context.FiEntryDetails.Any(s =>s.AccountId == entryDetail.AccountId&& s.EntryId == entryDetail.EntryId && s.Id!=entryDetail.Id);
             if (exists)
             {
                 return " accountId  of entry already exists.";

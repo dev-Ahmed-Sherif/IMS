@@ -221,7 +221,12 @@ namespace DAL.STR.Add
 
         }
         public List<StrAddGetVM> GetAll() => _context.StrAdd.Select(n => n.ToStrAddGetVM()).ToList();
-        public StrAddGetVM GetById(int sTR_AddId) => _context.StrAdd.Select(n => n.ToStrAddGetVM()).Single(n => n.Id == sTR_AddId);
+       // public StrAddGetVM GetById(int sTR_AddId) => _context.StrAdd.Select(n => n.ToStrAddGetVM()).(n => n.Id == sTR_AddId);
+        public StrAddGetVM GetById(int sTR_AddId)
+        {
+
+            return _context.StrAdd.Single(e => e.Id ==sTR_AddId).ToStrAddGetVM();
+        }
         public List<StrAddGetVM> Search(searchadd searchModel)
         {
 
