@@ -52,7 +52,7 @@ namespace DAL.STR.Employee
             bool exists = _context.StrEmployeeOpeningCustodyDetails.Any(s => s.ItemId == STR_Employee_Opening_Custody_Details.ItemId && s.CustodyId == STR_Employee_Opening_Custody_Details.CustodyId && s.Id != STR_Employee_Opening_Custody_Details.Id);
             if (exists)
             {
-                throw new Exception("store already exists.");
+                throw new Exception("Item already exists.");
             }
             var _item = _context.StrEmployeeOpeningCustodyDetails.Single(n => n.Id == STR_Employee_Opening_Custody_Details.Id);
                

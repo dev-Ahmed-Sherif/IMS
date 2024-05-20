@@ -52,7 +52,7 @@ namespace IMS.Controllers.STR.General
         [HttpGet("get/by/pagination")]
         public IActionResult getAllByPagination(int page, int pageSize)
         {
-            var allItems = _itemsService.getAllByPagination(page, pageSize);
+            var allItems = _itemsService.GetAllByPagination(page, pageSize);
             return Ok(allItems);
         }
 
@@ -73,6 +73,12 @@ namespace IMS.Controllers.STR.General
         {
             var AllSTR_Add_Details = _itemsService.Search(searchModel);
             return Ok(AllSTR_Add_Details);
+        }
+        [HttpGet("get/search/pagnation")]
+        public IActionResult Search([FromQuery] searchgeneral searchModel, int page, int pageSize)
+        {
+            var allItems = _itemsService.SearchPagination(searchModel, page, pageSize);
+            return Ok(allItems);
         }
         [HttpGet("Get/lastNo")]
         public IActionResult GetLastNo(int GroupId)

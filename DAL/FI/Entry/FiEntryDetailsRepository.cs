@@ -21,25 +21,25 @@ namespace DAL.FI.Entry
         //-------------------------
         public string Add(FiEntryDetailsGeneralVM entryDetail)
         {
-            bool exists = _context.FiEntryDetails.Any(s => (s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&& s.EntryId == entryDetail.EntryId);
+            bool exists = _context.FiEntryDetails.Any(s =>  s.AccountId == entryDetail.AccountId&& s.EntryId == entryDetail.EntryId);
             if (exists)
             {
-                return " ChecKNo or accountId of entry already exists.";
+                return "accountId of entry already exists.";
             }
 
             var _item = new FiEntryDetails()
-                {
-                    Credit = entryDetail.Credit,
-                    Debit = entryDetail.Debit,
-                    Description = entryDetail.Description,
-                    CheckNo = entryDetail.CheckNo,
-                    AccountId = entryDetail.AccountId,
-                    FiAccountItemId = entryDetail.FiAccountItemId,
-                    EntryId = entryDetail.EntryId,
-                    CostCenterId = entryDetail.CostCenterId,
-                    CreatedByID = entryDetail.TransactionUserId,
-                    CreationDate = DateTime.Now
-                };
+            {
+                Credit = entryDetail.Credit,
+                Debit = entryDetail.Debit,
+                Description = entryDetail.Description,
+                CheckNo = entryDetail.CheckNo,
+                AccountId = entryDetail.AccountId,
+                FiAccountItemId = entryDetail.FiAccountItemId,
+                EntryId = entryDetail.EntryId,
+                CostCenterId = entryDetail.CostCenterId,
+                CreatedByID = entryDetail.TransactionUserId,
+                CreationDate = DateTime.Now
+            };
                 _context.FiEntryDetails.Add(_item);
                 _context.SaveChanges();
                 return _item.Id.ToString();
@@ -50,10 +50,10 @@ namespace DAL.FI.Entry
         //-------------------------------------------------------
         public string Update(FiEntryDetailsVM entryDetail)
         {
-            bool exists = _context.FiEntryDetails.Any(s =>( s.CheckNo == entryDetail.CheckNo || s.AccountId == entryDetail.AccountId)&&s.Id==entryDetail.Id);
+            bool exists = _context.FiEntryDetails.Any(s =>s.AccountId == entryDetail.AccountId&& s.EntryId == entryDetail.EntryId && s.Id!=entryDetail.Id);
             if (exists)
             {
-                return " ChechNo of entry already exists.";
+                return " accountId  of entry already exists.";
             }
 
             var _item = _context.FiEntryDetails.Single(n => n.Id == entryDetail.Id);

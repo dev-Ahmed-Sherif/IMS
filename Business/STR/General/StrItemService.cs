@@ -2,6 +2,7 @@
 using DAL.STR.General;
 using Entities.ReportViewModel;
 using Entities.ViewModels.STR.General;
+using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace Business.STR.General
         {
             return _StrItemRepository.GetAll();
         }
-        public PaginatedResult<StrItemGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult <StrItemGetVM> GetAllByPagination(int page, int pageSize)
         {
             return _StrItemRepository.GetAllByPagination(page, pageSize);
         }
@@ -58,6 +59,10 @@ namespace Business.STR.General
         public List<StrItemGetVM> Search(searchgeneral searchModel)
         {
             return _StrItemRepository.Search(searchModel);
+        }
+        public PaginatedResult<StrItemGetVM> SearchPagination(searchgeneral searchModel, int page, int pageSize)
+        {
+            return _StrItemRepository.SearchPagination(searchModel,page,pageSize);
         }
         public List<dynamic> GetTransactions(int soreId, int itemId, DateTime startdate, DateTime enddate, int FiscalYearId)
         {
