@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using DAL.Migrations;
+using Entities.Models;
 using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,9 +17,12 @@ namespace DAL.HR
         }
         public string Add(DepartmentGeneralVM Gdep)
         {
-            try
+            bool exists = _context.Department.Any(s => s.Name == Gdep.Name&&s.GeneralDepartmentId==Gdep.GeneralDepartmentId);
+            if (exists)
             {
-                var _dep = new Department()
+                return " Name already exists.";
+            }
+            var _dep = new Department()
                 {
                     Name = Gdep.Name,
                     GeneralDepartmentId = Gdep.GeneralDepartmentId,
@@ -28,37 +32,26 @@ namespace DAL.HR
                 _context.Department.Add(_dep);
                 _context.SaveChanges();
                 return "Succeeded";
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+           
         }
 
         public string Update(DepartmentVM gdep)
         {
-            try
+            bool exists = _context.Department.Any(s => s.Name == gdep.Name && s.GeneralDepartmentId == gdep.GeneralDepartmentId && s.Id != gdep.Id);
+            if (exists)
             {
-                var _gdep = _context.Department.FirstOrDefault(n => n.Id == gdep.Id);
-                if (_gdep != null)
-                {
+                return " Name already exists.";
+            }
+            var _gdep = _context.Department.Single(n => n.Id == gdep.Id);
+               
                     _gdep.Name = gdep.Name;
-
+                    _gdep.GeneralDepartmentId = gdep.GeneralDepartmentId;
                     _gdep.UpdateByID = gdep.TransactionUserId;
                     _gdep.LastUpdateDate = DateTime.Now;
 
                     _context.SaveChanges();
                     return "Succeeded";
-                }
-                else
-                {
-                    return "nothing to be updated";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+            
         }
 
         public string Delete(int gdepId)

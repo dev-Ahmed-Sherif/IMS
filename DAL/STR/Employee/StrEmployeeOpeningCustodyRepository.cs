@@ -57,7 +57,8 @@ namespace DAL.STR.Employee
             bool exists = _context.StrEmployeeOpeningCustody.Any(s => s.EmployeeId == employee_Opening_Custody.EmployeeId && s.FiscalYearId == employee_Opening_Custody.FiscalYearId);
             if (exists)
             {
-                throw new Exception("store already exists.");
+                throw new Exception("employee already exists in this fiscalyear" +
+                    ".");
             }
 
             var _sTR_Employee_Opening_Custody = new StrEmployeeOpeningCustody()

@@ -16,9 +16,12 @@ namespace DAL.HR
         }
         public string Add(GeneralDepartmentgeneralVM Gdep)
         {
-            try
+            bool exists = _context.GeneralDepartment.Any(s => s.Name == Gdep.Name);
+            if (exists)
             {
-                var _Gdep = new GeneralDepartment()
+                return " Name already exists.";
+            }
+            var _Gdep = new GeneralDepartment()
                 {
                     Name = Gdep.Name,
                     CreatedByID = Gdep.TransactionUserId,
@@ -27,20 +30,18 @@ namespace DAL.HR
                 _context.GeneralDepartment.Add(_Gdep);
                 _context.SaveChanges();
                 return "Succeeded";
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+          
         }
 
         public string Update(GeneralDepartmentVM gdep)
         {
-            try
+            bool exists = _context.GeneralDepartment.Any(s => s.Name == gdep.Name && s.Id != gdep.Id);
+            if (exists)
             {
-                var _gdep = _context.GeneralDepartment.FirstOrDefault(n => n.Id == gdep.Id);
-                if (_gdep != null)
-                {
+                return " Name already exists.";
+            }
+            var _gdep = _context.GeneralDepartment.Single(n => n.Id == gdep.Id);
+               
                     _gdep.Name = gdep.Name;
 
                     _gdep.UpdateByID = gdep.TransactionUserId;
@@ -48,16 +49,9 @@ namespace DAL.HR
 
                     _context.SaveChanges();
                     return "Succeeded";
-                }
-                else
-                {
-                    return "nothing to be updated";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+               
+            
+         
         }
 
         public string Delete(int gdepId)

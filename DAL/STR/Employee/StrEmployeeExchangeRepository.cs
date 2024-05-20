@@ -49,8 +49,8 @@ namespace DAL.STR.Employee
                 FiscalYearId = exch.FiscalYearId,
                 CreatedByID = exch.TransactionUserId,
                 CreationDate = DateTime.Now,
-                Attachment = 
-                await 
+                Attachment =
+                await
                 FileHelper
                 .UploadFile
                     (exch.File,

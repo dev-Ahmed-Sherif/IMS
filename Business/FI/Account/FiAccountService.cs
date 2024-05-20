@@ -69,9 +69,9 @@ namespace Business.FI.Account
         {
             return _FiRepository.GetByName(accountName);
         }
-        public string Getparent(string code)
+        public FiAccountGetParentVM Getparent(string code)
         {
-            return _FiRepository.Getparent(code);
+            return _FiRepository.GetParent(code);
         }
         public List<AccountItemVM> GetStoreAccountsReportData(DateTime startDate, DateTime endDate, int sectionId)
         {

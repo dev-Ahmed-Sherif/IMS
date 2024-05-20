@@ -898,20 +898,37 @@ namespace DAL.FI.Account
             };
 
         }
-        public string Getparent(string code)
+        //public string Getparent(string code)
+        //{
+
+
+
+        //    var maxLength = code.Length;
+        //    var parentcode = code.Substring(0,maxLength-1);
+
+        //    var matchingAccounts = _context.FiAccount
+        //        .Where(fiAccount => fiAccount.Code.StartsWith(parentcode))
+        //        .Select(e=>e.Code).First();
+                  
+
+        //    return matchingAccounts.ToString();
+        //}
+        public FiAccountGetParentVM GetParent(string code)
         {
-
-
-
             var maxLength = code.Length;
-            var parentcode = code.Substring(0,maxLength-1);
+            var parentcode = code.Substring(0, maxLength - 1);
 
             var matchingAccounts = _context.FiAccount
                 .Where(fiAccount => fiAccount.Code.StartsWith(parentcode))
-                .Select(e=>e.Code).First();
+                .Select(fiAccount => new FiAccountGetParentVM
+                {
+                    Code = fiAccount.Code,
+                    Id = fiAccount.Id,
+                    Name = fiAccount.Name
+                })
+                 .FirstOrDefault();
 
-          
-            return matchingAccounts.ToString();
+            return matchingAccounts;
         }
         //public List<FiAccountGetVM> Getparent(string code)
         //{

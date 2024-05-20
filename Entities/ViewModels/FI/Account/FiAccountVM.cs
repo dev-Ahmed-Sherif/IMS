@@ -21,6 +21,13 @@ namespace Entities.ViewModels.FI.Account
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
     }
+    public class FiAccountGetParentVM
+    {
+        public int Id { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+
+    }
 
     public class AccountItemVM : FiAccountVM
     {

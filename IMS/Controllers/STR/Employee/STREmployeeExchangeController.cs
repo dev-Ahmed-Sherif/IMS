@@ -1,5 +1,6 @@
 ﻿using Business.STR.Employee;
 using Entities.ViewModels.STR.Employee;
+using Entities.ViewModels.STR.General;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net.Mime;
@@ -24,6 +25,13 @@ namespace IMS.Controllers.STR.Employee
             string _response = await _Employee_ExchangeService.Add(exch);
             return new JsonResult(_response);
         }
+
+        //public IActionResult Add([FromBody] StrEmployeeExchangeGeneralVM exch)
+        //{
+        //    var _response = _Employee_ExchangeService.Add(exch);
+        //    return new JsonResult(_response);
+        //}
+
         [HttpPut("update")]
         public async Task<IActionResult> Update([FromForm] StrEmployeeExchangeVM exch)
         {
