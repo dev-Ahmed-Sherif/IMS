@@ -50,6 +50,11 @@
 		<None Remove="ReportsFiles\HR\Employee.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAppraisalReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAttendanceReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeDisciplinaryReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeFinancialDegreeReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeQualificationReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeStatistics.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
 		<None Remove="ReportsFiles\ItemsTransactionReport.rdlc" />
@@ -183,6 +188,21 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmployeeAttendanceReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeDisciplinaryReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeFinancialDegreeReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeQualificationReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeStatistics.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpPositionReport.rdlc">

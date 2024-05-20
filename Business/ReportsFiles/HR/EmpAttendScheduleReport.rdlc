@@ -6,24 +6,24 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.83363cm</Width>
+              <Width>4.63373cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.72238cm</Width>
+              <Width>3.52248cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.78071cm</Width>
+              <Width>4.58081cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.78071cm</Width>
+              <Width>4.58081cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.78071cm</Width>
+              <Width>4.58081cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75875cm</Height>
+              <Height>1.06302cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -218,7 +218,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.78521cm</Height>
+              <Height>1.08948cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -426,10 +426,10 @@
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <KeepTogether>true</KeepTogether>
         <DataSetName>HrEmpAttendSchedule</DataSetName>
-        <Top>1.92828cm</Top>
-        <Left>2.98661cm</Left>
-        <Height>1.54396cm</Height>
-        <Width>22.89814cm</Width>
+        <Top>2.03411cm</Top>
+        <Left>3.81041cm</Left>
+        <Height>2.1525cm</Height>
+        <Width>21.89864cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
