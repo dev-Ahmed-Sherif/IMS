@@ -255,7 +255,57 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.FinancialDegreeDate >= searchModel.FinancialDegreeDate.Value.Date);
             }
-            var result = query.Select(n => n.ToHrEmployeeGetSearchVM()).ToList();
+            var result = query.Select(n => new HrEmployeeGetSearchVM
+            {
+                Id = n.Id,
+                Name = n.Name,
+                Code = n.Code,
+                National_Code = n.National_Code,
+                Birth_Date = n.Birth_Date,
+                Birth_DateShort = n.Birth_Date.ToString("dd/MM/yyyy"),
+                Address = n.Address,
+                QualificationDate = n.QualificationDate,
+                QualificationDateShort = n.QualificationDate.ToString("dd/MM/yyyy"),
+                HiringDate = n.HiringDate,
+                HiringDateShort = n.HiringDate.ToString("dd/MM/yyyy"),
+                WorkingStateDate = n.WorkingStateDate,
+                WorkingStateDateShort = n.WorkingStateDate.ToString("dd/MM/yyyy"),
+                FinancialDegreeDate = n.FinancialDegreeDate,
+                FinancialDegreeDateShort = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
+                Gender = n.Gender,
+                MaritalState = n.MaritalState,
+                QualificationId = n.QualificationId,
+                QualificationName = n.Qualification.Name,
+                QualificationLevelId = n.QualificationLevelId,
+                QualificationLevelName = n.Qualification.Name,
+                SpecializationId = n.SpecializationId,
+                SpecializationName = n.Specialization.Name,
+                JobTitleId = n.JobTitleId,
+                JobTitleName = n.JobTitle.Name,
+                PositionId = n.PositionId,
+                PositionName = n.Position.Name,
+                MillitryStateId = n.MillitryStateId,
+                MillitryStateName = n.MillitryState.Name,
+                HiringTypeId = n.HiringTypeId,
+                HiringTypeName = n.HiringType.Name,
+                FinancialDegreeId = n.FinancialDegreeId,
+                FinancialDegreeName = n.FinancialDegree.Name,
+                CityStateId = n.CityStateId,
+                CityStateName = n.CityState.Name,
+                WorkPlaceId = n.WorkPlaceId,
+                WorkPlaceName = n.WorkPlace.Name,
+                DepartmentId = n.DepartmentId,
+                DepartmentName = n.Department.Name,
+                SeveranceReasonId = n.SeveranceReasonId,
+                SeveranceReasonName = n.SeveranceReason.Name,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Section.Name,
+
+
+
+            }).ToList();
 
             return result;
         }

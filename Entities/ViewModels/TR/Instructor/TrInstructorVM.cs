@@ -20,16 +20,16 @@
         public string TrainingCenterName { get; set; }
         //public string InstructorName { get; set; } // Added property
         //header data
-        public string? HeaderName { get; set; }
+        public string? InstructorName { get; set; }
         public string? employeeName { get; set; }
-        public string? HeaderCode { get; set; }
-        public string? HeaderPhone { get; set; }
-        public string? HeaderEmail { get; set; }
-        public string? HeaderPosition { get; set; }
-        public string? HeaderAddress { get; set; }
-        public string? HeaderGender { get; set; }
-        public string? HeaderCityName { get; set; }
-        public int? HeaderCityID { get; set; }
+        public string? InstructorCode { get; set; }
+        public string? InstructorPhone { get; set; }
+        public string? InstructorEmail { get; set; }
+        public string? InstructorPosition { get; set; }
+        public string? InstructorAddress { get; set; }
+        public string? InstructorGender { get; set; }
+        public string? InstructorCityName { get; set; }
+        public int? InstructorCityID { get; set; }
 
     }
 }

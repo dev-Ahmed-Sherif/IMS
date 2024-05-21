@@ -1,6 +1,8 @@
 ﻿using Business.HR;
+using Entities.ViewModels;
 using Entities.ViewModels.HR;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace IMS.Controllers.HR
 {
@@ -51,6 +53,18 @@ namespace IMS.Controllers.HR
             var EmployeeFinancialDegree = _EmployeeFinancialDegreeService.GetById(ID);
             return Ok(EmployeeFinancialDegree);
         }
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] HrEmployeeFinancialDegreeSearch searchModel)
+        {
+            var EmployeeFinancialDegree = _EmployeeFinancialDegreeService.Search(searchModel);
+            return Ok(EmployeeFinancialDegree);
+        }
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] HrEmployeeFinancialDegreeReport searchModel)
+        {
 
+            var reportFileByString = _EmployeeFinancialDegreeService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
     }
 }

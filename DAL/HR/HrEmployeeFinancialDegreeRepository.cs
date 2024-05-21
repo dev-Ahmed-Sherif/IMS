@@ -91,6 +91,53 @@ namespace DAL.HR
 
         public List<HrEmployeeFinancialDegreeGetVM> GetAll() => _context.EmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name }).ToList();
         public HrEmployeeFinancialDegreeGetVM GetById(int EmployeeFinancialDegreeId) => _context.EmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name }).FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
+        public List<HrEmployeeFinancialDegreeGetSearchVM> Search(HrEmployeeFinancialDegreeSearch searchModel)
+        {
+            var query = _context.EmployeeFinancialDegree.AsQueryable();
 
+            if (!string.IsNullOrEmpty(searchModel.FinancialDegreeId))
+            {
+                query = query.Where(p => p.FinancialDegreeId.ToString().Contains(searchModel.FinancialDegreeId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CreateUserName))
+            {
+                query = query.Where(p => p.CreatedBy.Name.ToString().Contains(searchModel.CreateUserName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
+            {
+                query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
+
+            }
+            if (!string.IsNullOrEmpty(searchModel.UpdateUserName))
+            {
+                query = query.Where(p => p.UpdateBy.Name.Contains(searchModel.UpdateUserName));
+            }
+
+            if (searchModel.FinancialDegreeDate.HasValue)
+            {
+                query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
+
+            }
+            var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
+            {
+                Id = n.Id,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                FinancialDegreeId = n.FinancialDegreeId,
+                FinancialDegreeDate = n.FinancialDegreeDate,
+                FinancialDegreeName = n.FinancialDegree.Name,
+                FinancialDegreeShortDate = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                //Section =n.
+
+            }).ToList();
+
+
+
+
+            return result;
+
+        }
     }
+
 }

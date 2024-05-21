@@ -156,6 +156,9 @@ namespace DAL.HR
                 VacationName = n.Vacation.Name,
                 ShortEndDate = n.EndDate.ToString("dd/MM/yyyy"),
                 ShortStartDate = n.StartDate.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
 
 
             }).ToList();

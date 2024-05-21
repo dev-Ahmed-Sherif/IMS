@@ -139,10 +139,10 @@ namespace DAL
             {
                 query = query.Where(p => p.Date.Date >= searchModel.Date.Value.Date);
             }
-
-
-
-
+            //if (searchModel.SectionId.HasValue)
+            //{
+            //    query = query.Where(p => p.Appraisal == searchModel.SectionId);
+            //}
 
 
             var results = query.Select(p => new HrEmployeeAppraisalGetSearchVM
@@ -155,7 +155,8 @@ namespace DAL
                 EmployeeId = p.EmployeeId,
 
                 EmployeeName = p.Employee.Name,
-
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = p.Employee.Section.Name,
 
             }).ToList();
 

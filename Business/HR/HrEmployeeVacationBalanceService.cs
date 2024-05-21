@@ -2,7 +2,11 @@
 using DAL.HR;
 using Entities.ViewModels.HR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Reporting.NETCore;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 
 
 namespace Business.HR
@@ -36,6 +40,54 @@ namespace Business.HR
         {
             return _HrEmployeeVacationBalanceRepository.GetById(EmployeeVacationBalanceId);
         }
+        public List<HrEmployeeVacationBalanceGetVM> Search(HrEmployeeVacationBalanceSearch searchModel)
+        {
+            return _HrEmployeeVacationBalanceRepository.Search(searchModel);
+        }
 
+
+
+        public byte[] GenerateReportAsync(string reportName, string reportType, HrEmployeeVacationBalanceSearch searchModel)
+        {
+            // get report file
+
+            string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("Business.dll", string.Empty);
+            Console.WriteLine(string.Format("{0}ReportsFiles\\{1}.rdlc", fileDirPath, reportName));
+            string rdclFilePath = string.Format("{0}ReportsFiles\\HR\\{1}.rdlc", fileDirPath, reportName);
+
+            // file encoding
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Encoding.GetEncoding("utf-8");
+
+            LocalReport report = new()
+            {
+                ReportPath = rdclFilePath
+            };
+            // prepare data for report
+
+            List<HrEmployeeVacationBalanceGetVM> HrEmployeeVacationBalance;
+
+
+            if (reportName == "EmployeeVacationBalanceReport")
+            {
+
+                HrEmployeeVacationBalance = Search(searchModel);
+
+                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployeeVacationBalance", Value = HrEmployeeVacationBalance });
+            }
+            //else if (reportName == "FIEntryDetailsReport")
+            //{
+
+            //    //FiEntryDetails = _Details.Search(searchModel);
+            //    //report.AddDataSource("FIEntryDetails", FiEntryDetails);
+            //}
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+            byte[] renderedBytes = report.Render(reportType);
+
+            return renderedBytes;
+        }
     }
 }

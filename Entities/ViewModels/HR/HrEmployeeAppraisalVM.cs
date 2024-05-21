@@ -37,12 +37,18 @@ namespace Entities.ViewModels
 
         [DataType(DataType.Date)]
         public DateTime? Date { get; set; }
+
+        public int? SectionId { get; set; }
     }
+
     public class HrEmployeeAppraisalGetSearchVM : HrEmployeeAppraisalGetVM
     {
-        public string? ShortDate { get; set; }
+       public string? ShortDate { get; set; }
+       public string? ReportDate { get; set; }
 
-    }
+       public string Section { get; set; }
+
+}
     public class HrEmployeeAppraisalReport : searchEmpAppr
     {
         public string reportName { get; set; }

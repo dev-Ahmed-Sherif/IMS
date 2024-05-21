@@ -157,7 +157,11 @@ namespace DAL.HR
                 AttendancePermissionId = n.AttendancePermissionId,
                 AttendancePermissionName = n.AttendancePermission.Name,
                 Date = n.Date,
-                ShortDate = n.Date.ToString("dd/MM/yyyy")
+                ShortDate = n.Date.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
+
 
             }).ToList();
 

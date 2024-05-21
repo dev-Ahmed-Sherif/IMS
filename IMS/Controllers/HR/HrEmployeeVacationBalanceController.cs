@@ -1,6 +1,8 @@
 ﻿using Business.HR;
+using Entities.ViewModels;
 using Entities.ViewModels.HR;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace IMS.Controllers.HR
 {
@@ -50,6 +52,18 @@ namespace IMS.Controllers.HR
             var EmployeeVacationBalance = _EmployeeVacationBalanceService.GetById(ID);
             return Ok(EmployeeVacationBalance);
         }
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] HrEmployeeVacationBalanceSearch searchModel)
+        {
+            var EmployeeVacationBalance = _EmployeeVacationBalanceService.Search(searchModel);
+            return Ok(EmployeeVacationBalance);
+        }
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] HrEmployeeVacationBalanceReport searchModel)
+        {
 
+            var reportFileByString = _EmployeeVacationBalanceService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
     }
 }

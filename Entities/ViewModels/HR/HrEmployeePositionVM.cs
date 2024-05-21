@@ -32,6 +32,9 @@ namespace Entities.ViewModels
     public class HrEmployeePositionGetSearchVM : HrEmployeePositionGetVM
     {
         public string ShortDate { get; set; }
+
+        public string ReportDate { get; set; }
+        public string Section {  get; set; }
     }
 
 

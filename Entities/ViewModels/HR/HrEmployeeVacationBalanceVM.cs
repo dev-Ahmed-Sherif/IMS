@@ -24,8 +24,36 @@
         public string UpdateUserName { get; set; }
         public string EmployeeName { get; set; }
         public string VactionName { get; set; }
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
+
+    }
+    //public class HrEmployeeVacationBalanceGetSearchVM : HrEmployeeVacationBalanceGetVM
+    //{
+    //    public string ShortDate { get; set; }
+    //}
+
+
+
+    public class HrEmployeeVacationBalanceSearch
+    {
+        public string name { get; set; }
+        public string Year { get; set; }
+        public string Balance { get; set; }
+        public string EmployeeId { get; set; }
+        public string VactionId { get; set; }
+        public string TransactionUserId { get; set; }
+        public string CreateUserName { get; set; }
+        public string UpdateUserName { get; set; }
+        public string EmployeeName { get; set; }
+        public string VactionName { get; set; }
     }
 
+    public class HrEmployeeVacationBalanceReport : HrEmployeeVacationBalanceSearch
+    {
+        public string reportName { get; set; }
+        public string reportType { get; set; }
+    }
 
 
 }
