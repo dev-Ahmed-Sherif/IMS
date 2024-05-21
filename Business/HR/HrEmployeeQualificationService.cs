@@ -70,7 +70,7 @@ namespace Business.HR
             List<HrEmployeeQualificationGetSearch> HrEmployeeQualification;
 
 
-            if (reportName == "EmployeeFinancialDegreeReport")
+            if (reportName == "EmployeeQualificationReport")
             {
 
                 HrEmployeeQualification = Search(searchModel);
