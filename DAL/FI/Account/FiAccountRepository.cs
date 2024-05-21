@@ -924,7 +924,12 @@ namespace DAL.FI.Account
                 {
                     Code = fiAccount.Code,
                     Id = fiAccount.Id,
-                    Name = fiAccount.Name
+                    Name = fiAccount.Name,
+                    FiAccountHierarchyId = fiAccount.FiAccountHierarchyId,
+                    AccountHierarchyName=fiAccount.FiAccountHierarchy.Name,
+                    AccountHierarchyLevel= fiAccount.FiAccountHierarchy.Level
+                   
+
                 })
                  .FirstOrDefault();
 

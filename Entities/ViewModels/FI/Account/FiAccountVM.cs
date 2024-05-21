@@ -26,6 +26,9 @@ namespace Entities.ViewModels.FI.Account
         public int Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
+        public int FiAccountHierarchyId { get; set; }
+        public string AccountHierarchyName { get; set; }
+        public string AccountHierarchyLevel { get; set; }
 
     }
 
