@@ -5,6 +5,7 @@ using Entities.Helpers;
 using Entities.ReportViewModels;
 using Entities.ViewModels.FI.Account;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.NETCore;
 using Microsoft.VisualBasic;
 using System;
@@ -720,8 +721,32 @@ namespace Business.FI.Account
                     break;
                 case "AccountChangeOwnerShipRightsReport":
                     {
-                        List<FiChangeInOwnersEquityViewModel> AccountSuppliers;
+                        List<FiChangeInOwnersEquityViewModel> AccountSuppliers, 
+                                                              equityCapital = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              stageProfitsAndLosses = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              treasuryShares = new List<FiChangeInOwnersEquityViewModel>();
+
                         AccountSuppliers =  GetChangeInOwnersEquityReportData(fiscalYearId);
+
+                        for (int i = 0; i < AccountSuppliers.Count; i++)
+                        {
+                            if (AccountSuppliers[i].AccountCode == "2113")
+                            {
+                                equityCapital.Add(AccountSuppliers[i]);
+                            }
+                            if (AccountSuppliers[i].AccountCode == "23")
+                            {
+                                stageProfitsAndLosses.Add(AccountSuppliers[i]);
+                            }
+                            if (AccountSuppliers[i].AccountCode == "24")
+                            {
+                                treasuryShares.Add(AccountSuppliers[i]);
+                            }
+                        }
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "EquityCapital", Value = equityCapital });
+                        report.DataSources.Add(new ReportDataSource() { Name = "StageProfitsAndLosses", Value = stageProfitsAndLosses });
+                        report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountItem", Value = AccountSuppliers });
                     }
                     break;

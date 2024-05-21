@@ -2437,7 +2437,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <DataSetName>DestructionData</DataSetName>
             <Top>5.88849cm</Top>
             <Left>18.01808cm</Left>
-            <Height>1.8791cm</Height>
+            <Height>1.87909cm</Height>
             <Width>10.86178cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -3183,7 +3183,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>13.71932cm</Top>
             <Left>17.97121cm</Left>
             <Height>0.94396cm</Height>
-            <Width>10.86714cm</Width>
+            <Width>10.86713cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -3348,7 +3348,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>15.3512cm</Top>
             <Left>18.03841cm</Left>
             <Height>0.94396cm</Height>
-            <Width>10.86714cm</Width>
+            <Width>10.86713cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -3638,7 +3638,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>17.19474cm</Top>
             <Left>17.98907cm</Left>
             <Height>1.75563cm</Height>
-            <Width>10.87596cm</Width>
+            <Width>10.87595cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -3803,7 +3803,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>19.95579cm</Top>
             <Left>18.05742cm</Left>
             <Height>0.94396cm</Height>
-            <Width>10.87596cm</Width>
+            <Width>10.87595cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -5947,7 +5947,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>21.98454cm</Top>
             <Left>18.05212cm</Left>
             <Height>0.94396cm</Height>
-            <Width>10.87596cm</Width>
+            <Width>10.87595cm</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -6123,7 +6123,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>23.5635cm</Top>
             <Left>18.03057cm</Left>
             <Height>0.94396cm</Height>
-            <Width>10.86714cm</Width>
+            <Width>10.86713cm</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -6809,7 +6809,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>5.88849cm</Top>
             <Left>6.17133cm</Left>
             <Height>1.8791cm</Height>
-            <Width>5.94102cm</Width>
+            <Width>5.94101cm</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -7574,7 +7574,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>4.1414cm</Top>
             <Left>0.35352cm</Left>
             <Height>1.75563cm</Height>
-            <Width>5.81781cm</Width>
+            <Width>5.81782cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -7995,7 +7995,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <DataSetName>AdministrativeCosts3Data</DataSetName>
             <Top>7.77613cm</Top>
             <Left>0.35352cm</Left>
-            <Height>1.85069cm</Height>
+            <Height>1.85068cm</Height>
             <Width>5.81781cm</Width>
             <ZIndex>28</ZIndex>
             <Style>
@@ -8207,7 +8207,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Top>9.62682cm</Top>
             <Left>0.35352cm</Left>
             <Height>1.85923cm</Height>
-            <Width>5.81781cm</Width>
+            <Width>5.81782cm</Width>
             <ZIndex>29</ZIndex>
             <Style>
               <Border>
