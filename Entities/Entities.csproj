@@ -3,14 +3,14 @@
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
+		<Compile Remove="Models\FI\General\**" />
 		<Compile Remove="Reports\**" />
+		<EmbeddedResource Remove="Models\FI\General\**" />
 		<EmbeddedResource Remove="Reports\**" />
+		<None Remove="Models\FI\General\**" />
 		<None Remove="Reports\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Models\FI\General\" />
 	</ItemGroup>
 </Project>
