@@ -123,6 +123,79 @@ namespace DAL
                 DisciplinaryName = n.Disciplinary.Name,
                 NoDays = n.NoDays
             }).FirstOrDefault(n => n.Id == EmployeeDisciplinaryId);
+        public List<HrEmployeeDisciplinaryGetSearchVM> Search(HrEmployeeDisciplinarySearch searchModel)
+        {
+            var query = _context.HrEmployeeDisciplinary.AsQueryable();
+            if (!string.IsNullOrEmpty(searchModel.Description))
+            {
+                query = query.Where(p => p.Description.Contains(searchModel.Description));
+            }
+            if (!string.IsNullOrEmpty(searchModel.DisciplinaryId))
+            {
+                query = query.Where(p => p.DisciplinaryId.ToString().Contains(searchModel.DisciplinaryId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.DisciplinaryName))
+            {
+                query = query.Where(p => p.Disciplinary.Name.Contains(searchModel.DisciplinaryName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.EmployeeId))
+            {
+                query = query.Where(p => p.EmployeeId.ToString().Contains(searchModel.EmployeeId));
+            }
 
+            if (!string.IsNullOrEmpty(searchModel.EmployeeName))
+            {
+                query = query.Where(p => p.Employee.Name.Contains(searchModel.EmployeeName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.No))
+            {
+                query = query.Where(p => p.No.ToString().Contains(searchModel.No));
+            }
+            if (!string.IsNullOrEmpty(searchModel.NoDays))
+            {
+                query = query.Where(p => p.NoDays.ToString().Contains(searchModel.NoDays));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CreateUserName))
+            {
+                query = query.Where(p => p.CreatedBy.Name.Contains(searchModel.CreateUserName));
+            }
+            //if (!string.IsNullOrEmpty(searchModel.CreateUserName))
+            //{
+            //    query = query.Where(p => p.CreatedBy.Name.Contains(searchModel.CreateUserName));
+            //}
+            //if (!string.IsNullOrEmpty(searchModel.CreateUserName))
+            //{
+            //    query = query.Where(p => p.CreatedBy.Name.Contains(searchModel.CreateUserName));
+            //}
+
+            if (searchModel.Date.HasValue)
+            {
+                query = query.Where(p => p.Date >= searchModel.Date.Value.Date);
+
+            }
+            var result = query.Select(n => new HrEmployeeDisciplinaryGetSearchVM
+            {
+                Id = n.Id,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                No = n.No,
+                Date = n.Date,
+                Description = n.Description,
+                EmployeeId = n.EmployeeId,
+                EmployeeName = n.Employee.Name,
+                DisciplinaryId = n.DisciplinaryId,
+                DisciplinaryName = n.Disciplinary.Name,
+                NoDays = n.NoDays,
+                ShortDate = n.Date.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
+
+            }).ToList();
+
+
+
+            return result;
+        }
     }
 }

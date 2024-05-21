@@ -76,6 +76,7 @@ namespace DAL.STR.General
                 _context
                 .FiscalYear
                 .OrderBy(fy=>fy.Id)
+                .Where(fy=>fy.IsDeleted == false)
                 .Last();
 
             return lastFiscalYears.ToFiscalYearData();

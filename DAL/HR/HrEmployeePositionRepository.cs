@@ -118,7 +118,10 @@ namespace DAL
                 PositionName = n.Position.Name,
                 WorkPlaceId = n.WorkPlaceId,
                 WorkPlaceName = n.WorkPlace.Name,
-                ShortDate = n.Date.ToString(),
+                ShortDate = n.Date.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
 
             }).ToList();
 

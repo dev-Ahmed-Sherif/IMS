@@ -38,6 +38,10 @@ namespace Entities.ViewModels.HR
         public string ShortStartDate { get; set; }
         public string ShortEndDate { get; set; }
 
+        public string ReportDate { get; set; }
+
+        public string Section { get; set; }
+
 
     }
 

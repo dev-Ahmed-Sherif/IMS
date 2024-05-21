@@ -68,6 +68,9 @@ namespace Entities.ViewModels.HR
         public string HiringDateShort { get; set; }
         public string WorkingStateDateShort { get; set; }
         public string FinancialDegreeDateShort { get; set; }
+        public string ReportDate { get; set; }
+
+        public string Section { get; set; }
 
     }
     public class HrSearch

@@ -141,6 +141,16 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.AttendanceMachine.Name.Contains(searchModel.AttendanceMachineName));
             }
+            if (searchModel.StartDate.HasValue)
+            {
+                query = query.Where(p => p.Date >= searchModel.StartDate.Value.Date);
+            }
+            if (searchModel.EndDate.HasValue)
+            {
+                query = query.Where(p => p.Date <= searchModel.EndDate.Value.Date);
+            }
+
+
             var result = query.Select(n => new HrEmployeeAttendanceGetSearchVM
             {
                 Id = n.Id,
@@ -156,7 +166,10 @@ namespace DAL.HR
                 ShortDate = n.Date.ToString("dd/MM/yyyy"),
                 ShortAttendance = n.Attendance.ToString("HH:mm:ss"),
                 ShortDeparture = n.Departure.ToString("HH:mm:ss"),
-
+                StartDate = searchModel.StartDate.Value.Date.ToString("dd/MM/yyyy"),
+                EndDate = searchModel.EndDate.Value.Date.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
 
             }).ToList();
             return result;

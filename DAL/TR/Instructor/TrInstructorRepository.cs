@@ -90,16 +90,16 @@ namespace DAL.TR.Instructor
             var data = _context.TrInstructor.Select(
                 n => new TrInstructorGetVM
                 {
-                    HeaderName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
+                    InstructorName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
                     employeeName = n.EmployeeId != null ? n.Employee.Name : null,
-                    HeaderCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
-                    HeaderPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
-                    HeaderEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
-                    HeaderPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
-                    HeaderAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
-                    HeaderGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
-                    HeaderCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
-                    HeaderCityID = n.EmployeeId == null ? n.InstructorData.City.Id : n.Employee.CityState.Id,
+                    InstructorCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
+                    InstructorPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
+                    InstructorEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
+                    InstructorPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
+                    InstructorAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
+                    InstructorGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
+                    InstructorCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
+                    InstructorCityID = n.EmployeeId == null ? n.InstructorData.City.Id : n.Employee.CityState.Id,
                     //Details
                     Id = n.Id,
                     EmployeeId = n.EmployeeId,
@@ -117,15 +117,15 @@ namespace DAL.TR.Instructor
             => _context.TrInstructor.Select(
                 n => new TrInstructorGetVM
                 {
-                    HeaderName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
+                    InstructorName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
                     employeeName = n.EmployeeId != null ? n.Employee.Name : null,
-                    HeaderCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
-                    HeaderPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
-                    HeaderEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
-                    HeaderPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
-                    HeaderAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
-                    HeaderGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
-                    HeaderCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
+                    InstructorCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
+                    InstructorPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
+                    InstructorEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
+                    InstructorPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
+                    InstructorAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
+                    InstructorGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
+                    InstructorCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
                     //Details
                     Id = n.Id,
                     EmployeeId = n.EmployeeId,
@@ -148,15 +148,15 @@ namespace DAL.TR.Instructor
                 .Take(pageSize)
                 .Select(n => new TrInstructorGetVM
                 {
-                    HeaderName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
+                    InstructorName = n.EmployeeId == null ? n.InstructorData.Name : n.Employee.Name,
                     employeeName = n.EmployeeId != null ? n.Employee.Name : null,
-                    HeaderCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
-                    HeaderPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
-                    HeaderEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
-                    HeaderPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
-                    HeaderAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
-                    HeaderGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
-                    HeaderCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
+                    InstructorCode = n.EmployeeId == null ? n.InstructorData.Code.ToString() : n.Employee.Code,
+                    InstructorPhone = n.EmployeeId == null ? n.InstructorData.phone : n.Employee.Phone,
+                    InstructorEmail = n.EmployeeId == null ? n.InstructorData.Email : n.Employee.Email,
+                    InstructorPosition = n.EmployeeId == null ? n.InstructorData.Position : n.Employee.Position.Name,
+                    InstructorAddress = n.EmployeeId == null ? n.InstructorData.Address : n.Employee.Address,
+                    InstructorGender = n.EmployeeId == null ? n.InstructorData.Gender : n.Employee.Gender,
+                    InstructorCityName = n.EmployeeId == null ? n.InstructorData.City.Name : n.Employee.CityState.Name,
                     //Details
                     Id = n.Id,
                     EmployeeId = n.EmployeeId,

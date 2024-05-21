@@ -1,6 +1,7 @@
 ﻿using Business.HR;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 
 namespace IMS.Controllers
@@ -53,6 +54,18 @@ namespace IMS.Controllers
             var EmployeeQualification = _EmployeeQualificationService.GetById(id);
             return Ok(EmployeeQualification);
         }
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] HrEmployeeQualificationSearch searchModel)
+        {
+            var EmployeeQualification = _EmployeeQualificationService.Search(searchModel);
+            return Ok(EmployeeQualification);
+        }
 
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] HrEmployeeQualificationReport searchModel)
+        {
+            var reportFileByString = _EmployeeQualificationService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
     }
 }

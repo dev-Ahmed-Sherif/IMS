@@ -1,6 +1,7 @@
 ﻿using Business.HR;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace IMS.Controllers
 {
@@ -51,6 +52,18 @@ namespace IMS.Controllers
             var EmployeeDisciplinary = _EmployeeDisciplinaryService.GetById(id);
             return Ok(EmployeeDisciplinary);
         }
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] HrEmployeeDisciplinarySearch searchModel)
+        {
+            var Add = _EmployeeDisciplinaryService.Search(searchModel);
+            return Ok(Add);
+        }
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] HrEmployeeDisciplinaryReport searchModel)
+        {
 
+            var reportFileByString = _EmployeeDisciplinaryService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
     }
 }

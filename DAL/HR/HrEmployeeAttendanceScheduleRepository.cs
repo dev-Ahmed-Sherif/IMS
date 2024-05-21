@@ -144,6 +144,14 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.AttendanceSchedule.Name.Contains(searchModel.AttendanceScheduleName));
             }
+            if (searchModel.StartDate.HasValue)
+            {
+                query = query.Where(p => p.AttendanceSchedule.StartDate >= searchModel.StartDate.Value.Date);
+            }
+            if (searchModel.EndDate.HasValue)
+            {
+                query = query.Where(p => p.AttendanceSchedule.StartDate <= searchModel.EndDate.Value.Date);
+            }
 
             var result = query.Select(n => new HrEmployeeAttendanceScheduleGetVM
             {
@@ -156,7 +164,13 @@ namespace DAL.HR
                 AttendancePermissionId = n.AttendancePermissionId,
                 AttendancePermissionName = n.AttendancePermission.Name,
                 AttendanceScheduleId = n.AttendanceScheduleId,
-                AttendanceScheduleName = n.AttendanceSchedule.Name
+                AttendanceScheduleName = n.AttendanceSchedule.Name,
+                StartDate = searchModel.StartDate.Value.Date.ToString("dd/MM/yyyy"),
+                EndDate = searchModel.EndDate.Value.Date.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
+
             }).ToList();
 
             return result;

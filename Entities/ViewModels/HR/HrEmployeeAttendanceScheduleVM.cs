@@ -1,4 +1,6 @@
-﻿namespace Entities.ViewModels.HR
+﻿using System;
+
+namespace Entities.ViewModels.HR
 {
     public class HrEmployeeAttendanceScheduleGeneralVM
     {
@@ -32,7 +34,11 @@
         public string AttendanceScheduleName { get; set; }
         public string AttendancePermissionName { get; set; }
 
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string ReportDate { get; set; }
 
+        public string Section { get; set; }
 
     }
     public class HrEmpAttendScheduleSearch
@@ -41,7 +47,10 @@
         public string EmployeeName { get; set; }
         public string AttendanceScheduleName { get; set; }
         public string AttendancePermissionName { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
+
 
     public class HrEmpAttendScheduleReport : HrEmpAttendScheduleSearch
     {

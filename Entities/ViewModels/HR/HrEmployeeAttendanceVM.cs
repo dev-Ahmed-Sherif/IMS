@@ -40,6 +40,10 @@ namespace Entities.ViewModels.HR
         public string ShortAttendance { get; set; }
         public string ShortDeparture { get; set; }
 
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
     }
 
 
@@ -52,6 +56,8 @@ namespace Entities.ViewModels.HR
         public DateTime? Attendance { get; set; }
         public DateTime? Departure { get; set; }
 
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
     public class HrEmployeeAttendanceReport : HrEmployeeAttendanceSearch
     {

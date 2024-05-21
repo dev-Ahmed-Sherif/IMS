@@ -93,6 +93,70 @@ namespace DAL.HR
 
         public List<HrEmployeeVacationBalanceGetVM> GetAll() => _context.HrEmployeeVacationBalance.Select(n => new HrEmployeeVacationBalanceGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, EmployeeId = n.EmployeeId, VactionId = n.VacationId, Year = n.Year, Balance = n.Balance, EmployeeName = n.Employee.Name, VactionName = n.Vacation.Name }).ToList();
         public HrEmployeeVacationBalanceGetVM GetById(int EmployeeVacationBalanceId) => _context.HrEmployeeVacationBalance.Select(n => new HrEmployeeVacationBalanceGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, EmployeeId = n.EmployeeId, VactionId = n.VacationId, Year = n.Year, Balance = n.Balance, EmployeeName = n.Employee.Name, VactionName = n.Vacation.Name }).FirstOrDefault(n => n.Id == EmployeeVacationBalanceId);
+        public List<HrEmployeeVacationBalanceGetVM> Search(HrEmployeeVacationBalanceSearch searchModel)
+        {
+            var query = _context.HrEmployeeVacationBalance.AsQueryable();
 
+            if (!string.IsNullOrEmpty(searchModel.name))
+            {
+                query = query.Where(p => p.Name.Contains(searchModel.name));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Year))
+            {
+                query = query.Where(p => p.Year.ToString().Contains(searchModel.Year));
+
+            }
+            if (!string.IsNullOrEmpty(searchModel.Balance))
+            {
+                query = query.Where(p => p.Balance.ToString().Contains(searchModel.Balance));
+            }
+            if (!string.IsNullOrEmpty(searchModel.EmployeeId))
+            {
+                query = query.Where(p => p.EmployeeId.ToString().Contains(searchModel.EmployeeId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.VactionId))
+            {
+                query = query.Where(p => p.VacationId.ToString().Contains(searchModel.VactionId));
+            }
+            //if (!string.IsNullOrEmpty(searchModel.TransactionUserId))
+            //{
+            //    query = query.Where(p => p.TransactionUserId.ToString().Contains(searchModel.TransactionUserId));
+            //}
+            if (!string.IsNullOrEmpty(searchModel.CreateUserName))
+            {
+                query = query.Where(p => p.CreatedBy.Name.Contains(searchModel.CreateUserName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.UpdateUserName))
+            {
+                query = query.Where(p => p.UpdateBy.ToString().Contains(searchModel.UpdateUserName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.EmployeeName))
+            {
+                query = query.Where(p => p.Employee.Name.ToString().Contains(searchModel.EmployeeName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.VactionName))
+            {
+                query = query.Where(p => p.Vacation.Name.ToString().Contains(searchModel.VactionName));
+            }
+            var result = query.Select(n => new HrEmployeeVacationBalanceGetVM
+            {
+                Id = n.Id,
+                name = n.Name,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                EmployeeId = n.EmployeeId,
+                VactionId = n.VacationId,
+                Year = n.Year,
+                Balance = n.Balance,
+                EmployeeName = n.Employee.Name,
+                VactionName = n.Vacation.Name,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Employee.Section.Name,
+
+
+            }).ToList();
+
+            return result;
+        }
     }
 }

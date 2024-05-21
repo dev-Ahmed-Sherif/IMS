@@ -32,4 +32,40 @@ namespace Entities.ViewModels
         public string EmployeeName { get; set; }
 
     }
+    public class HrEmployeeQualificationGetSearch : HrEmployeeQualificationGetVM
+    {
+
+        public string ShortDate { get; set; }
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
+
+    }
+
+
+
+
+
+    public class HrEmployeeQualificationSearch
+    {
+        public DateTime? Date { get; set; }
+        public string Attachment { get; set; }
+        public string QualificationId { get; set; }
+        public string QualificationLevelId { get; set; }
+        public string SpecializationId { get; set; }
+        public string EmployeeId { get; set; }
+        public string TransactionUserId { get; set; }
+        public string CreateUserName { get; set; }
+        public string UpdateUserName { get; set; }
+        public string QualificationName { get; set; }
+        public string QualificationLeveName { get; set; }
+        public string SpecializationName { get; set; }
+        public string EmployeeName { get; set; }
+
+    }
+    public class HrEmployeeQualificationReport : HrEmployeeQualificationSearch
+    {
+        public string reportName { get; set; }
+        public string reportType { get; set; }
+    }
+
 }
