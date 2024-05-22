@@ -452,6 +452,10 @@ namespace DAL
         public DbSet<HrEmployeeAttendancePermission> HrEmployeeAttendancePermission { get; set; }
         public DbSet<HrEmployeeAttendanceSchedule> HrEmployeeAttendanceSchedule { get; set; }
         public DbSet<HrHoliday> HrHoliday { get; set; }
+        public DbSet<HrBank> HrBank { get; set; }
+        public DbSet<HrSalaryStatus> HrSalaryStatus { get; set; }
+        public DbSet<HrReligion> HrReligion { get; set; }
+        public DbSet<HrPayMethod> HrPayMethod { get; set; }
         public DbSet<HrHolidaySchedule> HrHolidaySchedule { get; set; }
         public DbSet<HrFinancialDegreeSalary> HrFinancialDegreeSalary { get; set; }
         public DbSet<Department> Department { get; set; }
