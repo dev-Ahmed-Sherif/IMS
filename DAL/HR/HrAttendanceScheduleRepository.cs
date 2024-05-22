@@ -17,6 +17,7 @@ namespace DAL.HR
         }
         public string Add(HrAttendanceScheduleVM AttendanceSchedule)
         {
+            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
             try
             {
                 var _AttendanceSchedule = new HrAttendanceSchedule()
@@ -25,7 +26,7 @@ namespace DAL.HR
                     StartDate = AttendanceSchedule.StartDate,
                     EndDate = AttendanceSchedule.EndDate,
                     WrkHours = AttendanceSchedule.WrkHours,
-                    AttendanceTime = AttendanceSchedule.AttendanceTime,
+                    AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime, localTimeZone),
                     AttendanceAllowance = AttendanceSchedule.AttendanceAllowance,
                     DepartureAllowance = AttendanceSchedule.DepartureAllowance,
 
@@ -44,8 +45,16 @@ namespace DAL.HR
                 return ex.ToString();
             }
         }
+        public static DateTime ConvertToLocalTime(DateTime utcDateTime, TimeZoneInfo targetTimeZone)
+        {
+            // Convert the UTC time to the target time zone
+            DateTime localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, targetTimeZone);
+
+            return localDateTime;
+        }
         public string Update(HrAttendanceScheduleVM AttendanceSchedule)
         {
+            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
             try
             {
                 var _AttendanceSchedule = _context.HrAttendanceSchedule.FirstOrDefault(n => n.Id == AttendanceSchedule.Id);
@@ -56,7 +65,7 @@ namespace DAL.HR
                     _AttendanceSchedule.EndDate = AttendanceSchedule.EndDate;
                     _AttendanceSchedule.WrkHours = AttendanceSchedule.WrkHours;
                     _AttendanceSchedule.AttendanceTime = AttendanceSchedule.AttendanceTime;
-                    _AttendanceSchedule.AttendanceTime = AttendanceSchedule.AttendanceTime;
+                    _AttendanceSchedule.AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime,localTimeZone);
                     _AttendanceSchedule.DepartureAllowance = AttendanceSchedule.DepartureAllowance;
                     _AttendanceSchedule.UpdateByID = AttendanceSchedule.TransactionUserId;
                     _AttendanceSchedule.LastUpdateDate = DateTime.Now;
@@ -95,23 +104,47 @@ namespace DAL.HR
                 return ex.ToString();
             }
         }
+        //public List<HrAttendanceScheduleGetVM> GetAll()
+        //    => _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
+        //    {
+        //        Id = n.Id,
+        //        name = n.Name,
+        //        CreateUserName = n.CreatedBy.Name,
+        //        TransactionUserId = n.CreatedBy.Id,
+        //        WrkHours = n.WrkHours,
+        //        StartDate = n.StartDate,
+        //        EndDate = n.EndDate,
+        //        AttendanceTime = n.AttendanceTime,
+        //        AttendanceAllowance = n.AttendanceAllowance,
+        //        DepartureAllowance = n.DepartureAllowance
+        //    }).ToList();
         public List<HrAttendanceScheduleGetVM> GetAll()
-            => _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
+        {
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+
+
+
+            return _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
             {
-                Id = n.Id,
-                name = n.Name,
-                CreateUserName = n.CreatedBy.Name,
-                TransactionUserId = n.CreatedBy.Id,
-                WrkHours = n.WrkHours,
-                StartDate = n.StartDate,
-                EndDate = n.EndDate,
-                AttendanceTime = n.AttendanceTime,
-                AttendanceAllowance = n.AttendanceAllowance,
-                DepartureAllowance = n.DepartureAllowance
+                       Id = n.Id,
+                      name = n.Name,
+                        CreateUserName = n.CreatedBy.Name,
+                       TransactionUserId = n.CreatedBy.Id,
+                       WrkHours = n.WrkHours,
+                        StartDate = n.StartDate,
+                       EndDate = n.EndDate,
+                       AttendanceTime = ConvertToLocalTime(n.AttendanceTime, targetTimeZone).AddHours(+4),
+                       AttendanceAllowance = n.AttendanceAllowance,
+                       DepartureAllowance = n.DepartureAllowance
             }).ToList();
+        }
+     
         public HrAttendanceScheduleGetVM GetById(int AttendanceScheduleId)
-            => _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
+        {
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            return _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
             {
+
                 Id = n.Id,
                 name = n.Name,
                 CreateUserName = n.CreatedBy.Name,
@@ -119,10 +152,11 @@ namespace DAL.HR
                 WrkHours = n.WrkHours,
                 StartDate = n.StartDate,
                 EndDate = n.EndDate,
-                AttendanceTime = n.AttendanceTime,
+                AttendanceTime = ConvertToLocalTime(n.AttendanceTime, targetTimeZone).AddHours(+4),
                 AttendanceAllowance = n.AttendanceAllowance,
                 DepartureAllowance = n.DepartureAllowance
             }).FirstOrDefault(n => n.Id == AttendanceScheduleId);
+        }
 
     }
 }

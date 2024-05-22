@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DAL.HR
 {
@@ -18,15 +19,17 @@ namespace DAL.HR
 
         public string Add(HrEmployeeAttendanceVM EmployeeAttendance)
         {
+            // TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
             try
             {
                 var _EmployeeAttendance = new HrEmployeeAttendance()
                 {
                     AttendanceMachineId = EmployeeAttendance.AttendanceMachineId,
                     EmployeeId = EmployeeAttendance.EmployeeId,
-                    Date = ConvertToLocalTime(EmployeeAttendance.Date),
-                    Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance),
-                    Departure = ConvertToLocalTime(EmployeeAttendance.Departure),
+                    Date = ConvertToLocalTime(EmployeeAttendance.Date, localTimeZone),
+                    Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone),
+                    Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone),
                     CreatedByID = EmployeeAttendance.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
@@ -39,18 +42,26 @@ namespace DAL.HR
                 return ex.ToString();
             }
         }
-        private DateTime ConvertToLocalTime(DateTime utcDateTime)
-        {
-            // Get the local time zone
-            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+        //public static DateTime ConvertToLocalTime(DateTime utcDateTime)
+        // {
+        //     // Get the local time zone
+        //     TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
 
-            // Convert the UTC time to local time
-            DateTime localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, localTimeZone);
+        //     // Convert the UTC time to local time
+        //     DateTime localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, localTimeZone);
+
+        //     return localDateTime;
+        // }
+        public static DateTime ConvertToLocalTime(DateTime utcDateTime, TimeZoneInfo targetTimeZone)
+        {
+            // Convert the UTC time to the target time zone
+            DateTime localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, targetTimeZone);
 
             return localDateTime;
         }
         public string Update(HrEmployeeAttendanceVM EmployeeAttendance)
         {
+            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
             try
             {
                 var _EmployeeAttendance = _context.HrEmployeeAttendance.FirstOrDefault(n => n.Id == EmployeeAttendance.Id);
@@ -58,9 +69,9 @@ namespace DAL.HR
                 {
                     _EmployeeAttendance.AttendanceMachineId = EmployeeAttendance.AttendanceMachineId;
                     _EmployeeAttendance.EmployeeId = EmployeeAttendance.EmployeeId;
-                    _EmployeeAttendance.Date = ConvertToLocalTime(EmployeeAttendance.Date);
-                    _EmployeeAttendance.Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance);
-                    _EmployeeAttendance.Departure = ConvertToLocalTime(EmployeeAttendance.Departure);
+                     _EmployeeAttendance.Date = ConvertToLocalTime(EmployeeAttendance.Date, localTimeZone);
+                     _EmployeeAttendance.Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone);
+                     _EmployeeAttendance.Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone);
 
                     _EmployeeAttendance.UpdateByID = EmployeeAttendance.TransactionUserId;
                     _EmployeeAttendance.LastUpdateDate = DateTime.Now;
@@ -101,23 +112,29 @@ namespace DAL.HR
             }
         }
 
-        public List<HrEmployeeAttendanceGetVM> GetAll()
-            => _context.HrEmployeeAttendance.Select(n => new HrEmployeeAttendanceGetVM
-            {
-                Id = n.Id,
-                CreateUserName = n.CreatedBy.Name,
-                TransactionUserId = n.CreatedBy.Id,
-                AttendanceMachineId = n.AttendanceMachineId,
-                AttendanceMachineName = n.AttendanceMachine.Name,
-                EmployeeId = n.EmployeeId,
-                EmployeeName = n.Employee.Name,
-                Date = ConvertToLocalTime(n.Date),
-                Attendance = ConvertToLocalTime(n.Attendance),
-                Departure = ConvertToLocalTime(n.Departure)
-            }).ToList();
+        //public List<HrEmployeeAttendanceGetVM> GetAll()
 
-        public HrEmployeeAttendanceGetVM GetById(int EmployeeAttendanceId)
-            => _context.HrEmployeeAttendance.Select(n => new HrEmployeeAttendanceGetVM
+        //    => _context.HrEmployeeAttendance.Select(n => new HrEmployeeAttendanceGetVM
+        //    {
+
+        //        Id = n.Id,
+        //        CreateUserName = n.CreatedBy.Name,
+        //        TransactionUserId = n.CreatedBy.Id,
+        //        AttendanceMachineId = n.AttendanceMachineId,
+        //        AttendanceMachineName = n.AttendanceMachine.Name,
+        //        EmployeeId = n.EmployeeId,
+        //        EmployeeName = n.Employee.Name,
+        //        Date = ConvertToLocalTime(n.Date),
+        //        Attendance = ConvertToLocalTime(n.Attendance),
+        //        Departure = ConvertToLocalTime(n.Departure)
+        //    }).ToList();
+        public List<HrEmployeeAttendanceGetVM> GetAll()
+        {
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+
+
+
+            return _context.HrEmployeeAttendance.Select(n => new HrEmployeeAttendanceGetVM
             {
                 Id = n.Id,
                 CreateUserName = n.CreatedBy.Name,
@@ -126,12 +143,33 @@ namespace DAL.HR
                 AttendanceMachineName = n.AttendanceMachine.Name,
                 EmployeeId = n.EmployeeId,
                 EmployeeName = n.Employee.Name,
-                Date = ConvertToLocalTime(n.Date),
-                Attendance = ConvertToLocalTime(n.Attendance),
-                Departure = ConvertToLocalTime(n.Departure)
+                Date = ConvertToLocalTime(n.Date, targetTimeZone).AddHours(+4),
+                Attendance = ConvertToLocalTime(n.Attendance, targetTimeZone).AddHours(+4),
+                Departure = ConvertToLocalTime(n.Departure, targetTimeZone).AddHours(+4)
+            }).ToList();
+        }
+        public HrEmployeeAttendanceGetVM GetById(int EmployeeAttendanceId)
+        {
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            return _context.HrEmployeeAttendance.Select(n => new HrEmployeeAttendanceGetVM
+            {
+                 
+                Id = n.Id,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                AttendanceMachineId = n.AttendanceMachineId,
+                AttendanceMachineName = n.AttendanceMachine.Name,
+                EmployeeId = n.EmployeeId,
+                EmployeeName = n.Employee.Name,
+                Date = ConvertToLocalTime(n.Date, targetTimeZone).AddHours(+4),
+                Attendance = ConvertToLocalTime(n.Attendance, targetTimeZone).AddHours(+4),
+                Departure = ConvertToLocalTime(n.Departure, targetTimeZone).AddHours(+4)
             }).FirstOrDefault(n => n.Id == EmployeeAttendanceId);
+}
+      
         public List<HrEmployeeAttendanceGetSearchVM> Search(HrEmployeeAttendanceSearch searchModel)
         {
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
             var query = _context.HrEmployeeAttendance.AsQueryable();
             if (searchModel.Date.HasValue)
             {
@@ -172,9 +210,9 @@ namespace DAL.HR
                 AttendanceMachineName = n.AttendanceMachine.Name,
                 EmployeeId = n.EmployeeId,
                 EmployeeName = n.Employee.Name,
-                Date = ConvertToLocalTime(n.Date),
-                Attendance = ConvertToLocalTime(n.Attendance),
-                Departure = ConvertToLocalTime(n.Departure),
+                Date = ConvertToLocalTime(n.Date, targetTimeZone).AddHours(+4),
+                Attendance = ConvertToLocalTime(n.Attendance, targetTimeZone).AddHours(+4),
+                Departure = ConvertToLocalTime(n.Departure, targetTimeZone).AddHours(+4),
                 ShortDate = n.Date.ToString("dd/MM/yyyy"),
                 ShortAttendance = n.Attendance.ToString("HH:mm:ss"),
                 ShortDeparture = n.Departure.ToString("HH:mm:ss"),
