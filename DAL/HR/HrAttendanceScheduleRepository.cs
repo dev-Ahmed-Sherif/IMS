@@ -67,6 +67,7 @@ namespace DAL.HR
                     _AttendanceSchedule.AttendanceTime = AttendanceSchedule.AttendanceTime;
                     _AttendanceSchedule.AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime,localTimeZone);
                     _AttendanceSchedule.DepartureAllowance = AttendanceSchedule.DepartureAllowance;
+                    _AttendanceSchedule.AttendanceAllowance = AttendanceSchedule.AttendanceAllowance;
                     _AttendanceSchedule.UpdateByID = AttendanceSchedule.TransactionUserId;
                     _AttendanceSchedule.LastUpdateDate = DateTime.Now;
 
