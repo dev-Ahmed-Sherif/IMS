@@ -29,10 +29,6 @@ namespace DAL.HR
                     AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime, localTimeZone),
                     AttendanceAllowance = AttendanceSchedule.AttendanceAllowance,
                     DepartureAllowance = AttendanceSchedule.DepartureAllowance,
-
-
-
-
                     CreatedByID = AttendanceSchedule.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
