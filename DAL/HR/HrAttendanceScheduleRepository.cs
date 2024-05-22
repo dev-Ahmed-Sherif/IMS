@@ -104,20 +104,7 @@ namespace DAL.HR
                 return ex.ToString();
             }
         }
-        //public List<HrAttendanceScheduleGetVM> GetAll()
-        //    => _context.HrAttendanceSchedule.Select(n => new HrAttendanceScheduleGetVM
-        //    {
-        //        Id = n.Id,
-        //        name = n.Name,
-        //        CreateUserName = n.CreatedBy.Name,
-        //        TransactionUserId = n.CreatedBy.Id,
-        //        WrkHours = n.WrkHours,
-        //        StartDate = n.StartDate,
-        //        EndDate = n.EndDate,
-        //        AttendanceTime = n.AttendanceTime,
-        //        AttendanceAllowance = n.AttendanceAllowance,
-        //        DepartureAllowance = n.DepartureAllowance
-        //    }).ToList();
+      
         public List<HrAttendanceScheduleGetVM> GetAll()
         {
             TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
