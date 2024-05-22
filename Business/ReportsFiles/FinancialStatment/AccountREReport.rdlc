@@ -587,7 +587,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!StartDate.Value</Value>
+                  <Value>=First(Fields!StartDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -659,7 +659,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!EndDate.Value</Value>
+                  <Value>=First(Fields!EndDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>

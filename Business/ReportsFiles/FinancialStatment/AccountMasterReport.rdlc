@@ -14,7 +14,7 @@
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#1b77a3</Color>
+                  <Color>White</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -32,6 +32,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <BackgroundColor>#1b77a3</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -124,7 +125,7 @@
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#1b77a3</Color>
+                  <Color>White</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -143,6 +144,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <BackgroundColor>#1b77a3</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -597,7 +599,7 @@
   <Width>29.7cm</Width>
   <Page>
     <PageHeader>
-      <Height>4.87855cm</Height>
+      <Height>4.27001cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -722,8 +724,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox47</rd:DefaultName>
-          <Top>2.9468cm</Top>
-          <Left>19.37909cm</Left>
+          <Top>2.46174cm</Top>
+          <Left>19.56629cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.69222cm</Width>
           <ZIndex>3</ZIndex>
@@ -744,7 +746,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!StartDate.Value</Value>
+                  <Value>=First(Fields!StartDate.Value, "AccountMaster")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -758,8 +760,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
-          <Top>2.9468cm</Top>
-          <Left>15.30294cm</Left>
+          <Top>2.46174cm</Top>
+          <Left>15.49014cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.65094cm</Width>
           <ZIndex>4</ZIndex>
@@ -794,8 +796,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox49</rd:DefaultName>
-          <Top>2.9468cm</Top>
-          <Left>12.43565cm</Left>
+          <Top>2.46174cm</Top>
+          <Left>12.62285cm</Left>
           <Height>0.9175cm</Height>
           <Width>2.26347cm</Width>
           <ZIndex>5</ZIndex>
@@ -816,7 +818,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!EndDate.Value</Value>
+                  <Value>=First(Fields!EndDate.Value, "AccountMaster")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -830,8 +832,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
-          <Top>2.9468cm</Top>
-          <Left>8.16325cm</Left>
+          <Top>2.46174cm</Top>
+          <Left>8.35045cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.85948cm</Width>
           <ZIndex>6</ZIndex>

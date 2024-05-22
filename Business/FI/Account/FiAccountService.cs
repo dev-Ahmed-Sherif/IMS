@@ -724,7 +724,8 @@ namespace Business.FI.Account
                         List<FiChangeInOwnersEquityViewModel> AccountSuppliers, 
                                                               equityCapital = new List<FiChangeInOwnersEquityViewModel>(),
                                                               stageProfitsAndLosses = new List<FiChangeInOwnersEquityViewModel>(),
-                                                              treasuryShares = new List<FiChangeInOwnersEquityViewModel>();
+                                                              treasuryShares = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              precautions = new List<FiChangeInOwnersEquityViewModel>();
 
                         AccountSuppliers =  GetChangeInOwnersEquityReportData(fiscalYearId);
 
@@ -742,12 +743,16 @@ namespace Business.FI.Account
                             {
                                 treasuryShares.Add(AccountSuppliers[i]);
                             }
+                            if (AccountSuppliers[i].AccountCode == "22")
+                            {
+                                precautions.Add(AccountSuppliers[i]);
+                            }
                         }
 
                         report.DataSources.Add(new ReportDataSource() { Name = "EquityCapital", Value = equityCapital });
                         report.DataSources.Add(new ReportDataSource() { Name = "StageProfitsAndLosses", Value = stageProfitsAndLosses });
                         report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItem", Value = AccountSuppliers });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItem", Value = precautions });
                     }
                     break;
                 case "AccountCashFlowsReport":

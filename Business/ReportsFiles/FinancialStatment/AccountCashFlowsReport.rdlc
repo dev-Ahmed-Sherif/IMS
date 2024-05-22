@@ -489,7 +489,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
   <Width>29.7cm</Width>
   <Page>
     <PageHeader>
-      <Height>3.64382cm</Height>
+      <Height>4.14653cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -650,7 +650,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox47</rd:DefaultName>
-          <Top>2.02531cm</Top>
+          <Top>2.47219cm</Top>
           <Left>19.54682cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.69222cm</Width>
@@ -672,7 +672,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!StartDate.Value</Value>
+                  <Value>=First(Fields!StartDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -686,7 +686,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
-          <Top>2.02531cm</Top>
+          <Top>2.47219cm</Top>
           <Left>15.47067cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.65094cm</Width>
@@ -722,7 +722,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox49</rd:DefaultName>
-          <Top>2.02531cm</Top>
+          <Top>2.47219cm</Top>
           <Left>12.60338cm</Left>
           <Height>0.9175cm</Height>
           <Width>2.26347cm</Width>
@@ -744,7 +744,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!EndDate.Value</Value>
+                  <Value>=First(Fields!EndDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -758,7 +758,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
-          <Top>2.02531cm</Top>
+          <Top>2.47219cm</Top>
           <Left>8.33098cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.85948cm</Width>

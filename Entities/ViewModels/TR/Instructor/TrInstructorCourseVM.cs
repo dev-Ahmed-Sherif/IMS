@@ -23,7 +23,7 @@
         public string CourseName { get; set; }
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
-        public string HeaderName { get; set; }
+        public string InstructorName { get; set; }
         public string employeeName { get; set; }
     }
 
