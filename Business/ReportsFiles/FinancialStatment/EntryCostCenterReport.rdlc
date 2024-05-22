@@ -1148,86 +1148,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox124">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Fields!Section.Value</Value>
-                  <Style>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>18pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>#1b77a3</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox105</rd:DefaultName>
-          <Top>1.94303cm</Top>
-          <Left>12.26315cm</Left>
-          <Height>0.86458cm</Height>
-          <Width>4.405cm</Width>
-          <ZIndex>2</ZIndex>
-          <Visibility>
-            <Hidden>=IIf(First(Fields!Section.Value, "FIEntryDetails") = "",True,False)</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox125">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>قطاع</Value>
-                  <Style>
-                    <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>18pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>#1b77a3</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox105</rd:DefaultName>
-          <Top>1.94303cm</Top>
-          <Left>16.02945cm</Left>
-          <Height>0.85576cm</Height>
-          <Width>2.79104cm</Width>
-          <ZIndex>3</ZIndex>
-          <Visibility>
-            <Hidden>=IIf(First(Fields!Section.Value, "FIEntryDetails") = "",True,False)</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox47">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1253,7 +1173,7 @@
           <Left>19.60767cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.69222cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1271,7 +1191,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!StartDate.Value</Value>
+                  <Value>=First(Fields!StartDate.Value, "FIEntryDetails")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -1289,7 +1209,7 @@
           <Left>15.53152cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.65094cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1325,7 +1245,7 @@
           <Left>12.66423cm</Left>
           <Height>0.9175cm</Height>
           <Width>2.26347cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1343,7 +1263,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!EndDate.Value</Value>
+                  <Value>=First(Fields!EndDate.Value, "FIEntryDetails")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
@@ -1361,7 +1281,7 @@
           <Left>8.39183cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.85948cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1410,7 +1330,7 @@
           <Left>1.28845cm</Left>
           <Height>1.63188cm</Height>
           <Width>6.41993cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1446,7 +1366,7 @@
           <Left>1.73824cm</Left>
           <Height>0.9937cm</Height>
           <Width>5.56917cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

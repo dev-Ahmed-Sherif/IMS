@@ -87,7 +87,7 @@ namespace DAL.TR.Instructor
                     CourseName = n.Course.Name,
                     CourseId = n.CourseId,
                     InstructorId = n.InstructorId,
-                    HeaderName = n.Instructor.EmployeeId == null ? n.Instructor.InstructorData.Name : n.Instructor.Employee.Name,
+                    InstructorName = n.Instructor.EmployeeId == null ? n.Instructor.InstructorData.Name : n.Instructor.Employee.Name,
                     employeeName = n.Instructor.EmployeeId != null ? n.Instructor.Employee.Name : null,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
