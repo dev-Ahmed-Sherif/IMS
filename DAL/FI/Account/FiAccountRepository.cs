@@ -224,13 +224,16 @@ namespace DAL.FI.Account
             if (sectionId != 0)
             {
                 
-                string section =
-                        _context
-                        .FiEntry
-                        .First(e => e.Journal.SectionId == sectionId)
-                        .Journal
-                        .Section
-                        .Name;
+                List<string> section =
+                        
+                        _context.FiEntry.Where(e => e.Journal.SectionId == sectionId).Select(e => e.Journal.Section.Name).ToList();
+
+                //_context
+                //        .FiEntry.Where(e => e.Journal.SectionId == sectionId)
+                //        .First()
+                //        .Journal
+                //        .Section
+                //        .Name
                 var query = from fiAccount in _context.FiAccount
                             select new AccountItemVM
                             {
@@ -239,7 +242,7 @@ namespace DAL.FI.Account
                                 CodeInt = Int32.Parse(fiAccount.Code),
                                 Name = fiAccount.Name,
 
-                                AccountSubNetDebit = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                AccountSubNetDebit =  Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                                                  join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
                                                                  where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id && fiEntry.Journal.SectionId == sectionId
                                                                  select (fiEntryDetails.Debit)).Sum(), 2),
@@ -282,7 +285,7 @@ namespace DAL.FI.Account
                                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
                                 StartDate = startDate.ToString("dd/MM/yyyy"),
                                 EndDate = endDate.ToString("dd/MM/yyyy"),
-                                Section = section,
+                                Section = section.Count != 0 ? section[0] : "",
                             };
 
                 result = query.Select(e => Positive(e)).ToList();

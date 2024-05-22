@@ -24,14 +24,9 @@ namespace DAL.HR
                 {
                     AttendanceMachineId = EmployeeAttendance.AttendanceMachineId,
                     EmployeeId = EmployeeAttendance.EmployeeId,
-                    Date = EmployeeAttendance.Date,
-                    Attendance = EmployeeAttendance.Attendance,
-                    Departure = EmployeeAttendance.Departure,
-
-
-
-
-
+                    Date = ConvertToLocalTime(EmployeeAttendance.Date),
+                    Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance),
+                    Departure = ConvertToLocalTime(EmployeeAttendance.Departure),
                     CreatedByID = EmployeeAttendance.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
@@ -44,6 +39,16 @@ namespace DAL.HR
                 return ex.ToString();
             }
         }
+        private DateTime ConvertToLocalTime(DateTime utcDateTime)
+        {
+            // Get the local time zone
+            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+
+            // Convert the UTC time to local time
+            DateTime localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, localTimeZone);
+
+            return localDateTime;
+        }
         public string Update(HrEmployeeAttendanceVM EmployeeAttendance)
         {
             try
@@ -53,9 +58,9 @@ namespace DAL.HR
                 {
                     _EmployeeAttendance.AttendanceMachineId = EmployeeAttendance.AttendanceMachineId;
                     _EmployeeAttendance.EmployeeId = EmployeeAttendance.EmployeeId;
-                    _EmployeeAttendance.Date = EmployeeAttendance.Date;
-                    _EmployeeAttendance.Attendance = EmployeeAttendance.Attendance;
-                    _EmployeeAttendance.Departure = EmployeeAttendance.Departure;
+                    _EmployeeAttendance.Date = ConvertToLocalTime(EmployeeAttendance.Date);
+                    _EmployeeAttendance.Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance);
+                    _EmployeeAttendance.Departure = ConvertToLocalTime(EmployeeAttendance.Departure);
 
                     _EmployeeAttendance.UpdateByID = EmployeeAttendance.TransactionUserId;
                     _EmployeeAttendance.LastUpdateDate = DateTime.Now;
@@ -106,9 +111,9 @@ namespace DAL.HR
                 AttendanceMachineName = n.AttendanceMachine.Name,
                 EmployeeId = n.EmployeeId,
                 EmployeeName = n.Employee.Name,
-                Date = n.Date,
-                Attendance = n.Attendance,
-                Departure = n.Departure
+                Date = ConvertToLocalTime(n.Date),
+                Attendance = ConvertToLocalTime(n.Attendance),
+                Departure = ConvertToLocalTime(n.Departure)
             }).ToList();
 
         public HrEmployeeAttendanceGetVM GetById(int EmployeeAttendanceId)
@@ -116,7 +121,14 @@ namespace DAL.HR
             {
                 Id = n.Id,
                 CreateUserName = n.CreatedBy.Name,
-                TransactionUserId = n.CreatedBy.Id
+                TransactionUserId = n.CreatedBy.Id,
+                AttendanceMachineId = n.AttendanceMachineId,
+                AttendanceMachineName = n.AttendanceMachine.Name,
+                EmployeeId = n.EmployeeId,
+                EmployeeName = n.Employee.Name,
+                Date = ConvertToLocalTime(n.Date),
+                Attendance = ConvertToLocalTime(n.Attendance),
+                Departure = ConvertToLocalTime(n.Departure)
             }).FirstOrDefault(n => n.Id == EmployeeAttendanceId);
         public List<HrEmployeeAttendanceGetSearchVM> Search(HrEmployeeAttendanceSearch searchModel)
         {
@@ -160,9 +172,9 @@ namespace DAL.HR
                 AttendanceMachineName = n.AttendanceMachine.Name,
                 EmployeeId = n.EmployeeId,
                 EmployeeName = n.Employee.Name,
-                Date = n.Date,
-                Attendance = n.Attendance,
-                Departure = n.Departure,
+                Date = ConvertToLocalTime(n.Date),
+                Attendance = ConvertToLocalTime(n.Attendance),
+                Departure = ConvertToLocalTime(n.Departure),
                 ShortDate = n.Date.ToString("dd/MM/yyyy"),
                 ShortAttendance = n.Attendance.ToString("HH:mm:ss"),
                 ShortDeparture = n.Departure.ToString("HH:mm:ss"),
