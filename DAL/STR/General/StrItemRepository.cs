@@ -11,6 +11,7 @@ using Entities.ReportViewModel;
 using Entities.ViewModels;
 using Entities.ViewModels.STR.AddDetails;
 using Entities.ViewModels.STR.General;
+using Entities.ViewModels.STR.StoreOpen;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -372,12 +373,14 @@ namespace DAL.STR.General
         }
         public List<dynamic> GetTransactions(int soreId, int itemId, DateTime startdate, DateTime enddate, int FiscalYearId)
         {
+            StrStoreGetVM store = _StrStoreRepository.GetById(soreId);
+            string storeName = store.Name;
             var addQuery = (
                 from strAddDetails in _context.StrAddDetails
                 join strItem in _context.StrItem on strAddDetails.ItemId equals strItem.Id
                 join strAdd in _context.StrAdd on strAddDetails.AddId equals strAdd.Id into addGroup
                 from strAdd in addGroup.DefaultIfEmpty()
-                where strAdd.StoreId == soreId && strAdd.FiscalYearId == FiscalYearId && strItem.Id == itemId ||
+                where strAdd.StoreId == soreId && strAdd.FiscalYearId == FiscalYearId && strItem.Id == itemId &&
                 (strAdd.Date >= startdate && strAdd.Date <= enddate &&
                 strAdd.Date.AddSeconds(-strAdd.Date.Second) >= startdate &&
                 strAdd.Date.AddSeconds(-strAdd.Date.Second) <= enddate)
@@ -386,7 +389,7 @@ namespace DAL.STR.General
                     StartDate = startdate.ToString("dd/MM/yyyy"),
                     EndDate = enddate.ToString("dd/MM/yyyy"),
                     Billid = strAdd.Id,
-                    StoreName = strAdd.STR_Store.Name,
+                    StoreName = storeName,
                     ItemCode = strItem.FullCode,
                     Name = strItem.Name,
                     Unit = strItem.STR_Unit.Name,
@@ -411,7 +414,7 @@ namespace DAL.STR.General
                         join strWithdraw in _context.StrWithDraw on strWithdrawDetails.STR_WithdrawId equals strWithdraw.Id into withdrawGroup
                         from strWithdraw in withdrawGroup.DefaultIfEmpty()
                         where strWithdraw.StoreId == soreId && strWithdraw.FiscalYearId == FiscalYearId && strItem.Id == itemId
-                        || (strWithdraw.Date >= startdate && strWithdraw.Date <= enddate &&
+                        && (strWithdraw.Date >= startdate && strWithdraw.Date <= enddate &&
                         strWithdraw.Date.AddSeconds(-strWithdraw.Date.Second) >= startdate &&
                         strWithdraw.Date.AddSeconds(-strWithdraw.Date.Second) <= enddate)
 
@@ -420,7 +423,7 @@ namespace DAL.STR.General
                             StartDate = startdate.ToString("dd/MM/yyyy"),
                             EndDate = enddate.ToString("dd/MM/yyyy"),
                             Billid = strWithdraw.Id,
-                            StoreName = strWithdraw.STR_Store.Name,
+                            StoreName = storeName,
                             ItemCode = strItem.FullCode,
                             Name = strItem.Name,
                             Unit = strItem.STR_Unit.Name,
@@ -445,7 +448,7 @@ namespace DAL.STR.General
                join StrOpeningStock in _context.StrOpeningStock on StrOpeningStockDetails.STR_Opening_StockId equals StrOpeningStock.Id into StrOpeningStockGroup
                from StrOpeningStock in StrOpeningStockGroup.DefaultIfEmpty()
                where StrOpeningStock.StoreId == soreId && StrOpeningStock.FiscalYearId == FiscalYearId && strItem.Id == itemId
-               ||
+               &&
                (StrOpeningStock.Date >= startdate && StrOpeningStock.Date <= enddate
                && StrOpeningStock.Date.AddSeconds(-StrOpeningStock.Date.Second) >= startdate &&
                StrOpeningStock.Date.AddSeconds(-StrOpeningStock.Date.Second) <= enddate)
@@ -455,7 +458,7 @@ namespace DAL.STR.General
                    StartDate = startdate.ToString("dd/MM/yyyy"),
                    EndDate = enddate.ToString("dd/MM/yyyy"),
                    Billid = StrOpeningStock.Id,
-                   StoreName = StrOpeningStock.STR_Store.Name,
+                   StoreName = storeName,
                    ItemCode = strItem.FullCode,
                    Name = strItem.Name,
                    Unit = strItem.STR_Unit.Name,
@@ -583,7 +586,7 @@ namespace DAL.STR.General
                  join strItem in _context.StrItem on strAddDetails.ItemId equals strItem.Id
                  join strAdd in _context.StrAdd on strAddDetails.AddId equals strAdd.Id into addGroup
                  from strAdd in addGroup.DefaultIfEmpty()
-                 where strAdd.FiscalYearId == FiscalYearId && strItem.Id == itemId ||
+                 where strAdd.FiscalYearId == FiscalYearId && strItem.Id == itemId &&
                  (strAdd.Date >= startdate && strAdd.Date <= enddate &&
                  strAdd.Date.AddSeconds(-strAdd.Date.Second) >= startdate &&
                  strAdd.Date.AddSeconds(-strAdd.Date.Second) <= enddate)
@@ -617,8 +620,8 @@ namespace DAL.STR.General
                         join strItem in _context.StrItem on strWithdrawDetails.ItemId equals strItem.Id
                         join strWithdraw in _context.StrWithDraw on strWithdrawDetails.STR_WithdrawId equals strWithdraw.Id into withdrawGroup
                         from strWithdraw in withdrawGroup.DefaultIfEmpty()
-                        where strWithdraw.FiscalYearId == FiscalYearId && strItem.Id == itemId
-                        || (strWithdraw.Date >= startdate && strWithdraw.Date <= enddate &&
+                        where strWithdraw.FiscalYearId == FiscalYearId && strItem.Id == itemId && 
+                        (strWithdraw.Date >= startdate && strWithdraw.Date <= enddate &&
                         strWithdraw.Date.AddSeconds(-strWithdraw.Date.Second) >= startdate &&
                         strWithdraw.Date.AddSeconds(-strWithdraw.Date.Second) <= enddate)
 
@@ -652,8 +655,7 @@ namespace DAL.STR.General
                join strItem in _context.StrItem on StrOpeningStockDetails.ItemId equals strItem.Id
                join StrOpeningStock in _context.StrOpeningStock on StrOpeningStockDetails.STR_Opening_StockId equals StrOpeningStock.Id into StrOpeningStockGroup
                from StrOpeningStock in StrOpeningStockGroup.DefaultIfEmpty()
-               where StrOpeningStock.FiscalYearId == FiscalYearId && strItem.Id == itemId
-               ||
+               where StrOpeningStock.FiscalYearId == FiscalYearId && strItem.Id == itemId &&
                (StrOpeningStock.Date >= startdate && StrOpeningStock.Date <= enddate
                && StrOpeningStock.Date.AddSeconds(-StrOpeningStock.Date.Second) >= startdate &&
                StrOpeningStock.Date.AddSeconds(-StrOpeningStock.Date.Second) <= enddate)
