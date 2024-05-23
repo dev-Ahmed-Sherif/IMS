@@ -34,8 +34,8 @@ namespace Entities.ViewModels.HR
         public string AttendanceScheduleName { get; set; }
         public string AttendancePermissionName { get; set; }
 
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string ReportDate { get; set; }
 
         public string Section { get; set; }
