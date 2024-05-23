@@ -1,6 +1,10 @@
-﻿using Business.TR.Excuted;
+﻿using Business.HR;
+using Business.TR.Excuted;
+using Entities.ViewModels.HR;
+using Entities.ViewModels.TR.Course;
 using Entities.ViewModels.TR.Excuted;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace IMS.Controllers.TR.Excuted
 {
@@ -49,5 +53,21 @@ namespace IMS.Controllers.TR.Excuted
             var add = _TrExcutedService.GetById(id);
             return Ok(add);
         }
+
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] TrExcutedSearch searchModel)
+        {
+            var TrExcuted = _TrExcutedService.Search(searchModel);
+            return Ok(TrExcuted);
+        }
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] TrExcutedReport searchModel)
+        {
+
+            var reportFileByString = _TrExcutedService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
+
+
     }
 }
