@@ -102,10 +102,10 @@ namespace DAL.TR.Course
 
 
         public List<TrCourseTypeGetVM> Search(TrCourseTypeSearch searchModel)
-        { 
-            
-        
-        
+        {
+
+            return new List<TrCourseTypeGetVM>() ;
+
         }
 
 
