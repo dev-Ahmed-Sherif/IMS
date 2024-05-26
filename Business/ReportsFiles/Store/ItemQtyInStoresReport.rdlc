@@ -66,7 +66,6 @@
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#1b77a3</Color>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -215,7 +214,6 @@
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#1b77a3</Color>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -657,7 +655,6 @@
                                                                                       <FontFamily>times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -694,7 +691,6 @@
                                                                                       <FontFamily>times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -731,7 +727,6 @@
                                                                                       <FontFamily>times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -768,7 +763,6 @@
                                                                                       <FontFamily>times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -877,7 +871,6 @@
                                                                                       <FontFamily>times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1003,6 +996,80 @@
                                                               <Height>0.86458cm</Height>
                                                               <Width>2.98303cm</Width>
                                                               <ZIndex>2</ZIndex>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>None</Style>
+                                                                </Border>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                            <Textbox Name="Textbox120">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!TotalQty.Value</Value>
+                                                                      <Style>
+                                                                        <FontFamily>arial</FontFamily>
+                                                                        <FontSize>14pt</FontSize>
+                                                                        <FontWeight>Bold</FontWeight>
+                                                                        <Color>#1b77a3</Color>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style>
+                                                                    <TextAlign>Center</TextAlign>
+                                                                  </Style>
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox104</rd:DefaultName>
+                                                              <Top>0.35469cm</Top>
+                                                              <Left>2.39358cm</Left>
+                                                              <Height>0.86458cm</Height>
+                                                              <Width>5.43687cm</Width>
+                                                              <ZIndex>3</ZIndex>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>None</Style>
+                                                                </Border>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                            <Textbox Name="Textbox116">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>إجمالى الصنف</Value>
+                                                                      <Style>
+                                                                        <FontFamily>arial</FontFamily>
+                                                                        <FontSize>14pt</FontSize>
+                                                                        <FontWeight>Bold</FontWeight>
+                                                                        <Color>#1b77a3</Color>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style>
+                                                                    <TextAlign>Center</TextAlign>
+                                                                  </Style>
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox102</rd:DefaultName>
+                                                              <Top>0.35469cm</Top>
+                                                              <Left>8.00683cm</Left>
+                                                              <Height>0.86458cm</Height>
+                                                              <Width>2.98303cm</Width>
+                                                              <ZIndex>4</ZIndex>
                                                               <Style>
                                                                 <Border>
                                                                   <Style>None</Style>
@@ -1712,10 +1779,14 @@
           <DataField>Unit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="TotalQty">
+          <DataField>TotalQty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>STRItemTrans</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
