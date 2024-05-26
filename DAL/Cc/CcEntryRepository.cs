@@ -29,6 +29,7 @@ namespace DAL.Cc
                     CreditTotal = Add.CreditTotal,
                     DebitTotal = Add.DebitTotal,
                     Balance = Add.Balance,
+                    FiscalYearId = Add.FiscalYearId,
                     CreatedByID = Add.TransactionUserId,
                     CreationDate = DateTime.Now
 
@@ -57,6 +58,7 @@ namespace DAL.Cc
                     _update.CreditTotal = update.CreditTotal;
                     _update.DebitTotal = update.DebitTotal;
                     _update.Balance = update.Balance;
+                    _update.FiscalYearId = update.FiscalYearId;
                     _update.UpdateByID = update.TransactionUserId;
                     _update.CreationDate = DateTime.Now;
 
@@ -69,16 +71,15 @@ namespace DAL.Cc
         //delet function
         //-------------------
 
-        public string Delete(int dele_Id)
+        public string Delete(int EntryId)
         {
          
-                var _dele = _context.CcEntry.Single(n => n.Id == dele_Id);
+                var _dele = _context.CcEntry.Single(n => n.Id == EntryId);
               
                     _context.CcEntry.Remove(_dele);
                     _context.SaveChanges();
                     return "Succeeded";
             
-
         }
         //----------------
         //get function
@@ -93,6 +94,7 @@ namespace DAL.Cc
                 CreditTotal = n.CreditTotal,
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
+                FiscalYearId = n.FiscalYearId,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
@@ -106,6 +108,7 @@ namespace DAL.Cc
                 CreditTotal = n.CreditTotal,
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
+                FiscalYearId = n.FiscalYearId,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).FirstOrDefault(n => n.Id == itemId);
@@ -128,6 +131,7 @@ namespace DAL.Cc
                     CreditTotal = n.CreditTotal,
                     DebitTotal = n.DebitTotal,
                     Balance = n.Balance,
+                    FiscalYearId = n.FiscalYearId,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

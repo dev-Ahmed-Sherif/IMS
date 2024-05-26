@@ -27,10 +27,10 @@ namespace IMS.Controllers.Cc
             return new JsonResult(_response);
         }
 
-        [HttpDelete("Delete/{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("Delete/{EntryId}")]
+        public IActionResult Delete(int EntryId)
         {
-            var _response = _cc_entr.Delete(id);
+            var _response = _cc_entr.Delete(EntryId);
             return new JsonResult(_response);
         }
 

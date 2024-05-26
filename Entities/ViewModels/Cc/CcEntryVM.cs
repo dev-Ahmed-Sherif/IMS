@@ -10,6 +10,7 @@ namespace Entities.ViewModels.Cc
         public decimal? CreditTotal { get; set; }
         public decimal? DebitTotal { get; set; }
         public decimal? Balance { get; set; }
+        public int? FiscalYearId { get; set; }
         public int TransactionUserId { get; set; }
     }
     public class CcEntryVM : CcEntryGeneralVM

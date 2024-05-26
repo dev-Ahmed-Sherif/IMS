@@ -22,9 +22,9 @@ namespace Business.Cc
         {
             return _CcEntryRepository.Update(type);
         }
-        public string Delete(int typeId)
+        public string Delete(int EntryId)
         {
-            return _CcEntryRepository.Delete(typeId);
+            return _CcEntryRepository.Delete(EntryId);
         }
         public List<CcEntryGetVM> GetAll()
         {

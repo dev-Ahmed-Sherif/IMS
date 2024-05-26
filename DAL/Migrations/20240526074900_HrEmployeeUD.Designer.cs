@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526074900_HrEmployeeUD")]
+    partial class HrEmployeeUD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,9 +213,6 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("FiscalYearId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -228,8 +228,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedByID");
-
-                    b.HasIndex("FiscalYearId");
 
                     b.HasIndex("UpdateByID");
 
@@ -1919,9 +1917,6 @@ namespace DAL.Migrations
                     b.Property<int>("QualificationLevelId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReligionId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SalaryStatusId")
                         .HasColumnType("int");
 
@@ -1980,8 +1975,6 @@ namespace DAL.Migrations
                     b.HasIndex("QualificationId");
 
                     b.HasIndex("QualificationLevelId");
-
-                    b.HasIndex("ReligionId");
 
                     b.HasIndex("SalaryStatusId");
 
@@ -7979,19 +7972,11 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("CreatedByID");
 
-                    b.HasOne("Entities.Models.STR.General.StrFiscalYear", "Fiscalyear")
-                        .WithMany()
-                        .HasForeignKey("FiscalYearId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
 
                     b.Navigation("CreatedBy");
-
-                    b.Navigation("Fiscalyear");
 
                     b.Navigation("UpdateBy");
                 });
@@ -8819,10 +8804,6 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.HR.HrReligion", "Religion")
-                        .WithMany()
-                        .HasForeignKey("ReligionId");
-
                     b.HasOne("Entities.Models.HR.HrSalaryStatus", "SalaryStatus")
                         .WithMany()
                         .HasForeignKey("SalaryStatusId");
@@ -8878,8 +8859,6 @@ namespace DAL.Migrations
                     b.Navigation("Qualification");
 
                     b.Navigation("QualificationLevel");
-
-                    b.Navigation("Religion");
 
                     b.Navigation("SalaryStatus");
 
