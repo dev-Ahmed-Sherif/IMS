@@ -47,9 +47,9 @@ namespace Entities.ViewModels.TR.Plan
         public int Id { get; set; }
         public string Tittle { get; set; }
         public int? Days { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
-        public int? NoTrainee { get; set; }
+        //public DateTime? StartDate { get; set; }
+        //public DateTime? EndDate { get; set; }
+        //public int? NoTrainee { get; set; }
         public int? TrainingCenterId { get; set; }
         public int? ClassRoomId { get; set; }
         public int? FiscalYearId { get; set; }
@@ -63,8 +63,8 @@ namespace Entities.ViewModels.TR.Plan
         public string ClassRoomName { get; set; }
         public string TrainingCenterName { get; set; }
         public string FinanacielDegreeName { get; set; }
-        public string CreateUserName { get; set; }
-        public string UpdateUserName { get; set; }
+        //public string CreateUserName { get; set; }
+        //public string UpdateUserName { get; set; }
 
     }
     public class TrPlanReport : TrPlanSearch
