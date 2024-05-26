@@ -1,4 +1,6 @@
-﻿using Entities.Models.PR;
+﻿using Entities.Models.FI.Journal;
+using Entities.Models.PR;
+using Entities.Models.STR.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,6 +16,10 @@ namespace Entities.Models.Cc
         public decimal? CreditTotal { get; set; }
         public decimal? DebitTotal { get; set; }
         public decimal? Balance { get; set; }
+        public int? FiscalYearId { get; set; }
+        public virtual StrFiscalYear FiscalYear { get; set; }
+        public int? JournalId { get; set; }
+        public virtual FiJournal Journal { get; set; }
 
         // Relation { PrUser => TrExcutedFinancier} +++ {View Model => TransactionUserId} 
 

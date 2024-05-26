@@ -22,9 +22,9 @@ namespace Business.Cc
         {
             return _CcEntryRepository.Update(type);
         }
-        public string Delete(int typeId)
+        public string Delete(int EntryId)
         {
-            return _CcEntryRepository.Delete(typeId);
+            return _CcEntryRepository.Delete(EntryId);
         }
         public List<CcEntryGetVM> GetAll()
         {
@@ -34,9 +34,9 @@ namespace Business.Cc
         {
             return _CcEntryRepository.GetById(typeId);
         }
-        public PaginatedResult<CcEntryGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult<CcEntryGetVM> getAllByPagination(int page, int pageSize, int YearId)
         {
-            return _CcEntryRepository.GetAllByPagination(page, pageSize);
+            return _CcEntryRepository.GetAllByPagination(page, pageSize ,YearId);
         }
     }
 }

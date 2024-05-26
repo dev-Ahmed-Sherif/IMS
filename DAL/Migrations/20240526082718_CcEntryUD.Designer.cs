@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526082718_CcEntryUD")]
+    partial class CcEntryUD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,14 +213,11 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("FiscalYearId")
+                    b.Property<int>("FiscalYearId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("JournalId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("LastUpdateDate")
                         .HasColumnType("datetime2");
@@ -233,8 +233,6 @@ namespace DAL.Migrations
                     b.HasIndex("CreatedByID");
 
                     b.HasIndex("FiscalYearId");
-
-                    b.HasIndex("JournalId");
 
                     b.HasIndex("UpdateByID");
 
@@ -1175,7 +1173,7 @@ namespace DAL.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -2373,9 +2371,6 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("Code")
-                        .HasColumnType("int");
 
                     b.Property<int?>("CreatedByID")
                         .HasColumnType("int");
@@ -7987,13 +7982,11 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("CreatedByID");
 
-                    b.HasOne("Entities.Models.STR.General.StrFiscalYear", "FiscalYear")
+                    b.HasOne("Entities.Models.STR.General.StrFiscalYear", "Fiscalyear")
                         .WithMany()
-                        .HasForeignKey("FiscalYearId");
-
-                    b.HasOne("Entities.Models.FI.Journal.FiJournal", "Journal")
-                        .WithMany()
-                        .HasForeignKey("JournalId");
+                        .HasForeignKey("FiscalYearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
@@ -8001,9 +7994,7 @@ namespace DAL.Migrations
 
                     b.Navigation("CreatedBy");
 
-                    b.Navigation("FiscalYear");
-
-                    b.Navigation("Journal");
+                    b.Navigation("Fiscalyear");
 
                     b.Navigation("UpdateBy");
                 });
@@ -8478,9 +8469,7 @@ namespace DAL.Migrations
 
                     b.HasOne("Entities.Models.FI.Journal.FiJournalType", "Type")
                         .WithMany("FiJournals")
-                        .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TypeId");
 
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()

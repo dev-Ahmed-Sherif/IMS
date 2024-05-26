@@ -29,6 +29,8 @@ namespace DAL.Cc
                     CreditTotal = Add.CreditTotal,
                     DebitTotal = Add.DebitTotal,
                     Balance = Add.Balance,
+                    FiscalYearId = Add.FiscalYearId,
+                    JournalId = Add.JournalId,
                     CreatedByID = Add.TransactionUserId,
                     CreationDate = DateTime.Now
 
@@ -57,6 +59,8 @@ namespace DAL.Cc
                     _update.CreditTotal = update.CreditTotal;
                     _update.DebitTotal = update.DebitTotal;
                     _update.Balance = update.Balance;
+                    _update.FiscalYearId = update.FiscalYearId;
+                    _update.JournalId = update.JournalId;
                     _update.UpdateByID = update.TransactionUserId;
                     _update.CreationDate = DateTime.Now;
 
@@ -69,15 +73,38 @@ namespace DAL.Cc
         //delet function
         //-------------------
 
-        public string Delete(int dele_Id)
+        public string Delete(int EntryId)
         {
-         
-                var _dele = _context.CcEntry.Single(n => n.Id == dele_Id);
-              
-                    _context.CcEntry.Remove(_dele);
+            try
+            {
+                var _Row = _context.CcEntry.FirstOrDefault(n => n.Id == EntryId);
+                if (_Row != null)
+                {
+                    var DetailsToDelete = _context.CcEntryDetails.Where(p => p.EntryId == EntryId).ToList();
+                    if (DetailsToDelete != null)
+                    {
+                        _context.CcEntryDetails.RemoveRange(DetailsToDelete);
+                        _context.SaveChanges();
+                    }
+                    _context.CcEntry.Remove(_Row);
                     _context.SaveChanges();
                     return "Succeeded";
-            
+                }
+                else
+                {
+                    return "nothing to be deleted";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+            //var _dele = _context.CcEntry.Single(n => n.Id == EntryId);
+
+            //    _context.CcEntry.Remove(_dele);
+            //    _context.SaveChanges();
+            //    return "Succeeded";
 
         }
         //----------------
@@ -93,6 +120,9 @@ namespace DAL.Cc
                 CreditTotal = n.CreditTotal,
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
+                FiscalYearId = n.FiscalYearId,
+                JournalId = n.JournalId,
+                JournalName = n.Journal.Description,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
@@ -106,16 +136,20 @@ namespace DAL.Cc
                 CreditTotal = n.CreditTotal,
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
+                FiscalYearId = n.FiscalYearId,
+                JournalId = n.JournalId,
+                JournalName = n.Journal.Description,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).FirstOrDefault(n => n.Id == itemId);
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize)
+        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize , int YearId)
         {
             var totalCount = _context.CcEntry.Count();
             List<CcEntryGetVM> Item = _context.CcEntry
+                .Where(n=> n.Journal.FiscalYearId == YearId)
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
                 .Take(pageSize)
@@ -128,6 +162,9 @@ namespace DAL.Cc
                     CreditTotal = n.CreditTotal,
                     DebitTotal = n.DebitTotal,
                     Balance = n.Balance,
+                    FiscalYearId = n.FiscalYearId,
+                    JournalId = n.JournalId,
+                    JournalName = n.Journal.Description,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

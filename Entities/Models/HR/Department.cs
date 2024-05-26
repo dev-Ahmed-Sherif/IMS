@@ -9,6 +9,7 @@ namespace Entities.Models
     {
         [StringLength(100)]
         public string Name { get; set; }
+        public int Code { get; set; }
         public int GeneralDepartmentId { get; set; }
         public virtual GeneralDepartment generaldepartment { get; set; }
         public override int? CreatedByID { get; set; }
