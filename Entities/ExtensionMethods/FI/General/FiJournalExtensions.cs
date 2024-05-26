@@ -16,6 +16,8 @@ namespace Entities.ExtensionMethods.FI.General
                 TransactionUserId = fi.CreatedBy.Id,
                 CreateUserName = fi.CreatedBy.Name,
                 FiscalYearId = fi.FiscalYearId,
+                TypeId = fi.TypeId,
+                Type = fi.Type.JournalType,
                 FiscalYear = fi.FiscalYear.fiscalyear,
                 StartDate = fi.StartDate,
                 EndDate = fi.EndDate

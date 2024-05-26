@@ -30,6 +30,7 @@ namespace DAL.Cc
                     DebitTotal = Add.DebitTotal,
                     Balance = Add.Balance,
                     FiscalYearId = Add.FiscalYearId,
+                    JournalId = Add.JournalId,
                     CreatedByID = Add.TransactionUserId,
                     CreationDate = DateTime.Now
 
@@ -59,6 +60,7 @@ namespace DAL.Cc
                     _update.DebitTotal = update.DebitTotal;
                     _update.Balance = update.Balance;
                     _update.FiscalYearId = update.FiscalYearId;
+                    _update.JournalId = update.JournalId;
                     _update.UpdateByID = update.TransactionUserId;
                     _update.CreationDate = DateTime.Now;
 
@@ -73,13 +75,37 @@ namespace DAL.Cc
 
         public string Delete(int EntryId)
         {
-         
-                var _dele = _context.CcEntry.Single(n => n.Id == EntryId);
-              
-                    _context.CcEntry.Remove(_dele);
+            try
+            {
+                var _Row = _context.CcEntry.FirstOrDefault(n => n.Id == EntryId);
+                if (_Row != null)
+                {
+                    var DetailsToDelete = _context.CcEntryDetails.Where(p => p.EntryId == EntryId).ToList();
+                    if (DetailsToDelete != null)
+                    {
+                        _context.CcEntryDetails.RemoveRange(DetailsToDelete);
+                        _context.SaveChanges();
+                    }
+                    _context.CcEntry.Remove(_Row);
                     _context.SaveChanges();
                     return "Succeeded";
-            
+                }
+                else
+                {
+                    return "nothing to be deleted";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+            //var _dele = _context.CcEntry.Single(n => n.Id == EntryId);
+
+            //    _context.CcEntry.Remove(_dele);
+            //    _context.SaveChanges();
+            //    return "Succeeded";
+
         }
         //----------------
         //get function
@@ -95,6 +121,8 @@ namespace DAL.Cc
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
                 FiscalYearId = n.FiscalYearId,
+                JournalId = n.JournalId,
+                JournalName = n.Journal.Description,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
@@ -109,6 +137,8 @@ namespace DAL.Cc
                 DebitTotal = n.DebitTotal,
                 Balance = n.Balance,
                 FiscalYearId = n.FiscalYearId,
+                JournalId = n.JournalId,
+                JournalName = n.Journal.Description,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).FirstOrDefault(n => n.Id == itemId);
@@ -132,6 +162,8 @@ namespace DAL.Cc
                     DebitTotal = n.DebitTotal,
                     Balance = n.Balance,
                     FiscalYearId = n.FiscalYearId,
+                    JournalId = n.JournalId,
+                    JournalName = n.Journal.Description,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

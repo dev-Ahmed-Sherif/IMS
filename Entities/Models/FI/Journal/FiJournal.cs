@@ -21,7 +21,7 @@ namespace Entities.Models.FI.Journal
         public virtual StrFiscalYear FiscalYear { get; set; }
         public int? SectionId { get; set; }
         public virtual ImsSection Section { get; set; }
-        public int? TypeId { get; set; }
+        public int TypeId { get; set; }
         [ForeignKey("TypeId")]
         public virtual FiJournalType Type { get; set; }
         //Navigation Primary

@@ -34,6 +34,7 @@ namespace DAL.FI.General
                     CreatedByID = ID.TransactionUserId,
                     CreationDate = DateTime.Now,
                     StartDate = ID.StartDate,
+                    TypeId = ID.TypeId,
                     EndDate = ID.EndDate,
                     FiscalYearId = ID.FiscalYearId,
                 };
@@ -60,6 +61,7 @@ namespace DAL.FI.General
                     _Row.UpdateByID = ID.TransactionUserId;
                     _Row.LastUpdateDate = DateTime.Now;
                     _Row.StartDate = ID.StartDate;
+                    _Row.TypeId = ID.TypeId;
                     _Row.EndDate = ID.EndDate;
                     _Row.FiscalYearId = ID.FiscalYearId;
                     _context.SaveChanges();
@@ -71,13 +73,51 @@ namespace DAL.FI.General
         //------------------------------------------
         public string Delete(int ID)
         {
-           
-                var _Row = _context.FiJournal.Single(n => n.Id == ID);
-                
-                    _context.FiJournal.Remove(_Row);
-                    _context.SaveChanges();
-                    return "Succeeded";
-            
+            try
+            {
+                // Find the journal entry by ID
+                var journalEntry = _context.FiJournal.FirstOrDefault(n => n.Id == ID);
+
+                if (journalEntry == null)
+                {
+                    // Return a message if no journal entry is found
+                    return "Nothing to be deleted";
+                }
+
+                // Find all associated entries to delete
+                var entriesToDelete = _context.FiEntry.Where(p => p.JournalId == ID).ToList();
+
+                if (entriesToDelete.Any())
+                {
+                    // Find all related FiEntryDetails to delete
+                    var entryIds = entriesToDelete.Select(e => e.Id).ToList();
+                    var entryDetailsToDelete = _context.FiEntryDetails.Where(ed => entryIds.Contains(ed.EntryId)).ToList();
+
+                    if (entryDetailsToDelete.Any())
+                    {
+                        // Remove associated entry details
+                        _context.FiEntryDetails.RemoveRange(entryDetailsToDelete);
+                    }
+
+                    // Remove associated entries
+                    _context.FiEntry.RemoveRange(entriesToDelete);
+                }
+
+                // Remove the journal entry
+                _context.FiJournal.Remove(journalEntry);
+
+                // Save changes to the database
+                _context.SaveChanges();
+
+                // Return success message
+                return "Succeeded";
+            }
+            catch (Exception ex)
+            {
+                // Return the exception message for debugging purposes
+                return ex.ToString();
+            }
+
         }
         //-------------------------------------------------------------------
         // Select * (FI)Journal { with CreateUserName , UpdateUserName  }
