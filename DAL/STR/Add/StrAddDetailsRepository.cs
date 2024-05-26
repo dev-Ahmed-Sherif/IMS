@@ -1,5 +1,6 @@
 ﻿using Entities.Models.STR.Add;
 using Entities.Models.STR.StoreOpen;
+using Entities.Models.STR.WithDraw;
 using Entities.ViewModels;
 using Entities.ViewModels.STR.AddDetails;
 using Microsoft.EntityFrameworkCore;
@@ -349,7 +350,7 @@ namespace DAL.STR.Add
 
             return paginatedResult;
         }
-        public decimal GetSumOfQty(int storeid, int itemid)
+        public decimal GetSumOfQty(int storeid, int itemid, DateTime? startDate = null, DateTime? endDate = null)
         {
 
             decimal sumwithdrawdetails = (from b in _context.StrWithDrawDetails
@@ -358,15 +359,19 @@ namespace DAL.STR.Add
                                         where a.StoreId == storeid & b.ItemId == itemid
                                         select b.Qty).Sum();
             decimal sumstradd = (from b in _context.StrAddDetails
-                               join a in _context.StrAdd
-                               on b.AddId equals a.Id
-                               where a.StoreId == storeid & b.ItemId == itemid
-                               select b.Qty).Sum();
+                                 join a in _context.StrAdd
+                                 on b.AddId equals a.Id
+                                 where a.StoreId == storeid & b.ItemId == itemid && (a.Date >= startDate && a.Date <= endDate &&
+                                 a.Date.AddSeconds(-a.Date.Second) >= startDate &&
+                                 a.Date.AddSeconds(-a.Date.Second) <= endDate)
+                                 select b.Qty).Sum();
             decimal sumopeningstock = (from b in _context.StrOpeningStockDetails
-                                     join a in _context.StrOpeningStock
-                                     on b.STR_Opening_StockId equals a.Id
-                                     where a.StoreId == storeid & b.ItemId == itemid
-                                     select b.Qty).Sum();
+                                       join a in _context.StrOpeningStock
+                                       on b.STR_Opening_StockId equals a.Id
+                                       where a.StoreId == storeid & b.ItemId == itemid && (a.Date >= startDate && a.Date <= endDate &&
+                                       a.Date.AddSeconds(-a.Date.Second) >= startDate &&
+                                       a.Date.AddSeconds(-a.Date.Second) <= endDate)
+                                       select b.Qty).Sum();
             decimal totalsum = (sumstradd + sumopeningstock) - sumwithdrawdetails;
 
             return totalsum;

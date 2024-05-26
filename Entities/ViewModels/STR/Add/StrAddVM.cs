@@ -110,6 +110,7 @@ namespace Entities.ViewModels.STR.AddDetails
         public string Name { get; set; }
         public decimal TransactionQty { get; set; }
         public decimal Qty { get; set; }
+        public decimal TotalQty { get; set; }
         public string Section { get; set; }
         public int SectionId { get; set; }
         //public decimal outcomeQty { get; set; }
