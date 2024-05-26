@@ -17,7 +17,7 @@ namespace Entities.Models.Cc
         public decimal? DebitTotal { get; set; }
         public decimal? Balance { get; set; }
         public int? FiscalYearId { get; set; }
-        public virtual StrFiscalYear Fiscalyear { get; set; }
+        public virtual StrFiscalYear FiscalYear { get; set; }
         public int? JournalId { get; set; }
         public virtual FiJournal Journal { get; set; }
 

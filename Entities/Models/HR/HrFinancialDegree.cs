@@ -6,6 +6,7 @@ namespace Entities.Models.HR
 {
     public class HrFinancialDegree : EntityBase
     {
+        public int? Code { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }

@@ -26,6 +26,7 @@ namespace Entities.Models.FI.Journal
         public virtual FiJournalType Type { get; set; }
         //Navigation Primary
         public virtual ICollection<FiEntry> Fi_Entry { get; set; }
+        public virtual ICollection<CcEntry> Cc_Entry { get; set; }
 
         //--------------------------------------------------------------------------
         // Relation { PrUser => AccountParent } +++ {View Model => TransactionUserId} 

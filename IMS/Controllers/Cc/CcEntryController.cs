@@ -50,9 +50,9 @@ namespace IMS.Controllers.Cc
         // GET Pagenation { Data with ( page , pagesize)} 
         //-----------------------------------------------
         [HttpGet("get/by/pagination")]
-        public IActionResult getAllByPagination(int page, int pageSize)
+        public IActionResult getAllByPagination(int page, int pageSize, int YearId)
         {
-            var Pagination = _cc_entr.getAllByPagination(page, pageSize);
+            var Pagination = _cc_entr.getAllByPagination(page, pageSize, YearId);
             return Ok(Pagination);
         }
     }

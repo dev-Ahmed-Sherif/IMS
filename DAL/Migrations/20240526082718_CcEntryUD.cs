@@ -20,8 +20,7 @@ namespace DAL.Migrations
                 name: "FiscalYearId",
                 table: "CcEntry",
                 type: "int",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_HrEmployee_ReligionId",
@@ -39,7 +38,7 @@ namespace DAL.Migrations
                 column: "FiscalYearId",
                 principalTable: "FiscalYear",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_HrEmployee_HrReligion_ReligionId",

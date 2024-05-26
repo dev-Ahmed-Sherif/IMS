@@ -34,9 +34,9 @@ namespace Business.Cc
         {
             return _CcEntryRepository.GetById(typeId);
         }
-        public PaginatedResult<CcEntryGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult<CcEntryGetVM> getAllByPagination(int page, int pageSize, int YearId)
         {
-            return _CcEntryRepository.GetAllByPagination(page, pageSize);
+            return _CcEntryRepository.GetAllByPagination(page, pageSize ,YearId);
         }
     }
 }

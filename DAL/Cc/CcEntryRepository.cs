@@ -145,10 +145,11 @@ namespace DAL.Cc
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize)
+        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize , int YearId)
         {
             var totalCount = _context.CcEntry.Count();
             List<CcEntryGetVM> Item = _context.CcEntry
+                .Where(n=> n.Journal.FiscalYearId == YearId)
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
                 .Take(pageSize)
