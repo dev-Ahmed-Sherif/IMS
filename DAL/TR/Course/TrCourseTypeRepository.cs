@@ -98,6 +98,18 @@ namespace DAL.TR.Course
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 }).Single(n => n.Id == TRCourseType_Id);
+
+
+
+        public List<TrCourseTypeGetVM> Search(TrCourseTypeSearch searchModel)
+        { 
+            
+        
+        
+        }
+
+
+
         //------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //------------------------------------------------

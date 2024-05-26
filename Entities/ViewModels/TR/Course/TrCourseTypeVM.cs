@@ -28,8 +28,8 @@
     {
         public string? Id { get; set; }
         public string Name { get; set; }
-        public int TransactionUserId { get; set; }
-        public string CreateUserName { get; set; }
+        //public int TransactionUserId { get; set; }
+        //public string CreateUserName { get; set; }
         public string CourseTypeName { get; set; }
         public string CourseCategoryName { get; set; }
         public string? Hours { get; set; }
