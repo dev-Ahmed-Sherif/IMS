@@ -32,7 +32,7 @@ namespace IMS.Controllers.HR
             return new JsonResult(_response);
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("delete/{ID}")]
         public IActionResult Delete(int ID)
         {
             var _response = _EmployeeVacationBalanceService.Delete(ID);

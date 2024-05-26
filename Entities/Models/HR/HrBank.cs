@@ -11,5 +11,6 @@ namespace Entities.Models.HR
     {
         [StringLength(100)]
         public string Name { get; set; }
+        public int Code { get; set; }
     }
 }

@@ -1,6 +1,9 @@
-﻿using Business.TR.Course;
+﻿using Business.HR;
+using Business.TR.Course;
+using Entities.ViewModels.HR;
 using Entities.ViewModels.TR.Course;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace IMS.Controllers.TR.Course
 {
@@ -44,6 +47,48 @@ namespace IMS.Controllers.TR.Course
             var add = _Service.GetById(id);
             return Ok(add);
         }
+
+        [HttpGet("Search")]
+        public IActionResult Search(TrCourseSearch searchModel)
+        {
+            var search = _Service.Search(searchModel);
+            return Ok(search);
+        }
+
+        //[HttpGet("get/Report")]
+        //public IActionResult Get([FromQuery] TrCourseReport searchModel)
+        //{
+
+        //    var reportFileByString = _Service.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+        //    return File(reportFileByString, MediaTypeNames.Application.Pdf, getReportDetails(searchModel.reportName, searchModel.reportType));
+        //}
+
+        //private string getReportDetails(string reportName, string reportType)
+        //{
+        //    var outputFileName = reportName + ".pdf";
+
+        //    switch (reportType.ToUpper())
+        //    {
+        //        default:
+        //        case "PDF":
+        //            outputFileName = reportName + ".pdf"; break;
+        //        case "XLS":
+        //            outputFileName = reportName + ".xls"; break;
+        //        case "WORD":
+        //            outputFileName = reportName + ".doc"; break;
+        //    }
+
+        //    return outputFileName;
+        //}
+        [HttpGet("get/Report")]
+        public IActionResult Get([FromQuery] TrCourseReport searchModel)
+        {
+
+            var reportFileByString = _Service.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
+            return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
+
+
         //-----------------------------------------------
         // GET Pagenation { Data with ( page , pagesize)} 
         //-----------------------------------------------
