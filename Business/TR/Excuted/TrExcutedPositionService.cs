@@ -43,9 +43,9 @@ namespace Business.TR.Excuted
         {
             return _TrExcutedPositionRepository.GetByHeaderId(Id);
         }
-        public PaginatedResult<TrExcutedPositionGetVM> GetAllByPagination(int page, int pageSize)
+        public PaginatedResult<TrExcutedPositionGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            return _TrExcutedPositionRepository.GetAllByPagination(page, pageSize);
+            return _TrExcutedPositionRepository.GetAllByPagination(page, pageSize, HeaderId);
         }
     }
 }

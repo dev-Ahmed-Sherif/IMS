@@ -1,4 +1,5 @@
-﻿using Business.TR.Excuted;
+﻿using Business.STR.Add;
+using Business.TR.Excuted;
 using Entities.ViewModels.TR.Excuted;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,6 +48,12 @@ namespace IMS.Controllers.TR.Excuted
         {
             var add = _TrExcutedService.GetById(id);
             return Ok(add);
+        }
+        [HttpGet("get/by/pagination")]
+        public IActionResult getAllByPagination(int page, int pageSize, int HeaderId)
+        {
+            var allItems = _TrExcutedService.GetAllByPagination(page, pageSize, HeaderId);
+            return Ok(allItems);
         }
     }
 }
