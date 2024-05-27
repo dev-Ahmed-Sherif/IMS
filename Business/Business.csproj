@@ -86,6 +86,8 @@
 		<None Remove="ReportsFiles\STRItemsTransactionReport.rdlc" />
 		<None Remove="ReportsFiles\STRWithdrawDetailsReport.rdlc" />
 		<None Remove="ReportsFiles\STRWithdrawReport.rdlc" />
+		<None Remove="ReportsFiles\TR\Course.rdlc" />
+		<None Remove="ReportsFiles\TR\CourseExcuted.rdlc" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="ReportsFiles\FinancialStatment\AccountACReport.rdlc">
@@ -291,6 +293,12 @@
 		</Content>
 		<Content Include="ReportsFiles\Store\WithdrawToCostCenterInvestReport.rdlc">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\TR\Course.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\TR\CourseExcuted.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 	<ItemGroup>

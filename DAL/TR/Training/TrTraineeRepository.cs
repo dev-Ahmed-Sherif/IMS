@@ -132,6 +132,86 @@ namespace DAL.TR.Training
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 }).FirstOrDefault(n => n.Id == TraineeId);
+
+
+        public List<TrTraineeGetSearchVM> Search(TrTraineeSearch searchModel)
+        {
+            var query = _context.TrTrainee.AsQueryable();
+            if (!string.IsNullOrEmpty(searchModel.Name))
+            {
+                query = query.Where(p => p.Name.Contains(searchModel.Name));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Code))
+            {
+                query = query.Where(p => p.Code.Contains(searchModel.Code));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Phone))
+            {
+                query = query.Where(p => p.Phone.Contains(searchModel.Phone));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Email))
+            {
+                query = query.Where(p => p.Email.Contains(searchModel.Email));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Address))
+            {
+                query = query.Where(p => p.Address.Contains(searchModel.Address));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Gender))
+            {
+                query = query.Where(p => p.Gender.Contains(searchModel.Gender));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Gender))
+            {
+                query = query.Where(p => p.Gender.Contains(searchModel.Gender));
+            }
+            if (!string.IsNullOrEmpty(searchModel.NationalId))
+            {
+                query = query.Where(p => p.NationalId.ToString().Contains(searchModel.NationalId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CityId))
+            {
+                query = query.Where(p => p.CityId.ToString().Contains(searchModel.CityId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CityStateId))
+            {
+                query = query.Where(p => p.CityStateId.ToString().Contains(searchModel.CityStateId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CorporationCLientId))
+            {
+                query = query.Where(p => p.CorporationCLientId.ToString().Contains(searchModel.CorporationCLientId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.TransactionUserId))
+            {
+                query = query.Where(p => p.CreatedBy.Id.ToString().Contains(searchModel.TransactionUserId));
+            }
+            var result = query.Select(n => new TrTraineeGetSearchVM
+            {
+                Id = n.Id,
+
+                Name = n.Name,
+                Code = n.Code,
+                NationalId = n.NationalId,
+                Phone = n.Phone,
+                Email = n.Email,
+                Address = n.Address,
+                Gender = n.Gender,
+                CityId = n.CityId,
+                CityName = n.City.Name,
+                CorporationCLientId = n.CorporationCLientId,
+                CorporationCLinetName = n.CorporationCLient.Name,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                //Section = n.Section.Name,    
+
+            }).ToList();
+
+            return result;
+        }
+
+
+
         //------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //------------------------------------------------

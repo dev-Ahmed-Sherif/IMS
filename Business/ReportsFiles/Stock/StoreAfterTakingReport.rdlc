@@ -138,7 +138,6 @@
                                     <FontSize>16pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#1b77a3</Color>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -969,7 +968,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1006,7 +1004,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1043,7 +1040,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1080,7 +1076,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1117,7 +1112,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1154,7 +1148,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -1263,7 +1256,6 @@
                                                                                       <FontFamily>Times New Roman</FontFamily>
                                                                                       <FontSize>14pt</FontSize>
                                                                                       <FontWeight>Bold</FontWeight>
-                                                                                      <NumeralVariant>1</NumeralVariant>
                                                                                     </Style>
                                                                                   </TextRun>
                                                                                 </TextRuns>
@@ -2201,10 +2193,14 @@
           <DataField>GradeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>STRStockTakingDetails</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -21,11 +21,12 @@ namespace Entities.Models.FI.Journal
         public virtual StrFiscalYear FiscalYear { get; set; }
         public int? SectionId { get; set; }
         public virtual ImsSection Section { get; set; }
-        public int? TypeId { get; set; }
+        public int TypeId { get; set; }
         [ForeignKey("TypeId")]
         public virtual FiJournalType Type { get; set; }
         //Navigation Primary
         public virtual ICollection<FiEntry> Fi_Entry { get; set; }
+        public virtual ICollection<CcEntry> Cc_Entry { get; set; }
 
         //--------------------------------------------------------------------------
         // Relation { PrUser => AccountParent } +++ {View Model => TransactionUserId} 

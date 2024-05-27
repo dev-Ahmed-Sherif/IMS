@@ -38,4 +38,42 @@ namespace Entities.ViewModels.TR.Excuted
         public string UpdateUserName { get; set; }
         public string DelegateName { get; set; }
     }
+
+    public class TrExcutedGetSearchVM : TrExcutedGetVM
+    {
+
+        public string? ShortStartDate { get; set; }
+        public string? ShortEndDate { get; set; }
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
+
+    }
+    public class TrExcutedSearch
+    {
+        public string? Days { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string? NoTrainee { get; set; }
+        public string? NoTraineeCorporate { get; set; }
+        public string? NoTraineeTotal { get; set; }
+        public string? Status { get; set; }
+        public string? Costplaned { get; set; }
+        public string? Cost { get; set; }
+        public string? DelegateId { get; set; }
+        public string? TrainingCenterId { get; set; }
+        public string? ClassRoomId { get; set; }
+        public string? FiscalYearId { get; set; }
+        public string? CourseId { get; set; }
+        public string? PurposeId { get; set; }
+        public string? MaterialPurposeId { get; set; }
+        public string? MaterialPurposeName { get; set; }
+        public string TransactionUserId { get; set; }
+
+    }
+    public class TrExcutedReport : TrExcutedSearch
+    {
+        public string reportName { get; set; }
+        public string reportType { get; set; }
+    }
+
 }

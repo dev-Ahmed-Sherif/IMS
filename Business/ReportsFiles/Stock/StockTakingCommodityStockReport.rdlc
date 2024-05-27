@@ -161,7 +161,6 @@
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
-                                    <NumeralVariant>1</NumeralVariant>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -469,7 +468,6 @@
                                                                     <FontFamily>arial</FontFamily>
                                                                     <FontSize>12pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <NumeralVariant>1</NumeralVariant>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -506,7 +504,6 @@
                                                                     <FontFamily>arial</FontFamily>
                                                                     <FontSize>12pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <NumeralVariant>1</NumeralVariant>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -543,7 +540,6 @@
                                                                     <FontFamily>arial</FontFamily>
                                                                     <FontSize>12pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <NumeralVariant>1</NumeralVariant>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -652,7 +648,6 @@
                                                                     <FontFamily>arial</FontFamily>
                                                                     <FontSize>12pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <NumeralVariant>1</NumeralVariant>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -704,7 +699,7 @@
                                             <Top>0.64775in</Top>
                                             <Left>0.34375in</Left>
                                             <Height>0.67833in</Height>
-                                            <Width>22.52483cm</Width>
+                                            <Width>22.52486cm</Width>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -883,7 +878,6 @@
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>White</Color>
-                  <NumeralVariant>1</NumeralVariant>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1835,10 +1829,14 @@
           <DataField>Unit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>StockQtyTotal</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -125,6 +125,119 @@ namespace DAL.TR.Excuted
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
+
+        public List<TrExcutedGetSearchVM> Search(TrExcutedSearch searchModel)
+        {
+            var query = _context.TrExcuted.AsQueryable();
+            if (!string.IsNullOrEmpty(searchModel.Days))
+            {
+                query = query.Where(p => p.Days.ToString().Contains(searchModel.Days));
+            }
+            if (!string.IsNullOrEmpty(searchModel.NoTrainee))
+            {
+                query = query.Where(p => p.NoTrainee.ToString().Contains(searchModel.NoTrainee));
+            }
+            if (!string.IsNullOrEmpty(searchModel.NoTraineeCorporate))
+            {
+                query = query.Where(p => p.NoTraineeCorporate.ToString().Contains(searchModel.NoTraineeCorporate));
+            }
+            if (!string.IsNullOrEmpty(searchModel.NoTraineeTotal))
+            {
+                query = query.Where(p => p.NoTraineeTotal.ToString().Contains(searchModel.NoTraineeTotal));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Status))
+            {
+                query = query.Where(p => p.Status.ToString().Contains(searchModel.Status));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Costplaned))
+            {
+                query = query.Where(p => p.Costplaned.ToString().Contains(searchModel.Costplaned));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Cost))
+            {
+                query = query.Where(p => p.Cost.ToString().Contains(searchModel.Cost));
+            }
+            if (!string.IsNullOrEmpty(searchModel.DelegateId))
+            {
+                query = query.Where(p => p.DelegateId.ToString().Contains(searchModel.DelegateId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.TrainingCenterId))
+            {
+                query = query.Where(p => p.TrainingCenterId.ToString().Contains(searchModel.TrainingCenterId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.ClassRoomId))
+            {
+                query = query.Where(p => p.ClassRoomId.ToString().Contains(searchModel.ClassRoomId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.FiscalYearId))
+            {
+                query = query.Where(p => p.FiscalYearId.ToString().Contains(searchModel.FiscalYearId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CourseId))
+            {
+                query = query.Where(p => p.CourseId.ToString().Contains(searchModel.CourseId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.PurposeId))
+            {
+                query = query.Where(p => p.PurposeId.ToString().Contains(searchModel.PurposeId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.MaterialPurposeId))
+            {
+                query = query.Where(p => p.MaterialPurposeId.ToString().Contains(searchModel.MaterialPurposeId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.MaterialPurposeName))
+            {
+                query = query.Where(p => p.MaterialPurpose.Name.ToString().Contains(searchModel.MaterialPurposeName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.TransactionUserId))
+            {
+                query = query.Where(p => p.CreatedBy.Id.ToString().Contains(searchModel.TransactionUserId));
+            }
+            if (searchModel.StartDate.HasValue)
+            {
+                query = query.Where(p => p.StartDate >= searchModel.StartDate.Value.Date);
+            }
+            if (searchModel.EndDate.HasValue)
+            {
+                query = query.Where(p => p.EndDate >= searchModel.EndDate.Value.Date);
+            }
+            var result = query.Select(n => new TrExcutedGetSearchVM
+            {
+                Id = n.Id,
+                Days = n.Days,
+                StartDate = n.StartDate,
+                EndDate = n.EndDate,
+                NoTrainee = n.NoTrainee,
+                DelegateId = n.DelegateId,
+                DelegateName = n.Delegate.Name,
+                ClassRoomId = n.ClassRoomId,
+                ClassRoomName = n.ClassRoom.Name,
+                FiscalYearId = n.FiscalYearId,
+                FiscalYearName = n.FiscalYear.fiscalyear,
+                CourseId = n.CourseId,
+                CourseName = n.Course.Name,
+                PurposeId = n.PurposeId,
+                PurposeName = n.Purpose.Name,
+                TrainingCenterId = n.TrainingCenterId,
+                TrainingCenterName = n.TrainingCenter.Name,
+                NoTraineeCorporate = n.NoTraineeCorporate,
+                NoTraineeTotal = n.NoTraineeTotal,
+                Status = n.Status,
+                Cost = n.Cost,
+                Costplaned = n.Costplaned,
+                MaterialPurposeId = n.MaterialPurposeId,
+                MaterialPurposeName = n.MaterialPurpose.Name,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                //Section = n.Section.Name,    
+
+            }).ToList();
+
+            return result;
+
+        }
+
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
@@ -177,5 +290,8 @@ namespace DAL.TR.Excuted
         }
         public TrExcutedGetVM GetById(int itemId) => _context.TrExcuted.Select(n => new TrExcutedGetVM { Id = n.Id, Days = n.Days, StartDate = n.StartDate, EndDate = n.EndDate, NoTrainee = n.NoTrainee, ClassRoomId = n.ClassRoomId, ClassRoomName = n.ClassRoom.Name, FiscalYearId = n.FiscalYearId, FiscalYearName = n.FiscalYear.fiscalyear, CourseId = n.CourseId, CourseName = n.Course.Name, PurposeId = n.PurposeId, PurposeName = n.Purpose.Name, TrainingCenterId = n.TrainingCenterId, TrainingCenterName = n.TrainingCenter.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).Single(n => n.Id == itemId);
     }
+
+
+
 }
 

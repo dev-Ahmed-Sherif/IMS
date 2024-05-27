@@ -125,6 +125,71 @@ namespace DAL.TR.Course
                     TransactionUserId = n.CreatedBy.Id
                 }).Single(n => n.Id == TRCourseId);
 
+        public List<TrCourseGetSearchVM> Search(TrCourseSearch searchModel)
+        {
+            var query = _context.TrCourse.AsQueryable();
+            if (!string.IsNullOrEmpty(searchModel.Id))
+            {
+                query = query.Where(p => p.Id.ToString().Contains(searchModel.Id));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Name))
+            {
+                query = query.Where(n => n.Name.Contains(searchModel.Name));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Hours))
+            {
+                query = query.Where(p => p.Hours.ToString().Contains(searchModel.Hours));
+
+            }
+            if (!string.IsNullOrEmpty(searchModel.Cost))
+            {
+                query = query.Where(p => p.Cost.ToString().Contains(searchModel.Cost));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Price))
+            {
+                query = query.Where(p => p.Price.ToString().Contains(searchModel.Price));
+            }
+            if (searchModel.IsActive)
+            {
+                query = query.Where(p => p.IsActive);
+            }
+            if (!string.IsNullOrEmpty(searchModel.CategoryId))
+            {
+                query = query.Where(p => p.CategoryId.ToString().Contains(searchModel.CategoryId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CourseTypeId))
+            {
+                query = query.Where(p => p.CourseTypeId.ToString().Contains(searchModel.CourseTypeId));
+            }
+            var result = query.Select(n => new TrCourseGetSearchVM
+            {
+                Id = n.Id,
+                Name = n.Name,
+                Description = n.Description,
+                Price = n.Price,
+                Cost = n.Cost,
+                Hours = n.Hours,
+                IsActive = n.IsActive,
+                CategoryId = n.CategoryId,
+                CourseTypeId = n.CourseTypeId,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                CourseTypeName = n.CourseType.Name,
+                CourseCategoryName = n.Category.Name,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                //Section = n.Section.Name,    
+
+
+
+            }).ToList();
+
+
+            return result;
+        }
+
+
+
+
         //------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //------------------------------------------------

@@ -10,6 +10,8 @@ namespace Entities.ViewModels.Cc
         public decimal? CreditTotal { get; set; }
         public decimal? DebitTotal { get; set; }
         public decimal? Balance { get; set; }
+        public int? JournalId { get; set; }
+        public int? FiscalYearId { get; set; }
         public int TransactionUserId { get; set; }
     }
     public class CcEntryVM : CcEntryGeneralVM
@@ -19,6 +21,7 @@ namespace Entities.ViewModels.Cc
     public class CcEntryGetVM : CcEntryVM
     {
         public string CreateUserName { get; set; }
+        public string JournalName { get; set; }
         public string UpdateUserName { get; set; }
     }
 }

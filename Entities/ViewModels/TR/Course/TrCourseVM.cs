@@ -23,4 +23,32 @@
         public string CourseTypeName { get; set; }
         public string CourseCategoryName { get; set; }
     }
+
+    public class TrCourseGetSearchVM : TrCourseGetVM
+    {
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
+
+    }
+    public class TrCourseSearch
+    {
+        public string? Id { get; set; }
+        public string Name { get; set; }
+        public string? Hours { get; set; }
+        public string? Cost { get; set; }
+        public string? Price { get; set; }
+        public bool IsActive { get; set; }
+        public string? CategoryId { get; set; }
+        public string? CourseTypeId { get; set; }
+
+    }
+    public class TrCourseReport : TrCourseSearch
+    {
+        public string reportName { get; set; }
+        public string reportType { get; set; }
+    }
+
+
+
+
 }

@@ -47,7 +47,10 @@ namespace DAL.HR
                     WorkPlaceId = employee.WorkPlaceId,
                     DepartmentId = employee.DepartmentId,
                     SeveranceReasonId = employee.SeveranceReasonId,
-
+                    BankId = employee.BankId,
+                    PayMethodId = employee.PayMethodId,
+                    ReligionId = employee.ReligionId,
+                    SalaryStatusId = employee.SalaryStatusId,
 
                     CreatedByID = employee.TransactionUserId,
                     CreationDate = DateTime.Now
@@ -94,10 +97,10 @@ namespace DAL.HR
                     _employee.WorkPlaceId = employee.WorkPlaceId;
                     _employee.DepartmentId = employee.DepartmentId;
                     _employee.SeveranceReasonId = employee.SeveranceReasonId;
-
-
-
-
+                    _employee.BankId = employee.BankId;
+                    _employee.PayMethodId = employee.PayMethodId;
+                    _employee.ReligionId = employee.ReligionId;
+                    _employee.SalaryStatusId = employee.SalaryStatusId;
                     _employee.UpdateByID = employee.TransactionUserId;
                     _employee.LastUpdateDate = DateTime.Now;
 
@@ -291,6 +294,10 @@ namespace DAL.HR
                 MillitryStateId = n.MillitryStateId,
                 MillitryStateName = n.MillitryState.Name,
                 HiringTypeId = n.HiringTypeId,
+                BankId = n.BankId,
+                PayMethodId = n.PayMethodId,
+                ReligionId = n.ReligionId,
+                SalaryStatusId = n.SalaryStatusId,
                 HiringTypeName = n.HiringType.Name,
                 FinancialDegreeId = n.FinancialDegreeId,
                 FinancialDegreeName = n.FinancialDegree.Name,

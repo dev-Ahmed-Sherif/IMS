@@ -27,10 +27,10 @@ namespace IMS.Controllers.Cc
             return new JsonResult(_response);
         }
 
-        [HttpDelete("Delete/{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("Delete/{EntryId}")]
+        public IActionResult Delete(int EntryId)
         {
-            var _response = _cc_entr.Delete(id);
+            var _response = _cc_entr.Delete(EntryId);
             return new JsonResult(_response);
         }
 
@@ -50,9 +50,9 @@ namespace IMS.Controllers.Cc
         // GET Pagenation { Data with ( page , pagesize)} 
         //-----------------------------------------------
         [HttpGet("get/by/pagination")]
-        public IActionResult getAllByPagination(int page, int pageSize)
+        public IActionResult getAllByPagination(int page, int pageSize, int YearId)
         {
-            var Pagination = _cc_entr.getAllByPagination(page, pageSize);
+            var Pagination = _cc_entr.getAllByPagination(page, pageSize, YearId);
             return Ok(Pagination);
         }
     }

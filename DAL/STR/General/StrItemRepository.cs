@@ -375,6 +375,9 @@ namespace DAL.STR.General
         {
             StrStoreGetVM store = _StrStoreRepository.GetById(soreId);
             string storeName = store.Name;
+
+            decimal itemTotalQty = _StrAddDetailsRepository.GetSumOfQty(soreId, itemId,startdate,enddate);
+
             var addQuery = (
                 from strAddDetails in _context.StrAddDetails
                 join strItem in _context.StrItem on strAddDetails.ItemId equals strItem.Id
@@ -394,6 +397,7 @@ namespace DAL.STR.General
                     Name = strItem.Name,
                     Unit = strItem.STR_Unit.Name,
                     Qty = strAddDetails.Qty,
+                    TotalQty = itemTotalQty,
                     //outcomeQty = 0f,
                     Price = strAddDetails.Price,
                     AvgPrice = _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
@@ -429,6 +433,7 @@ namespace DAL.STR.General
                             Unit = strItem.STR_Unit.Name,
                             //IncomeQty = 0f,
                             Qty = strWithdrawDetails.Qty,
+                            TotalQty = itemTotalQty,
                             Price = strWithdrawDetails.Price,
                             AvgPrice = _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
                             BillNo = strWithdraw.No,
@@ -464,6 +469,7 @@ namespace DAL.STR.General
                    Unit = strItem.STR_Unit.Name,
                    //IncomeQty = 0f,
                    Qty = StrOpeningStockDetails.Qty,
+                   TotalQty = itemTotalQty,
                    Price = StrOpeningStockDetails.Price,
                    AvgPrice = _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
                    BillNo = StrOpeningStock.No,
@@ -602,6 +608,7 @@ namespace DAL.STR.General
                      Name = strItem.Name,
                      Unit = strItem.STR_Unit.Name,
                      Qty = strAddDetails.Qty,
+                     TotalQty = 0,
                      //outcomeQty = 0f,
                      Price = strAddDetails.Price,
                      AvgPrice =  _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
@@ -638,6 +645,7 @@ namespace DAL.STR.General
                             Section = strWithdraw.STR_Store.Section.Name,
                             //IncomeQty = 0f,
                             Qty = strWithdrawDetails.Qty,
+                            TotalQty = 0,
                             Price = strWithdrawDetails.Price,   
                             AvgPrice = _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
                             BillNo = strWithdraw.No,
@@ -673,6 +681,7 @@ namespace DAL.STR.General
                    Section = StrOpeningStock.STR_Store.Section.Name,
                    //IncomeQty = 0f,
                    Qty = StrOpeningStockDetails.Qty,
+                   TotalQty = 0,
                    Price = StrOpeningStockDetails.Price,
                    AvgPrice = _StrAddDetailsRepository.GetAvgPrice(FiscalYearId, strItem.Id, startdate, enddate),
                    BillNo = StrOpeningStock.No,
@@ -687,10 +696,16 @@ namespace DAL.STR.General
                }).OrderBy(x => x.Date).ThenBy(x => x.Billid).ThenBy(x => x.StoreId).ToList();
 
             var result = openingStockQuery
-               .Union(addQuery)
-               .Union(withdrawQuery);
+                         .Union(addQuery)
+                         .Union(withdrawQuery);
 
             List<dynamic> dynamicResult = result.Cast<dynamic>().ToList();
+
+            for (int i = 0; i < dynamicResult.Count; i++)
+            {
+                dynamicResult[i].TotalQty = _StrAddDetailsRepository.GetSumOfQty(dynamicResult[i].StoreId, itemId,startdate,enddate);
+            }
+
             return dynamicResult;
 
         }

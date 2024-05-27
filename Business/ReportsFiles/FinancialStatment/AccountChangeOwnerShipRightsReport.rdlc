@@ -1515,15 +1515,15 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.78361cm</Width>
+              <Width>3.77038cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.15365cm</Width>
+              <Width>4.14042cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.97042cm</Height>
+              <Height>1.835cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1780,10 +1780,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>EquityCapital</DataSetName>
-        <Top>7.43905cm</Top>
-        <Left>21.06639cm</Left>
-        <Height>2.77896cm</Height>
-        <Width>7.93726cm</Width>
+        <Top>7.41258cm</Top>
+        <Left>20.59015cm</Left>
+        <Height>3.64354cm</Height>
+        <Width>7.9108cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1800,7 +1800,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.97042cm</Height>
+              <Height>1.83499cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1811,7 +1811,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ارباح وخسائر مرحلة</Value>
+                              <Value>ارباح أو خسائر مرحلة</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -1946,9 +1946,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>StageProfitsAndLosses</DataSetName>
-        <Top>7.43905cm</Top>
-        <Left>5.84214cm</Left>
-        <Height>2.77896cm</Height>
+        <Top>7.41259cm</Top>
+        <Left>6.29193cm</Left>
+        <Height>3.64353cm</Height>
         <Width>4.08788cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -1966,7 +1966,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.97042cm</Height>
+              <Height>1.835cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1977,7 +1977,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>أسهم خزينة</Value>
+                              <Value>أسهم الخزينة</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -2112,9 +2112,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>TreasuryShares</DataSetName>
-        <Top>7.43904cm</Top>
-        <Left>1.75426cm</Left>
-        <Height>2.77896cm</Height>
+        <Top>7.41258cm</Top>
+        <Left>2.20405cm</Left>
+        <Height>3.64354cm</Height>
         <Width>4.08788cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
@@ -2127,19 +2127,19 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.7192cm</Width>
+              <Width>2.22003cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.7192cm</Width>
+              <Width>2.20086cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.7192cm</Width>
+              <Width>1.52399cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.7192cm</Width>
+              <Width>1.55045cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.30708cm</Width>
+              <Width>2.715cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2427,14 +2427,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox63">
+                    <Textbox Name="BeginningBalance5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!BeginningBalance.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -2447,7 +2447,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox63</rd:DefaultName>
+                      <rd:DefaultName>BeginningBalance5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2612,14 +2612,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox67">
+                    <Textbox Name="EndingBalance5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!EndingBalance.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -2632,7 +2632,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox67</rd:DefaultName>
+                      <rd:DefaultName>EndingBalance5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2785,10 +2785,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>AccountItem</DataSetName>
-        <Top>6.83905cm</Top>
+        <Top>7.41258cm</Top>
         <Left>10.37981cm</Left>
         <Height>3.64354cm</Height>
-        <Width>10.18387cm</Width>
+        <Width>10.21034cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -3345,10 +3345,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <DataField>Section</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Water\ASWC Github\ims new\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountItem</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -3415,6 +3419,22 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </Field>
         <Field Name="EndingBalance">
           <DataField>EndingBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -3489,6 +3509,22 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <DataField>EndingBalance</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
@@ -3559,6 +3595,22 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </Field>
         <Field Name="EndingBalance">
           <DataField>EndingBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

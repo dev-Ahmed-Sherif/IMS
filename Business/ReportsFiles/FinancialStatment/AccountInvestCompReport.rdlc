@@ -6,25 +6,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.14009cm</Width>
+              <Width>1.45562cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.45211cm</Width>
+              <Width>1.76764cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.89982cm</Width>
+              <Width>5.21535cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.06477cm</Width>
+              <Width>4.3803cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.21242cm</Width>
+              <Width>4.52795cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.35305cm</Width>
+              <Width>4.66858cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.49849cm</Width>
+              <Width>4.81402cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -883,9 +883,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <DataSetName>AccountRE</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>1.7591cm</Left>
+        <Left>0.78711cm</Left>
         <Height>3.40541cm</Height>
-        <Width>24.62075cm</Width>
+        <Width>26.82946cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -914,7 +914,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
         <Top>4.10531cm</Top>
-        <Left>23.07635cm</Left>
+        <Left>22.68763cm</Left>
         <Height>0.9175cm</Height>
         <Width>3.69222cm</Width>
         <ZIndex>1</ZIndex>
@@ -1007,7 +1007,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
   <Width>29.7cm</Width>
   <Page>
     <PageHeader>
-      <Height>4.42876cm</Height>
+      <Height>5.22251cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1150,7 +1150,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox47</rd:DefaultName>
-          <Top>3.08046cm</Top>
+          <Top>3.87421cm</Top>
           <Left>19.48339cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.69222cm</Width>
@@ -1187,7 +1187,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
-          <Top>3.08046cm</Top>
+          <Top>3.87421cm</Top>
           <Left>15.40724cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.65094cm</Width>
@@ -1223,7 +1223,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox49</rd:DefaultName>
-          <Top>3.08046cm</Top>
+          <Top>3.87421cm</Top>
           <Left>12.53995cm</Left>
           <Height>0.9175cm</Height>
           <Width>2.26347cm</Width>
@@ -1260,7 +1260,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
-          <Top>3.08046cm</Top>
+          <Top>3.87421cm</Top>
           <Left>8.26755cm</Left>
           <Height>0.9175cm</Height>
           <Width>3.85948cm</Width>
@@ -1340,6 +1340,80 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <Height>0.9175cm</Height>
           <Width>6.0851cm</Width>
           <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox124">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Section.Value, "AccountRE")</Value>
+                  <Style>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontSize>18pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>#1b77a3</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox105</rd:DefaultName>
+          <Top>2.83324cm</Top>
+          <Left>11.64094cm</Left>
+          <Height>0.86458cm</Height>
+          <Width>4.405cm</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox125">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>قطاع</Value>
+                  <Style>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontSize>18pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>#1b77a3</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox105</rd:DefaultName>
+          <Top>2.83324cm</Top>
+          <Left>15.40724cm</Left>
+          <Height>0.85576cm</Height>
+          <Width>2.79104cm</Width>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1596,11 +1670,15 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <DataField>Section</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git\Business\reportstr.xsd</rd:SchemaPath>
-        <rd:TableName>FIAccountRe</rd:TableName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountStore</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

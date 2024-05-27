@@ -43,4 +43,35 @@
         public string CityName { get; set; }
 
     }
+
+    public class TrTraineeGetSearchVM : TrTraineeGetVM
+    {
+        public string ReportDate { get; set; }
+        public string Section { get; set; }
+
+    }
+
+
+    public class TrTraineeSearch
+    {
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Gender { get; set; }
+        public string? NationalId { get; set; }
+        public string? CityId { get; set; }
+        public string? CityStateId { get; set; }
+        public string? CorporationCLientId { get; set; }
+        public string? TransactionUserId { get; set; }
+
+    }
+    public class TrTraineeReport : TrTraineeSearch
+    {
+        public string reportName { get; set; }
+        public string reportType { get; set; }
+    }
+
+
 }
