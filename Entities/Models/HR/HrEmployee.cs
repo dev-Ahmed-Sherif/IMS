@@ -77,8 +77,8 @@ namespace Entities.Models.HR
         public virtual HrPayMethod PayMethod { get; set; }
         public int? SalaryStatusId { get; set; }
         public virtual HrSalaryStatus SalaryStatus { get; set; }
-        public int? ReligionId { get; set; }
-        public virtual HrReligion Religion { get; set; }
+        public string Religion { get; set; }
+     
         public virtual ICollection<StrAdd> STR_Add { get; set; }
         public virtual ICollection<StrEmployeeOpeningCustody> STR_Employee_Opening_Custody { get; set; }
         public virtual ICollection<StrEmployeeExchange> STR_Employee_Exchange { get; set; }
