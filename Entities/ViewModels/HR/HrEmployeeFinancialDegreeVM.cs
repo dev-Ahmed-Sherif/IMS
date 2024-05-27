@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Entities.Models.HR;
+using System;
 
 namespace Entities.ViewModels.HR
 {
     public class HrEmployeeFinancialDegreeGeneralVM
     {
 
-
+        public int EmployeeId { get; set; }
+    
         public int FinancialDegreeId { get; set; }
         public int TransactionUserId { get; set; }
         public DateTime FinancialDegreeDate { get; set; }
@@ -23,6 +25,8 @@ namespace Entities.ViewModels.HR
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
         public string FinancialDegreeName { get; set; }
+        public string EmployeeName { get; set; }
+        public string EmployeeCode { get; set; }
     }
     public class HrEmployeeFinancialDegreeGetSearchVM : HrEmployeeFinancialDegreeGetVM
     {

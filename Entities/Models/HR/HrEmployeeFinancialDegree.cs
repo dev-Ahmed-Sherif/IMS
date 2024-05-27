@@ -6,12 +6,14 @@ namespace Entities.Models.HR
 {
     public class HrEmployeeFinancialDegree : EntityBase
     {
-        [StringLength(50)]
 
 
+        public int EmployeeId { get; set; }
+        public virtual HrEmployee Employee { get; set; }
         public int FinancialDegreeId { get; set; }
 
         public virtual HrFinancialDegree FinancialDegree { get; set; }
+
 
         public DateTime FinancialDegreeDate { get; set; }
         //----------------------------------------------------------------------

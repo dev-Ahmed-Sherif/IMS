@@ -433,7 +433,7 @@ namespace DAL
         public DbSet<HrSeveranceReason> HrSeveranceReason { get; set; }
         public DbSet<HrHiringType> HrHiringType { get; set; }
         public DbSet<HrFinancialDegree> HrFinancialDegree { get; set; }
-        public DbSet<HrEmployeeFinancialDegree> EmployeeFinancialDegree { get; set; }
+        public DbSet<HrEmployeeFinancialDegree> HrEmployeeFinancialDegree { get; set; }
         public DbSet<HrVacation> HrVacation { get; set; }
         public DbSet<HrEmployeeVacationBalance> HrEmployeeVacationBalance { get; set; }
         public DbSet<HrEmployeeVacation> HrEmployeeVacation { get; set; }

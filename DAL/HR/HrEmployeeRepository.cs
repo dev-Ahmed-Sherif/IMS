@@ -27,7 +27,9 @@ namespace DAL.HR
                     National_Code = employee.National_Code,
                     Birth_Date = employee.Birth_Date,
                     Address = employee.Address,
-                    QualificationDate = employee.QualificationDate,
+                     Email = employee.Email,
+                     Phone = employee.Phone,
+                QualificationDate = employee.QualificationDate,
                     HiringDate = employee.HiringDate,
                     WorkingStateDate = employee.WorkingStateDate,
                     FinancialDegreeDate = employee.FinancialDegreeDate,
@@ -69,6 +71,8 @@ namespace DAL.HR
                 {
                     _employee.Name = employee.Name;
                     _employee.Code = employee.Code;
+                    _employee.Email=employee.Email;
+                    _employee.Phone = employee.Phone;
                     _employee.National_Code = employee.National_Code;
                     _employee.Birth_Date = employee.Birth_Date;
                     _employee.Address = employee.Address;
