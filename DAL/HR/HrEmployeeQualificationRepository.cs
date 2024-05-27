@@ -1,9 +1,13 @@
-﻿using Entities.Models.HR;
+﻿using DAL.Helpers;
+using Entities.Enums;
+using Entities.Models;
+using Entities.Models.HR;
 using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace DAL
@@ -17,32 +21,27 @@ namespace DAL
             _context = context;
         }
 
-        public string Add(HrEmployeeQualificationVM EmployeeQualification)
+        public async Task<string> Add(HrEmployeeQualificationVM EmployeeQualification)
         {
-            try
-            {
-                var _EmployeeQualification = new HrEmployeeQualification()
-                {
-                    Date = EmployeeQualification.Date,
-                    Attachment = EmployeeQualification.Attachment,
-                    QualificationId = EmployeeQualification.QualificationId,
-                    QualificationLevelId = EmployeeQualification.QualificationLevelId,
-                    SpecializationId = EmployeeQualification.SpecializationId,
-                    EmployeeId = EmployeeQualification.EmployeeId,
 
-                    CreatedByID = EmployeeQualification.TransactionUserId,
-                    CreationDate = DateTime.Now
-                };
-                _context.HrEmployeeQualification.Add(_EmployeeQualification);
-                _context.SaveChanges();
-                return "Succeeded";
-            }
-            catch (Exception ex)
+            string fileName = await FileHelper.UploadFile(EmployeeQualification.File, FileHelper.GetDirectoryName(DirectoriesEnum.HrEmployeeQualification));
+            var _EmployeeQualification = new HrEmployeeQualification()
             {
-                return ex.ToString();
-            }
+                Date = EmployeeQualification.Date,
+                Attachment = EmployeeQualification.Attachment,
+                QualificationId = EmployeeQualification.QualificationId,
+                QualificationLevelId = EmployeeQualification.QualificationLevelId,
+                SpecializationId = EmployeeQualification.SpecializationId,
+                EmployeeId = EmployeeQualification.EmployeeId,
+
+                CreatedByID = EmployeeQualification.TransactionUserId,
+                CreationDate = DateTime.Now
+            };
+            _context.HrEmployeeQualification.Add(_EmployeeQualification);
+            _context.SaveChanges();
+            return "Succeeded";
         }
-        public string Update(HrEmployeeQualificationVM EmployeeQualification)
+        public async Task<string> Update(HrEmployeeQualificationVM EmployeeQualification)
         {
             try
             {
@@ -50,7 +49,7 @@ namespace DAL
                 if (_EmployeeQualification != null)
                 {
                     _EmployeeQualification.Date = EmployeeQualification.Date;
-                    _EmployeeQualification.Attachment = EmployeeQualification.Attachment;
+                    _EmployeeQualification.Attachment = await FileHelper.UploadFile(EmployeeQualification.File, FileHelper.GetDirectoryName(DirectoriesEnum.HrEmployeeQualification));
                     _EmployeeQualification.QualificationId = EmployeeQualification.QualificationId;
                     _EmployeeQualification.QualificationLevelId = EmployeeQualification.QualificationLevelId;
                     _EmployeeQualification.SpecializationId = EmployeeQualification.SpecializationId;

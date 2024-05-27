@@ -8,6 +8,8 @@
         STRStockTaking,
         STROpenStock,
         STREmployeeExchange,
-        StrEmployeeOpeningCustody
+        StrEmployeeOpeningCustody,
+        HrEmployeeAppraisal,
+        HrEmployeeQualification
     }
 }

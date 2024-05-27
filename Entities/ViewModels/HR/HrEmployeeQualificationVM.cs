@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Entities.ViewModels
 {
@@ -7,8 +8,8 @@ namespace Entities.ViewModels
 
         public DateTime Date { get; set; }
         public string Attachment { get; set; }
-
-        //Navigation foreign
+        public IFormFile File { get; set; }
+       
         public int QualificationId { get; set; }
         public int QualificationLevelId { get; set; }
         public int SpecializationId { get; set; }

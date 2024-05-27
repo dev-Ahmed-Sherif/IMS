@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.ViewModels.Cc
 {
@@ -22,6 +23,10 @@ namespace Entities.ViewModels.Cc
     {
         public string CreateUserName { get; set; }
         public string JournalName { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? JournalStartDate { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? JournalEndDate { get; set; }
         public string UpdateUserName { get; set; }
     }
 }
