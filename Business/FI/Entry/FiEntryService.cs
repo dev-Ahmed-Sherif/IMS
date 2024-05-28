@@ -51,9 +51,9 @@ namespace Business.FI.Entry
         //-------------------
         //Select * (FI)_Entry 
         //-------------------
-        public List<FiEntryGetVM> GetAll(int YearID)
+        public List<FiEntryGetVM> GetAll()
         {
-            return _FiRepository.GetAll(YearID);
+            return _FiRepository.GetAll();
         }
 
         //-----------------------------------------
