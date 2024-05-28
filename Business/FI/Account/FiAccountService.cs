@@ -292,6 +292,15 @@ namespace Business.FI.Account
             {
                 case "AccountREReport":
                     {
+                        List<string> array1 = new List<string>
+                        {
+                            "111",
+                            "112",
+                            "35",
+                            "38",
+                        };
+
+                        List<AccountItemVM> FIAccountarray1;
                         FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
@@ -303,6 +312,7 @@ namespace Business.FI.Account
                                 }
                             }
                         }
+                        report.DataSources.Add(new ReportDataSource() { Name = "array1", Value = FIAccountREAdd });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
                     }
 

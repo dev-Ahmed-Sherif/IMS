@@ -39,11 +39,11 @@ namespace Entities.ViewModels.TR.General
     }
     public class TrCorporateCLientSearch
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
-        public int Code { get; set; }
+        public string Code { get; set; }
 
         public string phone { get; set; }
 
@@ -51,8 +51,10 @@ namespace Entities.ViewModels.TR.General
 
         public string Address { get; set; }
 
-        public int? CityId { get; set; }
+        public string? CityId { get; set; }
         public string CityName { get; set; }
+        public string TransactionUserId { get; set; }
+
         //public string CreateUserName { get; set; }
         //public string UpdateUserName { get; set; }
 

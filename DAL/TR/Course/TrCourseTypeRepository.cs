@@ -1,9 +1,11 @@
 ﻿using Entities.Models.TR.Course;
 using Entities.ViewModels.TR.Course;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DAL.TR.Course
 {
@@ -101,10 +103,36 @@ namespace DAL.TR.Course
 
 
 
-        public List<TrCourseTypeGetVM> Search(TrCourseTypeSearch searchModel)
+        public List<TrCourseGetTypeSearchVM> Search(TrCourseTypeSearch searchModel)
         {
+            var query = _context.TrCourseType.AsQueryable();
 
-            return new List<TrCourseTypeGetVM>() ;
+            if (!string.IsNullOrEmpty(searchModel.Id))
+            {
+                query = query.Where(p => p.Id.ToString() == searchModel.Id);
+            }
+            if (!string.IsNullOrEmpty(searchModel.Name))
+            {
+                query = query.Where(p => p.Name.Contains(searchModel.Name));
+            }
+
+            if (!string.IsNullOrEmpty(searchModel.TransactionUserId))
+            {
+                query = query.Where(p => p.CreatedBy.Id.ToString().Contains(searchModel.TransactionUserId));
+            }
+            var result = query.Select(n => new TrCourseGetTypeSearchVM
+            {
+                Id = n.Id,
+                Name = n.Name,
+
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                Section = n.Section.Name,
+
+            }).ToList();
+
+            return result;
 
         }
 
