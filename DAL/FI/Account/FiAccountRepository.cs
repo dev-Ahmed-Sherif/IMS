@@ -751,13 +751,13 @@ namespace DAL.FI.Account
                 .Where(e => e.Code.StartsWith("11") && e.Code.Length == 3)
                 .ToListAsync();
 
-            List<string> fixedAssetsDepreciationAccountsChilds =
-                
+            List<FiAccount> fixedAssetsDepreciationAccountsChilds =
+                await
                 _context
                 .FiAccount
                 .Where(e => e.Code.StartsWith("261"))
                 .OrderBy(e=> e.Code)
-                .Select(e=> e.Code).ToList();
+                .ToListAsync();
 
             List<string> fixedAssetsDepreciationAccountsCodes =
                 fixedAssetsAccounts
@@ -805,14 +805,20 @@ namespace DAL.FI.Account
                 {
 
                     AccumulatedDepreciation =
-
-                  
-                    fixedAssetsDepreciationAccounts
+                    fixedAssetsDepreciationAccountsChilds
                      .FirstOrDefault
                      (e => e.Code.StartsWith(ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code)))?
                      .FiEntryDetails
                      .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
                      .Sum(e => e.Credit - e.Debit) ?? 0,
+
+
+                    //fixedAssetsDepreciationAccounts
+                    // .FirstOrDefault
+                    // (e => e.Code.StartsWith(ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code)))?
+                    // .FiEntryDetails
+                    // .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
+                    // .Sum(e => e.Credit - e.Debit) ?? 0,
 
 
 
