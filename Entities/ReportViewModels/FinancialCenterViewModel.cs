@@ -23,6 +23,7 @@ namespace Entities.ReportViewModels
         public decimal Cost { get; set; }
         public decimal AccumulatedDepreciation { get; set; }
         public decimal FixedAssetNetValue { get; set; }
+        public decimal prevFixedAssetNetValue { get; set; }
     }
 }
 
