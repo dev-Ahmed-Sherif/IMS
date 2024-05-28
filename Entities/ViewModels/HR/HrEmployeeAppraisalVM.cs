@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -10,7 +11,7 @@ namespace Entities.ViewModels
         public int Appraisal { get; set; }
 
         public string Attachment { get; set; }
-        //Navigation foreign
+        public IFormFile File { get; set; }
         public int EmployeeId { get; set; }
         public int TransactionUserId { get; set; }
 

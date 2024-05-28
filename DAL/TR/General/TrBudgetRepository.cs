@@ -31,6 +31,7 @@ namespace DAL.TR.General
                     ServiceTotal = TR_Course.ServiceTotal,
                     CourseTotal = TR_Course.CourseTotal,
                     CourseId = TR_Course.CourseId,
+                    SuppliesCost = TR_Course.SuppliesCost,
                     CreatedByID = TR_Course.TransactionUserId,
                     CreationDate = DateTime.Now
 
@@ -55,7 +56,8 @@ namespace DAL.TR.General
                     _TR_Course.TransportCost = TR_Course.TransportCost;
                     _TR_Course.ServiceTotal = TR_Course.ServiceTotal;
                     _TR_Course.CourseTotal = TR_Course.CourseTotal;
-                    _TR_Course.CourseId = TR_Course.CourseId;
+                    _TR_Course.CourseId = TR_Course.CourseId; 
+                    _TR_Course.SuppliesCost = TR_Course.SuppliesCost;
                     _TR_Course.UpdateByID = TR_Course.TransactionUserId;
                     _TR_Course.CreationDate = DateTime.Now;
 
@@ -91,6 +93,7 @@ namespace DAL.TR.General
                   CourseTotal = n.CourseTotal,
                   CourseId = n.CourseId,
                   CourseName = n.Course.Name,
+                  SuppliesCost = n.SuppliesCost,
                   Id = n.Id,
                   CreateUserName = n.CreatedBy.Name,
                   TransactionUserId = n.CreatedBy.Id,
@@ -112,6 +115,7 @@ namespace DAL.TR.General
                     CourseTotal = n.CourseTotal,
                     CourseId = n.CourseId,
                     CourseName = n.Course.Name,
+                    SuppliesCost = n.SuppliesCost,
                     Id = n.Id,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id,

@@ -123,6 +123,8 @@ namespace DAL.Cc
                 FiscalYearId = n.FiscalYearId,
                 JournalId = n.JournalId,
                 JournalName = n.Journal.Description,
+                JournalStartDate=n.Journal.StartDate,
+                JournalEndDate = n.Journal.EndDate,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
@@ -139,6 +141,8 @@ namespace DAL.Cc
                 FiscalYearId = n.FiscalYearId,
                 JournalId = n.JournalId,
                 JournalName = n.Journal.Description,
+                JournalStartDate = n.Journal.StartDate,
+                JournalEndDate = n.Journal.EndDate,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).FirstOrDefault(n => n.Id == itemId);
@@ -165,6 +169,8 @@ namespace DAL.Cc
                     FiscalYearId = n.FiscalYearId,
                     JournalId = n.JournalId,
                     JournalName = n.Journal.Description,
+                    JournalStartDate = n.Journal.StartDate,
+                    JournalEndDate = n.Journal.EndDate,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

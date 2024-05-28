@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 
 
 namespace Business.HR
@@ -17,14 +18,14 @@ namespace Business.HR
         {
             _HrEmployeeAppraisalRepository = HrEmployeeAppraisalRepository;
         }
-        public string Add(HrEmployeeAppraisalVM EmployeeAppraisal)
+        public async Task<string> Add(HrEmployeeAppraisalVM EmployeeAppraisal)
         {
-            return _HrEmployeeAppraisalRepository.Add(EmployeeAppraisal);
+            return await _HrEmployeeAppraisalRepository.Add(EmployeeAppraisal);
         }
 
-        public string Update(HrEmployeeAppraisalVM EmployeeAppraisal)
+        public async Task<string> Update(HrEmployeeAppraisalVM EmployeeAppraisal)
         {
-            return _HrEmployeeAppraisalRepository.Update(EmployeeAppraisal);
+            return await _HrEmployeeAppraisalRepository.Update(EmployeeAppraisal);
         }
 
         public string Delete(int EmployeeAppraisalId)

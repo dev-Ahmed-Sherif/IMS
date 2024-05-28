@@ -34,7 +34,7 @@ namespace Entities.ViewModels.HR
         public int DepartmentId { get; set; }
         public int SeveranceReasonId { get; set; }
         public int? SalaryStatusId { get; set; }
-        public int? ReligionId { get; set; }
+        public string Religion { get; set; }
         public int? PayMethodId { get; set; }
         public int? BankId { get; set; }
     }

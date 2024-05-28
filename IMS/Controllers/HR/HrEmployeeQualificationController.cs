@@ -2,6 +2,7 @@
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
+using System.Threading.Tasks;
 
 
 namespace IMS.Controllers
@@ -21,14 +22,14 @@ namespace IMS.Controllers
         }
 
         [HttpPost("Add")]
-        public IActionResult Add([FromBody] HrEmployeeQualificationVM EmployeeQualification)
+        public async Task<IActionResult> Add([FromForm] HrEmployeeQualificationVM EmployeeQualification)
         {
-            var _response = _EmployeeQualificationService.Add(EmployeeQualification);
+            var _response = await _EmployeeQualificationService.Add(EmployeeQualification);
             return new JsonResult(_response);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] HrEmployeeQualificationVM EmployeeQualification)
+        public IActionResult Update([FromForm] HrEmployeeQualificationVM EmployeeQualification)
         {
             var _response = _EmployeeQualificationService.Update(EmployeeQualification);
             return new JsonResult(_response);

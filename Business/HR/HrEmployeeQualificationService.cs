@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.HR
 {
@@ -18,14 +19,14 @@ namespace Business.HR
         {
             _HrEmployeeQualificationRepository = HrEmployeeQualificationRepository;
         }
-        public string Add(HrEmployeeQualificationVM EmployeeQualification)
+        public async Task<string> Add(HrEmployeeQualificationVM EmployeeQualification)
         {
-            return _HrEmployeeQualificationRepository.Add(EmployeeQualification);
+            return await _HrEmployeeQualificationRepository.Add(EmployeeQualification);
         }
 
-        public string Update(HrEmployeeQualificationVM EmployeeQualification)
+        public async Task<string> Update(HrEmployeeQualificationVM EmployeeQualification)
         {
-            return _HrEmployeeQualificationRepository.Update(EmployeeQualification);
+            return await _HrEmployeeQualificationRepository.Update(EmployeeQualification);
         }
 
         public string Delete(int EmployeeQualificationId)

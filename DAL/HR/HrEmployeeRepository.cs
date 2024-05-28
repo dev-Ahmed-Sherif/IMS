@@ -27,7 +27,9 @@ namespace DAL.HR
                     National_Code = employee.National_Code,
                     Birth_Date = employee.Birth_Date,
                     Address = employee.Address,
-                    QualificationDate = employee.QualificationDate,
+                     Email = employee.Email,
+                     Phone = employee.Phone,
+                   QualificationDate = employee.QualificationDate,
                     HiringDate = employee.HiringDate,
                     WorkingStateDate = employee.WorkingStateDate,
                     FinancialDegreeDate = employee.FinancialDegreeDate,
@@ -47,7 +49,7 @@ namespace DAL.HR
                     SeveranceReasonId = employee.SeveranceReasonId,
                     BankId = employee.BankId,
                     PayMethodId = employee.PayMethodId,
-                    ReligionId = employee.ReligionId,
+                    Religion = employee.Religion,
                     SalaryStatusId = employee.SalaryStatusId,
 
                     CreatedByID = employee.TransactionUserId,
@@ -72,6 +74,8 @@ namespace DAL.HR
                 {
                     _employee.Name = employee.Name;
                     _employee.Code = employee.Code;
+                    _employee.Email=employee.Email;
+                    _employee.Phone = employee.Phone;
                     _employee.National_Code = employee.National_Code;
                     _employee.Birth_Date = employee.Birth_Date;
                     _employee.Address = employee.Address;
@@ -95,7 +99,7 @@ namespace DAL.HR
                     _employee.SeveranceReasonId = employee.SeveranceReasonId;
                     _employee.BankId = employee.BankId;
                     _employee.PayMethodId = employee.PayMethodId;
-                    _employee.ReligionId = employee.ReligionId;
+                    _employee.Religion = employee.Religion;
                     _employee.SalaryStatusId = employee.SalaryStatusId;
                     _employee.UpdateByID = employee.TransactionUserId;
                     _employee.LastUpdateDate = DateTime.Now;
@@ -292,7 +296,7 @@ namespace DAL.HR
                 HiringTypeId = n.HiringTypeId,
                 BankId = n.BankId,
                 PayMethodId = n.PayMethodId,
-                ReligionId = n.ReligionId,
+                Religion = n.Religion,
                 SalaryStatusId = n.SalaryStatusId,
                 HiringTypeName = n.HiringType.Name,
                 FinancialDegreeId = n.FinancialDegreeId,

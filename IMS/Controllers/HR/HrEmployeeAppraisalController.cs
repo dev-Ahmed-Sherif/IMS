@@ -1,7 +1,9 @@
 ﻿using Business.HR;
 using Entities.ViewModels;
+using Entities.ViewModels.STR.AddDetails;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
+using System.Threading.Tasks;
 
 namespace IMS.Controllers
 {
@@ -18,16 +20,16 @@ namespace IMS.Controllers
         }
 
         [HttpPost("Add")]
-        public IActionResult Add([FromBody] HrEmployeeAppraisalVM EmployeeAppraisal)
+        public  async Task<IActionResult> Add([FromForm] HrEmployeeAppraisalVM EmployeeAppraisal) 
         {
-            var _response = _EmployeeAppraisalService.Add(EmployeeAppraisal);
+            var _response = await _EmployeeAppraisalService.Add(EmployeeAppraisal);
             return new JsonResult(_response);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] HrEmployeeAppraisalVM EmployeeAppraisal)
+        public async Task<IActionResult> Update([FromForm] HrEmployeeAppraisalVM EmployeeAppraisal)
         {
-            var _response = _EmployeeAppraisalService.Update(EmployeeAppraisal);
+            var _response =await _EmployeeAppraisalService.Update(EmployeeAppraisal);
             return new JsonResult(_response);
         }
 

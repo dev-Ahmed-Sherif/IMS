@@ -696,8 +696,8 @@ namespace DAL.STR.General
                }).OrderBy(x => x.Date).ThenBy(x => x.Billid).ThenBy(x => x.StoreId).ToList();
 
             var result = openingStockQuery
-               .Union(addQuery)
-               .Union(withdrawQuery);
+                         .Union(addQuery)
+                         .Union(withdrawQuery);
 
             List<dynamic> dynamicResult = result.Cast<dynamic>().ToList();
 

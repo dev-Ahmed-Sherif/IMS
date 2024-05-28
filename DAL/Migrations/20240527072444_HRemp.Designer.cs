@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240527072444_HRemp")]
+    partial class HRemp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1924,8 +1927,8 @@ namespace DAL.Migrations
                     b.Property<int>("QualificationLevelId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Religion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ReligionId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("SalaryStatusId")
                         .HasColumnType("int");
@@ -1985,6 +1988,8 @@ namespace DAL.Migrations
                     b.HasIndex("QualificationId");
 
                     b.HasIndex("QualificationLevelId");
+
+                    b.HasIndex("ReligionId");
 
                     b.HasIndex("SalaryStatusId");
 
@@ -8835,6 +8840,10 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.HR.HrReligion", "Religion")
+                        .WithMany()
+                        .HasForeignKey("ReligionId");
+
                     b.HasOne("Entities.Models.HR.HrSalaryStatus", "SalaryStatus")
                         .WithMany()
                         .HasForeignKey("SalaryStatusId");
@@ -8890,6 +8899,8 @@ namespace DAL.Migrations
                     b.Navigation("Qualification");
 
                     b.Navigation("QualificationLevel");
+
+                    b.Navigation("Religion");
 
                     b.Navigation("SalaryStatus");
 
@@ -9012,7 +9023,7 @@ namespace DAL.Migrations
                         .HasForeignKey("CreatedByID");
 
                     b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
-                        .WithMany("HrEmployeeFinancialDegree_employee")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -12219,8 +12230,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.HR.HrEmployee", b =>
                 {
                     b.Navigation("Dest_Employee_Exchange");
-
-                    b.Navigation("HrEmployeeFinancialDegree_employee");
 
                     b.Navigation("STR_Add");
 

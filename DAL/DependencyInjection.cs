@@ -80,6 +80,7 @@ namespace DAL
             services.AddScoped<FiAccountItemCategoryRepository>();
             services.AddScoped<FiAccountParentRepository>();
             services.AddScoped<FiJournalRepository>();
+            services.AddScoped<FiJournalTypeRepository>();
             services.AddScoped<FiEntryRepository>();
             services.AddScoped<FiEntrySourceRepository>();
             services.AddScoped<FiEntrySourceTypeRepository>();

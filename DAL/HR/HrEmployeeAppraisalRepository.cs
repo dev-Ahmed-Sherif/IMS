@@ -1,9 +1,13 @@
-﻿using Entities.Models;
+﻿using DAL.Helpers;
+using Entities.Enums;
+using Entities.Models;
+using Entities.Models.STR.Product;
 using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace DAL
@@ -17,16 +21,15 @@ namespace DAL
             _context = context;
         }
 
-        public string Add(HrEmployeeAppraisalVM EmployeeAppraisal)
+        public async Task<string> Add(HrEmployeeAppraisalVM EmployeeAppraisal)
         {
-            try
-            {
-                var _EmployeeAppraisal = new HrEmployeeAppraisal()
+            string fileName = await FileHelper.UploadFile(EmployeeAppraisal.File, FileHelper.GetDirectoryName(DirectoriesEnum.HrEmployeeAppraisal));
+            var _EmployeeAppraisal = new HrEmployeeAppraisal()
                 {
                     Appraisal = EmployeeAppraisal.Appraisal,
                     Date = EmployeeAppraisal.Date,
                     EmployeeId = EmployeeAppraisal.EmployeeId,
-                    Attachment = EmployeeAppraisal.Attachment,
+                    Attachment = fileName,
 
                     CreatedByID = EmployeeAppraisal.TransactionUserId,
                     CreationDate = DateTime.Now
@@ -34,23 +37,17 @@ namespace DAL
                 _context.HrEmployeeAppraisal.Add(_EmployeeAppraisal);
                 _context.SaveChanges();
                 return "Succeeded";
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+           
         }
-        public string Update(HrEmployeeAppraisalVM EmployeeAppraisal)
+        public async Task<string> Update(HrEmployeeAppraisalVM EmployeeAppraisal)
         {
-            try
-            {
-                var _EmployeeAppraisal = _context.HrEmployeeAppraisal.FirstOrDefault(n => n.Id == EmployeeAppraisal.Id);
-                if (_EmployeeAppraisal != null)
-                {
+           
+                var _EmployeeAppraisal = _context.HrEmployeeAppraisal.Single(n => n.Id == EmployeeAppraisal.Id);
+              
                     _EmployeeAppraisal.Appraisal = EmployeeAppraisal.Appraisal;
                     _EmployeeAppraisal.Date = EmployeeAppraisal.Date;
                     _EmployeeAppraisal.EmployeeId = EmployeeAppraisal.EmployeeId;
-                    _EmployeeAppraisal.Attachment = EmployeeAppraisal.Attachment;
+                    _EmployeeAppraisal.Attachment = await FileHelper.UploadFile(EmployeeAppraisal.File, FileHelper.GetDirectoryName(DirectoriesEnum.HrEmployeeAppraisal));
 
                     _EmployeeAppraisal.UpdateByID = EmployeeAppraisal.TransactionUserId;
 
@@ -58,16 +55,8 @@ namespace DAL
 
                     _context.SaveChanges();
                     return "Succeeded";
-                }
-                else
-                {
-                    return "nothing to be updated";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+           
+          
         }
 
         public string Delete(int EmployeeAppraisalId)

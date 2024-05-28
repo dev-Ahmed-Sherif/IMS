@@ -81,9 +81,59 @@ namespace DAL.TR.Excuted
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<TrExcutedTraineeGetVM> GetAllByPagination(int page, int pageSize)
+        //public PaginatedResult<TrExcutedTraineeGetVM> GetAllByPagination(int page, int pageSize)
+        //{
+        //    var totalCount = _context.TrExcutedTrainee.Count();
+        //    List<TrExcutedTraineeGetVM> Item = _context.TrExcutedTrainee
+        //        .OrderByDescending(Item => Item.CreationDate)
+        //        .Skip((page) * pageSize)
+        //        .Take(pageSize)
+        //        .Select(n => new TrExcutedTraineeGetVM
+        //        {
+        //            Id = n.Id,
+        //            ExcutedId = n.ExcutedId,
+        //            EmployeeId = n.EmployeeId,
+        //            TraineeId = n.TraineeId,
+        //            CreateUserName = n.CreatedBy.Name,
+        //            TransactionUserId = n.CreatedBy.Id
+        //        })
+        //        .ToList();
+
+        //    var paginatedResult = new PaginatedResult<TrExcutedTraineeGetVM>
+        //    {
+        //        Items = Item,
+        //        TotalItems = totalCount,
+        //        Page = page,
+        //        PageSize = pageSize
+        //    };
+
+        //    return paginatedResult;
+        //}
+        //public class PaginatedResult<T>
+        //{
+        //    public List<T> Items { get; set; }
+        //    public int TotalItems { get; set; }
+        //    public int Page { get; set; }
+        //    public int PageSize { get; set; }
+        //}
+        public PaginatedResult<TrExcutedTraineeGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var totalCount = _context.TrExcutedTrainee.Count();
+            var totalCount = _context.TrExcutedTrainee.Where(n => n.ExcutedId == HeaderId).Count();
+
+            if (totalCount == 0)
+            {
+                return new PaginatedResult<TrExcutedTraineeGetVM>
+                {
+                    Items = new List<TrExcutedTraineeGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int?> TrExcuted = _context.TrExcutedTrainee
+                   .Where(sus => sus.ExcutedId == HeaderId)
+                   .Select(sus => sus.ExcutedId)
+                   .ToList();
             List<TrExcutedTraineeGetVM> Item = _context.TrExcutedTrainee
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
@@ -91,11 +141,11 @@ namespace DAL.TR.Excuted
                 .Select(n => new TrExcutedTraineeGetVM
                 {
                     Id = n.Id,
-                    ExcutedId = n.ExcutedId,
-                    EmployeeId = n.EmployeeId,
-                    TraineeId = n.TraineeId,
-                    CreateUserName = n.CreatedBy.Name,
-                    TransactionUserId = n.CreatedBy.Id
+                              ExcutedId = n.ExcutedId,
+                              EmployeeId = n.EmployeeId,
+                                TraineeId = n.TraineeId,
+                                CreateUserName = n.CreatedBy.Name,
+                               TransactionUserId = n.CreatedBy.Id
                 })
                 .ToList();
 

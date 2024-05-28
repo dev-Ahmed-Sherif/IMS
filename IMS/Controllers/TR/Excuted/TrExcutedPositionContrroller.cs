@@ -55,9 +55,9 @@ namespace IMS.Controllers.TR.Excuted
             return Ok(CostCenter);
         }
         [HttpGet("get/by/pagination")]
-        public IActionResult getAllByPagination(int page, int pageSize)
+        public IActionResult getAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var allItems = _sTR_AddService.GetAllByPagination(page, pageSize);
+            var allItems = _sTR_AddService.GetAllByPagination(page, pageSize, HeaderId);
             return Ok(allItems);
         }
     }

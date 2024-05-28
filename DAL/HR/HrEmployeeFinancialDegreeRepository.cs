@@ -22,13 +22,13 @@ namespace DAL.HR
             {
                 var _EmployeeFinancialDegree = new HrEmployeeFinancialDegree()
                 {
-
+                    EmployeeId = EmployeeFinancialDegree.EmployeeId,
                     FinancialDegreeId = EmployeeFinancialDegree.FinancialDegreeId,
                     FinancialDegreeDate = EmployeeFinancialDegree.FinancialDegreeDate,
                     CreatedByID = EmployeeFinancialDegree.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
-                _context.EmployeeFinancialDegree.Add(_EmployeeFinancialDegree);
+                _context.HrEmployeeFinancialDegree.Add(_EmployeeFinancialDegree);
                 _context.SaveChanges();
                 return "Succeeded";
             }
@@ -41,10 +41,10 @@ namespace DAL.HR
         {
             try
             {
-                var _EmployeeFinancialDegree = _context.EmployeeFinancialDegree.FirstOrDefault(n => n.Id == EmployeeFinancialDegree.Id);
+                var _EmployeeFinancialDegree = _context.HrEmployeeFinancialDegree.FirstOrDefault(n => n.Id == EmployeeFinancialDegree.Id);
                 if (_EmployeeFinancialDegree != null)
                 {
-
+                    _EmployeeFinancialDegree.EmployeeId = EmployeeFinancialDegree.EmployeeId;
                     _EmployeeFinancialDegree.FinancialDegreeDate = EmployeeFinancialDegree.FinancialDegreeDate;
                     _EmployeeFinancialDegree.FinancialDegreeId = EmployeeFinancialDegree.FinancialDegreeId;
 
@@ -70,10 +70,10 @@ namespace DAL.HR
         {
             try
             {
-                var _EmployeeFinancialDegree = _context.EmployeeFinancialDegree.FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
+                var _EmployeeFinancialDegree = _context.HrEmployeeFinancialDegree.FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
                 if (_EmployeeFinancialDegree != null)
                 {
-                    _context.EmployeeFinancialDegree.Remove(_EmployeeFinancialDegree);
+                    _context.HrEmployeeFinancialDegree.Remove(_EmployeeFinancialDegree);
                     _context.SaveChanges();
                     return "Succeeded";
                 }
@@ -89,11 +89,11 @@ namespace DAL.HR
         }
 
 
-        public List<HrEmployeeFinancialDegreeGetVM> GetAll() => _context.EmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name }).ToList();
-        public HrEmployeeFinancialDegreeGetVM GetById(int EmployeeFinancialDegreeId) => _context.EmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name }).FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
+        public List<HrEmployeeFinancialDegreeGetVM> GetAll() => _context.HrEmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name,EmployeeId=n.EmployeeId,EmployeeCode=n.Employee.Code,EmployeeName=n.Employee.Name }).ToList();
+        public HrEmployeeFinancialDegreeGetVM GetById(int EmployeeFinancialDegreeId) => _context.HrEmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name, EmployeeId = n.EmployeeId, EmployeeCode = n.Employee.Code, EmployeeName = n.Employee.Name }).FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
         public List<HrEmployeeFinancialDegreeGetSearchVM> Search(HrEmployeeFinancialDegreeSearch searchModel)
         {
-            var query = _context.EmployeeFinancialDegree.AsQueryable();
+            var query = _context.HrEmployeeFinancialDegree.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchModel.FinancialDegreeId))
             {
@@ -126,6 +126,9 @@ namespace DAL.HR
                 FinancialDegreeId = n.FinancialDegreeId,
                 FinancialDegreeDate = n.FinancialDegreeDate,
                 FinancialDegreeName = n.FinancialDegree.Name,
+                EmployeeId = n.EmployeeId,
+                EmployeeName=n.Employee.Name,
+                EmployeeCode = n.Employee.Code,
                 FinancialDegreeShortDate = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
                 //Section =n.

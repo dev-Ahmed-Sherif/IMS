@@ -57,12 +57,18 @@ namespace DAL.PY
         public string Delete(int ExchangeId)
         {
             
-                var _Exchange = _context.PyExchange.Single(n => n.Id == ExchangeId);
-              
-                    _context.PyExchange.Remove(_Exchange);
-                    _context.SaveChanges();
-                    return "Succeeded";
                
+            var _PyExchange = _context.PyExchange.Single(n => n.Id == ExchangeId);
+
+            var DetailsToDelete = _context.PyExchangeDetails.Where(p => p.ExChangeId == ExchangeId).ToList();
+
+            _context.PyExchangeDetails.RemoveRange(DetailsToDelete);
+            _context.SaveChanges();
+
+            _context.PyExchange.Remove(_PyExchange);
+            _context.SaveChanges();
+            return "Succeeded";
+
         }
         //--------------------------------
         // GET ALL { Data For All Users } 

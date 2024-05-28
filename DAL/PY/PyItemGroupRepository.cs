@@ -42,12 +42,22 @@ namespace DAL.PY
         public string Delete(int ItemGroupId)
         {
           
-                var _ItemGroup = _context.PyItemGroup.Single(n => n.Id == ItemGroupId);
-              
-                    _context.PyItemGroup.Remove(_ItemGroup);
-                    _context.SaveChanges();
-                    return "Succeeded";
-             
+                
+            var _PyItemGroup = _context.PyItemGroup.Single(n => n.Id == ItemGroupId);
+
+            var DetailsToDelete = _context.PyItemGroupDetails.Where(p => p.ItemGroupId == ItemGroupId).ToList();
+
+            var DetailsToDelete2 = _context.PyItemGroupEmployee.Where(p => p.ItemGroupId == ItemGroupId).ToList();
+
+            _context.PyItemGroupDetails.RemoveRange(DetailsToDelete);
+            _context.SaveChanges();
+            _context.PyItemGroupEmployee.RemoveRange(DetailsToDelete2);
+            _context.SaveChanges();
+
+            _context.PyItemGroup.Remove(_PyItemGroup);
+            _context.SaveChanges();
+            return "Succeeded";
+
         }
         //--------------------------------
         // GET ALL { Data For All Users } 

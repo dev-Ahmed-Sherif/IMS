@@ -41,6 +41,8 @@
         public string CorporationCLinetName { get; set; }
 
         public string CityName { get; set; }
+        public string CityStateName { get; set; }
+
 
     }
 

@@ -1,4 +1,5 @@
 ﻿using Entities.Models.TR.Excuted;
+using Entities.ViewModels.FI.Entry;
 using Entities.ViewModels.TR.Excuted;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -76,9 +77,24 @@ namespace DAL.TR.Excuted
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<TrExcutedFinancierGetVM> GetAllByPagination(int page, int pageSize)
+        public PaginatedResult<TrExcutedFinancierGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var totalCount = _context.TrExcutedFinancier.Count();
+            var totalCount = _context.TrExcutedFinancier.Where(n => n.ExcutedId == HeaderId).Count();
+
+            if (totalCount == 0)
+            {
+                return new PaginatedResult<TrExcutedFinancierGetVM>
+                {
+                    Items = new List<TrExcutedFinancierGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int> TrExcuted = _context.TrExcutedFinancier
+                   .Where(sus => sus.ExcutedId == HeaderId)
+                   .Select(sus => sus.ExcutedId)
+                   .ToList();
             List<TrExcutedFinancierGetVM> Item = _context.TrExcutedFinancier
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
@@ -121,5 +137,6 @@ namespace DAL.TR.Excuted
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).Single(n => n.Id == itemId);
+       
     }
 }

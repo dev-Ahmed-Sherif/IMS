@@ -6,3 +6,9 @@ PM> add-migration InitialDatabaseMigration
 PM> update-database		updates database design (not the data)
 
 AppDbInitialer.cs		to send data to database table
+ 
+ update database => dotnet ef database update -p DAL
+
+add migration =>    dotnet ef migrations add HR -p DAL
+
+
