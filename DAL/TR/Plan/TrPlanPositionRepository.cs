@@ -1,4 +1,5 @@
 ﻿using Entities.Models.TR.Plan;
+using Entities.ViewModels.TR.Excuted;
 using Entities.ViewModels.TR.Plan;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -113,9 +114,59 @@ namespace DAL.TR.Plan
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<TrPlanPositionGetVM> GetAllByPagination(int page, int pageSize)
+        //public PaginatedResult<TrPlanPositionGetVM> GetAllByPagination(int page, int pageSize)
+        //{
+        //    var totalCount = _context.TrPlanPosition.Count();
+        //    List<TrPlanPositionGetVM> Item = _context.TrPlanPosition
+        //        .OrderByDescending(Item => Item.CreationDate)
+        //        .Skip((page) * pageSize)
+        //        .Take(pageSize)
+        //        .Select(n => new TrPlanPositionGetVM
+        //        {
+        //            Id = n.Id,
+        //            PlanId = n.PlanId,
+        //            PlanTittle = n.Plan.Tittle,
+        //            PositionId = n.PositionId,
+        //            CreateUserName = n.CreatedBy.Name,
+        //            TransactionUserId = n.CreatedBy.Id
+        //        })
+        //        .ToList();
+
+        //    var paginatedResult = new PaginatedResult<TrPlanPositionGetVM>
+        //    {
+        //        Items = Item,
+        //        TotalItems = totalCount,
+        //        Page = page,
+        //        PageSize = pageSize
+        //    };
+
+        //    return paginatedResult;
+        //}
+        //public class PaginatedResult<T>
+        //{
+        //    public List<T> Items { get; set; }
+        //    public int TotalItems { get; set; }
+        //    public int Page { get; set; }
+        //    public int PageSize { get; set; }
+        //}
+        public PaginatedResult<TrPlanPositionGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var totalCount = _context.TrPlanPosition.Count();
+            var totalCount = _context.TrPlanPosition.Where(n => n.PlanId == HeaderId).Count();
+
+            if (totalCount == 0)
+            {
+                return new PaginatedResult<TrPlanPositionGetVM>
+                {
+                    Items = new List<TrPlanPositionGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int> TrPlan = _context.TrPlanPosition
+                   .Where(sus => sus.PlanId == HeaderId)
+                   .Select(sus => sus.PlanId)
+                   .ToList();
             List<TrPlanPositionGetVM> Item = _context.TrPlanPosition
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
@@ -124,7 +175,6 @@ namespace DAL.TR.Plan
                 {
                     Id = n.Id,
                     PlanId = n.PlanId,
-                    PlanTittle = n.Plan.Tittle,
                     PositionId = n.PositionId,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id

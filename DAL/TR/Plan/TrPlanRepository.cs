@@ -1,4 +1,5 @@
-﻿using Entities.Models.TR.Plan;
+﻿using Entities.Models.TR.Excuted;
+using Entities.Models.TR.Plan;
 using Entities.ViewModels.TR.Plan;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -73,26 +74,25 @@ namespace DAL.TR.Plan
         }
         public string Delete(int InstId)
         {
-            try
-            {
+            
                 var _receipt = _context.TrPlan.Single(n => n.Id == InstId);
-                if (_receipt != null)
-                {
 
+            var DetailsToDelete = _context.TrPlanFinancier.Where(p => p.PlanId == InstId).ToList();
+            var DetailsToDelete2 = _context.TrPlanInstructor.Where(p => p.PlanId == InstId).ToList();
+            var DetailsToDelete3 = _context.TrPlanPosition.Where(p => p.PlanId == InstId).ToList();
+            
+            _context.TrPlanFinancier.RemoveRange(DetailsToDelete);
+            _context.SaveChanges();
+            _context.TrPlanInstructor.RemoveRange(DetailsToDelete2);
+            _context.SaveChanges();
+            _context.TrPlanPosition.RemoveRange(DetailsToDelete3);
+            _context.SaveChanges();
+   
 
-                    _context.TrPlan.Remove(_receipt);
-                    _context.SaveChanges();
-                    return "Succeeded";
-                }
-                else
-                {
-                    return "nothing to be deleted";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+            _context.TrPlan.Remove(_receipt);
+            _context.SaveChanges();
+            return "Succeeded";
+
 
         }
         public List<TrPlanGetVM> GetAll()

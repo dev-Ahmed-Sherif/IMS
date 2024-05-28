@@ -111,9 +111,59 @@ namespace DAL.TR.Plan
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<TrPlanInstructorGetVM> GetAllByPagination(int page, int pageSize)
+        //public PaginatedResult<TrPlanInstructorGetVM> GetAllByPagination(int page, int pageSize)
+        //{
+        //    var totalCount = _context.TrPlanInstructor.Count();
+        //    List<TrPlanInstructorGetVM> Item = _context.TrPlanInstructor
+        //        .OrderByDescending(Item => Item.CreationDate)
+        //        .Skip((page) * pageSize)
+        //        .Take(pageSize)
+        //        .Select(n => new TrPlanInstructorGetVM
+        //        {
+        //            Id = n.Id,
+        //            PlanId = n.PlanId,
+        //            PlanName = n.Plan.Tittle,
+        //            InstructorId = n.InstructorId,
+        //            CreateUserName = n.CreatedBy.Name,
+        //            TransactionUserId = n.CreatedBy.Id
+        //        })
+        //        .ToList();
+
+        //    var paginatedResult = new PaginatedResult<TrPlanInstructorGetVM>
+        //    {
+        //        Items = Item,
+        //        TotalItems = totalCount,
+        //        Page = page,
+        //        PageSize = pageSize
+        //    };
+
+        //    return paginatedResult;
+        //}
+        //public class PaginatedResult<T>
+        //{
+        //    public List<T> Items { get; set; }
+        //    public int TotalItems { get; set; }
+        //    public int Page { get; set; }
+        //    public int PageSize { get; set; }
+        //}
+        public PaginatedResult<TrPlanInstructorGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var totalCount = _context.TrPlanInstructor.Count();
+            var totalCount = _context.TrPlanInstructor.Where(n => n.PlanId == HeaderId).Count();
+
+            if (totalCount == 0)
+            {
+                return new PaginatedResult<TrPlanInstructorGetVM>
+                {
+                    Items = new List<TrPlanInstructorGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int> TrPlan = _context.TrPlanInstructor
+                   .Where(sus => sus.PlanId == HeaderId)
+                   .Select(sus => sus.PlanId)
+                   .ToList();
             List<TrPlanInstructorGetVM> Item = _context.TrPlanInstructor
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
@@ -122,8 +172,9 @@ namespace DAL.TR.Plan
                 {
                     Id = n.Id,
                     PlanId = n.PlanId,
-                    PlanName = n.Plan.Tittle,
+                    PlanName=n.Plan.Tittle,
                     InstructorId = n.InstructorId,
+                    InstructorName = n.Instructor.EmployeeId == null ? n.Instructor.InstructorData.Name : n.Instructor.Employee.Name,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

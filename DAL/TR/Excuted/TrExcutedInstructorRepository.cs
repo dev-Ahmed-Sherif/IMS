@@ -71,7 +71,7 @@ namespace DAL.TR.Excuted
                 Id = n.Id,
                 ExcutedId = n.ExcutedId,
                 InstructorId = n.InstructorId,
-                InstructorName = n.Instructor.Employee.Name,
+                InstructorName = n.Instructor.EmployeeId == null ? n.Instructor.InstructorData.Name : n.Instructor.Employee.Name,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
@@ -167,10 +167,12 @@ namespace DAL.TR.Excuted
                 .Select(n => new TrExcutedInstructorGetVM
                 {
                     Id = n.Id,
-                              ExcutedId = n.ExcutedId,
-                               InstructorId = n.InstructorId,
-                                CreateUserName = n.CreatedBy.Name,
-                                TransactionUserId = n.CreatedBy.Id
+                    ExcutedId = n.ExcutedId,
+                    InstructorId = n.InstructorId,
+                    InstructorName = n.Instructor.EmployeeId == null ? n.Instructor.InstructorData.Name : n.Instructor.Employee.Name,
+                    
+                    CreateUserName = n.CreatedBy.Name,
+                     TransactionUserId = n.CreatedBy.Id
                 })
                 .ToList();
 

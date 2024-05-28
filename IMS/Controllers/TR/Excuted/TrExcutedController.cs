@@ -1,4 +1,5 @@
 ﻿using Business.HR;
+using Business.STR.Add;
 using Business.TR.Excuted;
 using Entities.ViewModels.HR;
 using Entities.ViewModels.TR.Course;
@@ -66,6 +67,12 @@ namespace IMS.Controllers.TR.Excuted
 
             var reportFileByString = _TrExcutedService.GenerateReportAsync(searchModel.reportName, searchModel.reportType, searchModel);
             return File(reportFileByString, MediaTypeNames.Application.Pdf, Entities.Helpers.ReportHelper.GetReportDetails(searchModel.reportName, searchModel.reportType));
+        }
+        [HttpGet("get/by/pagination")]
+        public IActionResult getAllByPagination(int page, int pageSize)
+        {
+            var allItems = _TrExcutedService.GetAllByPagination(page, pageSize);
+            return Ok(allItems);
         }
 
 

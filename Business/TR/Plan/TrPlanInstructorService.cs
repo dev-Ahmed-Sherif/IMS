@@ -41,9 +41,9 @@ namespace Business.TR.Plan
         {
             return _TrPlanRepository.GetInstructorDataById(itemId);
         }
-        public PaginatedResult<TrPlanInstructorGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult<TrPlanInstructorGetVM> getAllByPagination(int page, int pageSize, int HeaderId)
         {
-            return _TrPlanRepository.GetAllByPagination(page, pageSize);
+            return _TrPlanRepository.GetAllByPagination(page, pageSize, HeaderId);
         }
     }
 }
