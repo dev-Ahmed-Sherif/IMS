@@ -119,6 +119,21 @@ namespace DAL.TR.Plan
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------

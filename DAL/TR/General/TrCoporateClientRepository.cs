@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DAL.TR.General
 {
@@ -116,6 +117,65 @@ namespace DAL.TR.General
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 }).Single(n => n.Id == itemId);
+
+
+
+        public List<TrCorporateCLientGetSearchVM> Search(TrCorporateCLientSearch searchModel)
+        {
+            var query = _context.TrCorporateCLient.AsQueryable();
+            if (!string.IsNullOrEmpty(searchModel.Id))
+            {
+                query = query.Where(p => p.Id.ToString().Contains(searchModel.Id));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Name)) 
+            {
+                query = query.Where(p => p.Name.Contains(searchModel.Name));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Email)) 
+            {
+                query = query.Where(p => p.Email.Contains(searchModel.Email));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Address))
+            {
+                query = query.Where(p => p.Address.Contains(searchModel.Address));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CityName))
+            {
+                query = query.Where( p => p.City.Name.Contains(searchModel.CityName));
+            }
+            if (!string.IsNullOrEmpty(searchModel.Code))
+            {
+                query = query.Where(p => p.Code.ToString().Contains(searchModel.Code));
+            }
+            if (!string.IsNullOrEmpty(searchModel.CityId))
+            {
+                query = query.Where(p => p.City.Id.ToString().Contains(searchModel.CityId));
+            }
+            if (!string.IsNullOrEmpty(searchModel.TransactionUserId))
+            {
+                query = query.Where(p => p.CreatedBy.Id.ToString().Contains(searchModel.TransactionUserId));
+            }
+
+            var result = query.Select(n => new TrCorporateCLientGetSearchVM
+
+            {
+                Id = n.Id,
+                Name = n.Name,
+                Code = n.Code,
+                phone = n.phone,
+                Email = n.Email,
+                Address = n.Address,
+                CityId = n.CityId,
+                CityName = n.City.Name,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id
+            }).ToList();
+
+            return result;
+
+        }
+
+
         //------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //------------------------------------------------
@@ -141,7 +201,7 @@ namespace DAL.TR.General
                 })
                 .ToList();
 
-
+            
 
 
 
