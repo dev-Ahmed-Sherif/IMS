@@ -92,6 +92,7 @@ namespace Business
             services.AddScoped<FiAccountItemCategoryService>();
             services.AddScoped<FiAccountParentService>();
             services.AddScoped<FiJournalService>();
+            services.AddScoped<FiJournalTypeService>();
             services.AddScoped<FiEntryService>();
             services.AddScoped<FiEntrySourceService>();
             services.AddScoped<FiEntrySourceTypeService>();
@@ -121,6 +122,7 @@ namespace Business
             services.AddScoped<HrDisciplinaryService>();
             services.AddScoped<HrCityStateService>();
             services.AddScoped<HrCityService>();
+            services.AddScoped<HrBankService>();
             services.AddScoped<DepartmentService>();
             services.AddScoped<GeneralDepartmentService>();
             services.AddScoped<HrAttendancePermissionService>();
@@ -133,6 +135,7 @@ namespace Business
             services.AddScoped<HrHolidayService>();
             services.AddScoped<HrHolidayScheduleService>();
             services.AddScoped<HrFinancialDegreeSalaryService>();
+            services.AddScoped<HrPayMethodService>();
             // PY
             services.AddScoped<PyExchangeDetailsService>();
             services.AddScoped<PyExchangeService>();

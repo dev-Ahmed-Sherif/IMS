@@ -106,19 +106,69 @@ namespace DAL.TR.Plan
         //----------------------------------------------------------
         // GET Pagenation { Data with ( page , pagesize )} 
         //----------------------------------------------------------
-        public PaginatedResult<TrPlanFinancierGetVM> GetAllByPagination(int page, int pageSize)
+        //public PaginatedResult<TrPlanFinancierGetVM> GetAllByPagination(int page, int pageSize)
+        //{
+        //    var totalCount = _context.TrPlanFinancier.Count();
+        //    List<TrPlanFinancierGetVM> Item = _context.TrPlanFinancier
+        //        .OrderByDescending(Item => Item.CreationDate)
+        //        .Skip((page) * pageSize)
+        //        .Take(pageSize)
+        //        .Select(n => new TrPlanFinancierGetVM
+        //        {
+        //            PlanId = n.PlanId,
+        //            FinancierId = n.FinancierId,
+        //            CreateUserName = n.CreatedBy.Name,
+        //            TransactionUserId = n.CreatedBy.Id,
+        //        })
+        //        .ToList();
+
+        //    var paginatedResult = new PaginatedResult<TrPlanFinancierGetVM>
+        //    {
+        //        Items = Item,
+        //        TotalItems = totalCount,
+        //        Page = page,
+        //        PageSize = pageSize
+        //    };
+
+        //    return paginatedResult;
+        //}
+        //public class PaginatedResult<T>
+        //{
+        //    public List<T> Items { get; set; }
+        //    public int TotalItems { get; set; }
+        //    public int Page { get; set; }
+        //    public int PageSize { get; set; }
+        //}
+        public PaginatedResult<TrPlanFinancierGetVM> GetAllByPagination(int page, int pageSize, int HeaderId)
         {
-            var totalCount = _context.TrPlanFinancier.Count();
+            var totalCount = _context.TrPlanFinancier.Where(n => n.PlanId == HeaderId).Count();
+
+            if (totalCount == 0)
+            {
+                return new PaginatedResult<TrPlanFinancierGetVM>
+                {
+                    Items = new List<TrPlanFinancierGetVM>(),
+                    TotalItems = 0,
+                    Page = page,
+                    PageSize = pageSize
+                };
+            }
+            List<int?> TrPlan = _context.TrPlanFinancier
+                   .Where(sus => sus.PlanId == HeaderId)
+                   .Select(sus => sus.PlanId)
+                   .ToList();
             List<TrPlanFinancierGetVM> Item = _context.TrPlanFinancier
                 .OrderByDescending(Item => Item.CreationDate)
                 .Skip((page) * pageSize)
                 .Take(pageSize)
                 .Select(n => new TrPlanFinancierGetVM
                 {
+                    Id = n.Id,
                     PlanId = n.PlanId,
+                    PlanName = n.Plan.Tittle,
                     FinancierId = n.FinancierId,
                     CreateUserName = n.CreatedBy.Name,
-                    TransactionUserId = n.CreatedBy.Id,
+                    TransactionUserId = n.CreatedBy.Id
                 })
                 .ToList();
 

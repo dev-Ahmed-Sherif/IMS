@@ -40,9 +40,9 @@ namespace Business.TR.Plan
         {
             return _TrPlanRepository.GetByHeaderId(Id);
         }
-        public PaginatedResult<TrPlanPositionGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult<TrPlanPositionGetVM> getAllByPagination(int page, int pageSize, int HeaderId)
         {
-            return _TrPlanRepository.GetAllByPagination(page, pageSize);
+            return _TrPlanRepository.GetAllByPagination( page, pageSize, HeaderId);
         }
     }
 }

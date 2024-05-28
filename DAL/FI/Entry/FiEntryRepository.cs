@@ -126,9 +126,8 @@ namespace DAL.FI.Entry
         //-------------------------------------------------------------
         // Select * (FI)Entry { with CreateUserName , UpdateUserName  }
         //-------------------------------------------------------------
-        public List<FiEntryGetVM> GetAll(int YearID)
+        public List<FiEntryGetVM> GetAll()
             => _context.FiEntry
-            .Where(n => n.Journal.FiscalYearId == YearID)
             .Select
             (n => n.ToFiEntryVM()).ToList();
         //---------------------------------------------------------------------------------

@@ -39,9 +39,9 @@ namespace Business.TR.Plan
         {
             return _TrPlanFinancierRepository.GetByHeaderId(Id);
         }
-        public PaginatedResult<TrPlanFinancierGetVM> getAllByPagination(int page, int pageSize)
+        public PaginatedResult<TrPlanFinancierGetVM> getAllByPagination(int page, int pageSize, int HeaderId)
         {
-            return _TrPlanFinancierRepository.GetAllByPagination(page, pageSize);
+            return _TrPlanFinancierRepository.GetAllByPagination(page, pageSize, HeaderId);
         }
     }
 }

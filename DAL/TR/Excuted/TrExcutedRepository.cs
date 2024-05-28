@@ -85,14 +85,28 @@ namespace DAL.TR.Excuted
         public string Delete(int InstId)
         {
            
-                var _receipt = _context.TrExcuted.Single(n => n.Id == InstId);
-              
+                
+
+            var _TrExcuted = _context.TrExcuted.Single(n => n.Id == InstId);
+
+            var DetailsToDelete = _context.TrExcutedFinancier.Where(p => p.ExcutedId == InstId).ToList();
+            var DetailsToDelete2 = _context.TrExcutedInstructor.Where(p => p.ExcutedId == InstId).ToList();
+            var DetailsToDelete3 = _context.TrExcutedPosition.Where(p => p.ExcutedId == InstId).ToList();
+            var DetailsToDelete4 = _context.TrExcutedTrainee.Where(p => p.ExcutedId == InstId).ToList();
+            _context.TrExcutedFinancier.RemoveRange(DetailsToDelete);
+            _context.SaveChanges();
+            _context.TrExcutedInstructor.RemoveRange(DetailsToDelete2);
+            _context.SaveChanges();
+            _context.TrExcutedPosition.RemoveRange(DetailsToDelete3);
+            _context.SaveChanges();
+            _context.TrExcutedTrainee.RemoveRange(DetailsToDelete4);
+            _context.SaveChanges();
+
+            _context.TrExcuted.Remove(_TrExcuted);
+            _context.SaveChanges();
+            return "Succeeded";
 
 
-                    _context.TrExcuted.Remove(_receipt);
-                    _context.SaveChanges();
-                    return "Succeeded";
-            
 
         }
         public List<TrExcutedGetVM> GetAll()

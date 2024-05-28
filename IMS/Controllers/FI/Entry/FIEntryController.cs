@@ -38,9 +38,9 @@ namespace IMS.Controllers.FI.Entry
         }
 
         [HttpGet("get/all")]
-        public IActionResult GetAllItem(int YearID)
+        public IActionResult GetAllItem()
         {
-            var allItems = _item.GetAll(YearID);
+            var allItems = _item.GetAll();
             return Ok(allItems);
         }
 
