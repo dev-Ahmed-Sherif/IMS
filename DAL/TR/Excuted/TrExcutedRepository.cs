@@ -126,6 +126,15 @@ namespace DAL.TR.Excuted
                 TransactionUserId = n.CreatedBy.Id
             }).ToList();
 
+
+
+
+
+
+
+
+
+
         public List<TrExcutedGetSearchVM> Search(TrExcutedSearch searchModel)
         {
             var query = _context.TrExcuted.AsQueryable();

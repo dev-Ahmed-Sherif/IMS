@@ -136,11 +136,7 @@ namespace DAL.TR.Course
             {
                 query = query.Where(n => n.Name.Contains(searchModel.Name));
             }
-            if (!string.IsNullOrEmpty(searchModel.Hours))
-            {
-                query = query.Where(p => p.Hours.ToString().Contains(searchModel.Hours));
-
-            }
+            
             if (!string.IsNullOrEmpty(searchModel.Cost))
             {
                 query = query.Where(p => p.Cost.ToString().Contains(searchModel.Cost));
@@ -177,13 +173,8 @@ namespace DAL.TR.Course
                 CourseTypeName = n.CourseType.Name,
                 CourseCategoryName = n.Category.Name,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-                //Section = n.Section.Name,    
-
-
-
+                //Section = n.Section.Name,
             }).ToList();
-
-
             return result;
         }
 

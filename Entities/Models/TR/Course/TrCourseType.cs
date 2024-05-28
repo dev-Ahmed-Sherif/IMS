@@ -1,4 +1,5 @@
 ﻿using Entities.Models.PR;
+using Entities.Models.SE;
 using System.Collections.Generic;
 
 namespace Entities.Models.TR.Course
@@ -6,7 +7,8 @@ namespace Entities.Models.TR.Course
     public class TrCourseType : EntityBase
     {
         public string Name { get; set; }
-
+        //public int? SectionId { get; set; }
+        public virtual ImsSection Section { get; set; }
         // Relation { PrUser => TRCoursetype } +++ {View Model => TransactionUserId} 
         //-----------------------------------------------------------------------//
         public override int? CreatedByID { get; set; }

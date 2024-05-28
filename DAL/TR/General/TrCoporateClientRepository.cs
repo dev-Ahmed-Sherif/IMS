@@ -141,6 +141,13 @@ namespace DAL.TR.General
                 })
                 .ToList();
 
+
+
+
+
+
+
+
             var paginatedResult = new PaginatedResult<TrCorporateCLientGetVM>
             {
                 Items = Item,
