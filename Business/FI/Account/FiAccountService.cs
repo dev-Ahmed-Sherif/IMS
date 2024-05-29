@@ -78,9 +78,9 @@ namespace Business.FI.Account
         {
             return _FiRepository.GetStoreAccountsReportData(startDate,endDate,sectionId);
         }
-        public List<AccountItemVM> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
+        public async Task<List<AccountItemVM>> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
         {
-            return _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
+            return await _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
         }
         public List<AccountItemByCode> GetAccountMasterReportData(string code, int fiscalYearId)
         {
@@ -313,7 +313,7 @@ namespace Business.FI.Account
                     break;
                 case "AccountACReport":
                     {
-                        FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
@@ -344,7 +344,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -374,7 +374,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -410,7 +410,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -460,7 +460,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -552,7 +552,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -636,7 +636,7 @@ namespace Business.FI.Account
                              "417",
                             
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -807,7 +807,7 @@ namespace Business.FI.Account
                                             variousBurdensAndLossesData = new List<AccountItemVM>(),
                                             restBurdensAndLossesData = new List<AccountItemVM>();
 
-                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, "3", 7);
+                        QualitativeAnalysis = await GetFinancialCenterReportData(fiscalYearId, "3", 7);
                         List<string> materials = new List<string>{ "31" ,"311","312","313","314","315","316"};
                         decimal sumMaterials = 0;
 
