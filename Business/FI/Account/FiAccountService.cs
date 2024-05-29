@@ -293,21 +293,86 @@ namespace Business.FI.Account
                 case "AccountREReport":
                     {
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
-                        //FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
-                        //for (int i = 0; i < FIAccountRE.Count; i++)
-                        //{
-                        //    if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
-                        //    {
-                        //        if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                        //        {
-                        //            FIAccountREAdd.Add(FIAccountRE[i]);
-                        //        }
-                        //    }
-                        //}
+                        List <string> restofAssts = new List<string>
+                        {
+                            "12",
+                            "121",
+                            "122",
+                            "131",
+                            "14",
+                            "141",
+                            "142",
+                            "143",
+                            "1511",
+                            "1512",
+                            "1513",
+                            "132",
+                            "133",
+                            "134",
+                            "135",
+                            "136",
 
+                        };
+                        List <string> RepPageTwo = new List<string>
+                        {
+                            "16",
+                            "161",
+                            "162",
+                            "163",
+                            "164",
+                            "165",
+                            "166",
+                        };
+                        List<string> RepPageTwo1 = new List<string>
+                        {
+                            "171",
+                            "266",
+                            "1716",
+                        };
+                        for (int i = 0; i < FIAccountRE.Count; i++)
+                        {
+                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
+                            {
+                                FIAccountREAdd.Add(FIAccountRE[i]);
+                                //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                                //{
+
+                                //}
+                            }
+                        }
+                        List < AccountItemVM > restofAsstsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageTwoArray = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
+                        for (int i = 0; i < FIAccountREAdd.Count; i++)
+                        {
+                            for (int j = 0; j < restofAssts.Count; j++)
+                            {
+                                if (restofAssts[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    restofAsstsArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageTwo.Count; j++)
+                            {
+                                if (RepPageTwo[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageTwoArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageTwo1.Count; j++)
+                            {
+                                if (RepPageTwo1[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageTwo1Array.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                        }
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = restofAsstsArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
                     }
 
                     break;
