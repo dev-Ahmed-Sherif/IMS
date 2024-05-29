@@ -77,7 +77,7 @@ namespace Business.HR
             List<HrEmployeeGetSearchVM> HrEmployee;
 
 
-            if (reportName == "Employee")
+            if (reportName == "Statement of employment status")
             {
                 HrEmployee = Search(searchModel);
 
