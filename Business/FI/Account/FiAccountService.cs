@@ -292,17 +292,21 @@ namespace Business.FI.Account
             {
                 case "AccountREReport":
                     {
-                        FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
-                        for (int i = 0; i < FIAccountRE.Count; i++)
-                        {
-                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
-                            {
-                                if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                                {
-                                    FIAccountREAdd.Add(FIAccountRE[i]);
-                                }
-                            }
-                        }
+                        List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
+                        //FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+                        //for (int i = 0; i < FIAccountRE.Count; i++)
+                        //{
+                        //    if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
+                        //    {
+                        //        if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                        //        {
+                        //            FIAccountREAdd.Add(FIAccountRE[i]);
+                        //        }
+                        //    }
+                        //}
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
                     }
 

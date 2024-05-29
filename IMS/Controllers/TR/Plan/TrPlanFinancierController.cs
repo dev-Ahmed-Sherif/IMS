@@ -54,9 +54,9 @@ namespace IMS.Controllers.TR.Plan
         // GET Pagenation { Data with ( page , pagesize)} 
         //-----------------------------------------------
         [HttpGet("get/by/pagination")]
-        public IActionResult getAllByPagination(int page, int pageSize)
+        public IActionResult getAllByPagination(int page, int pageSize, int HeaderId)   
         {
-            var Exchange = _Tr_PlanFinancierService.getAllByPagination(page, pageSize);
+            var Exchange = _Tr_PlanFinancierService.getAllByPagination(page, pageSize, HeaderId);
             return Ok(Exchange);
         }
     }

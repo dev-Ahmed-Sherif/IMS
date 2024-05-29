@@ -110,6 +110,7 @@ namespace DAL
             services.AddScoped<HrDisciplinaryRepository>();
             services.AddScoped<HrCityStateRepository>();
             services.AddScoped<HrCityRepository>();
+            services.AddScoped<HrBankRepository>();
             services.AddScoped<DepartmentRepository>();
             services.AddScoped<GeneralDepartmentRepository>();
             services.AddScoped<HrAttendancePermissionRepository>();
@@ -122,6 +123,7 @@ namespace DAL
             services.AddScoped<HrHolidayRepository>();
             services.AddScoped<HrHolidayScheduleRepository>();
             services.AddScoped<HrFinancialDegreeSalaryRepository>();
+            services.AddScoped<HrPayMethodRepository>();
             // PY
             services.AddScoped<PyExchangeDetailsRepository>();
             services.AddScoped<PyExchangeRepository>();

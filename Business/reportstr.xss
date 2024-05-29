@@ -44,7 +44,7 @@
     <Shape ID="DesignTable:HrEmployeeDisciplinary" ZOrder="7" X="630" Y="469" Height="28" Width="204" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="253" SplitterPosition="24" />
     <Shape ID="DesignTable:HrEmployeeVacationBalance" ZOrder="20" X="852" Y="425" Height="28" Width="232" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="253" SplitterPosition="24" />
     <Shape ID="DesignTable:TRCourse" ZOrder="25" X="1145" Y="253" Height="28" Width="162" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="234" SplitterPosition="24" />
-    <Shape ID="DesignTable:DataTable1" ZOrder="1" X="311" Y="289" Height="86" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="82" />
+    <Shape ID="DesignTable:FixedAssets" ZOrder="1" X="700" Y="179" Height="105" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
