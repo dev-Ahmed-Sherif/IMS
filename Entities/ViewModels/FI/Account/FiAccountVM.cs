@@ -47,25 +47,6 @@ namespace Entities.ViewModels.FI.Account
         public string ReportDate { get; set; }
         public string Section { get; set; }
         public int CodeInt { get; set; }
-        /*public string class_code { get; set; }
-        public string class_name { get; set; }
-        public decimal? class_credit { get; set; }
-        public decimal? class_depit { get; set; }
-
-        public string category_code { get; set; }
-        public string category_name { get; set; }
-        public decimal? category_credit { get; set; }
-        public decimal? category_depit { get; set; }
-
-        public string subcategory_code { get; set; }
-        public string subcategory_name { get; set; }
-        public decimal? subcategory_credit { get; set; }
-        public decimal? subcategory_depit { get; set; }
-
-        public string account_code { get; set; }
-        public string account_name { get; set; }
-        public decimal? account_credit { get; set; }
-        public decimal? account_depit { get; set; }*/
     }
     public class AccountItemByCode : FiAccountVM
     {
