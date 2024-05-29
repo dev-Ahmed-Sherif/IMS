@@ -38,7 +38,7 @@ namespace Entities.ExtensionMethods.HR
                 HiringTypeId = n.HiringTypeId,
                 BankId = n.BankId,
                 PayMethodId = n.PayMethodId,
-                Religion = n.Religion ?? "",
+                Religion = n.Religion,
                 SalaryStatusId = n.SalaryStatusId,
                 HiringTypeName = n.HiringType?.Name ?? "",
                 FinancialDegreeId = n.FinancialDegreeId,
