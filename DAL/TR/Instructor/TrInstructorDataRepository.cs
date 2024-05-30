@@ -71,8 +71,11 @@ namespace DAL.TR.Instructor
         {
             
                 var _receipt = _context.TrInstructorData.Single(n => n.Id == InstId);
-                
-                    _context.TrInstructorData.Remove(_receipt);
+            var DetailsToDelete = _context.TrInstructor.Where(p => p.InstructorDataId == InstId).ToList();
+            _context.TrInstructor.RemoveRange(DetailsToDelete);
+            _context.SaveChanges();
+
+            _context.TrInstructorData.Remove(_receipt);
                     _context.SaveChanges();
                     return "Succeeded";
             

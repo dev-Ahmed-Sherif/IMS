@@ -167,7 +167,10 @@ namespace DAL.TR.Excuted
                 {
                                 Id = n.Id,
                                ExcutedId = n.ExcutedId,
+                              
                                PositionId = n.PositionId,
+                               PositionName=n.Position.Name,
+
                                CreateUserName = n.CreatedBy.Name,
                                TransactionUserId = n.CreatedBy.Id
                 })

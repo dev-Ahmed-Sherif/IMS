@@ -140,12 +140,30 @@ namespace DAL.TR.Excuted
                 .Take(pageSize)
                 .Select(n => new TrExcutedTraineeGetVM
                 {
-                    Id = n.Id,
-                              ExcutedId = n.ExcutedId,
-                              EmployeeId = n.EmployeeId,
-                                TraineeId = n.TraineeId,
-                                CreateUserName = n.CreatedBy.Name,
-                               TransactionUserId = n.CreatedBy.Id
+                              Id = n.Id,
+                              ExcutedId = n.ExcutedId ?? 0,
+                              EmployeeId = n.EmployeeId??0,
+                              EmployeeName=n.EmployeeId!=null?n.Employee.Name:"",
+                              TraineeId = n.TraineeId??0,
+                              TraineeName=n.TraineeId!=null?n.Trainee.Name:"",
+                     HeaderHeaderDays = n.Excuted.Days,
+                    HeaderStartDate = n.Excuted.StartDate,
+                    HeaderEndDate = n.Excuted.EndDate,
+                    HeaderNoTrainee = n.Excuted.NoTrainee,
+                    HeaderNoTraineeCorporate = n.Excuted.NoTraineeCorporate,
+                    HeaderNoTraineeTotal = n.Excuted.NoTraineeTotal,
+                    HeaderStatus = n.Excuted.Status,
+                    HeaderCostplaned = n.Excuted.Costplaned,
+                    HeaderCost = n.Excuted.Cost,
+                    HeaderTrainingCenterName = n.Excuted.TrainingCenter.Name,
+                    HeaderClassRoomName = n.Excuted.ClassRoom.Name,
+                    HeaderFiscalYearName = n.Excuted.FiscalYear.fiscalyear,
+                    HeaderCourseName = n.Excuted.Course.Name,
+                    HeaderPurposeName = n.Excuted.Purpose.Name,
+                    HeaderMaterialPurposeName = n.Excuted.Purpose.Name,
+                    HeaderDelegateName = n.Excuted.Delegate.Name,
+                    CreateUserName = n.CreatedBy.Name,
+                    TransactionUserId = n.CreatedBy.Id
                 })
                 .ToList();
 

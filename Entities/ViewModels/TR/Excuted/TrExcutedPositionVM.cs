@@ -19,6 +19,7 @@ namespace Entities.ViewModels.TR.Excuted
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
         //header data
+
         public int? HeaderHeaderDays { get; set; }
         public DateTime? HeaderStartDate { get; set; }
         public DateTime? HeaderEndDate { get; set; }
