@@ -339,7 +339,12 @@ namespace Business.FI.Account
                             "192",
                             "193",
                             "194",
+                            
+                        };
+                        List<string> RepPageThreeCount = new List<string>
+                        {
                             "19",
+
                         };
                         List<string> PropertyRightsFirst = new List<string>
                         {
@@ -412,14 +417,7 @@ namespace Business.FI.Account
                         List<AccountItemVM> RepPageTwoArray  = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageThreeArray = new List<AccountItemVM>();
-                        List<AccountItemVM> PropertyRightsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> PropertyRightsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> PropertyRightsThirdArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentObligationsArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
+
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
                             for (int j = 0; j < restofAssts.Count; j++)
@@ -448,6 +446,13 @@ namespace Business.FI.Account
                                 if (RepPageThree[j].Equals(FIAccountREAdd[i].Code))
                                 {
                                     RepPageThreeArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageThreeCount.Count; j++)
+                            {
+                                if (RepPageThreeCount[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageThreeCountArray.Add(FIAccountREAdd[i]);
                                 }
                             }
                             for (int j = 0; j < PropertyRightsFirst.Count; j++)
@@ -513,16 +518,6 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFirst", Value = CurrentObligationsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
-
-
                     }
 
                     break;

@@ -47,6 +47,8 @@ namespace Entities.ViewModels.FI.Account
         public string ReportDate { get; set; }
         public string Section { get; set; }
         public int CodeInt { get; set; }
+        //public decimal NetBasedOnDebit { get; set; }
+        
     }
     public class AccountItemByCode : FiAccountVM
     {
