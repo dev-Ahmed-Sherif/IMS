@@ -714,6 +714,7 @@ namespace DAL.FI.Account
             foreach (FiAccount account in fixedAssetsAccounts)
             {
                 var debacc = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
+                var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit).FirstOrDefault();
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
 
@@ -746,7 +747,15 @@ namespace DAL.FI.Account
                                         where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id
                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)),
 
-                    PrevFixedAssetNetValue = 0,
+                    PrevFixedAssetNetValue = depit != 0 ? depit
+                              : Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                from fiEntry in entryGroup.DefaultIfEmpty()
+                                join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id 
+                                && fiEntryDetails.CreationDate == startDate
+                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2) ,
                     Code = account.Code,
                     AccountName = account.Name,
                 };

@@ -341,7 +341,61 @@ namespace Business.FI.Account
                             "194",
                             "19",
                         };
-
+                        List<string> PropertyRightsFirst = new List<string>
+                        {
+                            "211",
+                            "212",
+                            "213",
+                        };
+                        List<string> PropertyRightsSecond = new List<string>
+                        {
+                            "221",
+                            "222",
+                            "223",
+                            "224"
+                        };
+                        List<string> PropertyRightsThird = new List<string>
+                        {
+                            "23",
+                            "24"
+                        };
+                        List<string> NonCurrentObligations = new List<string>
+                        {
+                            "251",
+                            "252",
+                            "253",
+                            "254",
+                            "255"
+                        };
+                        List<string> CurrentObligationsFirst = new List<string>
+                        {
+                            "267",
+                            "268",
+                            "269",
+                        };
+                        List<string> CurrentObligationsSecond = new List<string>
+                        {
+                            "271",
+                        };
+                        List<string> CurrentObligationsThird = new List<string>
+                        {
+                            "281",
+                            "282",
+                            "283",
+                            "2831",
+                            "28311",
+                            "2832",
+                            "284",
+                            "285",
+                            "286",
+                            "287",
+                            "288"
+                        };
+                        List<string> CurrentObligationsFourth = new List<string>
+                        {
+                            "273",
+                            "2899"
+                        };
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
@@ -358,7 +412,14 @@ namespace Business.FI.Account
                         List<AccountItemVM> RepPageTwoArray  = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageThreeArray = new List<AccountItemVM>();
-
+                        List<AccountItemVM> PropertyRightsFirstArray = new List<AccountItemVM>();
+                        List<AccountItemVM> PropertyRightsSecondArray = new List<AccountItemVM>();
+                        List<AccountItemVM> PropertyRightsThirdArray = new List<AccountItemVM>();
+                        List<AccountItemVM> NonCurrentObligationsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> CurrentObligationsFirstArray = new List<AccountItemVM>();
+                        List<AccountItemVM> CurrentObligationsSecondArray = new List<AccountItemVM>();
+                        List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
+                        List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
                             for (int j = 0; j < restofAssts.Count; j++)
@@ -389,6 +450,62 @@ namespace Business.FI.Account
                                     RepPageThreeArray.Add(FIAccountREAdd[i]);
                                 }
                             }
+                            for (int j = 0; j < PropertyRightsFirst.Count; j++)
+                            {
+                                if (PropertyRightsFirst[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    PropertyRightsFirstArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < PropertyRightsSecond.Count; j++)
+                            {
+                                if (PropertyRightsSecond[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    PropertyRightsSecondArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < PropertyRightsThird.Count; j++)
+                            {
+                                if (PropertyRightsThird[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    PropertyRightsThirdArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < NonCurrentObligations.Count; j++)
+                            {
+                                if (NonCurrentObligations[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    NonCurrentObligationsArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < CurrentObligationsFirst.Count; j++)
+                            {
+                                if (CurrentObligationsFirst[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    CurrentObligationsFirstArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < CurrentObligationsSecond.Count; j++)
+                            {
+                                if (CurrentObligationsSecond[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    CurrentObligationsSecondArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < CurrentObligationsThird.Count; j++)
+                            {
+                                if (CurrentObligationsThird[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    CurrentObligationsThirdArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < CurrentObligationsFourth.Count; j++)
+                            {
+                                if (CurrentObligationsFourth[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
                         }
 
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
@@ -396,6 +513,16 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFirst", Value = CurrentObligationsFirstArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
+
+
                     }
 
                     break;
