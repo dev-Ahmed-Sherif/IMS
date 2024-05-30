@@ -1,6 +1,8 @@
 ﻿using DAL;
 using DAL.Cc;
+using DAL.STR.Add;
 using Entities.ViewModels.Cc;
+using Entities.ViewModels.STR.AddDetails;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using static DAL.Cc.CcEntryRepository;
@@ -33,6 +35,10 @@ namespace Business.Cc
         public CcEntryGetVM GetById(int typeId)
         {
             return _CcEntryRepository.GetById(typeId);
+        }
+        public List<CcEntryGetVM> Search(searcccentry searchModel)
+        {
+            return _CcEntryRepository.Search(searchModel);
         }
         public PaginatedResult<CcEntryGetVM> getAllByPagination(int page, int pageSize, int YearId)
         {

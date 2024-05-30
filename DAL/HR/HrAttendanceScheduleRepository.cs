@@ -17,16 +17,21 @@ namespace DAL.HR
         }
         public string Add(HrAttendanceScheduleVM AttendanceSchedule)
         {
-            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+            //TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
             try
             {
+                DateTime attendanceTime = AttendanceSchedule.AttendanceTime.ToUniversalTime();
+                // Explicitly set the time zone of the AttendanceTime property
+               // AttendanceSchedule.AttendanceTime = TimeZoneInfo.ConvertTimeToUtc(AttendanceSchedule.AttendanceTime, TimeZoneInfo.Local);
                 var _AttendanceSchedule = new HrAttendanceSchedule()
                 {
                     Name = AttendanceSchedule.name,
                     StartDate = AttendanceSchedule.StartDate,
                     EndDate = AttendanceSchedule.EndDate,
                     WrkHours = AttendanceSchedule.WrkHours,
-                    AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime, localTimeZone),
+                    //   AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime, localTimeZone),
+                    //AttendanceTime = AttendanceSchedule.AttendanceTime,
+                    AttendanceTime = attendanceTime, // Use the UTC-converted time
                     AttendanceAllowance = AttendanceSchedule.AttendanceAllowance,
                     DepartureAllowance = AttendanceSchedule.DepartureAllowance,
                     CreatedByID = AttendanceSchedule.TransactionUserId,
@@ -50,7 +55,8 @@ namespace DAL.HR
         }
         public string Update(HrAttendanceScheduleVM AttendanceSchedule)
         {
-            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+           // TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+            DateTime attendanceTime = AttendanceSchedule.AttendanceTime.ToUniversalTime();
             try
             {
                 var _AttendanceSchedule = _context.HrAttendanceSchedule.FirstOrDefault(n => n.Id == AttendanceSchedule.Id);
@@ -61,7 +67,8 @@ namespace DAL.HR
                     _AttendanceSchedule.EndDate = AttendanceSchedule.EndDate;
                     _AttendanceSchedule.WrkHours = AttendanceSchedule.WrkHours;
                     _AttendanceSchedule.AttendanceTime = AttendanceSchedule.AttendanceTime;
-                    _AttendanceSchedule.AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime,localTimeZone);
+                    //   _AttendanceSchedule.AttendanceTime = ConvertToLocalTime(AttendanceSchedule.AttendanceTime,localTimeZone);
+                    _AttendanceSchedule.AttendanceTime = AttendanceSchedule.AttendanceTime;
                     _AttendanceSchedule.DepartureAllowance = AttendanceSchedule.DepartureAllowance;
                     _AttendanceSchedule.AttendanceAllowance = AttendanceSchedule.AttendanceAllowance;
                     _AttendanceSchedule.UpdateByID = AttendanceSchedule.TransactionUserId;

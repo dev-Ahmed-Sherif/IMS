@@ -38289,106 +38289,31 @@ namespace Business {
             public void SetFixedAssetNetValueNull() {
                 this[this.tableFixedAssets.FixedAssetNetValueColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCodeNull() {
+                return this.IsNull(this.tableFixedAssets.CodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCodeNull() {
+                this[this.tableFixedAssets.CodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPrevFixedAssetNetValueNull() {
+                return this.IsNull(this.tableFixedAssets.PrevFixedAssetNetValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPrevFixedAssetNetValueNull() {
+                this[this.tableFixedAssets.PrevFixedAssetNetValueColumn] = global::System.Convert.DBNull;
+            }
         }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        //public partial class DataTable1Row : global::System.Data.DataRow {
-            
-        //    private DataTable1DataTable tableDataTable1;
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
-        //            base(rb) {
-        //        this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public string DataColumn1 {
-        //        get {
-        //            try {
-        //                return ((string)(this[this.tableDataTable1.DataColumn1Column]));
-        //            }
-        //            catch (global::System.InvalidCastException e) {
-        //                throw new global::System.Data.StrongTypingException("The value for column \'DataColumn1\' in table \'DataTable1\' is DBNull.", e);
-        //            }
-        //        }
-        //        set {
-        //            this[this.tableDataTable1.DataColumn1Column] = value;
-        //        }
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public string DataColumn2 {
-        //        get {
-        //            try {
-        //                return ((string)(this[this.tableDataTable1.DataColumn2Column]));
-        //            }
-        //            catch (global::System.InvalidCastException e) {
-        //                throw new global::System.Data.StrongTypingException("The value for column \'DataColumn2\' in table \'DataTable1\' is DBNull.", e);
-        //            }
-        //        }
-        //        set {
-        //            this[this.tableDataTable1.DataColumn2Column] = value;
-        //        }
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public string DataColumn3 {
-        //        get {
-        //            try {
-        //                return ((string)(this[this.tableDataTable1.DataColumn3Column]));
-        //            }
-        //            catch (global::System.InvalidCastException e) {
-        //                throw new global::System.Data.StrongTypingException("The value for column \'DataColumn3\' in table \'DataTable1\' is DBNull.", e);
-        //            }
-        //        }
-        //        set {
-        //            this[this.tableDataTable1.DataColumn3Column] = value;
-        //        }
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public bool IsDataColumn1Null() {
-        //        return this.IsNull(this.tableDataTable1.DataColumn1Column);
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public void SetDataColumn1Null() {
-        //        this[this.tableDataTable1.DataColumn1Column] = global::System.Convert.DBNull;
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public bool IsDataColumn2Null() {
-        //        return this.IsNull(this.tableDataTable1.DataColumn2Column);
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public void SetDataColumn2Null() {
-        //        this[this.tableDataTable1.DataColumn2Column] = global::System.Convert.DBNull;
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public bool IsDataColumn3Null() {
-        //        return this.IsNull(this.tableDataTable1.DataColumn3Column);
-        //    }
-            
-        //    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        //    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        //    public void SetDataColumn3Null() {
-        //        this[this.tableDataTable1.DataColumn3Column] = global::System.Convert.DBNull;
-        //    }
-        //}
         
         /// <summary>
         ///Row event argument class
