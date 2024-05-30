@@ -176,8 +176,12 @@ namespace DAL.HR
       
         public List<HrEmployeeAttendanceGetSearchVM> Search(HrEmployeeAttendanceSearch searchModel)
         {
-            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+          
             var query = _context.HrEmployeeAttendance.AsQueryable();
+            if (searchModel.id.HasValue)
+            {
+                query = query.Where(p => p.Id == searchModel.id);
+            }
             if (searchModel.Date.HasValue)
             {
                 query = query.Where(p => p.Date >= searchModel.Date.Value.Date);
@@ -217,17 +221,18 @@ namespace DAL.HR
                 AttendanceMachineName = n.AttendanceMachine.Name,
                 EmployeeId = n.EmployeeId,
                 EmployeeName = n.Employee.Name,
-                Date = ConvertToLocalTime(n.Date, targetTimeZone).AddHours(+4),
-                Attendance = ConvertToLocalTime(n.Attendance, targetTimeZone).AddHours(+4),
-                Departure = ConvertToLocalTime(n.Departure, targetTimeZone).AddHours(+4),
+                Date =n.Date ,
+                Attendance = n.Attendance ,
+                Departure = n.Departure,
                 ShortDate = n.Date.ToString("dd/MM/yyyy"),
                 ShortAttendance = n.Attendance.ToString("HH:mm:ss"),
                 ShortDeparture = n.Departure.ToString("HH:mm:ss"),
                 StartDate = searchModel.StartDate.Value.Date.ToString("dd/MM/yyyy"),
                 EndDate = searchModel.EndDate.Value.Date.ToString("dd/MM/yyyy"),
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-                Section = n.Employee.Section.Name,
-
+                Section = n.Employee.SectionId!=null?n.Employee.Section.Name:"",
+                
+                UpdateUserName=n.UpdateByID!=null?n.UpdateBy.Name:"",
             }).ToList();
             return result;
         }
