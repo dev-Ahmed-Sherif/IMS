@@ -20,7 +20,9 @@ namespace DAL.HR
         public string Add(HrEmployeeAttendanceVM EmployeeAttendance)
         {
             // TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
-            TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+               TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+            DateTime Attendance = EmployeeAttendance.Attendance.ToUniversalTime();
+            DateTime Departure = EmployeeAttendance.Departure.ToUniversalTime();
             try
             {
                 var _EmployeeAttendance = new HrEmployeeAttendance()
@@ -28,8 +30,10 @@ namespace DAL.HR
                     AttendanceMachineId = EmployeeAttendance.AttendanceMachineId,
                     EmployeeId = EmployeeAttendance.EmployeeId,
                     Date = ConvertToLocalTime(EmployeeAttendance.Date, localTimeZone),
-                    Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone),
-                    Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone),
+                 //   Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone),
+                  //  Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone),
+                  Attendance=Attendance,
+                  Departure=Departure,
                     CreatedByID = EmployeeAttendance.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
@@ -62,6 +66,8 @@ namespace DAL.HR
         public string Update(HrEmployeeAttendanceVM EmployeeAttendance)
         {
             TimeZoneInfo localTimeZone = TimeZoneInfo.Local;
+            DateTime Attendance = EmployeeAttendance.Attendance.ToUniversalTime();
+            DateTime Departure = EmployeeAttendance.Departure.ToUniversalTime();
             try
             {
                 var _EmployeeAttendance = _context.HrEmployeeAttendance.FirstOrDefault(n => n.Id == EmployeeAttendance.Id);
@@ -70,9 +76,10 @@ namespace DAL.HR
                     _EmployeeAttendance.AttendanceMachineId = EmployeeAttendance.AttendanceMachineId;
                     _EmployeeAttendance.EmployeeId = EmployeeAttendance.EmployeeId;
                      _EmployeeAttendance.Date = ConvertToLocalTime(EmployeeAttendance.Date, localTimeZone);
-                     _EmployeeAttendance.Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone);
-                     _EmployeeAttendance.Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone);
-
+                    //_EmployeeAttendance.Attendance = ConvertToLocalTime(EmployeeAttendance.Attendance, localTimeZone);
+                    //_EmployeeAttendance.Departure = ConvertToLocalTime(EmployeeAttendance.Departure, localTimeZone);
+                    _EmployeeAttendance.Attendance = EmployeeAttendance.Attendance;
+                    _EmployeeAttendance.Departure = EmployeeAttendance.Departure;
                     _EmployeeAttendance.UpdateByID = EmployeeAttendance.TransactionUserId;
                     _EmployeeAttendance.LastUpdateDate = DateTime.Now;
 
