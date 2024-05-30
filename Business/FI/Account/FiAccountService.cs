@@ -78,9 +78,9 @@ namespace Business.FI.Account
         {
             return _FiRepository.GetStoreAccountsReportData(startDate,endDate,sectionId);
         }
-        public List<AccountItemVM> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
+        public async Task<List<AccountItemVM>> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
         {
-            return _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
+            return await _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
         }
         public List<AccountItemByCode> GetAccountMasterReportData(string code, int fiscalYearId)
         {
@@ -293,27 +293,115 @@ namespace Business.FI.Account
                 case "AccountREReport":
                     {
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
-                        //FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
-                        //for (int i = 0; i < FIAccountRE.Count; i++)
-                        //{
-                        //    if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
-                        //    {
-                        //        if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                        //        {
-                        //            FIAccountREAdd.Add(FIAccountRE[i]);
-                        //        }
-                        //    }
-                        //}
+
+                        List <string> restofAssts = new List<string>
+                        {
+                            "12",
+                            "121",
+                            "122",
+                            "131",
+                            "14",
+                            "141",
+                            "142",
+                            "143",
+                            "1511",
+                            "1512",
+                            "1513",
+                            "132",
+                            "133",
+                            "134",
+                            "135",
+                            "136",
+
+                        };
+                        List <string> RepPageTwo = new List<string>
+                        {
+                            "16",
+                            "161",
+                            "162",
+                            "163",
+                            "164",
+                            "165",
+                            "166",
+                        };
+                        List<string> RepPageTwo1 = new List<string>
+                        {
+                            "171",
+                            "266",
+                            "1716",
+                        };
+                        List<string> RepPageThree = new List<string>
+                        {
+                            "18",
+                            "191",
+                            "192",
+                            "193",
+                            "194",
+                            "19",
+                        };
+
+                        for (int i = 0; i < FIAccountRE.Count; i++)
+                        {
+                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
+                            {
+                                FIAccountREAdd.Add(FIAccountRE[i]);
+                                //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                                //{
+
+                                //}
+                            }
+                        }
+
+                        List<AccountItemVM> restofAsstsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageTwoArray  = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageThreeArray = new List<AccountItemVM>();
+
+                        for (int i = 0; i < FIAccountREAdd.Count; i++)
+                        {
+                            for (int j = 0; j < restofAssts.Count; j++)
+                            {
+                                if (restofAssts[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    restofAsstsArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageTwo.Count; j++)
+                            {
+                                if (RepPageTwo[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageTwoArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageTwo1.Count; j++)
+                            {
+                                if (RepPageTwo1[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageTwo1Array.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < RepPageThree.Count; j++)
+                            {
+                                if (RepPageThree[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageThreeArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                        }
 
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = restofAsstsArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
                     }
 
                     break;
                 case "AccountACReport":
                     {
-                        FIAccountRE = GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
@@ -344,7 +432,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -374,7 +462,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -410,7 +498,7 @@ namespace Business.FI.Account
                         };
                         foreach (string itemCode in codes)
                         {
-                            AccountActivity = GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
                             for (int i = 0; i < AccountActivity.Count; i++)
                             {
                                 if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
@@ -460,7 +548,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -552,7 +640,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -636,7 +724,7 @@ namespace Business.FI.Account
                              "417",
                             
                         };
-                        AccountActivity = GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -807,7 +895,7 @@ namespace Business.FI.Account
                                             variousBurdensAndLossesData = new List<AccountItemVM>(),
                                             restBurdensAndLossesData = new List<AccountItemVM>();
 
-                        QualitativeAnalysis = GetFinancialCenterReportData(fiscalYearId, "3", 7);
+                        QualitativeAnalysis = await GetFinancialCenterReportData(fiscalYearId, "3", 7);
                         List<string> materials = new List<string>{ "31" ,"311","312","313","314","315","316"};
                         decimal sumMaterials = 0;
 

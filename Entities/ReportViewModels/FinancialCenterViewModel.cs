@@ -18,12 +18,12 @@ namespace Entities.ReportViewModels
     }
     public class FixedAssetsFinancialCenterViewModel
     {
-        public int AccountId { get; set; }
+        public string Code { get; set; }
         public string AccountName { get; set; }
         public decimal Cost { get; set; }
         public decimal AccumulatedDepreciation { get; set; }
         public decimal FixedAssetNetValue { get; set; }
-        public decimal prevFixedAssetNetValue { get; set; }
+        public decimal PrevFixedAssetNetValue { get; set; }
     }
 }
 

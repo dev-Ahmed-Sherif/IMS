@@ -89,24 +89,6 @@ namespace DAL.FI.Account
         {
 
             var _Account = _context.FiAccount.Single(n => n.Id == ID);
-            //var accounToDelete = _context.FiEntryDetails.Where(p => p.AccountId== ID).ToList();
-
-            //_context.FiEntryDetails.RemoveRange(accounToDelete);
-            //_context.SaveChanges();
-
-
-
-            //var strAddRecords = _context.StrAdd.Where(s => s.CommodityId == ID).ToList();
-            //_context.StrAdd.RemoveRange(strAddRecords);
-
-            //var strAddDetailsRecords = _context.StrAddDetails.Where(s => s.AddId ==s.STR_Add.Id).ToList();
-            //_context.StrAddDetails.RemoveRange(strAddDetailsRecords);
-
-            //var accounToDeleteCommodity = _context.StrCommodity.Where(p => p.AccountId == ID).ToList();
-
-            //_context.StrCommodity.RemoveRange(accounToDeleteCommodity);
-            //_context.SaveChanges();
-
             _context.FiAccount.Remove(_Account);
             _context.SaveChanges();
             return "Succeeded";
@@ -224,16 +206,7 @@ namespace DAL.FI.Account
             if (sectionId != 0)
             {
                 
-                List<string> section =
-                        
-                        _context.FiEntry.Where(e => e.Journal.SectionId == sectionId).Select(e => e.Journal.Section.Name).ToList();
-
-                //_context
-                //        .FiEntry.Where(e => e.Journal.SectionId == sectionId)
-                //        .First()
-                //        .Journal
-                //        .Section
-                //        .Name
+                List<string> section =_context.FiEntry.Where(e => e.Journal.SectionId == sectionId).Select(e => e.Journal.Section.Name).ToList();
                 var query = from fiAccount in _context.FiAccount
                             select new AccountItemVM
                             {
@@ -361,7 +334,7 @@ namespace DAL.FI.Account
             return result;
 
         }
-        public List<AccountItemVM> GetFinancialCenterReportData(int fiscalYearId, string code, int codeLength)
+        public async Task<List<AccountItemVM>> GetFinancialCenterReportData(int fiscalYearId, string code, int codeLength)
         {
             FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
             DateTime startDate = fiscalYear.StartDate;
@@ -380,6 +353,7 @@ namespace DAL.FI.Account
                                 Id = fiAccount.Id,
                                 Code = fiAccount.Code,
                                 Name = fiAccount.Name,
+
                                 AccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
                                                             where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id
@@ -409,7 +383,7 @@ namespace DAL.FI.Account
                                 EndDate = endDate.ToShortDateString(),
                             };
 
-                var resultList = query.Select(e => Positive(e)).ToList();
+                var resultList = await query.Select(e => Positive(e)).ToListAsync();
                 return resultList;
             }
             else
@@ -448,7 +422,7 @@ namespace DAL.FI.Account
                                 StartDate = startDate.ToShortDateString(),
                                 EndDate = endDate.ToShortDateString(),
                             };
-                var resultList = query.Select(e => Positive(e)).ToList();
+                var resultList = await query.Select(e => Positive(e)).ToListAsync();
                 return resultList;
             }
         }
@@ -527,38 +501,7 @@ namespace DAL.FI.Account
             var result = query.OrderBy(e => e.date).ToList();
             return result;
         }
-        //public List<AccountItemVM> Search(search searchModel)
-        //{
-        //    var query = _context.FiAccount.AsQueryable();
-        //    if (searchModel.ClassCode.HasValue)
-        //    {
-        //        query = query.Where(p => p.Code.Length == 1).Where(p => p.Code == searchModel.ClassCode.ToString());
-        //    }
-        //    if (searchModel.CategoryCode.HasValue)
-        //    {
-        //        query = query.Where(p => p.Code.Length == 2).Where(p => p.Code == searchModel.CategoryCode.ToString());
-        //    }
-        //    if (searchModel.SubCategoryCode.HasValue)
-        //    {
-        //        query = query.Where(p => p.Code.Length == 3).Where(p => p.Code == searchModel.SubCategoryCode.ToString());
-        //    }
-        //    var results = query.Select(p => new FiAccountGetVM
-        //    {
-        //        Code = p.Code,
-        //    }).ToList();
-        //    List<AccountItemVM> items = new List<AccountItemVM>();
-        //    foreach (var item in results)
-        //    {
-        //        var isNotNull = GetByHierarchy(item.Code);
-        //        if (isNotNull != null)
-        //            for (var item2 = 0; item2 < isNotNull.Count; item2++)
-        //            {
-        //                items.Add(isNotNull[item2]);
-        //            }
-        //    }
-        //    return items;
-
-        //}
+        
         public List<withdrawToCostCenter> GetWithdrawToCostCenterReportData(int sectionId, DateTime startDate, DateTime endDate)
         {
             var query = (from section in _context.ImsSection
@@ -594,15 +537,6 @@ namespace DAL.FI.Account
         {
             var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
                 throw new KeyNotFoundException("Fiscal Year Id Key Not Found");
-
-            //IQueryable<FiAccountItem> accountItemsRelatedToAccount =
-            //_context
-            //.FiAccountItem
-            //.Where(e => string.Equals(e.Account.Code, accountCode))
-            //.Where(e =>
-            //    e.FiEntryDetails
-            //    .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
-
            IQueryable <FiAccountItem> accountItemsRelatedToAccount =
             _context
             .FiAccountItem
@@ -764,6 +698,8 @@ namespace DAL.FI.Account
                 .Select(e => ConvertFixedAssetToFixedAssetDepreciationAccountCode(e.Code))
                 .ToList();
 
+            
+
             List<FiAccount> fixedAssetsDepreciationAccounts =
                 await
                 _context
@@ -771,75 +707,27 @@ namespace DAL.FI.Account
                 .Where(e => fixedAssetsDepreciationAccountsCodes.Contains(e.Code))
                 .ToListAsync();
 
-
+            
             //To be continued
             List<FixedAssetsFinancialCenterViewModel> result = new();
 
-            //var accountIds = await _context.FiAccount
-            //                        .Where(account => account.Code.StartsWith("261") && account.Code.Length == 5)
-            //                        .Select(account => account.Id)
-            //                        .ToListAsync();
-
-            //var debitMinusCreditQuery = (from entry in _context.FiEntryDetails
-            //                             where accountIds.Contains(entry.AccountId)
-            //                             group entry by new
-            //                             {
-            //                                 entry.Id,
-            //                                 entry.EntryId,
-            //                                 entry.AccountId,
-            //                                 entry.Credit,
-            //                                 entry.Description
-            //                             } into g
-            //                             let debitMinusCredit = g.Sum(e => e.Debit) - g.Key.Credit
-            //                             select new
-            //                             {
-            //                                 DebitMinusCredit = debitMinusCredit
-            //                             })
-            //                            ;
-
-            //var totalDebitMinusCredit = debitMinusCreditQuery.Sum(x => x.DebitMinusCredit);
-
             foreach (FiAccount account in fixedAssetsAccounts)
             {
+                var debacc = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
 
-                    AccumulatedDepreciation =
-                    fixedAssetsDepreciationAccountsChilds
-                     .FirstOrDefault
-                     (e => e.Code.StartsWith(ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code)))?
-                     .FiEntryDetails
-                     .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
-                     .Sum(e => e.Credit - e.Debit) ?? 0,
-
-
-                    //fixedAssetsDepreciationAccounts
-                    // .FirstOrDefault
-                    // (e => e.Code.StartsWith(ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code)))?
-                    // .FiEntryDetails
-                    // .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
-                    // .Sum(e => e.Credit - e.Debit) ?? 0,
-
-
-
-                    //fixedAssetsDepreciationAccountsChilds
-                    //        .Where
-                    //        (f => fixedAssetsDepreciationAccountsChilds.Contains(account.Code)).Select(e => e.FiEntryDetails)
-
-                    //        .Where(e => e.FiEntryDetails.Entry.Journal.FiscalYearId == fiscalYearId)
-                    //        .Sum(e => e.Debit - e.Credit) :
-                    //        Math.Round((from fiEntryDetails in _context.FiEntryDetails
-                    //                    join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
-                    //                    from fiEntry in entryGroup.DefaultIfEmpty()
-                    //                    join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
-                    //                    from fiAccountParent in parentGroup.DefaultIfEmpty()
-                    //                    where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id
-                    //                    select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)),
-
+                    AccumulatedDepreciation = Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                 join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                 from fiEntry in entryGroup.DefaultIfEmpty()
+                                 join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                 from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                 where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.Parent.Code == debacc
+                                 select (fiEntryDetails.Credit) - (fiEntryDetails.Debit)).Sum(), 2),
 
                     //عايزين تكلفة الاصل الثابت بالكامل هنا
                     // Debit - Credit
-                    Cost = (decimal)(fixedAssetsAccounts
+                    Cost = (decimal)(account.Code.StartsWith("11") && fixedAssetsAccounts
                             .FirstOrDefault
                             (e => e.Code == account.Code)?
                             .FiEntryDetails
@@ -858,9 +746,11 @@ namespace DAL.FI.Account
                                         where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id
                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)),
 
-                    AccountId = account.Id,
+                    PrevFixedAssetNetValue = 0,
+                    Code = account.Code,
                     AccountName = account.Name,
                 };
+                
                 e.FixedAssetNetValue = e.Cost - e.AccumulatedDepreciation;
                 result.Add(e);
             }
@@ -882,31 +772,10 @@ namespace DAL.FI.Account
             var fixedAssetAccountCodeString = string.Join("", fixedAssetAccountCode);
             return fixedAssetAccountCodeString;
         }
-
-        //public async Task<List<FiAccountItemBalancesViewModel>> TriaBalance(int fiscalYearId)
-        //{
-        //    List<string> codes =  _context.FiAccount.Select(e=> e.Code).ToList();
-        //    List<FiAccountItemBalancesViewModel> triaBalance = new List<FiAccountItemBalancesViewModel>();
-        //    foreach (var code in codes)
-        //    {
-
-        //        triaBalance.AddRange(await GetTriaBalanceReportData(code, fiscalYearId));
-        //    }
-        //    return triaBalance;
-        //}
         public async Task<List<FiAccountItemBalancesViewModel>> GetTriaBalanceReportData( int fiscalYearId)
         {
             var fiscalYear = await _context.FiscalYear.FindAsync(fiscalYearId) ??
                 throw new KeyNotFoundException("Fiscal Year Id Key Not Found");
-
-            //IQueryable<FiAccount> accountItemsRelatedToAccount =
-            //_context
-            //.FiAccount
-            //.Where(e => string.Equals(e.Code, accountCode))
-            //.Where(e =>
-            //    e.FiEntryDetails
-            //    .Any(ed => ed.Entry.Journal.FiscalYear.Id == fiscalYearId));
-
             IQueryable<FiAccount> fiAccounts =
             _context
             .FiAccount
@@ -985,21 +854,6 @@ namespace DAL.FI.Account
             };
 
         }
-        //public string Getparent(string code)
-        //{
-
-
-
-        //    var maxLength = code.Length;
-        //    var parentcode = code.Substring(0,maxLength-1);
-
-        //    var matchingAccounts = _context.FiAccount
-        //        .Where(fiAccount => fiAccount.Code.StartsWith(parentcode))
-        //        .Select(e=>e.Code).First();
-                  
-
-        //    return matchingAccounts.ToString();
-        //}
         public FiAccountGetParentVM GetParent(string code)
         {
             var maxLength = code.Length;
@@ -1022,42 +876,7 @@ namespace DAL.FI.Account
 
             return matchingAccounts;
         }
-        //public List<FiAccountGetVM> Getparent(string code)
-        //{
-
-
-
-        //    //var query = from fiAccount in _context.FiAccount
-        //    //            where fiAccount.Code.StartsWith(code)
-        //    //            select fiAccount.Code;
-
-        //    //var result = query.ToList();
-
-        //    //return result;
-        //    var maxLength = code.Length;
-        //    var parentcode = code.Substring(0, maxLength - 1);
-
-        //    var matchingAccounts = _context.FiAccount
-        //        .Where(fiAccount => fiAccount.Code.StartsWith(code))
-        //        .ToList();
-
-        //    if (matchingAccounts.Count == 0)
-        //    {
-        //        // Return an empty list or handle the case when no matching accounts are found
-        //        return new List<FiAccountGetVM>();
-        //    }
-
-        //    var query = from fiAccount in matchingAccounts
-        //                where fiAccount.Code.Length <= maxLength
-        //                select new FiAccountGetVM
-        //                {
-        //                    Name = fiAccount.Name,
-        //                    Code = fiAccount.Code
-        //                };
-
-        //    return query.ToList();
-
-        //}
+        
 
     }
 

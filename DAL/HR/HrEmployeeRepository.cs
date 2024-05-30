@@ -262,8 +262,12 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.FinancialDegreeDate >= searchModel.FinancialDegreeDate.Value.Date);
             }
-            var result = query.Select(n => new HrEmployeeGetSearchVM
+            if (!string.IsNullOrEmpty(searchModel.Name))
             {
+
+            }
+             var result = query.Select(n => new HrEmployeeGetSearchVM
+             {
                 Id = n.Id,
                 Name = n.Name,
                 Code = n.Code,
@@ -312,11 +316,16 @@ namespace DAL.HR
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-                Section = n.Section.Name,
+
+             
 
 
 
-            }).ToList();
+        //Section = n.Sector.Name,
+        //UserName = searchModel.UserName,
+
+
+    }).ToList();
 
             return result;
         }
