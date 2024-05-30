@@ -298,27 +298,41 @@ namespace Business.FI.Account
 
                         List <string> restofAssts = new List<string>
                         {
-                            "12",
+                            
                             "121",
                             "122",
-                            "131",
-                            "14",
+
+
+                        };
+                        List<string> Account14 = new List<string>
+                        {
                             "141",
                             "142",
                             "143",
-                            "1511",
-                            "1512",
-                            "1513",
-                            "132",
-                            "133",
-                            "134",
-                            "135",
-                            "136",
+                        };
+                        List<string> Account14Count = new List<string>
+                        {
+
+
+                            "14",
+                            //"1511",
+                            //"1512",
+                            //"1513",
+                            //"132",
+                            //"133",
+                            //"134",
+                            //"135",
+                            //"136",
 
                         };
-                        List <string> RepPageTwo = new List<string>
+                        List<string> restofAsstsCount = new List<string>
                         {
-                            "16",
+
+                            "12",
+
+                        };
+                        List<string> RepPageTwo = new List<string>
+                        {
                             "161",
                             "162",
                             "163",
@@ -326,10 +340,18 @@ namespace Business.FI.Account
                             "165",
                             "166",
                         };
+                        List<string> Account16Count = new List<string>
+                        {
+                            "16",
+                        };
                         List<string> RepPageTwo1 = new List<string>
                         {
                             "171",
                             "266",
+                        };
+                        List<string> Account1716 = new List<string>
+                        {
+
                             "1716",
                         };
                         List<string> RepPageThree = new List<string>
@@ -401,6 +423,8 @@ namespace Business.FI.Account
                             "273",
                             "2899"
                         };
+
+
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
@@ -414,8 +438,13 @@ namespace Business.FI.Account
                         }
 
                         List<AccountItemVM> restofAsstsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> restofAsstsCountArray = new List<AccountItemVM>();
+                        List<AccountItemVM> Account14Array = new List<AccountItemVM>();
+                        List<AccountItemVM> Account14CountArray = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageTwoArray  = new List<AccountItemVM>();
+                        List<AccountItemVM> Account16CountArray = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
+                        List<AccountItemVM> Account1716Array = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageThreeArray = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageThreeCountArray = new List<AccountItemVM>();
                         List<AccountItemVM> PropertyRightsFirstArray = new List<AccountItemVM>();
@@ -429,6 +458,7 @@ namespace Business.FI.Account
 
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
+                            //Account => 12%
                             for (int j = 0; j < restofAssts.Count; j++)
                             {
                                 if (restofAssts[j].Equals(FIAccountREAdd[i].Code))
@@ -436,6 +466,31 @@ namespace Business.FI.Account
                                     restofAsstsArray.Add(FIAccountREAdd[i]);
                                 }
                             }
+                            //Account =>12_Total
+                            for (int j = 0; j < restofAsstsCount.Count; j++)
+                            {
+                                if (restofAsstsCount[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    restofAsstsCountArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            //Account =>14%
+                            for (int j = 0; j < Account14.Count; j++)
+                            {
+                                if (Account14[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    Account14Array.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            //Account =>14_Total
+                            for (int j = 0; j < Account14Count.Count; j++)
+                            {
+                                if (Account14Count[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    Account14CountArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            //Account =>16%
                             for (int j = 0; j < RepPageTwo.Count; j++)
                             {
                                 if (RepPageTwo[j].Equals(FIAccountREAdd[i].Code))
@@ -443,11 +498,27 @@ namespace Business.FI.Account
                                     RepPageTwoArray.Add(FIAccountREAdd[i]);
                                 }
                             }
+                            //Account =>16_Total
+                            for (int j = 0; j < Account16Count.Count; j++)
+                            {
+                                if (Account16Count[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                        Account16CountArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
                             for (int j = 0; j < RepPageTwo1.Count; j++)
                             {
                                 if (RepPageTwo1[j].Equals(FIAccountREAdd[i].Code))
                                 {
                                     RepPageTwo1Array.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            //Account =>1716
+                            for (int j = 0; j < Account1716.Count; j++)
+                            {
+                                if (Account1716[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    Account1716Array.Add(FIAccountREAdd[i]);
                                 }
                             }
                             for (int j = 0; j < RepPageThree.Count; j++)
@@ -524,8 +595,13 @@ namespace Business.FI.Account
 
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = restofAsstsArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRECount", Value = restofAsstsCountArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Account14", Value = Account14Array });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Account14Count", Value = Account14CountArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Account16Count", Value = Account16CountArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Account1716", Value = Account1716Array });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageThreeCount", Value = RepPageThreeCountArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
