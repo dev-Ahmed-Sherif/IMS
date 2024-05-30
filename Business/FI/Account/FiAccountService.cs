@@ -426,6 +426,7 @@ namespace Business.FI.Account
                         List<AccountItemVM> CurrentObligationsSecondArray = new List<AccountItemVM>();
                         List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
                         List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
+
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
                             for (int j = 0; j < restofAssts.Count; j++)
@@ -526,8 +527,7 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageThreeCount", Value = RepPageThreeCount });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageThreeCount", Value = RepPageThreeCountArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
