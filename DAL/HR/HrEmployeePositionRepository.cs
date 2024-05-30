@@ -98,13 +98,17 @@ namespace DAL
         public List<HrEmployeePositionGetSearchVM> Search(HrEmployeePositionSearch searchModel)
         {
             var query = _context.HrEmployeePosition.AsQueryable();
-            if (!string.IsNullOrEmpty(searchModel.EmployeeId))
+            if (searchModel.EmployeeId.HasValue)
             {
-                query = query.Where(p => p.EmployeeId.ToString().Contains(searchModel.EmployeeId));
+                query = query.Where(p => p.EmployeeId==searchModel.EmployeeId);
             }
             if (!string.IsNullOrEmpty(searchModel.EmployeeName))
             {
                 query = query.Where(p => p.Employee.Name.Contains(searchModel.EmployeeName));
+            }
+            if (searchModel.PositionId.HasValue)
+            {
+                query = query.Where(p => p.PositionId == searchModel.PositionId);
             }
             var result = query.Select(n => new HrEmployeePositionGetSearchVM
             {

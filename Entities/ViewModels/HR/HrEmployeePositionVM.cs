@@ -41,8 +41,9 @@ namespace Entities.ViewModels
 
     public class HrEmployeePositionSearch
     {
-        public string EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
         public string EmployeeName { get; set; }
+        public int? PositionId { get; set; }
     }
 
     public class HrEmployeePositionReport : HrEmployeePositionSearch

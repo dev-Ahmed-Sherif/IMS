@@ -167,6 +167,7 @@ namespace DAL.TR.Plan
                     PlanId = n.PlanId,
                     PlanName = n.Plan.Tittle,
                     FinancierId = n.FinancierId,
+                    FinancierName=n.FinancierId!=null?n.Financier.Name:"",
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })

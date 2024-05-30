@@ -28,7 +28,7 @@ namespace DAL
             var _EmployeeQualification = new HrEmployeeQualification()
             {
                 Date = EmployeeQualification.Date,
-                Attachment = EmployeeQualification.Attachment,
+                Attachment = fileName,
                 QualificationId = EmployeeQualification.QualificationId,
                 QualificationLevelId = EmployeeQualification.QualificationLevelId,
                 SpecializationId = EmployeeQualification.SpecializationId,

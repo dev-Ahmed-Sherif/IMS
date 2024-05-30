@@ -175,7 +175,9 @@ namespace DAL.TR.Plan
                 {
                     Id = n.Id,
                     PlanId = n.PlanId,
+                    PlanTittle=n.Plan.Tittle,
                     PositionId = n.PositionId,
+                    PositionName= n.Position.Name,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id
                 })
