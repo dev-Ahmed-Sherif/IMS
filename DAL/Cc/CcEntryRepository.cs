@@ -1,5 +1,6 @@
 ﻿using Entities.Models.Cc;
 using Entities.ViewModels.Cc;
+using Entities.ViewModels.STR.AddDetails;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -146,10 +147,56 @@ namespace DAL.Cc
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id
             }).FirstOrDefault(n => n.Id == itemId);
-        //----------------------------------------------------------
-        // GET Pagenation { Data with ( page , pagesize )} 
-        //----------------------------------------------------------
-        public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize , int YearId)
+
+        public List<CcEntryGetVM> Search(searcccentry searchModel)
+        {
+            var query = _context.CcEntry.AsQueryable();
+            if (searchModel.No.HasValue)
+            {
+                query = query.Where(p => p.No == searchModel.No);
+            }
+            if (searchModel.FiscalYearId.HasValue)
+            {
+                query = query.Where(p => p.FiscalYearId == searchModel.FiscalYearId);
+            }
+            if (searchModel.JournalId.HasValue)
+            {
+                query = query.Where(p => p.JournalId == searchModel.JournalId);
+            }
+            if (searchModel.Date.HasValue)
+            {
+                query = query.Where(p => p.Date.Date <= searchModel.Date.Value.Date);
+            }
+            var results = query.Select(p => new CcEntryGetVM
+            {
+                Id = p.Id,
+               Date = p.Date,
+               // ShortDate = p.Date.ToString("dd/MM/yyyy"),
+               // StartDate = searchModel.StartDate.HasValue ? searchModel.StartDate.Value.ToString("dd/MM/yyyy") : "",
+              //  EndDate = searchModel.EndDate.HasValue ? searchModel.EndDate.Value.ToString("dd/MM/yyyy") : "",
+              //  ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                No = p.No,
+                JournalId =p.JournalId,
+                JournalEndDate=p.Journal.EndDate,
+                JournalStartDate=p.Journal.StartDate,
+                JournalName=p.Journal.Description,
+                FiscalYearId=p.FiscalYearId,
+                Description=p.Description,
+                CreditTotal=p.CreditTotal,
+                DebitTotal=p.DebitTotal,
+                Balance=p.Balance,
+              //  Date= p.Date.ToString("dd/MM/yyyy"),
+             
+            }).OrderBy(x => x.Date).ThenBy(x => x.Id).ToList();
+
+
+            return results;
+
+        }
+            //----------------------------------------------------------
+            // GET Pagenation { Data with ( page , pagesize )} 
+            //----------------------------------------------------------
+            public PaginatedResult<CcEntryGetVM> GetAllByPagination(int page, int pageSize , int YearId)
         {
             var totalCount = _context.CcEntry.Count();
             List<CcEntryGetVM> Item = _context.CcEntry

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models.STR.General;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities.ViewModels.Cc
@@ -28,5 +29,17 @@ namespace Entities.ViewModels.Cc
         [DataType(DataType.Date)]
         public DateTime? JournalEndDate { get; set; }
         public string UpdateUserName { get; set; }
+    }
+    public class searcccentry
+    {
+       
+    
+      
+        public int? No { get; set; }
+        public int? FiscalYearId { get; set; }
+        public int? JournalId { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime ?Date { get; set; }
+       
     }
 }

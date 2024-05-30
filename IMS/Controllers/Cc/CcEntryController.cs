@@ -1,5 +1,7 @@
 ﻿using Business.Cc;
+using Business.STR.Add;
 using Entities.ViewModels.Cc;
+using Entities.ViewModels.STR.WithDraw;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IMS.Controllers.Cc
@@ -45,6 +47,12 @@ namespace IMS.Controllers.Cc
         {
             var add = _cc_entr.GetById(id);
             return Ok(add);
+        }
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] searcccentry searchModel)
+        {
+            var AllSTR_Add_Details = _cc_entr.Search(searchModel);
+            return Ok(AllSTR_Add_Details);
         }
         //-----------------------------------------------
         // GET Pagenation { Data with ( page , pagesize)} 
