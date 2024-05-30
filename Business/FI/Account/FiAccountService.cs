@@ -295,6 +295,7 @@ namespace Business.FI.Account
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
                         FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+
                         List <string> restofAssts = new List<string>
                         {
                             "12",
@@ -331,6 +332,16 @@ namespace Business.FI.Account
                             "266",
                             "1716",
                         };
+                        List<string> RepPageThree = new List<string>
+                        {
+                            "18",
+                            "191",
+                            "192",
+                            "193",
+                            "194",
+                            "19",
+                        };
+
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
@@ -342,9 +353,12 @@ namespace Business.FI.Account
                                 //}
                             }
                         }
-                        List < AccountItemVM > restofAsstsArray = new List<AccountItemVM>();
-                        List<AccountItemVM> RepPageTwoArray = new List<AccountItemVM>();
+
+                        List<AccountItemVM> restofAsstsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageTwoArray  = new List<AccountItemVM>();
                         List<AccountItemVM> RepPageTwo1Array = new List<AccountItemVM>();
+                        List<AccountItemVM> RepPageThreeArray = new List<AccountItemVM>();
+
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
                             for (int j = 0; j < restofAssts.Count; j++)
@@ -368,11 +382,20 @@ namespace Business.FI.Account
                                     RepPageTwo1Array.Add(FIAccountREAdd[i]);
                                 }
                             }
+                            for (int j = 0; j < RepPageThree.Count; j++)
+                            {
+                                if (RepPageThree[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    RepPageThreeArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
                         }
+
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = restofAsstsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo", Value = RepPageTwoArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "RepPageTwo1", Value = RepPageTwo1Array });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RepPageThree", Value = RepPageThreeArray });
                     }
 
                     break;

@@ -353,6 +353,7 @@ namespace DAL.FI.Account
                                 Id = fiAccount.Id,
                                 Code = fiAccount.Code,
                                 Name = fiAccount.Name,
+
                                 AccountSubNet = Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id
                                                             where fiEntry.Date >= startDate && fiEntry.Date < endDate && fiEntryDetails.AccountId == fiAccount.Id

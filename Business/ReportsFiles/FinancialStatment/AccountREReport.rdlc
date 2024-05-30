@@ -23,7 +23,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>11.31706cm</Top>
+        <Top>14.49206cm</Top>
         <Left>23.58933cm</Left>
         <Height>0.9175cm</Height>
         <Width>3.69222cm</Width>
@@ -58,7 +58,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>11.31706cm</Top>
+        <Top>14.49206cm</Top>
         <Left>13.00001cm</Left>
         <Height>0.9175cm</Height>
         <Width>4.98836cm</Width>
@@ -94,7 +94,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>11.31706cm</Top>
+        <Top>14.49206cm</Top>
         <Left>2.21916cm</Left>
         <Height>0.9175cm</Height>
         <Width>6.02055cm</Width>
@@ -390,7 +390,7 @@
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -429,7 +429,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -466,9 +466,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+                                <TextDecoration>Underline</TextDecoration>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Black",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -504,10 +505,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Black",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -543,10 +543,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -582,10 +581,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -643,7 +641,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -682,7 +682,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -705,7 +707,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -719,8 +720,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
-                        <BackgroundColor>#1b77a3</BackgroundColor>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -745,7 +747,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -759,7 +761,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -784,7 +788,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -798,7 +802,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -819,11 +825,11 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               <Value>=Sum(Fields!FixedAssetNetValue.Value)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
+                                <FontSize>16pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -837,7 +843,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -877,10 +885,11 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>FixedAssets</DataSetName>
         <Top>0.89675cm</Top>
         <Left>1.71563cm</Left>
-        <Height>2.43499cm</Height>
+        <Height>2.435cm</Height>
         <Width>25.7511cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -902,7 +911,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
               <Width>7.21313cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>9.01291cm</Width>
+              <Width>9.18491cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1084,9 +1093,12 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
+IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+IIf(Fields!Code.Value.ToString().Length = 2, "Black", 
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1123,9 +1135,12 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
+IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Black",
+IIf(Fields!Code.Value.ToString().Length = 2, "Black", 
+IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1259,6 +1274,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1298,6 +1314,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1321,7 +1338,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 2, "Black", 
 IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
@@ -1337,6 +1354,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1377,6 +1395,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1415,7 +1434,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Top>3.50813cm</Top>
         <Left>1.71563cm</Left>
         <Height>2.35562cm</Height>
-        <Width>25.57909cm</Width>
+        <Width>25.7511cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1618,6 +1637,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
+IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
 IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
@@ -1657,6 +1679,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
+IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
 IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
@@ -1696,6 +1721,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
+IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
                                 <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
 IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
 IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
@@ -1946,7 +1974,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <KeepTogether>true</KeepTogether>
         <DataSetName>RepPageTwo</DataSetName>
         <Top>6.153cm</Top>
         <Left>1.71563cm</Left>
@@ -2495,8 +2522,544 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Border>
         </Style>
       </Tablix>
+      <Tablix Name="Tablix6">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.92013cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.43293cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>7.21313cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>9.01291cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.86458cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox26">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الدليل</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>16pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#ffffff</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox27">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>البيان</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>16pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#ffffff</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value> المبلغ الجزئى</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>16pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>المبلغ الكلي</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>16pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.73229cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Code5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Code.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Code</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Name6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Name.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountSubNet6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!AccountSubNet.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountNet6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!AccountNet.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccountNet</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.75875cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox65">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox45</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox66">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox67">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>إجمالي نقدية وأرصدة لدي البنوك</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>="Black"</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox52</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox68">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!AccountNet.Value, "RepPageThree")</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox53</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details6" />
+            </TablixMember>
+            <TablixMember>
+              <KeepWithGroup>Before</KeepWithGroup>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>RepPageThree</DataSetName>
+        <Top>11.18174cm</Top>
+        <Left>1.70245cm</Left>
+        <Height>2.35562cm</Height>
+        <Width>25.5791cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
     </ReportItems>
-    <Height>13.20642cm</Height>
+    <Height>18.66345cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -2506,7 +3069,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
   <Width>29.7cm</Width>
   <Page>
     <PageHeader>
-      <Height>4.43757cm</Height>
+      <Height>3.44979cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2514,8 +3077,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <Source>Embedded</Source>
           <Value>Aswan_Water_Logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.38969cm</Top>
-          <Left>24.02841cm</Left>
+          <Top>0.07219cm</Top>
+          <Left>23.71091cm</Left>
           <Height>3cm</Height>
           <Width>3.5cm</Width>
           <Style>
@@ -2546,7 +3109,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.87877cm</Top>
+          <Top>0.56127cm</Top>
           <Left>10.00847cm</Left>
           <Height>0.97015cm</Height>
           <Width>11.25854cm</Width>
@@ -2570,7 +3133,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 <TextRun>
                   <Value>قطاع الشؤن المالية والادارية</Value>
                   <Style>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2584,7 +3147,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 <TextRun>
                   <Value>ادارة الحسابات</Value>
                   <Style>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2595,10 +3158,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.83544cm</Top>
-          <Left>1.1564cm</Left>
-          <Height>1.63188cm</Height>
-          <Width>6.41993cm</Width>
+          <Top>0.51794cm</Top>
+          <Left>1.7914cm</Left>
+          <Height>1.38494cm</Height>
+          <Width>5.25576cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -2620,7 +3183,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                   <Value>=DateTime.Now</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>14pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2631,10 +3194,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
-          <Top>2.60843cm</Top>
-          <Left>1.60619cm</Left>
-          <Height>0.9937cm</Height>
-          <Width>5.56917cm</Width>
+          <Top>1.97343cm</Top>
+          <Left>2.55869cm</Left>
+          <Height>0.85259cm</Height>
+          <Width>4.48847cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -2656,7 +3219,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                   <Value>عن الفترة من</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2668,9 +3231,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraphs>
           <rd:DefaultName>Textbox47</rd:DefaultName>
           <Top>2.15546cm</Top>
-          <Left>19.95662cm</Left>
-          <Height>0.9175cm</Height>
-          <Width>3.69222cm</Width>
+          <Left>18.33384cm</Left>
+          <Height>0.67056cm</Height>
+          <Width>2.4575cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -2692,7 +3255,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                   <Value>=First(Fields!StartDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2704,9 +3267,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
           <Top>2.15546cm</Top>
-          <Left>15.88047cm</Left>
-          <Height>0.9175cm</Height>
-          <Width>3.65094cm</Width>
+          <Left>15.52769cm</Left>
+          <Height>0.67056cm</Height>
+          <Width>2.41622cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -2728,7 +3291,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                   <Value>الى</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2740,9 +3303,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraphs>
           <rd:DefaultName>Textbox49</rd:DefaultName>
           <Top>2.15546cm</Top>
-          <Left>13.01318cm</Left>
-          <Height>0.9175cm</Height>
-          <Width>2.26347cm</Width>
+          <Left>13.9304cm</Left>
+          <Height>0.67056cm</Height>
+          <Width>1.02875cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -2764,7 +3327,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                   <Value>=First(Fields!EndDate.Value, "AccountRE")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -2776,9 +3339,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
           <Top>2.15546cm</Top>
-          <Left>8.74078cm</Left>
-          <Height>0.9175cm</Height>
-          <Width>3.85948cm</Width>
+          <Left>10.6105cm</Left>
+          <Height>0.67056cm</Height>
+          <Width>2.62476cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -2798,7 +3361,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.82562cm</Height>
+      <Height>1.59907cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -3023,7 +3586,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -3063,7 +3626,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>FixedAssets</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -3123,7 +3686,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -3183,7 +3746,67 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="RepPageThree">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
