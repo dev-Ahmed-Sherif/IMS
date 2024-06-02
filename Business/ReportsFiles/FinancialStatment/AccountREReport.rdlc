@@ -2495,7 +2495,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>14.2804cm</Top>
+        <Top>18.98998cm</Top>
         <Left>23.52488cm</Left>
         <Height>0.9175cm</Height>
         <Width>3.69222cm</Width>
@@ -2531,7 +2531,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>14.2804cm</Top>
+        <Top>18.98998cm</Top>
         <Left>12.93556cm</Left>
         <Height>0.9175cm</Height>
         <Width>4.98836cm</Width>
@@ -2567,7 +2567,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>14.2804cm</Top>
+        <Top>18.98998cm</Top>
         <Left>2.44116cm</Left>
         <Height>0.9175cm</Height>
         <Width>5.7341cm</Width>
@@ -2583,7 +2583,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>15.93873cm</Height>
+    <Height>20.35727cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -2885,7 +2885,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.63614cm</Height>
+      <Height>5.07572cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>

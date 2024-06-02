@@ -60,7 +60,8 @@ namespace Entities.ViewModels.HR
         public string WorkPlaceName { get; set; }
         public string DepartmentName { get; set; }
         public string SeveranceReasonName { get; set; }
-        public string HrPayMethodName { get; set; }
+        public string? PayMethodName { get; set; }
+        public string? BankName { get; set; }
 
 
     }
