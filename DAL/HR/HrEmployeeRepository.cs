@@ -1,4 +1,5 @@
 ﻿using Entities.ExtensionMethods.HR;
+using Entities.Models;
 using Entities.Models.HR;
 using Entities.ViewModels;
 using Entities.ViewModels.HR;
@@ -26,14 +27,14 @@ namespace DAL.HR
                     Code = employee.Code,
                     National_Code = employee.National_Code,
                     Birth_Date = employee.Birth_Date,
-                    Address = employee.Address ,
-                     Email = employee.Email,
-                     Phone = employee.Phone ,
-                     QualificationDate = employee.QualificationDate,
+                    Address = employee.Address,
+                    Email = employee.Email,
+                    Phone = employee.Phone,
+                    QualificationDate = employee.QualificationDate,
                     HiringDate = employee.HiringDate,
                     WorkingStateDate = employee.WorkingStateDate,
                     FinancialDegreeDate = employee.FinancialDegreeDate,
-                    Gender = employee.Gender ,
+                    Gender = employee.Gender,
                     MaritalState = employee.MaritalState,
                     QualificationId = employee.QualificationId,
                     QualificationLevelId = employee.QualificationLevelId,
@@ -49,7 +50,7 @@ namespace DAL.HR
                     SeveranceReasonId = employee.SeveranceReasonId,
                     BankId = employee.BankId,
                     PayMethodId = employee.PayMethodId,
-                    Religion = employee.Religion ,
+                    Religion = employee.Religion,
                     SalaryStatusId = employee.SalaryStatusId,
 
                     CreatedByID = employee.TransactionUserId,
@@ -74,7 +75,7 @@ namespace DAL.HR
                 {
                     _employee.Name = employee.Name;
                     _employee.Code = employee.Code;
-                    _employee.Email=employee.Email;
+                    _employee.Email = employee.Email;
                     _employee.Phone = employee.Phone;
                     _employee.National_Code = employee.National_Code;
                     _employee.Birth_Date = employee.Birth_Date;
@@ -266,8 +267,8 @@ namespace DAL.HR
             {
 
             }
-             var result = query.Select(n => new HrEmployeeGetSearchVM
-             {
+            var result = query.Select(n => new HrEmployeeGetSearchVM
+            {
                 Id = n.Id,
                 Name = n.Name,
                 Code = n.Code,
@@ -316,16 +317,9 @@ namespace DAL.HR
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-
-             
-
-
-
-        //Section = n.Sector.Name,
-        //UserName = searchModel.UserName,
-
-
-    }).ToList();
+                LastYearAppraisal = GetAppraisalValue(n.Appraisals.FirstOrDefault(e => e.Date.Year == (DateTime.UtcNow.Year - 1))),
+                PreLastYearAppraisal = GetAppraisalValue(n.Appraisals.FirstOrDefault(e => e.Date.Year == (DateTime.UtcNow.Year - 2))),
+            }).ToList();
 
             return result;
         }
@@ -352,5 +346,15 @@ namespace DAL.HR
             return paginatedResult;
         }
 
+        private static string GetAppraisalValue(HrEmployeeAppraisal appraisal)
+        {
+            if (appraisal == null) return "";
+
+            if (appraisal.Appraisal >= 95) return "ممتاز";
+            else if (95 > appraisal.Appraisal && appraisal.Appraisal <= 85) return "جيد جداً";
+            else if (85 > appraisal.Appraisal && appraisal.Appraisal <= 75) return "جيد";
+            else if (75 > appraisal.Appraisal && appraisal.Appraisal <= 65) return "مقبول";
+            else return "ضعيف";
+        }
     }
 }

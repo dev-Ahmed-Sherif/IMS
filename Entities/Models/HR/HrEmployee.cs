@@ -81,7 +81,7 @@ namespace Entities.Models.HR
         public int? SalaryStatusId { get; set; }
         public virtual HrSalaryStatus SalaryStatus { get; set; }
         public string Religion { get; set; }
-
+        public virtual ICollection<HrEmployeeAppraisal> Appraisals { get; set; }
         public virtual ICollection<StrAdd> STR_Add { get; set; }
         public virtual ICollection<StrEmployeeOpeningCustody> STR_Employee_Opening_Custody { get; set; }
         public virtual ICollection<StrEmployeeExchange> STR_Employee_Exchange { get; set; }
