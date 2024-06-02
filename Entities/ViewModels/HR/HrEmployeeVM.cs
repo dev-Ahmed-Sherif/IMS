@@ -79,6 +79,8 @@ namespace Entities.ViewModels.HR
     public class HrSearch
     {
         public string Name { get; set; }
+
+
         public int UserId { get; set; }
         public string Code { get; set; }
         public string National_Code { get; set; }

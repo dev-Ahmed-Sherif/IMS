@@ -74,7 +74,7 @@ namespace Business.HR
 
                 HrEmployeeVacationBalance = Search(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployeeVacationBalance", Value = HrEmployeeVacationBalance });
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeVacationBalance", Value = HrEmployeeVacationBalance });
             }
             //else if (reportName == "FIEntryDetailsReport")
             //{

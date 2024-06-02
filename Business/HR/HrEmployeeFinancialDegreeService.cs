@@ -75,7 +75,7 @@ namespace Business.HR
 
                 HrEmployeeFinancialDegree = Search(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
             }
             //else if (reportName == "FIEntryDetailsReport")
             //{

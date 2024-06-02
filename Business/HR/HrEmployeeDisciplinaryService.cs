@@ -73,7 +73,7 @@ namespace Business.HR
 
                 HrEmployeeDisciplinary = Search(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployeeDisciplinary", Value = HrEmployeeDisciplinary });
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeDisciplinary", Value = HrEmployeeDisciplinary });
             }
             //else if (reportName == "FIEntryDetailsReport")
             //{

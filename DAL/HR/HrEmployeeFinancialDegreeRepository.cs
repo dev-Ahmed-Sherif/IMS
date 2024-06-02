@@ -118,6 +118,19 @@ namespace DAL.HR
                 query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
 
             }
+
+            if (!string.IsNullOrEmpty(searchModel.EmployeeId))
+            {
+                query = query.Where(p => p.Employee.Id.ToString().Equals(searchModel.EmployeeId));
+            }
+
+            if (!string.IsNullOrEmpty(searchModel.EmployeeName))
+            {
+                query = query.Where(p => p.Employee.Name.ToString().Equals(searchModel.EmployeeId));
+            }
+
+
+
             var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
             {
                 Id = n.Id,

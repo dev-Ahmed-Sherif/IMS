@@ -118,6 +118,10 @@ namespace DAL
             {
                 query = query.Where(p => p.EmployeeId == searchModel.EmployeeId);
             }
+            
+
+
+
 
             if (searchModel.Appraisal.HasValue)
             {
@@ -134,6 +138,18 @@ namespace DAL
             //}
 
 
+
+            //// Include Employee navigation property
+            //query = query.Include(p => p.Employee);
+
+            //// Include Section navigation property within Employee
+            //query = query.Include(p => p.Employee.Section);
+
+
+
+
+
+
             var results = query.Select(p => new HrEmployeeAppraisalGetSearchVM
             {
                 Id = p.Id,
@@ -142,6 +158,12 @@ namespace DAL
                 ShortDate = p.Date.ToString("dd/MM/yyyy"),
 
                 EmployeeId = p.EmployeeId,
+                Birth_Date = p.Employee.Birth_Date,
+                QualificationLevelId = p.Employee.QualificationLevelId,
+                   
+
+
+
 
                 EmployeeName = p.Employee.Name,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),

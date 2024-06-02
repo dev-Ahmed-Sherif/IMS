@@ -28,6 +28,9 @@ namespace Entities.ViewModels
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
         public string EmployeeName { get; set; }
+        public int QualificationLevelId { get; set; }
+        public DateTime Birth_Date { get; set; }
+
 
     }
     public class searchEmpAppr
