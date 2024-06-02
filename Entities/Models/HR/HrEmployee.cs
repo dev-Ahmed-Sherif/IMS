@@ -18,7 +18,7 @@ namespace Entities.Models.HR
         [StringLength(100)]
         public string Name { get; set; }
 
-       
+
         [StringLength(10)]
         public string Code { get; set; }
         [StringLength(14)]
@@ -29,6 +29,7 @@ namespace Entities.Models.HR
         public string Phone { get; set; }
         [StringLength(50)]
         public string Email { get; set; }
+        public int InsuranceNumber { get; set; }
         //----------------------------------------------------------------------
         // Relation { PrUser => Account } +++ {View Model => TransactionUserId} 
         //----------------------------------------------------------------------
@@ -80,7 +81,7 @@ namespace Entities.Models.HR
         public int? SalaryStatusId { get; set; }
         public virtual HrSalaryStatus SalaryStatus { get; set; }
         public string Religion { get; set; }
-     
+
         public virtual ICollection<StrAdd> STR_Add { get; set; }
         public virtual ICollection<StrEmployeeOpeningCustody> STR_Employee_Opening_Custody { get; set; }
         public virtual ICollection<StrEmployeeExchange> STR_Employee_Exchange { get; set; }
