@@ -2,113 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox54">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>المحاسب المختص</Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>30.44644cm</Top>
-        <Left>23.52488cm</Left>
-        <Height>0.9175cm</Height>
-        <Width>3.69222cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox56">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>مدير إدارة الحسابات</Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>30.44644cm</Top>
-        <Left>12.93556cm</Left>
-        <Height>0.9175cm</Height>
-        <Width>4.98836cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox57">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>رئيس قطاع الشئون المالية</Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>30.44644cm</Top>
-        <Left>2.44116cm</Left>
-        <Height>0.9175cm</Height>
-        <Width>5.7341cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
@@ -372,7 +265,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.73229cm</Height>
+              <Height>0.9175cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -888,10 +781,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
         <KeepTogether>true</KeepTogether>
         <DataSetName>FixedAssets</DataSetName>
         <Top>0.47342cm</Top>
-        <Left>2.15581cm</Left>
-        <Height>2.435cm</Height>
+        <Left>2.2175cm</Left>
+        <Height>2.62021cm</Height>
         <Width>25.69914cm</Width>
-        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1244,172 +1136,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
-            <TablixRow>
-              <Height>0.75875cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox45">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox46">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox46</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox52">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>إجمالى الأصول غير المتداولة</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Black", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox52</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox53">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!AccountNet.Value, "AccountRE") + 
- Sum(Fields!FixedAssetNetValue.Value, "FixedAssets")</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox53</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
@@ -1429,17 +1155,15 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <TablixMember>
               <Group Name="Details3" />
             </TablixMember>
-            <TablixMember>
-              <KeepWithGroup>Before</KeepWithGroup>
-            </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>AccountRE</DataSetName>
-        <Top>2.92605cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>2.35562cm</Height>
+        <Top>3.46179cm</Top>
+        <Left>2.12658cm</Left>
+        <Height>1.59687cm</Height>
         <Width>25.7511cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1634,169 +1358,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
-            <TablixRow>
-              <Height>0.75875cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox55">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox58">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox46</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox59">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>إجمالى المخزون</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>="Black"</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox52</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox60">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!AccountNet.Value, "RepPageTwo")</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox53</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
@@ -1812,17 +1373,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <TablixMember>
               <Group Name="Details4" />
             </TablixMember>
-            <TablixMember>
-              <KeepWithGroup>Before</KeepWithGroup>
-            </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>RepPageTwo</DataSetName>
-        <Top>5.31694cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>1.49104cm</Height>
+        <Top>8.80753cm</Top>
+        <Left>2.14931cm</Left>
+        <Height>0.73229cm</Height>
         <Width>25.7511cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1847,7 +1405,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.73229cm</Height>
+              <Height>0.78507cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2008,169 +1566,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
-            <TablixRow>
-              <Height>0.75875cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox61">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox62">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox46</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox63">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value> إجمالى العملاء</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>="Black"</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox52</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox64">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!AccountNet.Value, "RepPageTwo1")</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox53</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
@@ -2185,19 +1580,18 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <TablixMembers>
             <TablixMember>
               <Group Name="Details5" />
-            </TablixMember>
-            <TablixMember>
-              <KeepWithGroup>Before</KeepWithGroup>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <KeepTogether>true</KeepTogether>
         <DataSetName>RepPageTwo1</DataSetName>
-        <Top>6.80798cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>1.49104cm</Height>
+        <Top>11.00843cm</Top>
+        <Left>2.17204cm</Left>
+        <Height>0.78507cm</Height>
         <Width>25.7511cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2208,25 +1602,25 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.96313cm</Width>
+              <Width>2.89417cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.47593cm</Width>
+              <Width>6.51893cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.25613cm</Width>
+              <Width>7.12713cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>9.05591cm</Width>
+              <Width>9.15891cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.73229cm</Height>
+              <Height>0.75874cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Code5">
+                    <Textbox Name="Code1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -2238,9 +1632,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2249,12 +1640,13 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Code</rd:DefaultName>
+                      <rd:DefaultName>Code1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2265,60 +1657,20 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Name6">
+                    <Textbox Name="Textbox32">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Name.Value</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Name</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="AccountSubNet6">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
+                              <Value>إجماي مشروعات تحت التنفيذ</Value>
                               <Value>=Fields!AccountSubNet.Value</Value>
+IIf(Fields!Code.Value.ToString().Length = 2, "_", 
+IIf(Fields!Code.Value.ToString().Length = 3, Fields!AccountNet.Value,Fields!AccountNet.Value)))</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2327,23 +1679,26 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                      <rd:DefaultName>Textbox32</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <ColSpan>2</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountNet6">
+                    <Textbox Name="AccountNet">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -2369,6 +1724,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2392,206 +1748,47 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Details6" />
+              <Group Name="Details" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
-        <DataSetName>RepPageThree</DataSetName>
-        <Top>8.29902cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>0.73229cm</Height>
-        <Width>25.7511cm</Width>
-        <ZIndex>7</ZIndex>
+        <DataSetName>AccountRECount</DataSetName>
+        <Top>5.42682cm</Top>
+        <Left>2.18827cm</Left>
+        <Height>0.75874cm</Height>
+        <Width>25.69914cm</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix16">
+      <Tablix Name="Tablix7">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.95664cm</Width>
+              <Width>2.89417cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.46944cm</Width>
+              <Width>6.51893cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.24964cm</Width>
+              <Width>7.25613cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>9.04942cm</Width>
+              <Width>9.05591cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.9175cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox106">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox94</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox107">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>مخصصات</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>16pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <TextDecoration>Underline</TextDecoration>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox95</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox108">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox96</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox109">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox97</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.83812cm</Height>
+              <Height>0.78521cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Code5">
+                      <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
@@ -2599,12 +1796,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                             <TextRun>
                               <Value>=Fields!Code.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2613,7 +1807,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Code</rd:DefaultName>
+                      <rd:DefaultName>Code5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2629,7 +1823,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Name14">
+                    <Textbox Name="Name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -2638,12 +1832,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                             <TextRun>
                               <Value>=Fields!Name.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2668,7 +1859,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountSubNet14">
+                    <Textbox Name="Textbox42">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -2679,12 +1870,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
 IIf(Fields!Code.Value.ToString().Length = 2, "0", 
 IIf(Fields!Code.Value.ToString().Length = 3, Fields!AccountNet.Value,Fields!AccountNet.Value)))</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2693,7 +1881,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                      <rd:DefaultName>Textbox42</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2709,7 +1897,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountNet14">
+                    <Textbox Name="Textbox44">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -2720,7 +1908,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
 IIf(Fields!Code.Value.ToString().Length = 2, Fields!AccountNet.Value, 
 IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -2731,174 +1919,12 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountNet</rd:DefaultName>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.75875cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox65">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Code.Value</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox111">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>موردين وأوراق دفع ودائنون أخرون</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>16pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <TextDecoration>Underline</TextDecoration>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox95</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox66">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox46</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox67">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>="Black"</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox52</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2996,7 +2022,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value> المبلغ الجزئى</Value>
+                              <Value>=Fields!AccountSubNet.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -3035,7 +2061,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>المبلغ الكلي</Value>
+                              <Value>=Fields!AccountNet.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -3064,6 +2090,60 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details6" />
+            </TablixMember>
+            <TablixMember>
+              <KeepWithGroup>Before</KeepWithGroup>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>RepPageThree</DataSetName>
+        <Top>22.29424cm</Top>
+        <Left>2.01995cm</Left>
+        <Height>3.35249cm</Height>
+        <Width>25.72514cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix7">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.96313cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.47593cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>7.25613cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>9.05591cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
             <TablixRow>
               <Height>0.75875cm</Height>
               <TablixCells>
@@ -3246,11 +2326,11 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>RepPageThree</DataSetName>
-        <Top>22.47738cm</Top>
-        <Left>2.11666cm</Left>
-        <Height>4.11124cm</Height>
-        <Width>25.72514cm</Width>
-        <ZIndex>8</ZIndex>
+        <Top>9.79006cm</Top>
+        <Left>2.12985cm</Left>
+        <Height>0.75875cm</Height>
+        <Width>25.7511cm</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3460,7 +2540,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.12985cm</Left>
         <Height>0.75875cm</Height>
         <Width>25.72514cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3816,15 +2896,9 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                             <TextRun>
                               <Value>=Fields!Code.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
-IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</TextDecoration>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Black", 
-IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3833,12 +2907,13 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Code</rd:DefaultName>
+                      <rd:DefaultName>Code6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3849,7 +2924,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Name7">
+                    <Textbox Name="Name1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -3898,14 +2973,11 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!AccountNet.Value</Value>
+                              <Value>=Fields!AccountSubNet.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3914,32 +2986,37 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                      <rd:DefaultName>Name1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <ColSpan>2</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountNet7">
+                    <Textbox Name="Textbox66">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!AccountNet.Value</Value>
+                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, Fields!AccountNet.Value,
+IIf(Fields!Code.Value.ToString().Length = 2, Fields!AccountNet.Value, 
+IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -3950,12 +3027,13 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountNet</rd:DefaultName>
+                      <rd:DefaultName>Textbox66</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3977,8 +3055,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
+              <Group Name="Details6" />
               <Group Name="Details9" />
             </TablixMember>
             <TablixMember>
@@ -3987,200 +3064,39 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </TablixMember>
             <TablixMember>
               <Group Name="Details7" />
+            <TablixMember>
+              <Group Name="Details7" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>PropertyRightsFirst</DataSetName>
-        <Top>11.93746cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>2.46145cm</Height>
+        <DataSetName>Account14Count</DataSetName>
+        <Top>7.70708cm</Top>
+        <Left>2.12981cm</Left>
+        <Height>0.73229cm</Height>
         <Width>25.72514cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix10">
+      <Tablix Name="Tablix9">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.95664cm</Width>
+              <Width>2.96313cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.46944cm</Width>
+              <Width>13.73206cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.24964cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>9.04942cm</Width>
+              <Width>9.05591cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.84694cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox94">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox94</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox95">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>احتياطات</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>16pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <TextDecoration>Underline</TextDecoration>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox95</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox96">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox96</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox97">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox97</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.76757cm</Height>
+              <Height>0.73229cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -4193,128 +3109,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                             <TextRun>
                               <Value>=Fields!Code.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Code</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Name8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Name.Value</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Name</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="AccountSubNet8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, "0",
-IIf(Fields!Code.Value.ToString().Length = 2, "0", 
-IIf(Fields!Code.Value.ToString().Length = 3, Fields!AccountNet.Value,Fields!AccountNet.Value)))</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="AccountNet8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, Fields!AccountNet.Value,
-IIf(Fields!Code.Value.ToString().Length = 2, Fields!AccountNet.Value, 
-IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -4325,140 +3120,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountNet</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Details8" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <KeepTogether>true</KeepTogether>
-        <DataSetName>PropertyRightsSecond</DataSetName>
-        <Top>14.39891cm</Top>
-        <Left>2.12985cm</Left>
-        <Height>1.61451cm</Height>
-        <Width>25.72514cm</Width>
-        <ZIndex>11</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Tablix>
-      <Tablix Name="Tablix11">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>2.95664cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>6.46944cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>7.24964cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>9.04942cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.90868cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Code8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Code.Value</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Code</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Name9">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Name.Value</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Name</rd:DefaultName>
+                      <rd:DefaultName>Code7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -4475,7 +3137,44 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountSubNet9">
+                    <Textbox Name="Name6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Name.Value</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Name6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountNet1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -4514,18 +3213,16 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccountNet9">
+                    <Textbox Name="AccountNet8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, Fields!AccountNet.Value,
-IIf(Fields!Code.Value.ToString().Length = 2, Fields!AccountNet.Value, 
-IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
+                              <Value>=Fields!AccountNet.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -4536,7 +3233,204 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccountNet</rd:DefaultName>
+                      <rd:DefaultName>AccountNet1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details7" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>PropertyRightsSecond</DataSetName>
+        <Top>14.39891cm</Top>
+        <Left>2.12985cm</Left>
+        <Height>1.61451cm</Height>
+        <Width>25.72514cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix11">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.94583cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.46727cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>7.27301cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>9.01303cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.65292cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Code8">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Code.Value</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Code8</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Name7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Name.Value</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Name7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox91">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!AccountNet.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox91</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountNet6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!AccountNet.Value</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccountNet6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -4575,7 +3469,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         <Left>2.12985cm</Left>
         <Height>0.90868cm</Height>
         <Width>25.72514cm</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -4943,7 +3837,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.11667cm</Left>
         <Height>1.72034cm</Height>
         <Width>25.7383cm</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5217,9 +4111,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, "0",
-IIf(Fields!Code.Value.ToString().Length = 2, "0", 
-IIf(Fields!Code.Value.ToString().Length = 3, Fields!AccountNet.Value,Fields!AccountNet.Value)))</Value>
+                              <Value>=Fields!AccountSubNet.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -5258,9 +4150,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString().Length = 1, Fields!AccountNet.Value,
-IIf(Fields!Code.Value.ToString().Length = 2, Fields!AccountNet.Value, 
-IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
+                              <Value>=Fields!AccountNet.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -5315,7 +4205,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         <Left>2.12327cm</Left>
         <Height>1.72034cm</Height>
         <Width>25.7317cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5350,7 +4240,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         <Left>19.879cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5362,7 +4252,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox181">
+      <Textbox Name="Textbox57">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -5388,7 +4278,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         <Left>2.11667cm</Left>
         <Height>0.90868cm</Height>
         <Width>17.76233cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5425,7 +4315,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         <Left>19.87899cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5465,7 +4355,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.11666cm</Left>
         <Height>0.90868cm</Height>
         <Width>17.76233cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5505,7 +4395,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>19.95028cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5545,7 +4435,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.18795cm</Left>
         <Height>0.90868cm</Height>
         <Width>17.76233cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5586,7 +4476,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>19.98556cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.94071cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5626,7 +4516,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.18795cm</Left>
         <Height>0.90868cm</Height>
         <Width>17.79761cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5671,7 +4561,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>19.95028cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5693,11 +4583,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 <Value>إجمالى حقوق الملكية والالتزامات</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
-                  <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
-IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
-IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -5711,12 +4598,11 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Left>2.18795cm</Left>
         <Height>0.90868cm</Height>
         <Width>17.76233cm</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <BackgroundColor>LightGrey</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -5724,14 +4610,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>33.03033cm</Height>
+    <Height>15.93873cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>30.11422cm</Width>
+  <Width>30.74912cm</Width>
   <Page>
     <PageHeader>
       <Height>3.44979cm</Height>
@@ -6026,7 +4912,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.59907cm</Height>
+      <Height>1.63614cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -6065,7 +4951,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Style>
         </Textbox>
         <Textbox Name="TotalPages">
-          <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
@@ -6419,6 +5304,66 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="RepPageThree">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="RepPageThreeCount">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
