@@ -169,11 +169,11 @@ namespace DAL.HR
             }
             if (!string.IsNullOrEmpty(searchModel.Code))
             {
-                query = query.Where(p => p.Code.Contains(searchModel.Code));
+                query = query.Where(p => p.Code.Equals(searchModel.Code));
             }
             if (!string.IsNullOrEmpty(searchModel.National_Code))
             {
-                query = query.Where(p => p.National_Code.Contains(searchModel.National_Code));
+                query = query.Where(p => p.National_Code.Equals(searchModel.National_Code));
             }
             if (!string.IsNullOrEmpty(searchModel.Address))
             {
