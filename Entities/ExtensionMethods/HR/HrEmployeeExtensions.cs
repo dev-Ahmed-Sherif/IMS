@@ -22,7 +22,7 @@ namespace Entities.ExtensionMethods.HR
                 WorkingStateDate = n.WorkingStateDate,
                 FinancialDegreeDate = n.FinancialDegreeDate,
                 Gender = n.Gender ?? "",
-                InsuranceNumber = n.InsuranceNumber ?? 0,
+                InsuranceNumber = n.InsuranceNumber,
                 MaritalState = n.MaritalState,
                 QualificationId = n.QualificationId,
                 QualificationName = n.Qualification?.Name ?? "",
@@ -37,8 +37,10 @@ namespace Entities.ExtensionMethods.HR
                 MillitryStateId = n.MillitryStateId,
                 MillitryStateName = n.MillitryState?.Name ?? "",
                 HiringTypeId = n.HiringTypeId,
+                BankName = n.Bank.Name,
                 BankId = n.BankId,
                 PayMethodId = n.PayMethodId,
+                PayMethodName = n.PayMethod.Name,
                 Religion = n.Religion,
                 SalaryStatusId = n.SalaryStatusId,
                 HiringTypeName = n.HiringType?.Name ?? "",
@@ -105,7 +107,7 @@ namespace Entities.ExtensionMethods.HR
                 Birth_DateShort = n.Birth_Date.ToString("dd/MM/yyyy"),
                 FinancialDegreeDateShort = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
                 HiringDateShort = n.HiringDate.ToString("dd/MM/yyyy"),
-                QualificationDateShort = n.QualificationDate.ToString("dd/MM/yyyy"),
+                QualificationDateShort = n.QualificationDate,
                 WorkingStateDateShort = n.WorkingStateDate.ToString("dd/MM/yyyy"),
             };
         }

@@ -278,7 +278,7 @@ namespace DAL.HR
                 Birth_DateShort = n.Birth_Date.ToString("dd/MM/yyyy"),
                 Address = n.Address,
                 QualificationDate = n.QualificationDate,
-                QualificationDateShort = n.QualificationDate.ToString("dd/MM/yyyy"),
+                QualificationDateShort = n.QualificationDate,
                 HiringDate = n.HiringDate,
                 HiringDateShort = n.HiringDate.ToString("dd/MM/yyyy"),
                 WorkingStateDate = n.WorkingStateDate,
