@@ -757,6 +757,7 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsTenth", Value = CurrentAssetsTenthArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsEleventh", Value = CurrentAssetsEleventhArray });
 
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
