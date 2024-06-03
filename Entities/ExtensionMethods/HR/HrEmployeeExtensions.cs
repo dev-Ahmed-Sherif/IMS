@@ -107,7 +107,7 @@ namespace Entities.ExtensionMethods.HR
                 Birth_DateShort = n.Birth_Date.ToString("dd/MM/yyyy"),
                 FinancialDegreeDateShort = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
                 HiringDateShort = n.HiringDate.ToString("dd/MM/yyyy"),
-                QualificationDateShort = n.QualificationDate.ToString("dd/MM/yyyy"),
+                QualificationDateShort = n.QualificationDate,
                 WorkingStateDateShort = n.WorkingStateDate.ToString("dd/MM/yyyy"),
             };
         }

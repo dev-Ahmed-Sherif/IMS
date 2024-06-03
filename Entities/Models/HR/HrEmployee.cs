@@ -22,13 +22,13 @@ namespace Entities.Models.HR
         [StringLength(10)]
         public string Code { get; set; }
         [StringLength(14)]
-        public string National_Code { get; set; }
+        public string? National_Code { get; set; }
         public DateTime Birth_Date { get; set; }
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [StringLength(12)]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         [StringLength(50)]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public int InsuranceNumber { get; set; }
         //----------------------------------------------------------------------
         // Relation { PrUser => Account } +++ {View Model => TransactionUserId} 
@@ -42,7 +42,7 @@ namespace Entities.Models.HR
         public virtual HrQualificationLevel QualificationLevel { get; set; }
         public int SpecializationId { get; set; }
         public virtual HrSpecialization Specialization { get; set; }
-        public DateTime QualificationDate { get; set; }
+        public DateTime? QualificationDate { get; set; }
         public DateTime HiringDate { get; set; }
         public DateTime WorkingStateDate { get; set; }
         public int JobTitleId { get; set; }

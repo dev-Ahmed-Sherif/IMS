@@ -12,7 +12,7 @@ namespace Entities.ViewModels.HR
         public string Address { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
-        public DateTime QualificationDate { get; set; }
+        public DateTime? QualificationDate { get; set; }
         public DateTime HiringDate { get; set; }
         public DateTime WorkingStateDate { get; set; }
         public DateTime FinancialDegreeDate { get; set; }
@@ -72,7 +72,7 @@ namespace Entities.ViewModels.HR
         public string GeneralDepartmentId { get; set; }
         public string GeneralDepartmentName { get; set; }
         public string Birth_DateShort { get; set; }
-        public string QualificationDateShort { get; set; }
+        public DateTime? QualificationDateShort { get; set; }
         public string HiringDateShort { get; set; }
         public string WorkingStateDateShort { get; set; }
         public string FinancialDegreeDateShort { get; set; }
