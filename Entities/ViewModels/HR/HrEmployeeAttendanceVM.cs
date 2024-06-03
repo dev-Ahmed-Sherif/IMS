@@ -51,8 +51,8 @@ namespace Entities.ViewModels.HR
     public class HrEmployeeAttendanceSearch
     {
         public int? id { get; set; }
-        public string AttendanceMachineName { get; set; }
-        public string EmployeeName { get; set; }
+        public int? AttendanceMachineId{ get; set; }
+        public int? EmployeeId { get; set; }
         public DateTime? Date { get; set; }
         public DateTime? Attendance { get; set; }
         public DateTime? Departure { get; set; }

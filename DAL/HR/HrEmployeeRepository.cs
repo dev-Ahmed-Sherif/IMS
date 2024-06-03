@@ -263,10 +263,13 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.FinancialDegreeDate >= searchModel.FinancialDegreeDate.Value.Date);
             }
-            if (!string.IsNullOrEmpty(searchModel.Name))
-            {
+          
 
-            }
+
+            //if (!string.IsNullOrEmpty(searchModel.Name))
+            //{
+
+            //}
             var result = query.Select(n => new HrEmployeeGetSearchVM
             {
                 Id = n.Id,
@@ -312,6 +315,9 @@ namespace DAL.HR
                 WorkPlaceName = n.WorkPlace.Name,
                 DepartmentId = n.DepartmentId,
                 DepartmentName = n.Department.Name,
+                //GeneralDepartmentId = n.Department.GeneralDepartmentId,
+                //GeneralDepartmentName = n.Department.GeneralDepartment.Name,
+
                 SeveranceReasonId = n.SeveranceReasonId,
                 SeveranceReasonName = n.SeveranceReason.Name,
                 CreateUserName = n.CreatedBy.Name,
