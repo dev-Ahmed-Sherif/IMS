@@ -357,19 +357,6 @@ namespace DAL
             modelBuilder.Entity<HrEmployee>()
                 .HasIndex(e => e.Code);
 
-
-            modelBuilder.Entity<ProPurchaseOrderDetails>()
-                .HasOne(e => e.QuotationDetails)
-                .WithOne(e => e.PurchaseOrderDetails)
-                .HasForeignKey<ProPurchaseOrderDetails>(e => e.QuotationDetailsId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<ProTenderSelection>()
-                .HasOne(e => e.TenderDetails)
-                .WithMany(e => e.ProTenderSelections)
-                .HasForeignKey(e => e.TenderDetailsId)
-                .OnDelete(DeleteBehavior.NoAction);
-
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 if (foreignKey.GetConstraintName().Contains("Pro"))

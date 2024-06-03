@@ -13,9 +13,9 @@ namespace Entities.Models.Pro
         public int QuotationId { get; set; }
         [ForeignKey(nameof(QuotationId))]
         public virtual ProQuotation Quotation { get; set; }
-        public int PurchaseOrderDetailsId { get; set; }
-        [ForeignKey(nameof(PurchaseOrderDetailsId))]
-        public virtual ProPurchaseOrderDetails PurchaseOrderDetails { get; set; }
+        public int TenderDetailsId { get; set; }
+        [ForeignKey(nameof(TenderDetailsId))]
+        public virtual ProTenderDetails TenderDetails { get; set; }
         public float Price { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
