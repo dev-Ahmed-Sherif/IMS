@@ -12,6 +12,7 @@
     public class HrQualitativeGroupVM : HrQualitativeGroupGeneralVM
     {
         public int Id { get; set; }
+        public int Code { get; set; }
 
     }
 

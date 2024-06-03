@@ -5,6 +5,7 @@ namespace Entities.Models.HR
     public class HrQualitativeGroup : EntityBase
     {
         public string Name { get; set; }
+        public int Code { get; set; }
         //----------------------------------------------------------------------
         // Relation { PrUser => Account } +++ {View Model => TransactionUserId} 
         //----------------------------------------------------------------------

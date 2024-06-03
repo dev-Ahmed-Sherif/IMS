@@ -23,7 +23,7 @@ namespace DAL.HR
                 var _QualitativeGroup = new HrQualitativeGroup()
                 {
                     Name = QualitativeGroup.name,
-
+                    Code = QualitativeGroup.Code,
                     CreatedByID = QualitativeGroup.TransactionUserId,
                     CreationDate = DateTime.Now
                 };
