@@ -29,7 +29,7 @@ namespace Entities.Models.HR
         public string Phone { get; set; }
         [StringLength(50)]
         public string Email { get; set; }
-        public int? InsuranceNumber { get; set; }
+        public int InsuranceNumber { get; set; }
         //----------------------------------------------------------------------
         // Relation { PrUser => Account } +++ {View Model => TransactionUserId} 
         //----------------------------------------------------------------------

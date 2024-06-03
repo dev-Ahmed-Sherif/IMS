@@ -19,7 +19,7 @@ namespace Entities.ViewModels.HR
         public string Gender { get; set; }
         public string MaritalState { get; set; }
 
-        public int? InsuranceNumber { get; set; }
+        public int InsuranceNumber { get; set; }
         //Navigation foreign
         public int TransactionUserId { get; set; }
         public int QualificationId { get; set; }
@@ -60,7 +60,8 @@ namespace Entities.ViewModels.HR
         public string WorkPlaceName { get; set; }
         public string DepartmentName { get; set; }
         public string SeveranceReasonName { get; set; }
-        public string HrPayMethodName { get; set; }
+        public string PayMethodName { get; set; }
+        public string BankName { get; set; }
         public string LastYearAppraisal { get; set; }
         public string PreLastYearAppraisal { get; set; }
 
@@ -76,7 +77,6 @@ namespace Entities.ViewModels.HR
         public string WorkingStateDateShort { get; set; }
         public string FinancialDegreeDateShort { get; set; }
         public string ReportDate { get; set; }
-
         public string DisciplinaryName { get; set; }
         public string Section { get; set; }
 
