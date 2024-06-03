@@ -194,13 +194,13 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.Departure >= searchModel.Departure.Value.Date);
             }
-            if (!string.IsNullOrEmpty(searchModel.EmployeeName))
+            if (searchModel.EmployeeId.HasValue)
             {
-                query = query.Where(p => p.Employee.Name.Contains(searchModel.EmployeeName));
+                query = query.Where(p => p.EmployeeId==searchModel.EmployeeId);
             }
-            if (!string.IsNullOrEmpty(searchModel.AttendanceMachineName))
+            if (searchModel.AttendanceMachineId.HasValue)
             {
-                query = query.Where(p => p.AttendanceMachine.Name.Contains(searchModel.AttendanceMachineName));
+                query = query.Where(p => p.AttendanceMachineId==searchModel.AttendanceMachineId);
             }
             if (searchModel.StartDate.HasValue)
             {
@@ -218,9 +218,9 @@ namespace DAL.HR
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 AttendanceMachineId = n.AttendanceMachineId,
-                AttendanceMachineName = n.AttendanceMachine.Name,
+                AttendanceMachineName = n.AttendanceMachine.Name??"",
                 EmployeeId = n.EmployeeId,
-                EmployeeName = n.Employee.Name,
+                EmployeeName = n.Employee.Name??"",
                 Date =n.Date ,
                 Attendance = n.Attendance ,
                 Departure = n.Departure,

@@ -22,6 +22,7 @@ namespace Entities.ExtensionMethods.HR
                 WorkingStateDate = n.WorkingStateDate,
                 FinancialDegreeDate = n.FinancialDegreeDate,
                 Gender = n.Gender ?? "",
+                InsuranceNumber = n.InsuranceNumber ?? 0,
                 MaritalState = n.MaritalState,
                 QualificationId = n.QualificationId,
                 QualificationName = n.Qualification?.Name ?? "",
