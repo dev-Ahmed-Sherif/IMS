@@ -25,15 +25,19 @@ namespace Entities.ViewModels.HR
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
         public string FinancialDegreeName { get; set; }
+      
         public string EmployeeName { get; set; }
         public string EmployeeCode { get; set; }
+        public string Gender { get; set; }
+
     }
     public class HrEmployeeFinancialDegreeGetSearchVM : HrEmployeeFinancialDegreeGetVM
     {
         public string FinancialDegreeShortDate { get; set; }
         public string ReportDate { get; set; }
-
-
+        public int QualitativeGroupId { get; set; }
+        public string QualitativeGroupName { get; set; }
+        public int EmployeeCount { get; set; }
     }
 
     public class HrEmployeeFinancialDegreeSearch
@@ -44,9 +48,9 @@ namespace Entities.ViewModels.HR
         public string FinancialDegreeId { get; set; }
         public int TransactionUserId { get; set; }
         public DateTime? FinancialDegreeDate { get; set; }
-        public string CreateUserName { get; set; }
-        public string UpdateUserName { get; set; }
+        public int? QualitativeGroupId { get; set; }
         public string FinancialDegreeName { get; set; }
+        public string Gender { get; set; }
     }
 
     public class HrEmployeeFinancialDegreeReport : HrEmployeeFinancialDegreeSearch

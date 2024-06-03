@@ -32,10 +32,10 @@ namespace Business.HR
         {
             return _EmployeeFinancialDegreeRepository.Delete(ID);
         }
-        public List<HrEmployeeFinancialDegreeGetVM> GetAll()
-        {
-            return _EmployeeFinancialDegreeRepository.GetAll();
-        }
+        //public List<HrEmployeeFinancialDegreeGetVM> GetAll()
+        //{
+        //    return _EmployeeFinancialDegreeRepository.GetAll();
+        //}
         public HrEmployeeFinancialDegreeGetVM GetById(int ID)
         {
             return _EmployeeFinancialDegreeRepository.GetById(ID);
