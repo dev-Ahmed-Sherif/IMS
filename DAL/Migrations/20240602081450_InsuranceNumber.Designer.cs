@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240602081450_InsuranceNumber")]
+    partial class InsuranceNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -9448,7 +9451,7 @@ namespace DAL.Migrations
                         .HasForeignKey("CreatedByID");
 
                     b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
-                        .WithMany("Appraisals")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -12232,8 +12235,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployee", b =>
                 {
-                    b.Navigation("Appraisals");
-
                     b.Navigation("Dest_Employee_Exchange");
 
                     b.Navigation("HrEmployeeFinancialDegree_employee");

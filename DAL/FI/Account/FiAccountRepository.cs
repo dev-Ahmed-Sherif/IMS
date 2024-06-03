@@ -422,7 +422,7 @@ namespace DAL.FI.Account
                                     )
                                 )
                             };
-                var resultList = await query.ToListAsync();
+                var resultList = await query.Select(e => Positive(e)).ToListAsync();
                 return resultList;
             }
         }

@@ -61,7 +61,8 @@ namespace Entities.ViewModels.HR
         public string DepartmentName { get; set; }
         public string SeveranceReasonName { get; set; }
         public string HrPayMethodName { get; set; }
-
+        public string LastYearAppraisal { get; set; }
+        public string PreLastYearAppraisal { get; set; }
 
     }
     public class HrEmployeeGetSearchVM : HrEmployeeGetVM
