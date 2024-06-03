@@ -74,6 +74,7 @@ namespace Entities.ViewModels.HR
         public string FinancialDegreeDateShort { get; set; }
         public string ReportDate { get; set; }
 
+        public string DisciplinaryName { get; set; }
         public string Section { get; set; }
 
     }
@@ -107,6 +108,7 @@ namespace Entities.ViewModels.HR
         public string MillitryStateName { get; set; }
         public string SeveranceReasonName { get; set; }
         public string CityStateName { get; set; }
+       public int? DisciplinaryId { get; set; }
 
     }
 

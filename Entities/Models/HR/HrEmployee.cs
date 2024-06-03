@@ -90,6 +90,7 @@ namespace Entities.Models.HR
         public virtual ICollection<HrEmployeeVacation> SubstituteEmpolyee { get; set; }
         public virtual ICollection<StrWithDraw> STR_Withdraw { get; set; }
         public virtual ICollection<HrEmployeeFinancialDegree> HrEmployeeFinancialDegree_employee { get; set; }
+        public virtual ICollection<HrEmployeeDisciplinary> HrEmployeeDisciplinary_Empolyee { get; set; }
         [AllowNull]
         public int? UserId { get; set; }
         public virtual PrUser User { get; set; }
