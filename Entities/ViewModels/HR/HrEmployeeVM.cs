@@ -19,7 +19,7 @@ namespace Entities.ViewModels.HR
         public string Gender { get; set; }
         public string MaritalState { get; set; }
 
-
+        public int? InsuranceNumber { get; set; }
         //Navigation foreign
         public int TransactionUserId { get; set; }
         public int QualificationId { get; set; }

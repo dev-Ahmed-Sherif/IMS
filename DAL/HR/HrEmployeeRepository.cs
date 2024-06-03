@@ -1,4 +1,5 @@
-﻿using Entities.ExtensionMethods.HR;
+﻿using Entities.ExtensionMethods;
+using Entities.ExtensionMethods.HR;
 using Entities.Models;
 using Entities.Models.HR;
 using Entities.ViewModels;
@@ -317,7 +318,7 @@ namespace DAL.HR
 
                 SeveranceReasonId = n.SeveranceReasonId,
                 SeveranceReasonName = n.SeveranceReason.Name,
-                 DisciplinaryName = n.HrEmployeeDisciplinary_Empolyee.Select(d => d.Disciplinary.Name).FirstOrDefault(),
+                DisciplinaryName = n.HrEmployeeDisciplinary_Empolyee.Select(d => d.Disciplinary.Name).FirstOrDefault(),
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
@@ -332,22 +333,9 @@ namespace DAL.HR
         {
 
             var totalCount = _context.HrEmployee.Count();
-            List<HrEmployeeGetVM> HrEmployee = _context.HrEmployee
-                .OrderByDescending(HrEmployee => HrEmployee.Id)
-                .Skip((page) * pageSize)
-                .Take(pageSize)
-                .Select(n => n.ToHrEmployeeGetVM())
-                .ToList();
+            IQueryable<HrEmployee> employees = _context.HrEmployee;
 
-            var paginatedResult = new PaginatedResult<HrEmployeeGetVM>
-            {
-                Items = HrEmployee,
-                TotalItems = totalCount,
-                Page = page,
-                PageSize = pageSize
-            };
-
-            return paginatedResult;
+            return employees.ToPaginatedResult(page, pageSize, e => e.ToHrEmployeeGetVM());
         }
 
         private static string GetAppraisalValue(HrEmployeeAppraisal appraisal)
