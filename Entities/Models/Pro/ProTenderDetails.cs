@@ -13,9 +13,6 @@ namespace Entities.Models.Pro
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
-
-        public int? PurchaseOrderDetailsId { get; set; }
-        [ForeignKey(nameof(PurchaseOrderDetailsId))]
         public virtual ProPurchaseOrderDetails PurchaseOrderDetails { get; set; }
         public virtual ICollection<ProTenderSelection> ProTenderSelections { get; set; }
         [MaxLength(50)]

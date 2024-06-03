@@ -68,7 +68,7 @@ namespace Entities.ViewModels.HR
     public class HrEmployeeGetSearchVM : HrEmployeeGetVM
     {
 
-        public string GeneralDepartmentId {  get; set; }
+        public string GeneralDepartmentId { get; set; }
         public string GeneralDepartmentName { get; set; }
         public string Birth_DateShort { get; set; }
         public string QualificationDateShort { get; set; }
@@ -112,6 +112,7 @@ namespace Entities.ViewModels.HR
         public string SeveranceReasonName { get; set; }
         public string CityStateName { get; set; }
         public string GeneralDepartmentName { get; set; }
+        public int? DisciplinaryId { get; set; }
     }
 
     public class HrReport : HrSearch
