@@ -174,10 +174,7 @@ namespace DAL.HR
                 query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
             }
 
-            if (!string.IsNullOrEmpty(searchModel.EmployeeId))
-            {
-                query = query.Where(p => p.Employee.Id.ToString().Equals(searchModel.EmployeeId));
-            }
+       
 
             if (!string.IsNullOrEmpty(searchModel.EmployeeName))
             {
@@ -186,10 +183,10 @@ namespace DAL.HR
 
 
 
-            var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
-            {
-                query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
-            }
+            //var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
+            //{
+            //    query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
+            //}
           
 
             var result = query.GroupBy(p => new { p.FinancialDegreeId, 

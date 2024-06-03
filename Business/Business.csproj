@@ -139,9 +139,6 @@
 		<Content Include="ReportsFiles\FinancialStatment\AccountProductionAndAddedValueReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\FinancialStatment\AccountREReport.rdlc">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountSuppliersReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
