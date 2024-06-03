@@ -263,9 +263,9 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.FinancialDegreeDate >= searchModel.FinancialDegreeDate.Value.Date);
             }
-            if (!string.IsNullOrEmpty(searchModel.Name))
+            if (searchModel.DisciplinaryId.HasValue)
             {
-
+                query = query.Where(p => p.HrEmployeeDisciplinary_Empolyee.Any(d => d.DisciplinaryId == searchModel.DisciplinaryId));
             }
             var result = query.Select(n => new HrEmployeeGetSearchVM
             {
@@ -314,6 +314,7 @@ namespace DAL.HR
                 DepartmentName = n.Department.Name,
                 SeveranceReasonId = n.SeveranceReasonId,
                 SeveranceReasonName = n.SeveranceReason.Name,
+                 DisciplinaryName = n.HrEmployeeDisciplinary_Empolyee.Select(d => d.Disciplinary.Name).FirstOrDefault(),
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
