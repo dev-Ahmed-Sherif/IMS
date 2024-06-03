@@ -17586,6 +17586,8 @@ namespace Business {
             
             private global::System.Data.DataColumn columnUserName;
             
+            private global::System.Data.DataColumn columnEmployeeId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HrEmployeeFinancialDegreeDataTable() {
@@ -17701,6 +17703,14 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmployeeIdColumn {
+                get {
+                    return this.columnEmployeeId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17736,7 +17746,7 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName) {
+            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName, string EmployeeId) {
                 HrEmployeeFinancialDegreeRow rowHrEmployeeFinancialDegreeRow = ((HrEmployeeFinancialDegreeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -17748,7 +17758,8 @@ namespace Business {
                         FinancialDegreeShortDate,
                         ReportDate,
                         Section,
-                        UserName};
+                        UserName,
+                        EmployeeId};
                 rowHrEmployeeFinancialDegreeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHrEmployeeFinancialDegreeRow);
                 return rowHrEmployeeFinancialDegreeRow;
@@ -17781,6 +17792,7 @@ namespace Business {
                 this.columnReportDate = base.Columns["ReportDate"];
                 this.columnSection = base.Columns["Section"];
                 this.columnUserName = base.Columns["UserName"];
+                this.columnEmployeeId = base.Columns["EmployeeId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17806,6 +17818,8 @@ namespace Business {
                 base.Columns.Add(this.columnSection);
                 this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserName);
+                this.columnEmployeeId = new global::System.Data.DataColumn("EmployeeId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployeeId);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36395,6 +36409,23 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EmployeeId {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.EmployeeIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeId\' in table \'HrEmployeeFinancialDegree\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.EmployeeIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableHrEmployeeFinancialDegree.IdColumn);
             }
@@ -36511,6 +36542,18 @@ namespace Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetUserNameNull() {
                 this[this.tableHrEmployeeFinancialDegree.UserNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployeeIdNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.EmployeeIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployeeIdNull() {
+                this[this.tableHrEmployeeFinancialDegree.EmployeeIdColumn] = global::System.Convert.DBNull;
             }
         }
         

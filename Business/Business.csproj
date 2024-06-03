@@ -55,9 +55,9 @@
 		<None Remove="ReportsFiles\HR\EmployeeReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeStatistics.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmploymentStatus.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
-		<None Remove="ReportsFiles\HR\Statement of employment status.rdlc" />
 		<None Remove="ReportsFiles\ItemsTransactionReport.rdlc" />
 		<None Remove="ReportsFiles\OpeningStockDetailsReport.rdlc" />
 		<None Remove="ReportsFiles\OpeningStockReport.rdlc" />
@@ -214,7 +214,7 @@
 		<Content Include="ReportsFiles\HR\EmpVacationReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\HR\Statement of employment status.rdlc">
+		<Content Include="ReportsFiles\HR\EmploymentStatus.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\Stock\OpeningStockCommodityStockReport.rdlc">

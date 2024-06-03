@@ -38,6 +38,9 @@ namespace Entities.ViewModels.HR
 
     public class HrEmployeeFinancialDegreeSearch
     {
+        
+        public string EmployeeId { get; set; }
+         public string   EmployeeName { get; set; }
         public string FinancialDegreeId { get; set; }
         public int TransactionUserId { get; set; }
         public DateTime? FinancialDegreeDate { get; set; }

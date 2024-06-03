@@ -76,7 +76,7 @@ namespace Business.HR
 
                 HrEmployeeQualification = Search(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployeeQualification", Value = HrEmployeeQualification });
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeQualification", Value = HrEmployeeQualification });
             }
             //else if (reportName == "FIEntryDetailsReport")
             //{

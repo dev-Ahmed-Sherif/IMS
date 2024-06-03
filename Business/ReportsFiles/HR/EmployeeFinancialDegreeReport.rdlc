@@ -818,10 +818,18 @@
           <DataField>Section</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeId">
+          <DataField>EmployeeId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASWC-22-1\AWSC\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Water\ASWC Github\ims new\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>HrEmployeeFinancialDegree</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
