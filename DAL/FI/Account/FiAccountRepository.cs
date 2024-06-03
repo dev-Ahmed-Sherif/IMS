@@ -16,6 +16,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
 using Microsoft.Identity.Client;
+using System.Security.Principal;
 
 namespace DAL.FI.Account
 {
@@ -420,8 +421,25 @@ namespace DAL.FI.Account
                                         where fap.ParentId == g.Key.Id
                                         select (decimal?)inDetails.Credit).Sum() ?? 0
                                     )
-                                )
+                                ),
+                                StartDate = startDate.ToShortDateString(),
+                                EndDate = endDate.ToShortDateString(),
+                                PrevAccountNet = _context.FiEntryDetails
+                                                    .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
+                                                    .Select(e => e.Debit).FirstOrDefault() != 0 ?
+                                                    _context.FiEntryDetails
+                                                    .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
+                                                    .Select(e => e.Debit).FirstOrDefault()
+                                                    : Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                    join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                    from fiEntry in entryGroup.DefaultIfEmpty()
+                                                    join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                    from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                    where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == g.Key.Id
+                                                    && fiEntryDetails.CreationDate == startDate
+                                                    select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
                             };
+
                 var resultList = await query.Select(e => Positive(e)).ToListAsync();
                 return resultList;
             }
@@ -713,17 +731,16 @@ namespace DAL.FI.Account
 
             foreach (FiAccount account in fixedAssetsAccounts)
             {
-                var debacc = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
+                var DepreciationAccountCode = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
                 var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit).FirstOrDefault();
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
-
                     AccumulatedDepreciation = Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                  join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                                  from fiEntry in entryGroup.DefaultIfEmpty()
                                  join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
                                  from fiAccountParent in parentGroup.DefaultIfEmpty()
-                                 where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.Parent.Code == debacc
+                                 where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.Parent.Code == DepreciationAccountCode
                                  select (fiEntryDetails.Credit) - (fiEntryDetails.Debit)).Sum(), 2),
 
                     //عايزين تكلفة الاصل الثابت بالكامل هنا
@@ -755,7 +772,8 @@ namespace DAL.FI.Account
                                 from fiAccountParent in parentGroup.DefaultIfEmpty()
                                 where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id 
                                 && fiEntryDetails.CreationDate == startDate
-                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2) ,
+                                select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
+
                     Code = account.Code,
                     AccountName = account.Name,
                 };
