@@ -27,6 +27,7 @@ using Entities.Models.TR.Plan;
 using Entities.ViewModels.TR.General;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 
 namespace DAL
 {
@@ -355,6 +356,12 @@ namespace DAL
                 .HasIndex(e => e.Name);
             modelBuilder.Entity<HrEmployee>()
                 .HasIndex(e => e.Code);
+
+            foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                if (foreignKey.GetConstraintName().Contains("Pro"))
+                    foreignKey.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            }
         }
         //privileges
         public DbSet<PrRole> PrRole { get; set; }
@@ -530,6 +537,16 @@ namespace DAL
         public DbSet<ProSellerTypes> ProSellerTypes { get; set; }//08/11
         public DbSet<ProContractorTypes> ProContractorTypes { get; set; }//08/11
         public DbSet<ProContractor> ProContractor { get; set; }//08/11
+        public DbSet<ProPurchaseOrder> ProPurchaseOrders { get; set; }
+        public DbSet<ProPurchaseOrderDetails> ProPurchaseOrderDetails { get; set; }
+        public DbSet<ProQuotation> ProQuotations { get; set; }
+        public DbSet<ProQuotationDetails> ProQuotationDetails { get; set; }
+        public DbSet<ProTenderCommittee> ProTenderCommittees { get; set; }
+        public DbSet<ProTenderDetails> ProTenderDetails { get; set; }
+        public DbSet<ProTenderOpening> ProTenderOpenings { get; set; }
+        public DbSet<ProTenderOpeningStatus> ProTenderOpeningStatuses { get; set; }
+        public DbSet<ProTenderSelection> ProTenderSelections { get; set; }
+        public DbSet<ProTenderSellerReq> ProTenderSellerReqs { get; set; }
 
         public DbSet<ImsSection> ImsSection { get; set; }
         public DbSet<Report> Reports { get; set; }

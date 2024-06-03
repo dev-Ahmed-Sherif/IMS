@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240603100350_QualitativeGroupCode")]
+    partial class QualitativeGroupCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1882,7 +1885,7 @@ namespace DAL.Migrations
                     b.Property<int>("HiringTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InsuranceNumber")
+                    b.Property<int>("InsuranceNumber")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -4461,10 +4464,10 @@ namespace DAL.Migrations
 
                     b.HasIndex("PurchaseOrderId");
 
-                    b.HasIndex("QuotationDetailsId");
-
-                    b.HasIndex("TenderDetailsId")
+                    b.HasIndex("QuotationDetailsId")
                         .IsUnique();
+
+                    b.HasIndex("TenderDetailsId");
 
                     b.ToTable("ProPurchaseOrderDetails");
                 });
@@ -4555,10 +4558,10 @@ namespace DAL.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<int>("QuotationId")
+                    b.Property<int>("PurchaseOrderDetailsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TenderDetailsId")
+                    b.Property<int>("QuotationId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -4567,8 +4570,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("QuotationId");
-
-                    b.HasIndex("TenderDetailsId");
 
                     b.ToTable("ProQuotationDetails");
                 });
@@ -4910,6 +4911,9 @@ namespace DAL.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int?>("PurchaseOrderDetailsId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Qty")
                         .HasColumnType("float");
 
@@ -4923,6 +4927,8 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PurchaseOrderDetailsId");
 
                     b.HasIndex("TenderId");
 
@@ -10612,13 +10618,13 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProQuotationDetails", "QuotationDetails")
-                        .WithMany()
-                        .HasForeignKey("QuotationDetailsId")
+                        .WithOne("PurchaseOrderDetails")
+                        .HasForeignKey("Entities.Models.Pro.ProPurchaseOrderDetails", "QuotationDetailsId")
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
-                        .WithOne("PurchaseOrderDetails")
-                        .HasForeignKey("Entities.Models.Pro.ProPurchaseOrderDetails", "TenderDetailsId")
+                        .WithMany()
+                        .HasForeignKey("TenderDetailsId")
                         .IsRequired();
 
                     b.Navigation("PurchaseOrder");
@@ -10652,14 +10658,7 @@ namespace DAL.Migrations
                         .HasForeignKey("QuotationId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
-                        .WithMany()
-                        .HasForeignKey("TenderDetailsId")
-                        .IsRequired();
-
                     b.Navigation("Quotation");
-
-                    b.Navigation("TenderDetails");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
@@ -10794,10 +10793,16 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
                 {
+                    b.HasOne("Entities.Models.Pro.ProPurchaseOrderDetails", "PurchaseOrderDetails")
+                        .WithMany()
+                        .HasForeignKey("PurchaseOrderDetailsId");
+
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
+
+                    b.Navigation("PurchaseOrderDetails");
 
                     b.Navigation("Tender");
                 });
@@ -12937,6 +12942,11 @@ namespace DAL.Migrations
                     b.Navigation("ProTender");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
+                {
+                    b.Navigation("PurchaseOrderDetails");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
                 {
                     b.Navigation("ProSellerTypes");
@@ -12952,8 +12962,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
                 {
                     b.Navigation("ProTenderSelections");
-
-                    b.Navigation("PurchaseOrderDetails");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>

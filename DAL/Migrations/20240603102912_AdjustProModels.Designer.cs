@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240603102912_AdjustProModels")]
+    partial class AdjustProModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4461,7 +4464,8 @@ namespace DAL.Migrations
 
                     b.HasIndex("PurchaseOrderId");
 
-                    b.HasIndex("QuotationDetailsId");
+                    b.HasIndex("QuotationDetailsId")
+                        .IsUnique();
 
                     b.HasIndex("TenderDetailsId")
                         .IsUnique();
@@ -4555,10 +4559,10 @@ namespace DAL.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<int>("QuotationId")
+                    b.Property<int>("PurchaseOrderDetailsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TenderDetailsId")
+                    b.Property<int>("QuotationId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -4567,8 +4571,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("QuotationId");
-
-                    b.HasIndex("TenderDetailsId");
 
                     b.ToTable("ProQuotationDetails");
                 });
@@ -10612,8 +10614,8 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProQuotationDetails", "QuotationDetails")
-                        .WithMany()
-                        .HasForeignKey("QuotationDetailsId")
+                        .WithOne("PurchaseOrderDetails")
+                        .HasForeignKey("Entities.Models.Pro.ProPurchaseOrderDetails", "QuotationDetailsId")
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
@@ -10652,14 +10654,7 @@ namespace DAL.Migrations
                         .HasForeignKey("QuotationId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
-                        .WithMany()
-                        .HasForeignKey("TenderDetailsId")
-                        .IsRequired();
-
                     b.Navigation("Quotation");
-
-                    b.Navigation("TenderDetails");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
@@ -12935,6 +12930,11 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProPlanType", b =>
                 {
                     b.Navigation("ProTender");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
+                {
+                    b.Navigation("PurchaseOrderDetails");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
