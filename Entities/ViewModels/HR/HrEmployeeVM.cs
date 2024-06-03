@@ -19,7 +19,7 @@ namespace Entities.ViewModels.HR
         public string Gender { get; set; }
         public string MaritalState { get; set; }
 
-
+        public int? InsuranceNumber { get; set; }
         //Navigation foreign
         public int TransactionUserId { get; set; }
         public int QualificationId { get; set; }
@@ -67,6 +67,9 @@ namespace Entities.ViewModels.HR
     }
     public class HrEmployeeGetSearchVM : HrEmployeeGetVM
     {
+
+        public string GeneralDepartmentId {  get; set; }
+        public string GeneralDepartmentName { get; set; }
         public string Birth_DateShort { get; set; }
         public string QualificationDateShort { get; set; }
         public string HiringDateShort { get; set; }
@@ -108,8 +111,7 @@ namespace Entities.ViewModels.HR
         public string MillitryStateName { get; set; }
         public string SeveranceReasonName { get; set; }
         public string CityStateName { get; set; }
-       public int? DisciplinaryId { get; set; }
-
+        public string GeneralDepartmentName { get; set; }
     }
 
     public class HrReport : HrSearch

@@ -27,7 +27,7 @@
     <Shape ID="DesignTable:AccountProfit" ZOrder="16" X="816" Y="53" Height="28" Width="152" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="234" SplitterPosition="24" />
     <Shape ID="DesignTable:AccountLose" ZOrder="15" X="817" Y="101" Height="28" Width="152" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="234" SplitterPosition="24" />
     <Shape ID="DesignTable:StockQtyTotal" ZOrder="28" X="12" Y="441" Height="28" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="253" SplitterPosition="24" />
-    <Shape ID="DesignTable:HrEmployee" ZOrder="10" X="291" Y="199" Height="28" Width="181" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="253" SplitterPosition="24" />
+    <Shape ID="DesignTable:HrEmployee" ZOrder="10" X="291" Y="199" Height="257" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="253" />
     <Shape ID="DesignTable:HrEmployeeAppraisal" ZOrder="6" X="628" Y="422" Height="28" Width="191" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="101" SplitterPosition="24" />
     <Shape ID="DesignTable:HrEmployeePosition" ZOrder="9" X="629" Y="297" Height="28" Width="184" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="177" SplitterPosition="24" />
     <Shape ID="DesignTable:HrEmployeeAttendanceSchedule" ZOrder="4" X="840" Y="298" Height="28" Width="256" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="177" SplitterPosition="24" />
