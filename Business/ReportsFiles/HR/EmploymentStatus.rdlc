@@ -698,7 +698,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!GeneralDepartmentName.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -848,7 +848,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!QualitativeGroupName.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1598,7 +1598,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!InsuranceNumber.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1614,7 +1614,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox105</rd:DefaultName>
                           <Top>9.63848cm</Top>
-                          <Left>1.0508cm</Left>
+                          <Left>1.01552cm</Left>
                           <Height>0.64409cm</Height>
                           <Width>7.1234cm</Width>
                           <ZIndex>42</ZIndex>
@@ -1898,7 +1898,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!LastYearAppraisal.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -1953,7 +1953,7 @@
                           <Top>11.32355cm</Top>
                           <Left>4.99037cm</Left>
                           <Height>1.25264cm</Height>
-                          <Width>2.76049cm</Width>
+                          <Width>1.9932cm</Width>
                           <ZIndex>51</ZIndex>
                           <Style>
                             <Border>
@@ -1973,7 +1973,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SeveranceReasonName.Value</Value>
+                                  <Value>=Fields!DisciplinaryName.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2123,7 +2123,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!PreLastYearAppraisal.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -2139,9 +2139,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox105</rd:DefaultName>
                           <Top>11.32355cm</Top>
-                          <Left>7.75087cm</Left>
+                          <Left>6.98357cm</Left>
                           <Height>1.04097cm</Height>
-                          <Width>3.52343cm</Width>
+                          <Width>4.29073cm</Width>
                           <ZIndex>56</ZIndex>
                           <Style>
                             <Border>
@@ -2989,10 +2989,34 @@
           <DataField>Section</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="InsuranceNumber">
+          <DataField>InsuranceNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PreLastYearAppraisal">
+          <DataField>PreLastYearAppraisal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LastYearAppraisal">
+          <DataField>LastYearAppraisal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GeneralDepartmentName">
+          <DataField>GeneralDepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QualitativeGroupName">
+          <DataField>QualitativeGroupName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DisciplinaryName">
+          <DataField>DisciplinaryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Water\ASWC Github\ims new\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ims new\IMS\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>HrEmployee</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
