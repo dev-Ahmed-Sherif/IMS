@@ -1876,9 +1876,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox105</rd:DefaultName>
                           <Top>11.49349cm</Top>
-                          <Left>20.89537cm</Left>
+                          <Left>20.86008cm</Left>
                           <Height>1.18853cm</Height>
-                          <Width>4.84225cm</Width>
+                          <Width>4.87754cm</Width>
                           <ZIndex>49</ZIndex>
                           <Style>
                             <Border>
@@ -2026,9 +2026,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox105</rd:DefaultName>
                           <Top>12.68203cm</Top>
-                          <Left>20.75427cm</Left>
+                          <Left>20.93066cm</Left>
                           <Height>0.73874cm</Height>
-                          <Width>4.87754cm</Width>
+                          <Width>4.80696cm</Width>
                           <ZIndex>53</ZIndex>
                           <Style>
                             <Border>
@@ -2324,9 +2324,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox105</rd:DefaultName>
         <Top>14.07978cm</Top>
-        <Left>20.67684cm</Left>
+        <Left>21.76927cm</Left>
         <Height>0.86458cm</Height>
-        <Width>4.87754cm</Width>
+        <Width>3.78511cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -2397,8 +2397,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox105</rd:DefaultName>
-        <Top>14.07978cm</Top>
-        <Left>11.39391cm</Left>
+        <Top>14.07979cm</Top>
+        <Left>12.21875cm</Left>
         <Height>0.86458cm</Height>
         <Width>5.1539cm</Width>
         <ZIndex>3</ZIndex>
@@ -2413,8 +2413,12 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>16.6873cm</Height>
-    <Style />
+    <Height>15.62897cm</Height>
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Body>
   <Width>27.63625cm</Width>
   <Page>
@@ -2594,7 +2598,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>=Fields!Section.Value</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>18pt</FontSize>

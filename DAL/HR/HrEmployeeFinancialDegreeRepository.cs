@@ -200,7 +200,8 @@ namespace DAL.HR
                 {
                     FinancialDegreeId = g.Key.FinancialDegreeId,
                     FinancialDegreeName = g.Key.Name,
-                    QualitativeGroupName=g.Key.QualitativeGroup,
+                    QualitativeGroupId = g.Key.QualitativeGroupId,
+                    QualitativeGroupName =g.Key.QualitativeGroup,
                     EmployeeCount = g.Count()
                 })
                 .ToList();

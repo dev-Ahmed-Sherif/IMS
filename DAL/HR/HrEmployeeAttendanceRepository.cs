@@ -230,9 +230,9 @@ namespace DAL.HR
                 StartDate = searchModel.StartDate.Value.Date.ToString("dd/MM/yyyy"),
                 EndDate = searchModel.EndDate.Value.Date.ToString("dd/MM/yyyy"),
                 ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-                Section = n.Employee.SectionId!=null?n.Employee.Section.Name:"",
-                
-                UpdateUserName=n.UpdateByID!=null?n.UpdateBy.Name:"",
+                Section = n.Employee.SectionId != null ? n.Employee.Section.Name : "",
+
+                UpdateUserName = n.UpdateByID != null ? n.UpdateBy.Name : "",
             }).ToList();
             return result;
         }

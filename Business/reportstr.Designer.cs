@@ -17678,6 +17678,12 @@ namespace Business {
             
             private global::System.Data.DataColumn columnEmployeeId;
             
+            private global::System.Data.DataColumn columnEmployeeCount;
+            
+            private global::System.Data.DataColumn columnQualitativeGroupName;
+            
+            private global::System.Data.DataColumn columnQualitativeGroupId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HrEmployeeFinancialDegreeDataTable() {
@@ -17801,6 +17807,30 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmployeeCountColumn {
+                get {
+                    return this.columnEmployeeCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QualitativeGroupNameColumn {
+                get {
+                    return this.columnQualitativeGroupName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QualitativeGroupIdColumn {
+                get {
+                    return this.columnQualitativeGroupId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17836,7 +17866,7 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName, string EmployeeId) {
+            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName, string EmployeeId, string EmployeeCount, string QualitativeGroupName, string QualitativeGroupId) {
                 HrEmployeeFinancialDegreeRow rowHrEmployeeFinancialDegreeRow = ((HrEmployeeFinancialDegreeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -17849,7 +17879,10 @@ namespace Business {
                         ReportDate,
                         Section,
                         UserName,
-                        EmployeeId};
+                        EmployeeId,
+                        EmployeeCount,
+                        QualitativeGroupName,
+                        QualitativeGroupId};
                 rowHrEmployeeFinancialDegreeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHrEmployeeFinancialDegreeRow);
                 return rowHrEmployeeFinancialDegreeRow;
@@ -17883,6 +17916,9 @@ namespace Business {
                 this.columnSection = base.Columns["Section"];
                 this.columnUserName = base.Columns["UserName"];
                 this.columnEmployeeId = base.Columns["EmployeeId"];
+                this.columnEmployeeCount = base.Columns["EmployeeCount"];
+                this.columnQualitativeGroupName = base.Columns["QualitativeGroupName"];
+                this.columnQualitativeGroupId = base.Columns["QualitativeGroupId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17910,6 +17946,12 @@ namespace Business {
                 base.Columns.Add(this.columnUserName);
                 this.columnEmployeeId = new global::System.Data.DataColumn("EmployeeId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeId);
+                this.columnEmployeeCount = new global::System.Data.DataColumn("EmployeeCount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployeeCount);
+                this.columnQualitativeGroupName = new global::System.Data.DataColumn("QualitativeGroupName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualitativeGroupName);
+                this.columnQualitativeGroupId = new global::System.Data.DataColumn("QualitativeGroupId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualitativeGroupId);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36684,6 +36726,57 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EmployeeCount {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeCount\' in table \'HrEmployeeFinancialDegree\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string QualitativeGroupName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualitativeGroupName\' in table \'HrEmployeeFinancialDegree\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string QualitativeGroupId {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualitativeGroupId\' in table \'HrEmployeeFinancialDegree\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableHrEmployeeFinancialDegree.IdColumn);
             }
@@ -36812,6 +36905,42 @@ namespace Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetEmployeeIdNull() {
                 this[this.tableHrEmployeeFinancialDegree.EmployeeIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployeeCountNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.EmployeeCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployeeCountNull() {
+                this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQualitativeGroupNameNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQualitativeGroupNameNull() {
+                this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQualitativeGroupIdNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQualitativeGroupIdNull() {
+                this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn] = global::System.Convert.DBNull;
             }
         }
         

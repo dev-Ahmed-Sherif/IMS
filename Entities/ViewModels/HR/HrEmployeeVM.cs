@@ -65,6 +65,9 @@ namespace Entities.ViewModels.HR
         public string LastYearAppraisal { get; set; }
         public string PreLastYearAppraisal { get; set; }
 
+
+
+
     }
     public class HrEmployeeGetSearchVM : HrEmployeeGetVM
     {
