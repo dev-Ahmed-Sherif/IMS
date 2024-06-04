@@ -20,9 +20,9 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            if (!string.IsNullOrEmpty(filter.Item))
+            if (!string.IsNullOrEmpty(filter.Name))
             {
-                result = result.Where(e => e.Name.Contains(filter.Item));
+                result = result.Where(e => e.Name.Contains(filter.Name));
             }
             if (filter.MinQty.HasValue)
             {
