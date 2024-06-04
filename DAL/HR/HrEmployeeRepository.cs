@@ -264,10 +264,10 @@ namespace DAL.HR
             {
                 query = query.Where(p => p.FinancialDegreeDate >= searchModel.FinancialDegreeDate.Value.Date);
             }
-            if (searchModel.DisciplinaryId.HasValue)
-            {
-                query = query.Where(p => p.HrEmployeeDisciplinary_Empolyee.Any(d => d.DisciplinaryId == searchModel.DisciplinaryId));
-            }
+            //if (searchModel.DisciplinaryId.HasValue)
+            //{
+            //    query = query.Where(p => p.HrEmployeeDisciplinary_Empolyee.Any(d => d.DisciplinaryId == searchModel.DisciplinaryId));
+            //}
             var result = query.Select(n => new HrEmployeeGetSearchVM
             {
                 Id = n.Id,
@@ -278,7 +278,7 @@ namespace DAL.HR
                 Birth_DateShort = n.Birth_Date.ToString("dd/MM/yyyy"),
                 Address = n.Address,
                 QualificationDate = n.QualificationDate,
-                QualificationDateShort = n.QualificationDate,
+                //QualificationDateShort = n.QualificationDate,
                 HiringDate = n.HiringDate,
                 HiringDateShort = n.HiringDate.ToString("dd/MM/yyyy"),
                 WorkingStateDate = n.WorkingStateDate,
