@@ -192,6 +192,7 @@ namespace DAL.HR
             var result = query.GroupBy(p => new { p.FinancialDegreeId, 
                 p.Employee.Qualification.QualitativeGroupId,
                 p.FinancialDegree.Name,
+                
                 QualitativeGroup = p.Employee.Qualification.QualitativeGroup.Name, 
             empGender=p.Employee.Gender,
             })
