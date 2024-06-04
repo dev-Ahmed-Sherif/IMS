@@ -18,7 +18,9 @@ namespace Entities.Models.Pro
         public virtual ProSeller Seller { get; set; }
         public DateTime SendDate { get; set; }
         [MaxLength(50)]
-        public string SendType { get; set; }
+        public int SendTypeId { get; set; }
+        [ForeignKey(nameof(SendTypeId))]
+        public virtual ProTenderSellerReqSendType SendType { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }
     }
