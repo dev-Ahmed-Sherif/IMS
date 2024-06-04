@@ -20,6 +20,7 @@ using Business.TR.General;
 using Business.TR.Instructor;
 using Business.TR.Plan;
 using Business.TR.Training;
+using DAL;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -201,6 +202,8 @@ namespace Business
             services.AddScoped<ProSellerService>();//07/11
             //SE
             services.AddScoped<ImsSectionService>();
+            services.AddScoped<ProTenderDetailsService>();
+            services.AddScoped<UnitOfWork>();
             #endregion
             return services;
         }

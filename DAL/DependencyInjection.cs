@@ -189,6 +189,7 @@ namespace DAL
             services.AddScoped<ProSellerRepository>();//07/11
                                                       //SE
             services.AddScoped<ImsSectionRepository>();
+            services.AddScoped<ProTenderDetailsRepository>();
             #endregion
             return services;
         }

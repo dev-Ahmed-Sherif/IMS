@@ -16,7 +16,7 @@ namespace Entities.Models.Pro
         public virtual ProPurchaseOrderDetails PurchaseOrderDetails { get; set; }
         public virtual ICollection<ProTenderSelection> ProTenderSelections { get; set; }
         [MaxLength(50)]
-        public string Item { get; set; }
+        public string Name { get; set; }
         public double Qty { get; set; }
         public double Price { get; set; }
         public double Total { get; set; }

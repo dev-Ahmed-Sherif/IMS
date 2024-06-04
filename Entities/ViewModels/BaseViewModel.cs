@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Dtos
+namespace Entities.ViewModels
 {
-    internal class Dummy
+    public class BaseViewModel
     {
+        public int Id { get; set; }
     }
 }

@@ -357,6 +357,9 @@ namespace DAL
             modelBuilder.Entity<HrEmployee>()
                 .HasIndex(e => e.Code);
 
+            modelBuilder.Entity<ProTenderDetails>()
+                .HasQueryFilter(e => !e.IsDeleted);
+
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 if (foreignKey.GetConstraintName().Contains("Pro"))
