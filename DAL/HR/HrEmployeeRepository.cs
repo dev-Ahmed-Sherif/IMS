@@ -313,9 +313,10 @@ namespace DAL.HR
                 WorkPlaceName = n.WorkPlace.Name,
                 DepartmentId = n.DepartmentId,
                 DepartmentName = n.Department.Name,
-                //GeneralDepartmentId = n.Department.GeneralDepartmentId,
-                //GeneralDepartmentName = n.Department.GeneralDepartment.Name,
-
+                QualitativeGroupName=n.Qualification.QualitativeGroup.Name,
+               
+                GeneralDepartmentName = n.Department.generaldepartment.Name,
+                InsuranceNumber = n.InsuranceNumber,
                 SeveranceReasonId = n.SeveranceReasonId,
                 SeveranceReasonName = n.SeveranceReason.Name,
                 DisciplinaryName = n.HrEmployeeDisciplinary_Empolyee.Select(d => d.Disciplinary.Name).FirstOrDefault(),

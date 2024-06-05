@@ -22,6 +22,7 @@ using Business.TR.Instructor;
 using Business.TR.Plan;
 using Business.TR.Training;
 using DAL;
+using Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -117,6 +118,7 @@ namespace IMS
                 (c => c.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             //Hussein: 2-we use sqlserver
             services.AddDbContext<AppDbContext>(options => options.UseLazyLoadingProxies().UseSqlServer(ConnectionString));
+            services.InjectEntitiesDependencies();
             services.InjectRepositories();
             services.InjectServices();
             services.AddSwaggerGen(c =>

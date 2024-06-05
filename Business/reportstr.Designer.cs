@@ -12387,6 +12387,18 @@ namespace Business {
             
             private global::System.Data.DataColumn columnSection;
             
+            private global::System.Data.DataColumn columnInsuranceNumber;
+            
+            private global::System.Data.DataColumn columnPreLastYearAppraisal;
+            
+            private global::System.Data.DataColumn columnLastYearAppraisal;
+            
+            private global::System.Data.DataColumn columnGeneralDepartmentName;
+            
+            private global::System.Data.DataColumn columnQualitativeGroupName;
+            
+            private global::System.Data.DataColumn columnDisciplinaryName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HrEmployeeDataTable() {
@@ -12702,6 +12714,54 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InsuranceNumberColumn {
+                get {
+                    return this.columnInsuranceNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PreLastYearAppraisalColumn {
+                get {
+                    return this.columnPreLastYearAppraisal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LastYearAppraisalColumn {
+                get {
+                    return this.columnLastYearAppraisal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GeneralDepartmentNameColumn {
+                get {
+                    return this.columnGeneralDepartmentName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QualitativeGroupNameColumn {
+                get {
+                    return this.columnQualitativeGroupName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DisciplinaryNameColumn {
+                get {
+                    return this.columnDisciplinaryName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -12772,7 +12832,13 @@ namespace Business {
                         string WorkingStateDateShort, 
                         string FinancialDegreeDateShort, 
                         string ReportDate, 
-                        string Section) {
+                        string Section, 
+                        string InsuranceNumber, 
+                        string PreLastYearAppraisal, 
+                        string LastYearAppraisal, 
+                        string GeneralDepartmentName, 
+                        string QualitativeGroupName, 
+                        string DisciplinaryName) {
                 HrEmployeeRow rowHrEmployeeRow = ((HrEmployeeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -12809,7 +12875,13 @@ namespace Business {
                         WorkingStateDateShort,
                         FinancialDegreeDateShort,
                         ReportDate,
-                        Section};
+                        Section,
+                        InsuranceNumber,
+                        PreLastYearAppraisal,
+                        LastYearAppraisal,
+                        GeneralDepartmentName,
+                        QualitativeGroupName,
+                        DisciplinaryName};
                 rowHrEmployeeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHrEmployeeRow);
                 return rowHrEmployeeRow;
@@ -12867,6 +12939,12 @@ namespace Business {
                 this.columnFinancialDegreeDateShort = base.Columns["FinancialDegreeDateShort"];
                 this.columnReportDate = base.Columns["ReportDate"];
                 this.columnSection = base.Columns["Section"];
+                this.columnInsuranceNumber = base.Columns["InsuranceNumber"];
+                this.columnPreLastYearAppraisal = base.Columns["PreLastYearAppraisal"];
+                this.columnLastYearAppraisal = base.Columns["LastYearAppraisal"];
+                this.columnGeneralDepartmentName = base.Columns["GeneralDepartmentName"];
+                this.columnQualitativeGroupName = base.Columns["QualitativeGroupName"];
+                this.columnDisciplinaryName = base.Columns["DisciplinaryName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12942,6 +13020,18 @@ namespace Business {
                 base.Columns.Add(this.columnReportDate);
                 this.columnSection = new global::System.Data.DataColumn("Section", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSection);
+                this.columnInsuranceNumber = new global::System.Data.DataColumn("InsuranceNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInsuranceNumber);
+                this.columnPreLastYearAppraisal = new global::System.Data.DataColumn("PreLastYearAppraisal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreLastYearAppraisal);
+                this.columnLastYearAppraisal = new global::System.Data.DataColumn("LastYearAppraisal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastYearAppraisal);
+                this.columnGeneralDepartmentName = new global::System.Data.DataColumn("GeneralDepartmentName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGeneralDepartmentName);
+                this.columnQualitativeGroupName = new global::System.Data.DataColumn("QualitativeGroupName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualitativeGroupName);
+                this.columnDisciplinaryName = new global::System.Data.DataColumn("DisciplinaryName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDisciplinaryName);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17588,6 +17678,12 @@ namespace Business {
             
             private global::System.Data.DataColumn columnEmployeeId;
             
+            private global::System.Data.DataColumn columnEmployeeCount;
+            
+            private global::System.Data.DataColumn columnQualitativeGroupName;
+            
+            private global::System.Data.DataColumn columnQualitativeGroupId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HrEmployeeFinancialDegreeDataTable() {
@@ -17711,6 +17807,30 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmployeeCountColumn {
+                get {
+                    return this.columnEmployeeCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QualitativeGroupNameColumn {
+                get {
+                    return this.columnQualitativeGroupName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QualitativeGroupIdColumn {
+                get {
+                    return this.columnQualitativeGroupId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17746,7 +17866,7 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName, string EmployeeId) {
+            public HrEmployeeFinancialDegreeRow AddHrEmployeeFinancialDegreeRow(string Id, string CreateUserName, string TransactionUserId, string FinancialDegreeId, string FinancialDegreeDate, string FinancialDegreeName, string FinancialDegreeShortDate, string ReportDate, string Section, string UserName, string EmployeeId, string EmployeeCount, string QualitativeGroupName, string QualitativeGroupId) {
                 HrEmployeeFinancialDegreeRow rowHrEmployeeFinancialDegreeRow = ((HrEmployeeFinancialDegreeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -17759,7 +17879,10 @@ namespace Business {
                         ReportDate,
                         Section,
                         UserName,
-                        EmployeeId};
+                        EmployeeId,
+                        EmployeeCount,
+                        QualitativeGroupName,
+                        QualitativeGroupId};
                 rowHrEmployeeFinancialDegreeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHrEmployeeFinancialDegreeRow);
                 return rowHrEmployeeFinancialDegreeRow;
@@ -17793,6 +17916,9 @@ namespace Business {
                 this.columnSection = base.Columns["Section"];
                 this.columnUserName = base.Columns["UserName"];
                 this.columnEmployeeId = base.Columns["EmployeeId"];
+                this.columnEmployeeCount = base.Columns["EmployeeCount"];
+                this.columnQualitativeGroupName = base.Columns["QualitativeGroupName"];
+                this.columnQualitativeGroupId = base.Columns["QualitativeGroupId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17820,6 +17946,12 @@ namespace Business {
                 base.Columns.Add(this.columnUserName);
                 this.columnEmployeeId = new global::System.Data.DataColumn("EmployeeId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeId);
+                this.columnEmployeeCount = new global::System.Data.DataColumn("EmployeeCount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployeeCount);
+                this.columnQualitativeGroupName = new global::System.Data.DataColumn("QualitativeGroupName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualitativeGroupName);
+                this.columnQualitativeGroupId = new global::System.Data.DataColumn("QualitativeGroupId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualitativeGroupId);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31898,6 +32030,102 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string InsuranceNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.InsuranceNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InsuranceNumber\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.InsuranceNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PreLastYearAppraisal {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.PreLastYearAppraisalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PreLastYearAppraisal\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.PreLastYearAppraisalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string LastYearAppraisal {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.LastYearAppraisalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastYearAppraisal\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.LastYearAppraisalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string GeneralDepartmentName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.GeneralDepartmentNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GeneralDepartmentName\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.GeneralDepartmentNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string QualitativeGroupName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.QualitativeGroupNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualitativeGroupName\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.QualitativeGroupNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DisciplinaryName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployee.DisciplinaryNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DisciplinaryName\' in table \'HrEmployee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployee.DisciplinaryNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableHrEmployee.NameColumn);
             }
@@ -32314,6 +32542,78 @@ namespace Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSectionNull() {
                 this[this.tableHrEmployee.SectionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsInsuranceNumberNull() {
+                return this.IsNull(this.tableHrEmployee.InsuranceNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetInsuranceNumberNull() {
+                this[this.tableHrEmployee.InsuranceNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPreLastYearAppraisalNull() {
+                return this.IsNull(this.tableHrEmployee.PreLastYearAppraisalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPreLastYearAppraisalNull() {
+                this[this.tableHrEmployee.PreLastYearAppraisalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLastYearAppraisalNull() {
+                return this.IsNull(this.tableHrEmployee.LastYearAppraisalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLastYearAppraisalNull() {
+                this[this.tableHrEmployee.LastYearAppraisalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGeneralDepartmentNameNull() {
+                return this.IsNull(this.tableHrEmployee.GeneralDepartmentNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGeneralDepartmentNameNull() {
+                this[this.tableHrEmployee.GeneralDepartmentNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQualitativeGroupNameNull() {
+                return this.IsNull(this.tableHrEmployee.QualitativeGroupNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQualitativeGroupNameNull() {
+                this[this.tableHrEmployee.QualitativeGroupNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDisciplinaryNameNull() {
+                return this.IsNull(this.tableHrEmployee.DisciplinaryNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDisciplinaryNameNull() {
+                this[this.tableHrEmployee.DisciplinaryNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -36426,6 +36726,57 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EmployeeCount {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeCount\' in table \'HrEmployeeFinancialDegree\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string QualitativeGroupName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualitativeGroupName\' in table \'HrEmployeeFinancialDegree\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string QualitativeGroupId {
+                get {
+                    try {
+                        return ((string)(this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualitativeGroupId\' in table \'HrEmployeeFinancialDegree\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableHrEmployeeFinancialDegree.IdColumn);
             }
@@ -36554,6 +36905,42 @@ namespace Business {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetEmployeeIdNull() {
                 this[this.tableHrEmployeeFinancialDegree.EmployeeIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployeeCountNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.EmployeeCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployeeCountNull() {
+                this[this.tableHrEmployeeFinancialDegree.EmployeeCountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQualitativeGroupNameNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQualitativeGroupNameNull() {
+                this[this.tableHrEmployeeFinancialDegree.QualitativeGroupNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQualitativeGroupIdNull() {
+                return this.IsNull(this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQualitativeGroupIdNull() {
+                this[this.tableHrEmployeeFinancialDegree.QualitativeGroupIdColumn] = global::System.Convert.DBNull;
             }
         }
         

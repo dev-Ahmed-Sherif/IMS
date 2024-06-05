@@ -357,6 +357,9 @@ namespace DAL
             modelBuilder.Entity<HrEmployee>()
                 .HasIndex(e => e.Code);
 
+            modelBuilder.Entity<ProTenderDetails>()
+                .HasQueryFilter(e => !e.IsDeleted);
+
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 if (foreignKey.GetConstraintName().Contains("Pro"))
@@ -542,6 +545,7 @@ namespace DAL
         public DbSet<ProQuotation> ProQuotations { get; set; }
         public DbSet<ProQuotationDetails> ProQuotationDetails { get; set; }
         public DbSet<ProTenderCommittee> ProTenderCommittees { get; set; }
+        public DbSet<ProTenderCommitteeRole> ProTenderCommitteeRoles { get; set; }
         public DbSet<ProTenderDetails> ProTenderDetails { get; set; }
         public DbSet<ProTenderOpening> ProTenderOpenings { get; set; }
         public DbSet<ProTenderOpeningStatus> ProTenderOpeningStatuses { get; set; }

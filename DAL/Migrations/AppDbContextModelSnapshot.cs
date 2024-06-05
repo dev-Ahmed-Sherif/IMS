@@ -1882,7 +1882,7 @@ namespace DAL.Migrations
                     b.Property<int>("HiringTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InsuranceNumber")
+                    b.Property<int>("InsuranceNumber")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -1918,7 +1918,7 @@ namespace DAL.Migrations
                     b.Property<int>("PositionId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("QualificationDate")
+                    b.Property<DateTime?>("QualificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("QualificationId")
@@ -4860,9 +4860,9 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Role")
+                    b.Property<int>("RoleId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.Property<int>("TenderId")
                         .HasColumnType("int");
@@ -4874,9 +4874,44 @@ namespace DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
+                    b.HasIndex("RoleId");
+
                     b.HasIndex("TenderId");
 
                     b.ToTable("ProTenderCommittees");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProTenderCommitteeRoles");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
@@ -4896,12 +4931,12 @@ namespace DAL.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Item")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<DateTime>("LastUpdateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Notes")
                         .HasMaxLength(50)
@@ -5092,9 +5127,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("SendDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SendType")
+                    b.Property<int>("SendTypeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.Property<int>("TenderId")
                         .HasColumnType("int");
@@ -5106,9 +5141,43 @@ namespace DAL.Migrations
 
                     b.HasIndex("SellerId");
 
+                    b.HasIndex("SendTypeId");
+
                     b.HasIndex("TenderId");
 
                     b.ToTable("ProTenderSellerReqs");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReqSendType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProTenderSellerReqSendType");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
@@ -10782,12 +10851,19 @@ namespace DAL.Migrations
                         .HasForeignKey("EmployeeId")
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Pro.ProTenderCommitteeRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
                     b.Navigation("Employee");
+
+                    b.Navigation("Role");
 
                     b.Navigation("Tender");
                 });
@@ -10850,12 +10926,19 @@ namespace DAL.Migrations
                         .HasForeignKey("SellerId")
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Pro.ProTenderSellerReqSendType", "SendType")
+                        .WithMany()
+                        .HasForeignKey("SendTypeId")
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
                     b.Navigation("Seller");
+
+                    b.Navigation("SendType");
 
                     b.Navigation("Tender");
                 });

@@ -91,66 +91,6 @@ namespace DAL.HR
 
       //  public HrEmployeeFinancialDegreeGetVM GetById(int EmployeeFinancialDegreeId) => _context.HrEmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name, EmployeeId = n.EmployeeId, EmployeeCode = n.Employee.Code, EmployeeName = n.Employee.Name }).FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
         public HrEmployeeFinancialDegreeGetVM GetById(int EmployeeFinancialDegreeId) => _context.HrEmployeeFinancialDegree.Select(n => new HrEmployeeFinancialDegreeGetVM { Id = n.Id, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, FinancialDegreeId = n.FinancialDegreeId, FinancialDegreeDate = n.FinancialDegreeDate, FinancialDegreeName = n.FinancialDegree.Name, EmployeeId = n.EmployeeId, EmployeeCode = n.Employee.Code, EmployeeName = n.Employee.Name }).FirstOrDefault(n => n.Id == EmployeeFinancialDegreeId);
-        //public List<HrEmployeeFinancialDegreeGetSearchVM> Search(HrEmployeeFinancialDegreeSearch searchModel)
-        //{
-        //    var query = _context.HrEmployeeFinancialDegree.AsQueryable();
-
-        //    if (searchModel.FinancialDegreeId.HasValue)
-        //    {
-        //        query = query.Where(p => p.FinancialDegreeId==searchModel.FinancialDegreeId);
-        //    }
-        //    if (searchModel.EmployeeId.HasValue)
-        //    {
-        //        query = query.Where(p => p.EmployeeId == searchModel.EmployeeId);
-        //    }
-         
-        //    if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
-        //    {
-        //        query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
-
-        //    }
-        //    if (searchModel.QualitativeGroupId.HasValue)
-        //    {
-        //        query = query.Where(p => p.Employee.Qualification.QualitativeGroup.Id==searchModel.QualitativeGroupId);
-
-        //    }
-
-
-        //    if (searchModel.FinancialDegreeDate.HasValue)
-        //    {
-        //        query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
-
-        //    }
-        //    if (!string.IsNullOrEmpty(searchModel.Gender))
-        //    {
-        //        query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
-        //    }
-        //    var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
-        //    {
-        //        Id = n.Id,
-        //        CreateUserName = n.CreatedBy.Name,
-        //        TransactionUserId = n.CreatedBy.Id,
-        //        FinancialDegreeId = n.FinancialDegreeId,
-        //        FinancialDegreeDate = n.FinancialDegreeDate,
-        //        FinancialDegreeName = n.FinancialDegree.Name,
-        //        EmployeeId = n.EmployeeId,
-        //        Gender=n.Employee.Gender,
-        //       QualitativeGroupId=n.Employee.Qualification.QualitativeGroup.Id,
-        //        QualitativeGroupName = n.Employee.Qualification.QualitativeGroup.Name,
-        //        EmployeeName =n.Employee.Name,
-        //        EmployeeCode = n.Employee.Code,
-        //        FinancialDegreeShortDate = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
-        //        ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
-        //        //Section =n.
-
-        //    }).ToList();
-
-
-
-
-        //    return result;
-
-        //}
         public List<HrEmployeeFinancialDegreeGetSearchVM> Search(HrEmployeeFinancialDegreeSearch searchModel)
         {
             var query = _context.HrEmployeeFinancialDegree.AsQueryable();
@@ -167,6 +107,66 @@ namespace DAL.HR
             if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
             {
                 query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
+
+            }
+            if (searchModel.QualitativeGroupId.HasValue)
+            {
+                query = query.Where(p => p.Employee.Qualification.QualitativeGroup.Id == searchModel.QualitativeGroupId);
+
+            }
+
+
+            if (searchModel.FinancialDegreeDate.HasValue)
+            {
+                query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
+
+            }
+            if (!string.IsNullOrEmpty(searchModel.Gender))
+            {
+                query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
+            }
+            var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
+            {
+                Id = n.Id,
+                CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                FinancialDegreeId = n.FinancialDegreeId,
+                FinancialDegreeDate = n.FinancialDegreeDate,
+                FinancialDegreeName = n.FinancialDegree.Name,
+                EmployeeId = n.EmployeeId,
+                Gender = n.Employee.Gender,
+                QualitativeGroupId = n.Employee.Qualification.QualitativeGroup.Id,
+                QualitativeGroupName = n.Employee.Qualification.QualitativeGroup.Name,
+                EmployeeName = n.Employee.Name,
+                EmployeeCode = n.Employee.Code,
+                FinancialDegreeShortDate = n.FinancialDegreeDate.ToString("dd/MM/yyyy"),
+                ReportDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss tt"),
+                //Section =n.
+
+            }).ToList();
+
+
+
+
+            return result;
+
+        }
+        public List<HrEmployeeFinancialDegreeGetSearchVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
+        {
+            var query = _context.HrEmployee.AsQueryable();
+
+            if (searchModel.FinancialDegreeId.HasValue)
+            {
+                query = query.Where(p => p.FinancialDegreeId == searchModel.FinancialDegreeId);
+            }
+            if (searchModel.EmployeeId.HasValue)
+            {
+                query = query.Where(p => p.Id == searchModel.EmployeeId);
+            }
+
+            if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
+            {
+                query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
             }
 
             if (searchModel.FinancialDegreeDate.HasValue)
@@ -178,7 +178,7 @@ namespace DAL.HR
 
             if (!string.IsNullOrEmpty(searchModel.EmployeeName))
             {
-                query = query.Where(p => p.Employee.Name.ToString().Equals(searchModel.EmployeeId));
+                query = query.Where(p => p.Name.ToString().Equals(searchModel.EmployeeId));
             }
 
 
@@ -187,20 +187,24 @@ namespace DAL.HR
             //{
             //    query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
             //}
-          
 
-            var result = query.GroupBy(p => new { p.FinancialDegreeId, 
-                p.Employee.Qualification.QualitativeGroupId,
+
+            var result = query.GroupBy(p => new { p.FinancialDegreeId,
+                p.Qualification.QualitativeGroupId,
                 p.FinancialDegree.Name,
-                QualitativeGroup = p.Employee.Qualification.QualitativeGroup.Name, 
-            empGender=p.Employee.Gender,
+
+                QualitativeGroup = p.Qualification.QualitativeGroup.Name,
+                empGender = p.Gender,
+               
             })
                 .Select(g => new HrEmployeeFinancialDegreeGetSearchVM
                 {
                     FinancialDegreeId = g.Key.FinancialDegreeId,
                     FinancialDegreeName = g.Key.Name,
-                    QualitativeGroupName=g.Key.QualitativeGroup,
-                    EmployeeCount = g.Count()
+                    QualitativeGroupId = g.Key.QualitativeGroupId,
+                    QualitativeGroupName = g.Key.QualitativeGroup,
+                    EmployeeCount = g.Count(),
+                   TotalEmployeeCount =query.Count(),
                 })
                 .ToList();
 

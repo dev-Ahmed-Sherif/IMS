@@ -12,7 +12,10 @@ namespace Entities.Models.Pro
     public class ProTenderCommittee : EntityBase
     {
         [MaxLength(50)]
-        public string Role { get; set; }
+        public int RoleId { get; set; }
+        [ForeignKey(nameof(RoleId))]
+        public virtual ProTenderCommitteeRole Role { get; set; }
+        [Required]
         public bool Close { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }

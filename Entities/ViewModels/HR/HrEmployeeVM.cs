@@ -65,6 +65,9 @@ namespace Entities.ViewModels.HR
         public string LastYearAppraisal { get; set; }
         public string PreLastYearAppraisal { get; set; }
 
+
+
+
     }
     public class HrEmployeeGetSearchVM : HrEmployeeGetVM
     {
@@ -79,7 +82,8 @@ namespace Entities.ViewModels.HR
         public string ReportDate { get; set; }
         public string DisciplinaryName { get; set; }
         public string Section { get; set; }
-
+        public string GeneralDepartment { get; set; }
+        public string QualitativeGroupName {  get; set; }
     }
     public class HrSearch
     {

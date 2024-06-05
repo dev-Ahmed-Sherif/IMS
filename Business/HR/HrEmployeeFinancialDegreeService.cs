@@ -45,7 +45,10 @@ namespace Business.HR
         {
             return _EmployeeFinancialDegreeRepository.Search(searchModel);
         }
-
+        public List<HrEmployeeFinancialDegreeGetSearchVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
+        {
+            return _EmployeeFinancialDegreeRepository.Searchgroup(searchModel);
+        }
 
 
         public byte[] GenerateReportAsync(string reportName, string reportType, HrEmployeeFinancialDegreeSearch searchModel)
@@ -77,6 +80,26 @@ namespace Business.HR
 
                 report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
             }
+
+            if (reportName == "EmployeeQualitativeGroupReport")
+            {
+                HrEmployeeFinancialDegree = Searchgroup(searchModel);
+
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+            }
+
+
+            if (reportName == "HrQualitativeGroupReport")
+            {
+                HrEmployeeFinancialDegree = Searchgroup(searchModel);
+
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+            }
+
+
+
+
+
             //else if (reportName == "FIEntryDetailsReport")
             //{
 

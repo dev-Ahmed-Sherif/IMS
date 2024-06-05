@@ -1,0 +1,27 @@
+﻿using Entities.Models.Pro;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
+{
+    public class ProTenderDetailsGeneralVM : BaseViewModel
+    {
+        [Required]
+        public int TenderId { get; set; }
+        [Required, MaxLength(50)]
+        public string Item { get; set; }
+        [Required]
+        public double Qty { get; set; }
+        [Required]
+        public double Price { get; set; }
+        [Required]
+        public double Total { get; set; }
+        [MaxLength(50)]
+        public string Notes { get; set; }
+    }
+}
