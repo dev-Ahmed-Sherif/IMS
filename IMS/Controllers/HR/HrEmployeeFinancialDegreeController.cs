@@ -59,6 +59,12 @@ namespace IMS.Controllers.HR
             var EmployeeFinancialDegree = _EmployeeFinancialDegreeService.Search(searchModel);
             return Ok(EmployeeFinancialDegree);
         }
+        [HttpGet("searchgroup")]
+        public IActionResult Searchgroup([FromQuery] HrEmployeeFinancialDegreeSearch searchModel)
+        {
+            var EmployeeFinancialDegree = _EmployeeFinancialDegreeService.Searchgroup(searchModel);
+            return Ok(EmployeeFinancialDegree);
+        }
         [HttpGet("get/Report")]
         public IActionResult Get([FromQuery] HrEmployeeFinancialDegreeReport searchModel)
         {

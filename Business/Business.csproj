@@ -61,6 +61,8 @@
 		<None Remove="ReportsFiles\HR\EmploymentStatusReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
+		<None Remove="ReportsFiles\HR\FunctionalStructureReport.rdlc" />
+		<None Remove="ReportsFiles\HR\HrQualitativeGroupReport.rdlc" />
 		<None Remove="ReportsFiles\ItemsTransactionReport.rdlc" />
 		<None Remove="ReportsFiles\OpeningStockDetailsReport.rdlc" />
 		<None Remove="ReportsFiles\OpeningStockReport.rdlc" />
@@ -221,6 +223,9 @@
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpFunctionalStructureReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\HrQualitativeGroupReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\Stock\OpeningStockCommodityStockReport.rdlc">

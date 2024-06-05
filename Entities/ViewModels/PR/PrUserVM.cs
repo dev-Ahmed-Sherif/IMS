@@ -18,6 +18,7 @@ namespace Entities.ViewModels.PR
         public int Id { get; set; }
         [AllowNull]
         public int? EmployeeId { get; set; }
+        public string EmployeeName {  get; set; }
         //public List<PrGroupRoleVM> Roles { get; set; }
 
     }

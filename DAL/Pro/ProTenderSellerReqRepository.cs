@@ -13,34 +13,30 @@ namespace DAL.Pro
         public ProTenderSellerReqRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
-        //public IQueryable<ProTenderSellerReq> Filter(ProTenderSellerReqFilter filter)
-        //{
-        //    IQueryable<ProTenderSellerReq> result = GetAll();
-        //    if (filter.TenderId.HasValue)
-        //    {
-        //        result = result.Where(e => e.TenderId == filter.TenderId);
-        //    }
-        //    if (!string.IsNullOrEmpty(filter.Item))
-        //    {
-        //        result = result.Where(e => e.Item.Contains(filter.Item));
-        //    }
-        //    if (filter.MinQty.HasValue)
-        //    {
-        //        result = result.Where(e => e.Qty >= filter.MinQty);
-        //    }
-        //    if (filter.MaxQty.HasValue)
-        //    {
-        //        result = result.Where(e => e.Qty <= filter.MaxQty);
-        //    }
-        //    if (filter.MinPrice.HasValue)
-        //    {
-        //        result = result.Where(e => e.Price >= filter.MinPrice);
-        //    }
-        //    if (filter.MaxPrice.HasValue)
-        //    {
-        //        result = result.Where(e => e.Price <= filter.MaxPrice);
-        //    }
-        //    return result;
-        //}
+        public IQueryable<ProTenderSellerReq> Filter(ProTenderSellerReqFilter filter)
+        {
+            IQueryable<ProTenderSellerReq> result = GetAll();
+            if (filter.TenderId.HasValue)
+            {
+                result = result.Where(e => e.TenderId == filter.TenderId);
+            }
+            if (filter.SellerId.HasValue)
+            {
+                result = result.Where(e => e.SellerId == filter.SellerId);
+            }
+            if (filter.StartSendDate.HasValue)
+            {
+                result = result.Where(e => e.SendDate >= filter.StartSendDate);
+            }
+            if (filter.EndSendDate.HasValue)
+            {
+                result = result.Where(e => e.SendDate <= filter.EndSendDate);
+            }
+            if (filter.SendTypeId.HasValue)
+            {
+                result = result.Where(e => e.SendTypeId == filter.SendTypeId);
+            }
+            return result;
+        }
     }
 }

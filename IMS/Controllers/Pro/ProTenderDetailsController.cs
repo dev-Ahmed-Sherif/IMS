@@ -25,6 +25,8 @@ namespace IMS.Controllers.PR
             _proTenderDetailsService = proTenderDetailsService;
         }
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ProTenderDetailsGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProTenderDetails model = await _proTenderDetailsService.GetById(id);
@@ -32,6 +34,7 @@ namespace IMS.Controllers.PR
             return Ok(_mapper.Map<ProTenderDetailsGeneralVM>(model));
         }
         [HttpGet]
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsGeneralVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
         {
             PaginatedResultUnMapped<ProTenderDetails> unmappedResult =
@@ -47,6 +50,8 @@ namespace IMS.Controllers.PR
             return Ok(mappedResult);
         }
         [HttpPost]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Add(ProTenderDetailsGeneralVM input)
         {
             ProTenderDetails model = _mapper.Map<ProTenderDetails>(input);
@@ -55,6 +60,9 @@ namespace IMS.Controllers.PR
             return Ok(model.Id);
         }
         [HttpPut]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(ProTenderDetailsGeneralVM input)
         {
 
@@ -66,6 +74,9 @@ namespace IMS.Controllers.PR
             return Ok(model.Id);
         }
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             ProTenderDetails model = await _proTenderDetailsService.GetById(id);

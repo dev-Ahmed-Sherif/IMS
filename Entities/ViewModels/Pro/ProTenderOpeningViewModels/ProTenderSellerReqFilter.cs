@@ -6,19 +6,15 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
+namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
-    public class ProTenderSellerReqFilter
+    public class ProTenderOpeningFilter
     {
         [AllowNull]
         public int? TenderId { get; set; }
         [AllowNull]
         public int? SellerId { get; set; }
         [AllowNull]
-        public DateTime? StartSendDate { get; set; }
-        [AllowNull]
-        public DateTime? EndSendDate { get; set; }
-        [AllowNull]
-        public int? SendTypeId { get; set; }
+        public int? StatusId { get; set; }
     }
 }
