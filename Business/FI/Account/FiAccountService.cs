@@ -462,12 +462,19 @@ namespace Business.FI.Account
                             "273",
                             "2899"
                         };
-
+                        List<string> Payment = new List<string>
+                        {
+                            "3"
+                        };
+                        List<string> Income = new List<string>
+                        {
+                            "4"
+                        };
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
+                                FIAccountREAdd.Add(FIAccountRE[i]);
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
                             {
-                                FIAccountREAdd.Add(FIAccountRE[i]);
                                 //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
                                 //{
 
@@ -476,6 +483,8 @@ namespace Business.FI.Account
                         }
 
                         // Non - Current Fixed Assets
+                        List<AccountItemVM> SumofAssetsArray = new List<AccountItemVM>();
+                        List<AccountItemVM> SumofPropertyRightsAndObligationsArray = new List<AccountItemVM>();
                         List<AccountItemVM> NonCurrentAssetsFirstArray = new List<AccountItemVM>();
                         List<AccountItemVM> SumNonCurrentAssetsFirstArray = new List<AccountItemVM>();
                         List<AccountItemVM> NonCurrentAssetsSecondArray = new List<AccountItemVM>();
@@ -512,9 +521,25 @@ namespace Business.FI.Account
                         List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
                         List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
 
+                        List<AccountItemVM> PaymentArray = new List<AccountItemVM>();
+                        List<AccountItemVM> IncomeArray = new List<AccountItemVM>();
+
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
-
+                            for (int j = 0; j < SumofAssets.Count; j++)
+                            {
+                                if (SumofAssets[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    SumofAssetsArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < SumofPropertyRightsAndObligations.Count; j++)
+                            {
+                                if (SumofPropertyRightsAndObligations[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    SumofPropertyRightsAndObligationsArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
                             for (int j = 0; j < NonCurrentAssetsFirst.Count; j++)
                             {
                                 if (NonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
@@ -727,8 +752,24 @@ namespace Business.FI.Account
                                     CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
                                 }
                             }
+
+                            for (int j = 0; j < Payment.Count; j++)
+                            {
+                                if (Payment[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    PaymentArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
+                            for (int j = 0; j < Income.Count; j++)
+                            {
+                                if (Income[j].Equals(FIAccountREAdd[i].Code))
+                                {
+                                    IncomeArray.Add(FIAccountREAdd[i]);
+                                }
+                            }
                         }
 
+                        
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
                         
                         // Non - Current Fixed Assets Data Sets
@@ -765,6 +806,12 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
+                        
+                        report.DataSources.Add(new ReportDataSource() { Name = "Payment", Value = PaymentArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Income", Value = IncomeArray });
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "SumofAssets", Value = SumofAssetsArray });
+                        report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
                     }
 
                     break;

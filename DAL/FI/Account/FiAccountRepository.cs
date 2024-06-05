@@ -422,14 +422,45 @@ namespace DAL.FI.Account
                                         select (decimal?)inDetails.Credit).Sum() ?? 0
                                     )
                                 ),
+                                //AccountNet = _context.FiEntryDetails
+                                //                    .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
+                                //                    .Select(e => e.Debit - e.Credit).FirstOrDefault() != 0 ||
+                                //                    _context.FiEntryDetails
+                                //                    .Where(e => g.Key.Id == e.AccountId)
+                                //                    .Select(e => e.Debit - e.Credit).FirstOrDefault() != 0 ?
+                                //                    _context.FiEntryDetails
+                                //                    .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
+                                //                    .Select(e => e.Debit - e.Credit).FirstOrDefault() +
+                                //                    _context.FiEntryDetails
+                                //                    .Where(e => e.CreationDate != startDate && g.Key.Id == e.AccountId)
+                                //                    .Select(e => e.Debit - e.Credit).Sum()
+                                //                    :
+                                //                       Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                //                                   join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                //                                   from fiEntry in entryGroup.DefaultIfEmpty()
+                                //                                   join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                //                                   from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                //                                   where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == g.Key.Id
+                                //                                   && fiEntryDetails.CreationDate == startDate
+                                //                                   select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).FirstOrDefault(), 2)
+                                //                       +
+                                //                      Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                //                        join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                //                        from fiEntry in entryGroup.DefaultIfEmpty()
+                                //                        join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                //                        from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                //                        where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == g.Key.Id
+                                //                        && fiEntryDetails.CreationDate != startDate
+                                //                        select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)
+                                //                                  ,
                                 StartDate = startDate.ToShortDateString(),
                                 EndDate = endDate.ToShortDateString(),
                                 PrevAccountNet = _context.FiEntryDetails
                                                     .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
-                                                    .Select(e => e.Debit).FirstOrDefault() != 0 ?
+                                                    .Select(e => e.Debit - e.Credit).FirstOrDefault() != 0 ?
                                                     _context.FiEntryDetails
                                                     .Where(e => e.CreationDate == startDate && g.Key.Id == e.AccountId)
-                                                    .Select(e => e.Debit).FirstOrDefault()
+                                                    .Select(e => e.Debit - e.Credit).FirstOrDefault()
                                                     : Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                                     join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                                                     from fiEntry in entryGroup.DefaultIfEmpty()
@@ -440,7 +471,7 @@ namespace DAL.FI.Account
                                                     select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
                             };
 
-                var resultList = await query.Select(e => Positive(e)).OrderBy(e => e.Code).ToListAsync();
+                var resultList = await query.OrderBy(e => e.Code).Select(e => Positive(e)).ToListAsync();
                 return resultList;
             }
         }
