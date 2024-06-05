@@ -38,6 +38,7 @@ namespace Entities.ViewModels.HR
         public int QualitativeGroupId { get; set; }
         public string QualitativeGroupName { get; set; }
         public int EmployeeCount { get; set; }
+        public int TotalEmployeeCount { get; set; }
     }
 
     public class HrEmployeeFinancialDegreeSearch
