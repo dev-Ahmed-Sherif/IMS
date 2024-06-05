@@ -17,7 +17,7 @@ namespace Entities.ExtensionMethods.FI.Entry
                 CostCenterName = n.CostCenterId != null ? n.CostCenter.Name : "",
                 CostCenterId = n.CostCenterId ?? 0,
                 AccountName = n.Account.Name,
-                FiAccountItemId = n.FiAccountItemId?? 0,
+                FiAccountItemId = n.FiAccountItemId?? null,
                 AccountItemName = n.FiAccountItemId!=null ? n.FiAccountItem.Name :  "",
                 EntryId = n.EntryId,
                 AccountId = n.AccountId,
