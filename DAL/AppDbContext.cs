@@ -545,6 +545,7 @@ namespace DAL
         public DbSet<ProQuotation> ProQuotations { get; set; }
         public DbSet<ProQuotationDetails> ProQuotationDetails { get; set; }
         public DbSet<ProTenderCommittee> ProTenderCommittees { get; set; }
+        public DbSet<ProTenderCommitteeRole> ProTenderCommitteeRoles { get; set; }
         public DbSet<ProTenderDetails> ProTenderDetails { get; set; }
         public DbSet<ProTenderOpening> ProTenderOpenings { get; set; }
         public DbSet<ProTenderOpeningStatus> ProTenderOpeningStatuses { get; set; }
