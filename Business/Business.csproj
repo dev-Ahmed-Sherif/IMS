@@ -48,6 +48,7 @@
 		<None Remove="ReportsFiles\FinancialStatment\QualitativeAnalysisListReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpAttendPermissionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpAttendScheduleReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmpFunctionalStructureReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAppraisalReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAttendanceReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeDisciplinaryReport.rdlc" />
@@ -55,9 +56,9 @@
 		<None Remove="ReportsFiles\HR\EmployeeQualificationReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeQualitativeGroupReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeReport.rdlc" />
-		<None Remove="ReportsFiles\HR\EmployeeStatistics.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeStatisticsReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc" />
-		<None Remove="ReportsFiles\HR\EmploymentStatus.rdlc" />
+		<None Remove="ReportsFiles\HR\EmploymentStatusReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
 		<None Remove="ReportsFiles\HR\FunctionalStructureReport.rdlc" />
@@ -206,7 +207,7 @@
 		<Content Include="ReportsFiles\HR\EmployeeQualificationReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\HR\EmployeeStatistics.rdlc">
+		<Content Include="ReportsFiles\HR\EmployeeStatisticsReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc">
@@ -218,10 +219,10 @@
 		<Content Include="ReportsFiles\HR\EmpVacationReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\HR\EmploymentStatus.rdlc">
+		<Content Include="ReportsFiles\HR\EmploymentStatusReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\HR\FunctionalStructureReport.rdlc">
+		<Content Include="ReportsFiles\HR\EmpFunctionalStructureReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\HrQualitativeGroupReport.rdlc">
