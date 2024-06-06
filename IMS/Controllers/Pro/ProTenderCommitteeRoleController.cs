@@ -55,7 +55,7 @@ namespace IMS.Controllers.Pro
         {
             ProTenderCommitteeRole model = _mapper.Map<ProTenderCommitteeRole>(input);
             int rowsAffected = await _proTenderCommitteeRoleService.Add(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
         [HttpPut]
@@ -69,7 +69,7 @@ namespace IMS.Controllers.Pro
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderCommitteeRoleService.Update(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
         [HttpDelete("{id}")]
@@ -81,7 +81,7 @@ namespace IMS.Controllers.Pro
             ProTenderCommitteeRole model = await _proTenderCommitteeRoleService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _proTenderCommitteeRoleService.SoftDelete(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
     }

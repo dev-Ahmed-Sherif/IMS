@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DAL.Helpers
+namespace Entities.Helpers
 {
     public static class FileHelper
     {

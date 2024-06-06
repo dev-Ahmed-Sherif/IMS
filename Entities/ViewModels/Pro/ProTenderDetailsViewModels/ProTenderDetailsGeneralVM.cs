@@ -16,11 +16,11 @@ namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
         [Required, MaxLength(50)]
         public string Item { get; set; }
         [Required]
-        public double Qty { get; set; }
+        public decimal Qty { get; set; }
         [Required]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
-        public double Total { get; set; }
+        public decimal Total { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }
     }

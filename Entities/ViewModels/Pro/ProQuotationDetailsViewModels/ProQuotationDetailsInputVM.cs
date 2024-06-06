@@ -1,26 +1,26 @@
 ﻿using AutoMapper.Configuration.Annotations;
+using Entities.Models.Pro;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace Entities.Models.Pro
+namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
 {
-    public class ProQuotationDetails : EntityBase
+    public class ProQuotationDetailsInputVM : BaseViewModel
     {
+        [Required]
         public int QuotationId { get; set; }
-        [ForeignKey(nameof(QuotationId))]
-        public virtual ProQuotation Quotation { get; set; }
+        [Required]
         public int TenderDetailsId { get; set; }
-        [ForeignKey(nameof(TenderDetailsId))]
-        public virtual ProTenderDetails TenderDetails { get; set; }
+        [Required]
         public decimal Price { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
-        [Ignore, MaxLength(150)]
-        public string Attachment { get; set; }
+        public IFormFile? Attachment { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using System.Linq;
 using Entities.ViewModels;
 using Entities.ExtensionMethods.STR.StoreOpen;
 using System.Threading.Tasks;
-using DAL.Helpers;
+using Entities.Helpers;
 using Entities.Enums;
 
 namespace DAL.STR.StoreOpen

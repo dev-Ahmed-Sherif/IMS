@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Business.Pro;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderSelectionViewModels;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,36 +12,36 @@ namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderSellerReqController : ControllerBase
+    public class ProTenderSelectionController : ControllerBase
     {
         readonly IMapper _mapper;
-        readonly ProTenderSellerReqService _proTenderSellerReqService;
-        public ProTenderSellerReqController(
+        readonly ProTenderSelectionService _ProTenderSelectionService;
+        public ProTenderSelectionController(
             IMapper mapper,
-            ProTenderSellerReqService proTenderSellerReqService)
+            ProTenderSelectionService ProTenderSelectionService)
         {
             _mapper = mapper;
-            _proTenderSellerReqService = proTenderSellerReqService;
+            _ProTenderSelectionService = ProTenderSelectionService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderSellerReqGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderSelectionGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            ProTenderSellerReq model = await _proTenderSellerReqService.GetById(id);
+            ProTenderSelection model = await _ProTenderSelectionService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderSellerReqGeneralVM>(model));
+            return Ok(_mapper.Map<ProTenderSelectionGeneralVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderSellerReqGeneralVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderSellerReqFilter filter)
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderSelectionGeneralVM>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderSelectionFilter filter)
         {
-            PaginatedResultUnMapped<ProTenderSellerReq> unmappedResult =
-                _proTenderSellerReqService
+            PaginatedResultUnMapped<ProTenderSelection> unmappedResult =
+                _ProTenderSelectionService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProTenderSellerReqGeneralVM> mappedResult = new()
+            PaginatedResult<ProTenderSelectionGeneralVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderSellerReqGeneralVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProTenderSelectionGeneralVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,
@@ -51,10 +51,10 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProTenderSellerReqGeneralVM input)
+        public async Task<IActionResult> Add(ProTenderSelectionGeneralVM input)
         {
-            ProTenderSellerReq model = _mapper.Map<ProTenderSellerReq>(input);
-            int rowsAffected = await _proTenderSellerReqService.Add(model);
+            ProTenderSelection model = _mapper.Map<ProTenderSelection>(input);
+            int rowsAffected = await _ProTenderSelectionService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -62,13 +62,13 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderSellerReqGeneralVM input)
+        public async Task<IActionResult> Update(ProTenderSelectionGeneralVM input)
         {
 
-            ProTenderSellerReq model = await _proTenderSellerReqService.GetById(input.Id);
+            ProTenderSelection model = await _ProTenderSelectionService.GetById(input.Id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
-            int rowsAffected = await _proTenderSellerReqService.Update(model);
+            int rowsAffected = await _ProTenderSelectionService.Update(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -78,9 +78,9 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProTenderSellerReq model = await _proTenderSellerReqService.GetById(id);
+            ProTenderSelection model = await _ProTenderSelectionService.GetById(id);
             if (model == null) return NotFound();
-            int rowsAffected = await _proTenderSellerReqService.SoftDelete(model);
+            int rowsAffected = await _ProTenderSelectionService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }

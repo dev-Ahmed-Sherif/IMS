@@ -17,9 +17,9 @@ namespace Entities.Models.Pro
         public virtual ICollection<ProTenderSelection> ProTenderSelections { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
-        public double Qty { get; set; }
-        public double Price { get; set; }
-        public double Total { get; set; }
+        public decimal Qty { get; set; }
+        public decimal Price { get; set; }
+        public decimal Total { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }
     }
