@@ -24,8 +24,5 @@ namespace Entities.Models.Pro
         public virtual StrStore Store { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
-
-        
-        
     }
 }

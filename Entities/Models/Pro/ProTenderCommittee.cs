@@ -11,7 +11,7 @@ namespace Entities.Models.Pro
 {
     public class ProTenderCommittee : EntityBase
     {
-        [MaxLength(50)]
+        [Required]
         public int RoleId { get; set; }
         [ForeignKey(nameof(RoleId))]
         public virtual ProTenderCommitteeRole Role { get; set; }
@@ -20,9 +20,11 @@ namespace Entities.Models.Pro
         [MaxLength(50)]
         public string Notes { get; set; }
         //Navigation Properties
+        [Required]
         public int EmployeeId { get; set; }
         [ForeignKey(nameof(EmployeeId))]
         public virtual HrEmployee Employee { get; set; }
+        [Required]
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
