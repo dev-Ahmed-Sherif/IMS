@@ -471,7 +471,8 @@ namespace DAL.FI.Account
                                                     select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2),
                             };
 
-                var resultList = await query.OrderBy(e => e.Code).Select(e => Positive(e)).ToListAsync();
+                //var resultList = await query.OrderBy(e => e.Code).Select(e => Positive(e)).ToListAsync();
+                var resultList = await query.OrderBy(e => e.Code).ToListAsync();
                 return resultList;
             }
         }
