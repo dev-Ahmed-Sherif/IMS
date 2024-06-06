@@ -1,4 +1,6 @@
 ﻿using Entities.Models.PR;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Entities.Models.HR
 {
@@ -14,7 +16,7 @@ namespace Entities.Models.HR
         public override int? UpdateByID { get; set; }
         public virtual PrUser UpdateBy { get; set; }
 
-
+        public virtual ICollection<HrQualification> HrQualifications { get; set; }
 
     }
 

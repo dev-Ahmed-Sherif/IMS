@@ -786,7 +786,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
         <Top>0.39287cm</Top>
         <Left>1.50347cm</Left>
         <Height>2.435cm</Height>
-        <Width>26.11312cm</Width>
+        <Width>26.11314cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1245,7 +1245,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <DataSetName>NonCurrentAssetsFirst</DataSetName>
         <Top>2.82787cm</Top>
         <Left>1.50347cm</Left>
-        <Height>1.57316cm</Height>
+        <Height>1.57317cm</Height>
         <Width>26.11312cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -2846,7 +2846,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>32.34062cm</Top>
+        <Top>33.98212cm</Top>
         <Left>19.25038cm</Left>
         <Height>1.04979cm</Height>
         <Width>8.4425cm</Width>
@@ -2884,7 +2884,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>32.34062cm</Top>
+        <Top>33.98212cm</Top>
         <Left>7.98927cm</Left>
         <Height>1.04979cm</Height>
         <Width>11.26111cm</Width>
@@ -3340,10 +3340,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>NonCurrentObligations</DataSetName>
-        <Top>33.5668cm</Top>
+        <Top>35.2083cm</Top>
         <Left>1.49431cm</Left>
         <Height>1.72034cm</Height>
-        <Width>26.19857cm</Width>
+        <Width>26.19858cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -3372,7 +3372,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>35.28714cm</Top>
+        <Top>36.92864cm</Top>
         <Left>19.67588cm</Left>
         <Height>0.83812cm</Height>
         <Width>8.017cm</Width>
@@ -3410,7 +3410,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>35.28714cm</Top>
+        <Top>36.92864cm</Top>
         <Left>8.33912cm</Left>
         <Height>0.83812cm</Height>
         <Width>11.33676cm</Width>
@@ -3870,10 +3870,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>CurrentObligationsFirst</DataSetName>
-        <Top>36.4633cm</Top>
+        <Top>38.1048cm</Top>
         <Left>1.53098cm</Left>
         <Height>1.72034cm</Height>
-        <Width>26.1619cm</Width>
+        <Width>26.16192cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -3905,7 +3905,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>41.48555cm</Top>
+        <Top>43.12705cm</Top>
         <Left>19.50019cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
@@ -3942,7 +3942,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>41.48555cm</Top>
+        <Top>43.12705cm</Top>
         <Left>9.43562cm</Left>
         <Height>0.90868cm</Height>
         <Width>10.06457cm</Width>
@@ -3983,7 +3983,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>42.7911cm</Top>
+        <Top>44.4326cm</Top>
         <Left>19.53547cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.94071cm</Width>
@@ -4020,7 +4020,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>42.7911cm</Top>
+        <Top>44.4326cm</Top>
         <Left>9.43562cm</Left>
         <Height>0.90868cm</Height>
         <Width>10.09985cm</Width>
@@ -4043,15 +4043,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!AccountNet.Value, "CurrentObligationsFirst") + 
- Sum(Fields!AccountNet.Value, "CurrentObligationsSecond") + 
- Sum(Fields!AccountNet.Value, "CurrentObligationsThird") + 
- Sum(Fields!AccountNet.Value, "CurrentObligationsFourth") + 
- Sum(Fields!AccountNet.Value, "NonCurrentObligations") + 
- Sum(Fields!AccountNet.Value, "PropertyRightsThird") + 
- Sum(Fields!AccountSubNet.Value, "PropertyRightsThird") +
- Sum(Fields!AccountNet.Value, "PropertyRightsSecond") +
- Sum(Fields!AccountNet.Value, "PropertyRightsFirst")</Value>
+                <Value>=First(Fields!AccountNet.Value, "SumofPropertyRightsAndObligations")</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -4065,7 +4057,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>44.05256cm</Top>
+        <Top>45.69406cm</Top>
         <Left>19.50019cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.97599cm</Width>
@@ -4102,7 +4094,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "0","0")))</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>44.05256cm</Top>
+        <Top>45.69406cm</Top>
         <Left>9.43562cm</Left>
         <Height>0.90868cm</Height>
         <Width>10.06457cm</Width>
@@ -9100,12 +9092,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!FixedAssetNetValue.Value, "FixedAssets") + 
- First(Fields!AccountNet.Value, "SumNonCurrentAssetsFirst") +
- First(Fields!AccountNet.Value, "CurrentAssetsEleventh") +
- First(Fields!AccountNet.Value, "CurrentAssetsTenth") +
- First(Fields!AccountNet.Value, "CurrentAssetsEighth") +
- First(Fields!AccountNet.Value, "SumCurrentAssetsFirst")</Value>
+                <Value>=First(Fields!AccountNet.Value, "SumofAssets")</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -9241,7 +9228,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>32.34062cm</Top>
+        <Top>33.98212cm</Top>
         <Left>1.51174cm</Left>
         <Height>1.04979cm</Height>
         <Width>6.47753cm</Width>
@@ -9278,7 +9265,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>35.28714cm</Top>
+        <Top>36.92864cm</Top>
         <Left>1.50347cm</Left>
         <Height>0.83812cm</Height>
         <Width>6.83565cm</Width>
@@ -9531,10 +9518,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>CurrentObligationsSecond</DataSetName>
-        <Top>38.28947cm</Top>
+        <Top>39.93097cm</Top>
         <Left>1.53098cm</Left>
         <Height>0.82048cm</Height>
-        <Width>26.1619cm</Width>
+        <Width>26.16191cm</Width>
         <ZIndex>47</ZIndex>
         <Style>
           <Border>
@@ -9566,7 +9553,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>41.48555cm</Top>
+        <Top>43.12705cm</Top>
         <Left>1.53098cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.81098cm</Width>
@@ -9607,7 +9594,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>42.7911cm</Top>
+        <Top>44.4326cm</Top>
         <Left>1.53098cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.81098cm</Width>
@@ -9652,7 +9639,7 @@ Sum(Fields!PrevAccountNet.Value, "PropertyRightsFirst")</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox180</rd:DefaultName>
-        <Top>44.05256cm</Top>
+        <Top>45.69406cm</Top>
         <Left>1.53098cm</Left>
         <Height>0.90868cm</Height>
         <Width>7.79881cm</Width>
@@ -9905,7 +9892,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>CurrentObligationsThird</DataSetName>
-        <Top>39.25106cm</Top>
+        <Top>40.89256cm</Top>
         <Left>1.53097cm</Left>
         <Height>0.82048cm</Height>
         <Width>26.16191cm</Width>
@@ -10153,7 +10140,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>CurrentObligationsFourth</DataSetName>
-        <Top>40.17738cm</Top>
+        <Top>41.81888cm</Top>
         <Left>1.53098cm</Left>
         <Height>0.82048cm</Height>
         <Width>26.16191cm</Width>
@@ -10185,7 +10172,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>46.20479cm</Top>
+        <Top>48.63896cm</Top>
         <Left>23.50376cm</Left>
         <Height>0.9175cm</Height>
         <Width>3.69222cm</Width>
@@ -10221,7 +10208,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>46.20479cm</Top>
+        <Top>48.63896cm</Top>
         <Left>13.28487cm</Left>
         <Height>0.9175cm</Height>
         <Width>4.98836cm</Width>
@@ -10257,7 +10244,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>46.20479cm</Top>
+        <Top>48.63896cm</Top>
         <Left>2.50402cm</Left>
         <Height>0.9175cm</Height>
         <Width>6.02055cm</Width>
@@ -10272,6 +10259,256 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Tablix Name="Tablix35">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>4.38905cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.42193cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.86699cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>5.3467cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.13723cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.89104cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox236">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox234</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Code11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Code</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Name32">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>صافى ربح /خسارة العام</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Name</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountSubNet32">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>= First(Fields!AccountNet.Value, "Income") - 
+  First(Fields!AccountNet.Value, "Payment")</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>=IIf(Fields!Code.Value.ToString().Length = 1, "Red",
+IIf(Fields!Code.Value.ToString().Length = 2, "Blue", 
+IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountNet33">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccountNet</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details33" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>Income</DataSetName>
+        <Top>32.38031cm</Top>
+        <Left>1.53097cm</Left>
+        <Height>0.89104cm</Height>
+        <Width>26.1619cm</Width>
+        <ZIndex>56</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
     </ReportItems>
     <Height>53.00458cm</Height>
     <Style />
@@ -10353,7 +10590,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>تقرير المركز المالي علي شكل حساب</Value>
+                  <Value> قائمة المركز المالي</Value>
                   <Style>
                     <FontFamily>arial</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -12524,6 +12761,246 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="CurrentObligationsFourth">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Income">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Payment">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="SumofAssets">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountNet">
+          <DataField>AccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AccountSubNet">
+          <DataField>AccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionUserId">
+          <DataField>TransactionUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountNet">
+          <DataField>PrevAccountNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrevAccountSubNet">
+          <DataField>PrevAccountSubNet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Section">
+          <DataField>Section</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="SumofPropertyRightsAndObligations">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>

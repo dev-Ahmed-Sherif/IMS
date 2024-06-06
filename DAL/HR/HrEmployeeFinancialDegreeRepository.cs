@@ -1,10 +1,12 @@
 ﻿using Entities.Models.HR;
+using Entities.ReportViewModels;
 using Entities.ViewModels.HR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Entities.ReportViewModels.HrEmployeeQualitativeGroupVM;
 
 namespace DAL.HR
 {
@@ -151,34 +153,94 @@ namespace DAL.HR
             return result;
 
         }
-        public List<HrEmployeeFinancialDegreeGetSearchVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
+        //public List<HrEmployeeFinancialDegreeGetSearchVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
+        //{
+        //    var query = _context.HrEmployee.AsQueryable();
+
+        //    if (searchModel.FinancialDegreeId.HasValue)
+        //    {
+        //        query = query.Where(p => p.FinancialDegreeId == searchModel.FinancialDegreeId);
+        //    }
+        //    if (searchModel.EmployeeId.HasValue)
+        //    {
+        //        query = query.Where(p => p.Id == searchModel.EmployeeId);
+        //    }
+
+        //    if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
+        //    {
+        //        query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
+        //    }
+
+        //    if (searchModel.FinancialDegreeDate.HasValue)
+        //    {
+        //        query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
+        //    }
+
+
+
+        //    if (!string.IsNullOrEmpty(searchModel.EmployeeName))
+        //    {
+        //        query = query.Where(p => p.Name.ToString().Equals(searchModel.EmployeeId));
+        //    }
+
+
+
+        //    //var result = query.Select(n => new HrEmployeeFinancialDegreeGetSearchVM
+        //    //{
+        //    //    query = query.Where(p => p.Employee.Gender.Contains(searchModel.Gender));
+        //    //}
+
+
+        //    var result = query.GroupBy(p => new { p.FinancialDegreeId,
+        //        p.Qualification.QualitativeGroupId,
+        //        p.FinancialDegree.Name,
+
+        //        QualitativeGroup = p.Qualification.QualitativeGroup.Name,
+        //        empGender = p.Gender,
+
+        //    })
+        //        .Select(g => new HrEmployeeFinancialDegreeGetSearchVM
+        //        {
+        //            FinancialDegreeId = g.Key.FinancialDegreeId,
+        //            FinancialDegreeName = g.Key.Name,
+        //            QualitativeGroupId = g.Key.QualitativeGroupId,
+        //            QualitativeGroupName = g.First().Qualification.QualitativeGroup.Name,
+        //            //QualitativeGroupName = g.Key.QualitativeGroup,
+        //            EmployeeCount = g.Count(),
+        //           TotalEmployeeCount =query.Count(),
+        //        })
+        //        .ToList();
+
+        //    return result;
+        //}
+        public List<HrEmployeeQualitativeGroupVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
         {
-            var query = _context.HrEmployee.AsQueryable();
+            var hrEmployees = _context.HrEmployee.AsQueryable();
 
             if (searchModel.FinancialDegreeId.HasValue)
             {
-                query = query.Where(p => p.FinancialDegreeId == searchModel.FinancialDegreeId);
+                hrEmployees = hrEmployees.Where(p => p.FinancialDegreeId == searchModel.FinancialDegreeId);
             }
             if (searchModel.EmployeeId.HasValue)
             {
-                query = query.Where(p => p.Id == searchModel.EmployeeId);
+                hrEmployees = hrEmployees.Where(p => p.Id == searchModel.EmployeeId);
             }
 
             if (!string.IsNullOrEmpty(searchModel.FinancialDegreeName))
             {
-                query = query.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
+                hrEmployees = hrEmployees.Where(p => p.FinancialDegree.Name.Contains(searchModel.FinancialDegreeName));
             }
 
             if (searchModel.FinancialDegreeDate.HasValue)
             {
-                query = query.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
+                hrEmployees = hrEmployees.Where(p => p.FinancialDegreeDate <= searchModel.FinancialDegreeDate.Value.Date);
             }
 
-       
+
 
             if (!string.IsNullOrEmpty(searchModel.EmployeeName))
             {
-                query = query.Where(p => p.Name.ToString().Equals(searchModel.EmployeeId));
+                hrEmployees = hrEmployees.Where(p => p.Name.ToString().Equals(searchModel.EmployeeId));
             }
 
 
@@ -189,26 +251,108 @@ namespace DAL.HR
             //}
 
 
-            var result = query.GroupBy(p => new { p.FinancialDegreeId,
-                p.Qualification.QualitativeGroupId,
-                p.FinancialDegree.Name,
+            //var result = query.GroupBy(p => new
+            //{
+            //    p.FinancialDegreeId,
+            //    p.Qualification.QualitativeGroupId,
+            //    p.FinancialDegree.Name,
 
-                QualitativeGroup = p.Qualification.QualitativeGroup.Name,
-                empGender = p.Gender,
-               
-            })
-                .Select(g => new HrEmployeeFinancialDegreeGetSearchVM
+            //    QualitativeGroup = p.Qualification.QualitativeGroup.Name,
+            //    empGender = p.Gender,
+
+            //})
+
+            HashSet<HrQualitativeGroup> qualitativeGroups = hrEmployees.Select(e => e.Qualification.QualitativeGroup).ToHashSet();
+            List<HrEmployeeQualitativeGroupVM> resultGroups = qualitativeGroups.Select(e => new HrEmployeeQualitativeGroupVM
+            {
+                QualitativeGroupId = e.Id,
+                QualitativeGroupName = e.Name,
+            }).ToList();
+            var qualifications = hrEmployees.Select(e => e.Qualification).ToHashSet();
+            foreach (var qualification in qualifications)
+            {
+                foreach (var group in resultGroups)
                 {
-                    FinancialDegreeId = g.Key.FinancialDegreeId,
-                    FinancialDegreeName = g.Key.Name,
-                    QualitativeGroupId = g.Key.QualitativeGroupId,
-                    QualitativeGroupName = g.Key.QualitativeGroup,
-                    EmployeeCount = g.Count(),
-                   TotalEmployeeCount =query.Count(),
-                })
-                .ToList();
+                    if (qualification.QualitativeGroupId.Equals(group.QualitativeGroupId))
+                    {
+                        foreach (var e in qualification.Employees)
+                        {
+                            if (group.EmployeesFinancialDegrees.Any(q => q.FinancialDegreeId == e.FinancialDegreeId)) continue;
+                            group.EmployeesFinancialDegrees.Add(new EmployeesFinancialDegreesReportVM
+                            {
+                                FinancialDegreeId = e.FinancialDegreeId,
+                                FinancialDegreeName = e.FinancialDegree.Name,
+                                EmployeeCount = e.FinancialDegree.Employees.Count,
+                            });
+                        }
+                    }
+                    group.ReportDate = DateTime.Now.ToShortDateString();
+                }
+            }
 
-            return result;
+
+
+
+
+
+
+
+
+            //foreach (var degree in degrees)
+            //{
+            //    foreach (var group in resultGroups)
+            //    {
+            //        group.EmployeesFinancialDegrees.Add(new EmployeesFinancialDegreesReportVM
+            //        {
+            //            FinancialDegreeId = degree.Id,
+            //            FinancialDegreeName = degree.Name,
+            //            EmployeeCount = degree.Employees.Count,
+            //        });
+            //        group.ReportDate = DateTime.Now.ToShortDateString();
+            //    }
+            //}
+            //var qualifications = new HashSet<HrQualification>();
+            //foreach (var qualification in qualitativeGroups.SelectMany(e => e.HrQualifications))
+            //{
+            //    qualifications.Add(qualification);
+            //}
+            //foreach (var employee in query)
+            //{
+            //    foreach (var group in resultGroups)
+            //    {
+            //        if (employee.FinancialDegreeId == group.fi)
+            //        {
+            //            resultGroups.Select(e => e.EmployeesFinancialDegrees).Append
+            //        }
+            //    }
+            //}
+            return resultGroups;
+            //var result = query
+            //.Take(5)
+            //.Select(e => new HrEmployeeQualitativeGroupVM
+            //{
+            //    QualitativeGroupId = e.Qualification.QualitativeGroupId,
+            //    QualitativeGroupName = e.Qualification.QualitativeGroup.Name,
+            //    EmployeesFinancialDegrees = query.Select(i => new EmployeesFinancialDegreesReportVM
+            //    {
+            //        EmployeeCount = query.Count(),
+            //        FinancialDegreeId = i.FinancialDegreeId,
+            //        FinancialDegreeName = e.FinancialDegree.Name,
+            //        ReportDate = DateTime.Now.ToShortDateString(),
+            //    }).ToList()
+            //})
+            ////.Select(g => new HrEmployeeFinancialDegreeGetSearchVM
+            ////{
+            ////    FinancialDegreeId = g.Key.FinancialDegreeId,
+            ////    FinancialDegreeName = g.Key.Name,
+            ////    QualitativeGroupId = g.Key.QualitativeGroupId,
+            ////    QualitativeGroupName = g.Key.QualitativeGroup,
+            ////    EmployeeCount = g.Count(),
+            ////    TotalEmployeeCount = query.Count(),
+            ////})
+            //.ToList();
+
+            //return result;
         }
     }
 
