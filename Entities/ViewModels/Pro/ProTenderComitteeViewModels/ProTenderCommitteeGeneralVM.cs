@@ -10,16 +10,18 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
 {
-    internal class ProTenderCommitteeGeneralVM
+    public class ProTenderCommitteeGeneralVM : BaseViewModel
     {
-        [Required, MaxLength(50)]
-        public string Role { get; set; }
+        [Required]
+        public int RoleId { get; set; }
         [Required]
         public bool Close { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }
         //Navigation Properties
+        [Required]
         public int EmployeeId { get; set; }
+        [Required]
         public int TenderId { get; set; }
     }
 }

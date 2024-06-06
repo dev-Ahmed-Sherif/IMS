@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using AutoMapper;
+using DAL;
 using DAL.Pro;
 using Entities.ExtensionMethods;
 using Entities.Models.Pro;
@@ -15,7 +16,7 @@ namespace Business.Pro
     public class ProTenderDetailsService : GenericService<ProTenderDetails>
     {
         private new readonly ProTenderDetailsRepository _repository;
-        public ProTenderDetailsService(ProTenderDetailsRepository repository, UnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public ProTenderDetailsService(ProTenderDetailsRepository repository, UnitOfWork unitOfWork, IMapper mapper) : base(repository, unitOfWork, mapper)
         {
             _repository = repository;
         }

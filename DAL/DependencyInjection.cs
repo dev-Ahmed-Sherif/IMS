@@ -20,6 +20,7 @@ using DAL.TR.General;
 using DAL.TR.Instructor;
 using DAL.TR.Plan;
 using DAL.TR.Training;
+using Entities.Models.Pro;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DAL
@@ -187,9 +188,17 @@ namespace DAL
             services.AddScoped<ProSellerTypeRepository>();//07/11
             services.AddScoped<ProTenderRepository>();//07/11
             services.AddScoped<ProSellerRepository>();//07/11
-                                                      //SE
-            services.AddScoped<ImsSectionRepository>();
             services.AddScoped<ProTenderDetailsRepository>();
+            services.AddScoped<ProTenderCommitteeRepository>();
+            services.AddScoped<ProTenderCommitteeRoleRepository>();
+            services.AddScoped<ProTenderOpeningRepository>();
+            services.AddScoped<ProTenderOpeningStatusRepository>();
+            services.AddScoped<ProTenderSellerReqRepository>();
+            services.AddScoped<ProPurchaseOrderRepository>();
+            services.AddScoped<ProPurchaseOrderDetailsRepository>();
+            //SE
+            services.AddScoped<ImsSectionRepository>();
+
             #endregion
             return services;
         }
