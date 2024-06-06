@@ -89,9 +89,24 @@ namespace Business.HR
 
                 report.DataSources.Add(new ReportDataSource() { Name = "HrEmployee", Value = HrEmployee });
             }
+            else if (reportName == "EmployeeReport")
+            {
+                HrEmployee = Search(searchModel);
+
+                report.DataSources.Add(new ReportDataSource(){ Name = "HrEmployee" ,  Value = HrEmployee});
+            }
+
+            else if(reportName == "EmployeeStatisticsReport")
+            {
+                HrEmployee = Search(searchModel);
+                report.DataSources.Add(new ReportDataSource() { Name = "HrEmployee", Value = HrEmployee});
+            }
+
+
+
             // Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            // var result = report.Execute(Entities.Helpers.ReportHelper.GetRenderType(reportType), 1, parameters);
+                // var result = report.Execute(Entities.Helpers.ReportHelper.GetRenderType(reportType), 1, parameters);
 
             byte[] renderedBytes = report.Render(reportType);
 
