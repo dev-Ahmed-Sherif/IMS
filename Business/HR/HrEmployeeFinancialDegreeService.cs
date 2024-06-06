@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DAL.HR;
+using Entities.ReportViewModels;
 using Entities.ViewModels;
 using Entities.ViewModels.HR;
 using Microsoft.EntityFrameworkCore;
@@ -45,7 +46,7 @@ namespace Business.HR
         {
             return _EmployeeFinancialDegreeRepository.Search(searchModel);
         }
-        public List<HrEmployeeFinancialDegreeGetSearchVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
+        public List<HrEmployeeQualitativeGroupVM> Searchgroup(HrEmployeeFinancialDegreeSearch searchModel)
         {
             return _EmployeeFinancialDegreeRepository.Searchgroup(searchModel);
         }
@@ -83,18 +84,22 @@ namespace Business.HR
 
             if (reportName == "EmployeeQualitativeGroupReport")
             {
-                HrEmployeeFinancialDegree = Searchgroup(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+                //HrEmployeeFinancialDegree = Searchgroup(searchModel);
+
+                //report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+                List<HrEmployeeQualitativeGroupVM> model = Searchgroup(searchModel);
+
+                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = model });
             }
 
 
-            if (reportName == "HrQualitativeGroupReport")
-            {
-                HrEmployeeFinancialDegree = Searchgroup(searchModel);
+            //if (reportName == "HrQualitativeGroupReport")
+            //{
+            //    HrEmployeeFinancialDegree = Searchgroup(searchModel);
 
-                report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
-            }
+            //    report.DataSources.Add(new ReportDataSource() { Name = "EmployeeFinancialDegree", Value = HrEmployeeFinancialDegree });
+            //}
 
 
 
