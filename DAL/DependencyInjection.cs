@@ -190,6 +190,7 @@ namespace DAL
             services.AddScoped<ProSellerRepository>();//07/11
             services.AddScoped<ProTenderDetailsRepository>();
             services.AddScoped<ProTenderCommitteeRepository>();
+            services.AddScoped<ProTenderCommitteeRoleRepository>();
             services.AddScoped<ProTenderOpeningRepository>();
             services.AddScoped<ProTenderOpeningStatusRepository>();
             services.AddScoped<ProTenderSellerReqRepository>();
