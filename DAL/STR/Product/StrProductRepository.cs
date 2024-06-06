@@ -1,4 +1,4 @@
-﻿using DAL.Helpers;
+﻿using Entities.Helpers;
 using Entities.Enums;
 using Entities.Models.STR.Product;
 using Entities.ViewModels.STR.Product;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper.Configuration.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,10 +17,10 @@ namespace Entities.Models.Pro
         public int TenderDetailsId { get; set; }
         [ForeignKey(nameof(TenderDetailsId))]
         public virtual ProTenderDetails TenderDetails { get; set; }
-        public float Price { get; set; }
+        public decimal Price { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
-        [MaxLength(150)]
+        [Ignore, MaxLength(150)]
         public string Attachment { get; set; }
     }
 }

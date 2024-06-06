@@ -21,6 +21,8 @@ using Business.TR.Instructor;
 using Business.TR.Plan;
 using Business.TR.Training;
 using DAL;
+using DAL.Pro;
+using Entities.Models.Pro;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -200,9 +202,20 @@ namespace Business
             services.AddScoped<ProSellerTypeService>();//07/11
             services.AddScoped<ProTenderService>();//07/11
             services.AddScoped<ProSellerService>();//07/11
+            services.AddScoped<ProTenderDetailsService>();
+            services.AddScoped<ProTenderCommitteeService>();
+            services.AddScoped<ProTenderCommitteeRoleService>();
+            services.AddScoped<ProTenderOpeningService>();
+            services.AddScoped<ProTenderOpeningStatusService>();
+            services.AddScoped<ProTenderSellerReqService>();
+            services.AddScoped<ProPurchaseOrderService>();
+            services.AddScoped<ProPurchaseOrderDetailsService>();
+            services.AddScoped<ProTenderSelectionService>();
+            services.AddScoped<ProQuotationService>();
+            services.AddScoped<ProQuotationDetailsService>();
+            services.AddScoped<ProQuotationReceiveTypeService>();
             //SE
             services.AddScoped<ImsSectionService>();
-            services.AddScoped<ProTenderDetailsService>();
             services.AddScoped<UnitOfWork>();
             #endregion
             return services;

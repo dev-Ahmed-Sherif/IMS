@@ -16,12 +16,12 @@ namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
         [AllowNull]
         public string Name { get; set; }
         [AllowNull]
-        public double? MinQty { get; set; }
+        public decimal? MinQty { get; set; }
         [AllowNull]
-        public double? MaxQty { get; set; }
+        public decimal? MaxQty { get; set; }
         [AllowNull]
-        public double? MinPrice { get; set; }
+        public decimal? MinPrice { get; set; }
         [AllowNull]
-        public double? MaxPrice { get; set; }
+        public decimal? MaxPrice { get; set; }
     }
 }

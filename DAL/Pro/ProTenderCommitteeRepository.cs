@@ -1,4 +1,5 @@
 ﻿using Entities.Models.Pro;
+using Entities.ViewModels.Pro.ProTenderCommitteeViewModels;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
 using System.Linq;
 
@@ -9,33 +10,26 @@ namespace DAL.Pro
         public ProTenderCommitteeRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
-        public IQueryable<ProTenderCommittee> Filter(ProTenderDetailsFilter filter)
+        public IQueryable<ProTenderCommittee> Filter(ProTenderCommitteeFilter filter)
         {
             IQueryable<ProTenderCommittee> result = GetAll();
-            //if (filter.TenderId.HasValue)
-            //{
-            //    result = result.Where(e => e.TenderId == filter.TenderId);
-            //}
-            //if (!string.IsNullOrEmpty(filter.Name))
-            //{
-            //    result = result.Where(e => e.Name.Contains(filter.Name));
-            //}
-            //if (filter.MinQty.HasValue)
-            //{
-            //    result = result.Where(e => e.Qty >= filter.MinQty);
-            //}
-            //if (filter.MaxQty.HasValue)
-            //{
-            //    result = result.Where(e => e.Qty <= filter.MaxQty);
-            //}
-            //if (filter.MinPrice.HasValue)
-            //{
-            //    result = result.Where(e => e.Price >= filter.MinPrice);
-            //}
-            //if (filter.MaxPrice.HasValue)
-            //{
-            //    result = result.Where(e => e.Price <= filter.MaxPrice);
-            //}
+            if (filter.Close.HasValue)
+            {
+                result = result.Where(e => e.Close == filter.Close);
+            }
+            if (filter.TenderId.HasValue)
+            {
+                result = result.Where(e => e.TenderId == filter.TenderId);
+            }
+            if (filter.EmployeeId.HasValue)
+            {
+                result = result.Where(e => e.EmployeeId == filter.EmployeeId);
+            }
+            if (filter.RoleId.HasValue)
+            {
+                result = result.Where(e => e.RoleId == filter.RoleId);
+            }
+
             return result;
         }
     }

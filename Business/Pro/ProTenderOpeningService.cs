@@ -10,13 +10,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Business.Pro
 {
     public class ProTenderOpeningService : GenericService<ProTenderOpening>
     {
         new ProTenderOpeningRepository _repository;
-        public ProTenderOpeningService(ProTenderOpeningRepository repository, UnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public ProTenderOpeningService(ProTenderOpeningRepository repository, UnitOfWork unitOfWork, IMapper mapper) : base(repository, unitOfWork, mapper)
         {
             _repository = repository;
         }

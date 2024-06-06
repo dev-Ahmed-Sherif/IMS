@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper.Configuration.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,11 +18,13 @@ namespace Entities.Models.Pro
         [ForeignKey(nameof(SellerId))]
         public virtual ProSeller Seller { get; set; }
         public DateTime ReceiveDate { get; set; }
-        public string ReceiveType { get; set; }
+        public int ReceiveTypeId { get; set; }
+        [ForeignKey(nameof(ReceiveTypeId))]
+        public virtual ProQuotationReceiveType ReceiveType { get; set; }
         public DateTime ValidationDate { get; set; }
         [MaxLength(150)]
         public string Notes { get; set; }
-        [MaxLength(150)]
+        [Ignore, MaxLength(150)]
         public string Attachment { get; set; }
     }
 }

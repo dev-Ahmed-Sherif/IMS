@@ -10,6 +10,8 @@
         STREmployeeExchange,
         StrEmployeeOpeningCustody,
         HrEmployeeAppraisal,
-        HrEmployeeQualification
+        HrEmployeeQualification,
+        ProQuotation,
+        ProQuotationDetails,
     }
 }

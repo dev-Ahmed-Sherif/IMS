@@ -4500,8 +4500,8 @@ namespace DAL.Migrations
                     b.Property<DateTime>("ReceiveDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ReceiveType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ReceiveTypeId")
+                        .HasColumnType("int");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("int");
@@ -4516,6 +4516,8 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReceiveTypeId");
 
                     b.HasIndex("SellerId");
 
@@ -4552,8 +4554,8 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("QuotationId")
                         .HasColumnType("int");
@@ -4571,6 +4573,39 @@ namespace DAL.Migrations
                     b.HasIndex("TenderDetailsId");
 
                     b.ToTable("ProQuotationDetails");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProQuotationReceiveType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProQuotationReceiveType");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
@@ -4861,7 +4896,6 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("RoleId")
-                        .HasMaxLength(50)
                         .HasColumnType("int");
 
                     b.Property<int>("TenderId")
@@ -4942,17 +4976,17 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("Qty")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Qty")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TenderId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
@@ -9353,7 +9387,7 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.HR.HrFinancialDegree", "FinancialDegree")
-                        .WithMany()
+                        .WithMany("Employees")
                         .HasForeignKey("FinancialDegreeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -9387,7 +9421,7 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.HR.HrQualification", "Qualification")
-                        .WithMany()
+                        .WithMany("Employees")
                         .HasForeignKey("QualificationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -9859,7 +9893,7 @@ namespace DAL.Migrations
                         .HasForeignKey("CreatedByID");
 
                     b.HasOne("Entities.Models.HR.HrQualitativeGroup", "QualitativeGroup")
-                        .WithMany()
+                        .WithMany("HrQualifications")
                         .HasForeignKey("QualitativeGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -10699,6 +10733,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotation", b =>
                 {
+                    b.HasOne("Entities.Models.Pro.ProQuotationReceiveType", "ReceiveType")
+                        .WithMany()
+                        .HasForeignKey("ReceiveTypeId")
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
                         .WithMany()
                         .HasForeignKey("SellerId")
@@ -10708,6 +10747,8 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
+
+                    b.Navigation("ReceiveType");
 
                     b.Navigation("Seller");
 
@@ -12972,6 +13013,21 @@ namespace DAL.Migrations
                     b.Navigation("User");
 
                     b.Navigation("abs_employee");
+                });
+
+            modelBuilder.Entity("Entities.Models.HR.HrFinancialDegree", b =>
+                {
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("Entities.Models.HR.HrQualification", b =>
+                {
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("Entities.Models.HR.HrQualitativeGroup", b =>
+                {
+                    b.Navigation("HrQualifications");
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrGroup", b =>

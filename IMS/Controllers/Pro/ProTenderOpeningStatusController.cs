@@ -56,7 +56,7 @@ namespace IMS.Controllers.Pro
         {
             ProTenderOpeningStatus model = _mapper.Map<ProTenderOpeningStatus>(input);
             int rowsAffected = await _proTenderOpeningStatusService.Add(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
         [HttpPut]
@@ -70,7 +70,7 @@ namespace IMS.Controllers.Pro
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderOpeningStatusService.Update(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
         [HttpDelete("{id}")]
@@ -82,7 +82,7 @@ namespace IMS.Controllers.Pro
             ProTenderOpeningStatus model = await _proTenderOpeningStatusService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _proTenderOpeningStatusService.SoftDelete(model);
-            if (rowsAffected <= 0) return StatusCode(500);
+            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
     }
