@@ -24,24 +24,24 @@ namespace IMS.Controllers.Pro
             _ProTenderCommitteeService = ProTenderCommitteeService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderCommitteeGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderCommitteeInputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProTenderCommittee model = await _ProTenderCommitteeService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderCommitteeGeneralVM>(model));
+            return Ok(_mapper.Map<ProTenderCommitteeInputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderCommitteeGeneralVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderCommitteeInputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderCommitteeFilter filter)
         {
             PaginatedResultUnMapped<ProTenderCommittee> unmappedResult =
                 _ProTenderCommitteeService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProTenderCommitteeGeneralVM> mappedResult = new()
+            PaginatedResult<ProTenderCommitteeInputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderCommitteeGeneralVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProTenderCommitteeInputVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,
@@ -51,7 +51,7 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProTenderCommitteeGeneralVM input)
+        public async Task<IActionResult> Add(ProTenderCommitteeInputVM input)
         {
             ProTenderCommittee model = _mapper.Map<ProTenderCommittee>(input);
             int rowsAffected = await _ProTenderCommitteeService.Add(model);
@@ -62,7 +62,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderCommitteeGeneralVM input)
+        public async Task<IActionResult> Update(ProTenderCommitteeInputVM input)
         {
 
             ProTenderCommittee model = await _ProTenderCommitteeService.GetById(input.Id);

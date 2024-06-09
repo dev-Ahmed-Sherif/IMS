@@ -24,24 +24,24 @@ namespace IMS.Controllers.Pro
             _ProPurchaseOrderDetailsService = ProPurchaseOrderDetailsService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProPurchaseOrderDetailsGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProPurchaseOrderDetailsInputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProPurchaseOrderDetails model = await _ProPurchaseOrderDetailsService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProPurchaseOrderDetailsGeneralVM>(model));
+            return Ok(_mapper.Map<ProPurchaseOrderDetailsInputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProPurchaseOrderDetailsGeneralVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResult<ProPurchaseOrderDetailsInputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProPurchaseOrderDetailsFilter filter)
         {
             PaginatedResultUnMapped<ProPurchaseOrderDetails> unmappedResult =
                 _ProPurchaseOrderDetailsService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProPurchaseOrderDetailsGeneralVM> mappedResult = new()
+            PaginatedResult<ProPurchaseOrderDetailsInputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProPurchaseOrderDetailsGeneralVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProPurchaseOrderDetailsInputVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,
@@ -51,7 +51,7 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProPurchaseOrderDetailsGeneralVM input)
+        public async Task<IActionResult> Add(ProPurchaseOrderDetailsInputVM input)
         {
             ProPurchaseOrderDetails model = _mapper.Map<ProPurchaseOrderDetails>(input);
             int rowsAffected = await _ProPurchaseOrderDetailsService.Add(model);
@@ -62,7 +62,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProPurchaseOrderDetailsGeneralVM input)
+        public async Task<IActionResult> Update(ProPurchaseOrderDetailsInputVM input)
         {
 
             ProPurchaseOrderDetails model = await _ProPurchaseOrderDetailsService.GetById(input.Id);

@@ -13,7 +13,7 @@ namespace Entities.Profiles
     {
         public ProTenderOpeningProfile()
         {
-            CreateMap<ProTenderOpening, ProTenderOpeningGeneralVM>()
+            CreateMap<ProTenderOpening, ProTenderOpeningInputVM>()
                 .ReverseMap();
         }
     }

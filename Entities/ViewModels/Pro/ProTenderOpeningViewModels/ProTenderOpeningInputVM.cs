@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
-    public class ProTenderOpeningGeneralVM : BaseViewModel
+    public class ProTenderOpeningInputVM : BaseViewModel
     {
         [Required]
         public int SellerId { get; set; }

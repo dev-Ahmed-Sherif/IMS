@@ -13,7 +13,7 @@ namespace Entities.Profiles
     {
         public ProTenderCommitteeProfile()
         {
-            CreateMap<ProTenderCommittee, ProTenderCommitteeGeneralVM>()
+            CreateMap<ProTenderCommittee, ProTenderCommitteeInputVM>()
                 .ReverseMap();
         }
 
