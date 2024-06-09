@@ -15,7 +15,7 @@ namespace Entities.ExtensionMethods.PR
                 IsActive = n.IsActive,
                 TransactionUserId = n.CreatedByID,
                 EmployeeId = n.EmployeeId,
-               EmployeeName=n.Employee.Name,
+               EmployeeName=n.Employee?.Name,
             };
         }
     }
