@@ -90,8 +90,8 @@ namespace DAL.HR
         }
 
 
-        public List<HrQualificationGetVM> GetAll() => _context.HrQualification.Select(n => new HrQualificationGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, QualitativeGroupId = n.QualitativeGroupId, QualitativeGroupName = n.QualitativeGroup.Name }).ToList();
-        public HrQualificationGetVM GetById(int QualificationId) => _context.HrQualification.Select(n => new HrQualificationGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, QualitativeGroupId = n.QualitativeGroupId, QualitativeGroupName = n.QualitativeGroup.Name }).FirstOrDefault(n => n.Id == QualificationId);
+        public List<HrQualificationGetVM> GetAll() => _context.HrQualification.Select(n => new HrQualificationGetVM { Id = n.Id, name = n.Name??"", CreateUserName = n.CreatedByID != null ? n.CreatedBy.Name : "", TransactionUserId = n.CreatedBy.Id, QualitativeGroupId = n.QualitativeGroupId, QualitativeGroupName = n.QualitativeGroup.Name }).ToList();
+        public HrQualificationGetVM GetById(int QualificationId) => _context.HrQualification.Select(n => new HrQualificationGetVM { Id = n.Id, name = n.Name??"", CreateUserName = n.CreatedByID != null ? n.CreatedBy.Name : "", TransactionUserId = n.CreatedBy.Id, QualitativeGroupId = n.QualitativeGroupId, QualitativeGroupName = n.QualitativeGroup.Name }).FirstOrDefault(n => n.Id == QualificationId);
 
     }
 }

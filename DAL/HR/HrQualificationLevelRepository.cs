@@ -86,8 +86,8 @@ namespace DAL.HR
         }
 
 
-        public List<HrQualificationLevelGetVM> GetAll() => _context.HrQualificationLevel.Select(n => new HrQualificationLevelGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).ToList();
-        public HrQualificationLevelGetVM GetById(int QualificationLevelId) => _context.HrQualificationLevel.Select(n => new HrQualificationLevelGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).FirstOrDefault(n => n.Id == QualificationLevelId);
+        public List<HrQualificationLevelGetVM> GetAll() => _context.HrQualificationLevel.Select(n => new HrQualificationLevelGetVM { Id = n.Id, name = n.Name??"", CreateUserName =n.CreatedByID!=null? n.CreatedBy.Name:"", TransactionUserId = n.CreatedBy.Id }).ToList();
+        public HrQualificationLevelGetVM GetById(int QualificationLevelId) => _context.HrQualificationLevel.Select(n => new HrQualificationLevelGetVM { Id = n.Id, name = n.Name ?? "", CreateUserName = n.CreatedByID != null ? n.CreatedBy.Name : "", TransactionUserId = n.CreatedBy.Id }).FirstOrDefault(n => n.Id == QualificationLevelId);
 
     }
 }
