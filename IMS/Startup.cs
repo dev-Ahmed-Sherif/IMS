@@ -23,6 +23,7 @@ using Business.TR.Plan;
 using Business.TR.Training;
 using DAL;
 using Entities;
+using Entities.Constants.FiConstants;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,8 +50,9 @@ namespace IMS
             ConnectionString = Environment.GetEnvironmentVariable("ConnectionString");
         }
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, WebApplicationBuilder builder)
         {
+            services.Configure<FiNewAccountsCodes>(builder.Configuration.GetSection(nameof(FiNewAccountsCodes)));
             services.Configure<IISServerOptions>(options =>
             {
                 options.AutomaticAuthentication = false;
@@ -74,6 +76,7 @@ namespace IMS
                     };
                 });
             services.AddAuthorization();
+            services.AddTransient<FiNewAccountsCodes>();
             services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

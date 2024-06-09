@@ -1,7 +1,9 @@
 ﻿using Business.FI.Account;
 using Entities.ReportViewModels;
 using Entities.ViewModels.FI.Account;
+using Entities.Constants.FiConstants;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Net.Mime;
@@ -14,10 +16,12 @@ namespace IMS.Controllers.FI.Account
     public class FIAccountController : ControllerBase
     {
         private FiAccountService _FiAccountService;
+        private readonly FiNewAccountsCodes _fiAccountsCodes;
 
-        public FIAccountController(FiAccountService FiAccountService)
+        public FIAccountController(FiAccountService FiAccountService, IOptionsSnapshot<FiNewAccountsCodes> fiAccountsCodes)
         {
             _FiAccountService = FiAccountService;
+            _fiAccountsCodes = fiAccountsCodes.Value;
         }
 
         [HttpPost("Add")]
@@ -144,5 +148,10 @@ namespace IMS.Controllers.FI.Account
         {
             return Ok(await _FiAccountService.GetAccountBalances(filter));
         }
+        //[HttpGet("Test")]
+        //public IActionResult Test()
+        //{
+        //    return Ok(_fiAccountsCodes);
+        //}
     }
 }
