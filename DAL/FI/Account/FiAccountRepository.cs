@@ -386,7 +386,8 @@ namespace DAL.FI.Account
                                 EndDate = endDate.ToShortDateString(),
                             };
 
-                var resultList = await query.Select(e => Positive(e)).ToListAsync();
+                //var resultList = await query.Select(e => Positive(e)).ToListAsync();
+                var resultList = await query.OrderBy(e => e.Code).ToListAsync();
                 return resultList;
             }
             else
@@ -411,14 +412,15 @@ namespace DAL.FI.Account
                                         from inDetails in _context.FiEntryDetails
                                         join fa in _context.FiAccount on inDetails.AccountId equals fa.Id
                                         join fap in _context.FiAccountParent on inDetails.AccountId equals fap.AccountId
-                                        where fap.ParentId == g.Key.Id
+                                        where fap.ParentId == g.Key.Id && inDetails.IsDeleted != true
                                         select (decimal?)inDetails.Debit).Sum() ?? 0
                                     ) -
                                     (g.Sum(x => x.edg.Credit) + (
                                         from inDetails in _context.FiEntryDetails
                                         join fa in _context.FiAccount on inDetails.AccountId equals fa.Id
                                         join fap in _context.FiAccountParent on inDetails.AccountId equals fap.AccountId
-                                        where fap.ParentId == g.Key.Id
+                                        where fap.ParentId == g.Key.Id && inDetails.IsDeleted != true
+                                        
                                         select (decimal?)inDetails.Credit).Sum() ?? 0
                                     )
                                 ),
@@ -782,7 +784,7 @@ namespace DAL.FI.Account
                             (e => e.Code == account.Code)?
                             .FiEntryDetails
                             .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
-                            .Sum(e => e.Credit - e.Debit) != 0 ? fixedAssetsAccounts
+                            .Sum(e => e.Debit - e.Credit) != 0 ? fixedAssetsAccounts
                             .FirstOrDefault
                             (e => e.Code == account.Code)?
                             .FiEntryDetails
