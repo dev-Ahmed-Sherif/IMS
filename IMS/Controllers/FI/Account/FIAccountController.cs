@@ -143,10 +143,10 @@ namespace IMS.Controllers.FI.Account
         //{
         //    return Ok(await _FiAccountService.GetFixedAssetsFinancialCenterData(fiscalYearId));
         //}
-        [HttpGet("Test")]
-        public IActionResult Test()
-        {
-            return Ok(_fiAccountsCodes);
-        }
+        //[HttpGet("Test")]
+        //public IActionResult Test()
+        //{
+        //    return Ok(_fiAccountsCodes);
+        //}
     }
 }
