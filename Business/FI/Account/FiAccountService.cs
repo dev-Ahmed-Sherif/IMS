@@ -407,6 +407,7 @@ namespace Business.FI.Account
                             "17",
                         };
 
+                        // PropertyRights
                         List<string> PropertyRightsFirst = new List<string>
                         {
                             "211",
@@ -425,6 +426,8 @@ namespace Business.FI.Account
                             "23",
                             "24"
                         };
+
+                        // NonCurrentObligations
                         List<string> NonCurrentObligations = new List<string>
                         {
                             "251",
@@ -433,6 +436,8 @@ namespace Business.FI.Account
                             "254",
                             "255"
                         };
+
+                        // CurrentObligations
                         List<string> CurrentObligationsFirst = new List<string>
                         {
                             "267",
