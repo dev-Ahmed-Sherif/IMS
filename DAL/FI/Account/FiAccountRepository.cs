@@ -31,6 +31,7 @@ namespace DAL.FI.Account
         {
             _context = context;
             _strFiscalRepository = strFiscalRepository;
+            _accountsSet = context.FiAccount;
 
         }
 
@@ -938,12 +939,20 @@ namespace DAL.FI.Account
 
             return matchingAccounts;
         }
-        public async Task<FiAccountBalancesVM?> GetAccountBalances(FiAccountBalancesFilter filter)
+        public async Task<List<FiEntryDetails>?> GetAccountBalances(FiAccountBalancesFilter filter)
         {
             FiAccount? account = await _accountsSet.FirstOrDefaultAsync(e => e.Code == filter.AccountCode);
             if (account == null) return null;
-            decimal TotalDebit;
-            return new FiAccountBalancesVM();
+            IEnumerable<FiEntryDetails> details = account.FiEntryDetails;
+            if (filter.StartDate.HasValue)
+            {
+                details = details.Where(e => e.Entry.Date >= filter.StartDate);
+            }
+            if (filter.EndDate.HasValue)
+            {
+                details = details.Where(e => e.Entry.Date <= filter.EndDate);
+            }
+            return details.ToList();
 
         }
 

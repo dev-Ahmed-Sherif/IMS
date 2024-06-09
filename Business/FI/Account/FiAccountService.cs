@@ -2,6 +2,7 @@ using DAL;
 using DAL.FI.Account;
 using Entities.Constants.FiConstants;
 using Entities.Helpers;
+using Entities.Models.FI.Entry;
 using Entities.ReportViewModels;
 using Entities.ViewModels.FI.Account;
 using Microsoft.EntityFrameworkCore;
@@ -76,17 +77,17 @@ namespace Business.FI.Account
         }
         public List<AccountItemVM> GetStoreAccountsReportData(DateTime startDate, DateTime endDate, int sectionId)
         {
-            return _FiRepository.GetStoreAccountsReportData(startDate,endDate,sectionId);
+            return _FiRepository.GetStoreAccountsReportData(startDate, endDate, sectionId);
         }
-        public async Task<List<AccountItemVM>> GetFinancialCenterReportData(int fiscalYearId, string code,int codeLength)
+        public async Task<List<AccountItemVM>> GetFinancialCenterReportData(int fiscalYearId, string code, int codeLength)
         {
             return await _FiRepository.GetFinancialCenterReportData(fiscalYearId, code, codeLength);
         }
         public List<AccountItemByCode> GetAccountMasterReportData(string code, int fiscalYearId)
         {
-            return _FiRepository.GetAccountMasterReportData(code,fiscalYearId);
+            return _FiRepository.GetAccountMasterReportData(code, fiscalYearId);
         }
-        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code,int fiscalYearId)
+        public List<AccountItemWithParent> GetAccountMasterDetailsReportData(string code, int fiscalYearId)
         {
             return _FiRepository.GetAccountMasterDetailsReportData(code, fiscalYearId);
         }
@@ -99,7 +100,7 @@ namespace Business.FI.Account
         //    return _FiRepository.Search(searchModel);
         //}
 
-        public async Task<byte[]> GenerateStoreAccountsReport(string reportName, string reportType,DateTime startDate,DateTime endDate,int sectionId)
+        public async Task<byte[]> GenerateStoreAccountsReport(string reportName, string reportType, DateTime startDate, DateTime endDate, int sectionId)
         {
             // get report file
             string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("Business.dll", string.Empty);
@@ -472,7 +473,7 @@ namespace Business.FI.Account
                         };
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
-                                FIAccountREAdd.Add(FIAccountRE[i]);
+                            FIAccountREAdd.Add(FIAccountRE[i]);
                             if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
                             {
                                 //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
@@ -769,9 +770,9 @@ namespace Business.FI.Account
                             }
                         }
 
-                        
+
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
-                        
+
                         // Non - Current Fixed Assets Data Sets
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFirst", Value = NonCurrentAssetsFirstArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "SumNonCurrentAssetsFirst", Value = SumNonCurrentAssetsFirstArray });
@@ -783,7 +784,7 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSeventh", Value = NonCurrentAssetsSeventhArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsEighth", Value = NonCurrentAssetsEighthArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsNinth", Value = NonCurrentAssetsNinthArray });
-                        
+
                         // Current Fixed Assets Data Sets
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFirst", Value = CurrentAssetsFirstArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "SumCurrentAssetsFirst", Value = SumCurrentAssetsFirstArray });
@@ -806,7 +807,7 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
-                        
+
                         report.DataSources.Add(new ReportDataSource() { Name = "Payment", Value = PaymentArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "Income", Value = IncomeArray });
 
@@ -964,7 +965,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -1056,7 +1057,7 @@ namespace Business.FI.Account
                             "417",
                             "42",
                         };
-                        AccountActivity =  await GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
                             if (Revenues.Contains(AccountActivity[i].Code))
@@ -1132,13 +1133,13 @@ namespace Business.FI.Account
 
                         List<string> Revenues = new List<string>
                         {
-                           
+
                             "411",
                             "412",
                             "414",
                             "415",
                              "417",
-                            
+
                         };
                         AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
                         for (int i = 0; i < AccountActivity.Count; i++)
@@ -1150,12 +1151,12 @@ namespace Business.FI.Account
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
 
-                       
-                       
+
+
 
                         List<string> codes = new List<string>
                         {
-                            
+
                             "34",
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
@@ -1171,7 +1172,7 @@ namespace Business.FI.Account
                         List<string> Revenues2 = new List<string>
                         {
                             "332",
-                           
+
                         };
                         for (int i = 0; i < AccountActivity.Count; i++)
                         {
@@ -1229,13 +1230,13 @@ namespace Business.FI.Account
                     break;
                 case "AccountChangeOwnerShipRightsReport":
                     {
-                        List<FiChangeInOwnersEquityViewModel> AccountSuppliers, 
+                        List<FiChangeInOwnersEquityViewModel> AccountSuppliers,
                                                               equityCapital = new List<FiChangeInOwnersEquityViewModel>(),
                                                               stageProfitsAndLosses = new List<FiChangeInOwnersEquityViewModel>(),
                                                               treasuryShares = new List<FiChangeInOwnersEquityViewModel>(),
                                                               precautions = new List<FiChangeInOwnersEquityViewModel>();
 
-                        AccountSuppliers =  GetChangeInOwnersEquityReportData(fiscalYearId);
+                        AccountSuppliers = GetChangeInOwnersEquityReportData(fiscalYearId);
 
                         for (int i = 0; i < AccountSuppliers.Count; i++)
                         {
@@ -1300,29 +1301,29 @@ namespace Business.FI.Account
                     break;
                 case "QualitativeAnalysisListReport":
                     {
-                        List<AccountItemVM> QualitativeAnalysis, 
-                                            materialsData = new List<AccountItemVM>(), 
-                                            wagesData = new List<AccountItemVM>(), 
+                        List<AccountItemVM> QualitativeAnalysis,
+                                            materialsData = new List<AccountItemVM>(),
+                                            wagesData = new List<AccountItemVM>(),
                                             purchasedServicesData = new List<AccountItemVM>(),
-                                            destructionData = new List<AccountItemVM>(), 
-                                            restExpensesData = new List<AccountItemVM>(), 
+                                            destructionData = new List<AccountItemVM>(),
+                                            restExpensesData = new List<AccountItemVM>(),
                                             purchasesForSalesData = new List<AccountItemVM>(),
                                             burdensAndLossesData = new List<AccountItemVM>(),
                                             variousBurdensAndLossesData = new List<AccountItemVM>(),
                                             restBurdensAndLossesData = new List<AccountItemVM>();
 
                         QualitativeAnalysis = await GetFinancialCenterReportData(fiscalYearId, "3", 7);
-                        List<string> materials = new List<string>{ "31" ,"311","312","313","314","315","316"};
+                        List<string> materials = new List<string> { "31", "311", "312", "313", "314", "315", "316" };
                         decimal sumMaterials = 0;
 
-                        List<string> wages = new List<string> { "32","321","322","323" };
-                        decimal sumWages = 0;                        
+                        List<string> wages = new List<string> { "32", "321", "322", "323" };
+                        decimal sumWages = 0;
 
-                        List<string> purchasedServices = new List<string> { "33","331","3311","3312","3314","3315","3316","3317","3318" };
+                        List<string> purchasedServices = new List<string> { "33", "331", "3311", "3312", "3314", "3315", "3316", "3317", "3318" };
                         decimal sumPurchasedServices = 0;
 
-                        List<string> destruction = new List<string> { "332","3321","3322" };
-                        decimal sumDestruction = 0;                     
+                        List<string> destruction = new List<string> { "332", "3321", "3322" };
+                        decimal sumDestruction = 0;
 
                         List<string> restExpenses = new List<string> { "333", "334", "335", "336" };
                         decimal sumRestExpenses = 0;
@@ -1332,9 +1333,9 @@ namespace Business.FI.Account
                         List<string> purchasesForSale = new List<string> { "34" };
                         decimal sumPurchasesForSale = 0;
 
-                        List<string> burdensAndLosses = new List<string> { "35","351","352","353" };
+                        List<string> burdensAndLosses = new List<string> { "35", "351", "352", "353" };
 
-                        List<string> variousBurdensAndLosses = new List<string> { "354", "3541", "3542", "3543" ,"3544","3545"};
+                        List<string> variousBurdensAndLosses = new List<string> { "354", "3541", "3542", "3543", "3544", "3545" };
 
                         decimal sumVariousBurdensAndLosses = 0;
                         List<string> restBurdensAndLosses = new List<string> { "355", "356", "357", "358", "359" };
@@ -1421,9 +1422,9 @@ namespace Business.FI.Account
 
                         decimal sumFirstBranch = sumMaterials + sumWages + sumExpenses + sumPurchasesForSale + sumVariousBurdensAndLosses;
 
-                        List<string> productionCosts1 = new List<string> { "361","3611","3612","3613","3614","3615","3616" };
+                        List<string> productionCosts1 = new List<string> { "361", "3611", "3612", "3613", "3614", "3615", "3616" };
                         decimal sumProductionCosts1 = 0;
-                        List<string> productionCosts2 = new List<string> { "362", "3621", "3622", "3623"};
+                        List<string> productionCosts2 = new List<string> { "362", "3621", "3622", "3623" };
                         decimal sumProductionCosts2 = 0;
                         List<string> productionCosts3 = new List<string> { "363", "3631", "36311", "36312", "36314", "36315", "36316", "36317", "36318" };
                         decimal sumProductionCosts3 = 0;
@@ -1549,8 +1550,8 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts4Data", Value = marketingCosts4Data });
                         report.DataSources.Add(new ReportDataSource() { Name = "MarketingCosts5Data", Value = marketingCosts5Data });
 
-                        decimal sumMarketingCosts = sumMarketingCosts1 + sumMarketingCosts2 + sumMarketingCosts3 + sumMarketingCosts4 
-                                                    +sumMarketingCosts5;
+                        decimal sumMarketingCosts = sumMarketingCosts1 + sumMarketingCosts2 + sumMarketingCosts3 + sumMarketingCosts4
+                                                    + sumMarketingCosts5;
 
                         List<string> administrativeCosts1 = new List<string> { "381", "3811", "3812", "3813", "3814", "3815", "3816" };
                         decimal sumAdministrativeCosts1 = 0;
@@ -1664,6 +1665,16 @@ namespace Business.FI.Account
         public async Task<List<FiAccountItemBalancesViewModel>> GetTriaBalanceReportData(int fiscalYearId)
         {
             return await _FiRepository.GetTriaBalanceReportData(fiscalYearId);
+        }
+
+        public async Task<FiAccountBalancesVM> GetAccountBalances(FiAccountBalancesFilter filter)
+        {
+            List<FiEntryDetails> details = await _FiRepository.GetAccountBalances(filter);
+            return new FiAccountBalancesVM()
+            {
+                TotalCredit = details.Sum(e => e.Credit),
+                TotalDebit = details.Sum(e => e.Debit)
+            };
         }
     }
 }

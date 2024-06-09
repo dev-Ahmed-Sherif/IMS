@@ -77,7 +77,7 @@ namespace IMS.Controllers.FI.Account
         }
 
         [HttpGet("get/data/by/Code/{code}/{startDate}/{endDate}")]
-        public IActionResult GetAccountMasterReportData(string code,int fiscalYearId)
+        public IActionResult GetAccountMasterReportData(string code, int fiscalYearId)
         {
             var Account = _FiAccountService.GetAccountMasterReportData(code, fiscalYearId);
             return Ok(Account);
@@ -139,6 +139,10 @@ namespace IMS.Controllers.FI.Account
         //{
         //    return Ok(await _FiAccountService.GetFixedAssetsFinancialCenterData(fiscalYearId));
         //}
-
+        [HttpGet("AccountBalances")]
+        public async Task<IActionResult> GetAccountBalances([FromQuery] FiAccountBalancesFilter filter)
+        {
+            return Ok(await _FiAccountService.GetAccountBalances(filter));
+        }
     }
 }
