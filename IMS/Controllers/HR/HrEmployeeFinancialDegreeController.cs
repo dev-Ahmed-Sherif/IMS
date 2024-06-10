@@ -40,12 +40,12 @@ namespace IMS.Controllers.HR
             return new JsonResult(_response);
         }
 
-        //[HttpGet("get/all")]
-        //public IActionResult GetAll()
-        //{
-        //    var allEmployeeFinancialDegree = _EmployeeFinancialDegreeService.GetAll();
-        //    return Ok(allEmployeeFinancialDegree);
-        //}
+        [HttpGet("get/all")]
+        public IActionResult GetAll()
+        {
+            var allEmployeeFinancialDegree = _EmployeeFinancialDegreeService.GetAll();
+            return Ok(allEmployeeFinancialDegree);
+        }
 
         [HttpGet("get/{id}")]
         public IActionResult GetById(int ID)
