@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Buffers;
@@ -15,9 +16,11 @@ namespace DAL
         //Unify the scope of repositories
         //Repositories should be added here
         private readonly AppDbContext _dbContext;
-        public UnitOfWork(AppDbContext dbContext)
+        private readonly UserIdentity _user;
+        public UnitOfWork(AppDbContext dbContext, UserIdentity user)
         {
             _dbContext = dbContext;
+            _user = user;
         }
         public Task<int> SaveChangesAsync()
         {
@@ -27,12 +30,12 @@ namespace DAL
                 {
                     case EntityState.Added:
                         entry.Entity.CreationDate = DateTime.UtcNow;
-                        //entry.Entity.CreatedByUserId = userId ?? Guid.Empty;
+                        entry.Entity.CreatedByID = _user.Id;
                         //entry.Entity.ConcurrencyToken = Guid.NewGuid();
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastUpdateDate = DateTime.UtcNow;
-                        //entry.Entity.UpdatedByUserId = userId ?? Guid.Empty;
+                        entry.Entity.UpdateByID = _user.Id;
                         //entry.Entity.ConcurrencyToken = Guid.NewGuid();
                         break;
                 }

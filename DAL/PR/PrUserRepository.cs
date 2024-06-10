@@ -332,8 +332,8 @@ namespace DAL.PR
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("UserId", user.Id.ToString()),
                 new Claim("Actions", jsonGroupRoles),
-                new Claim("EmployeeId", user.EmployeeId.ToString()),
-                new Claim("SectionId", user.SectionId.ToString())
+                new Claim("EmployeeId", user.EmployeeId?.ToString()??""),
+                new Claim("SectionId", user.SectionId?.ToString()??"")
             }
             .Union(ModuleClaims)
             .Union(roleClaims)
