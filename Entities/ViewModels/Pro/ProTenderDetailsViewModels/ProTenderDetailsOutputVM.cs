@@ -13,7 +13,8 @@ namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
         public int TenderId { get; set; }
         public String TenderName { get; set; }
         public string Item { get; set; }
-
+    
+        public string Name { get; set; }
         public decimal Qty { get; set; }
 
         public decimal Price { get; set; }

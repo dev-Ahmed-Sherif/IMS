@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Models.Pro;
+using Entities.ViewModels.Pro.ProTenderComitteeViewModels;
 using Entities.ViewModels.Pro.ProTenderCommitteeViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,10 @@ namespace Entities.Profiles.Pro
     {
         public ProTenderCommitteeProfile()
         {
-            CreateMap<ProTenderCommittee, ProTenderCommitteeInputVM>()
+            CreateMap<ProTenderCommittee, ProTenderCommitteeOutputVM>()
+                .ForMember(dest => dest.EmployeeName, cfg => cfg.MapFrom(src => src.Employee.Name))
+                 .ForMember(dest => dest.TenderName, cfg => cfg.MapFrom(src => src.Tender.Name))
+                  .ForMember(dest => dest.RoleName, cfg => cfg.MapFrom(src => src.Role.Name))
                 .ReverseMap();
         }
 

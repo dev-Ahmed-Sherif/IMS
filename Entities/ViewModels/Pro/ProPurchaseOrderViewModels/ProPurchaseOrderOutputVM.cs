@@ -17,7 +17,7 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         public int SellerId { get; set; }
         public string SellerName { get; set; }
         public int StoreId { get; set; }
-     
+        public string StoreName { get; set; }
         public string Notes { get; set; }
 
     }

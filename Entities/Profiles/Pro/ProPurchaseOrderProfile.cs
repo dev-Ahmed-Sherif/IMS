@@ -13,7 +13,10 @@ namespace Entities.Profiles.Pro
     {
         public ProPurchaseOrderProfile()
         {
-            CreateMap<ProPurchaseOrder, ProPurchaseOrderGeneralVM>()
+            CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>()
+                 .ForMember(dest => dest.TenderName, cfg => cfg.MapFrom(src => src.Tender.Name))
+                   .ForMember(dest => dest.SellerName, cfg => cfg.MapFrom(src => src.Seller.Name))
+                     .ForMember(dest => dest.StoreName, cfg => cfg.MapFrom(src => src.Store.Name))
                 .ReverseMap();
         }
     }
