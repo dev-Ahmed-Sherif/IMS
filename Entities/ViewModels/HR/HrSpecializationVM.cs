@@ -4,7 +4,7 @@
     {
 
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
         //Navigation foreign
         public int QualificationId { get; set; }

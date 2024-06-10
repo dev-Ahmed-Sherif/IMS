@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Profiles
+namespace Entities.Profiles.Pro
 {
     public class ProQuotationProfile : Profile
     {
