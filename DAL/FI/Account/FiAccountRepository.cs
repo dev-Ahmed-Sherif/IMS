@@ -692,6 +692,7 @@ namespace DAL.FI.Account
             // New Tree
             List<string> ChangeInOwnersEquityAccountsCodes =
                 [
+                    _fiAccountsCodes.حقوق_الملكية_2,
                     _fiAccountsCodes.رأس_المال_المدفوع_21,
                     _fiAccountsCodes.الاحتياطات_23,
                     _fiAccountsCodes.احتياطى_قانونى_231,
@@ -706,26 +707,53 @@ namespace DAL.FI.Account
                     _fiAccountsCodes.أسهم_خزينة_مدين_28
                 ];
 
-            IQueryable<FiAccount> filteredAccounts = _context.FiAccount.Where(e => ChangeInOwnersEquityAccountsCodes.Contains(e.Code));
+
+
+            IQueryable<FiAccount> filteredAccounts = _context.FiAccount.Where(e => ChangeInOwnersEquityAccountsCodes.Equals(e.Code));
 
             return filteredAccounts.Select(account => GetChangeInOwnersEquityData(account, fiscalYearId)).ToList();
         }
-        private static FiChangeInOwnersEquityViewModel GetChangeInOwnersEquityData(FiAccount account, int fiscalYearId)
+        private  FiChangeInOwnersEquityViewModel GetChangeInOwnersEquityData(FiAccount account, int fiscalYearId)
         {
+            FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
+            DateTime startDate = fiscalYear.StartDate;
+
             var filteredEntryDetails =
                 account
                 .FiEntryDetails
                 .Where(e => e.Entry.Journal.FiscalYearId == fiscalYearId)
                 .OrderBy(e => e.Id);
 
-            var firstEntry = filteredEntryDetails.FirstOrDefault();
+            var parentAccountId = account.FiAccountParent.Where(e => e.ParentId == account.Id).First();
 
+            var firstEntry = filteredEntryDetails.FirstOrDefault();
+            
             FiChangeInOwnersEquityViewModel result = new()
             {
                 AccountCode = account.Code,
                 AccountName = account.Name,
-                BeginningBalance = (firstEntry?.Credit - firstEntry?.Debit) ?? 0,
-                ChangeWithinPeriod = filteredEntryDetails.Skip(1).Sum(e => e.Credit - e.Debit),
+                BeginningBalance = parentAccountId != null ?
+                                                Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                            join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                            from fiEntry in entryGroup.DefaultIfEmpty()
+                                                            join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                            from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                            where ( fiEntry.Journal.FiscalYearId == fiscalYearId && fiEntryDetails.CreationDate <= startDate 
+                                                                    && fiAccountParent.ParentId == parentAccountId.ParentId)
+                                                                    || ( fiEntry.Date <= startDate)
+                                                            select (fiEntryDetails.Credit) - (fiEntryDetails.Debit)).Sum(), 2)
+                                                : (firstEntry?.Credit - firstEntry?.Debit) ?? 0,
+                ChangeWithinPeriod = parentAccountId != null ?
+                                                    Math.Round((from fiEntryDetails in _context.FiEntryDetails
+                                                                join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
+                                                                from fiEntry in entryGroup.DefaultIfEmpty()
+                                                                join fiAccountParent in _context.FiAccountParent on fiEntryDetails.AccountId equals fiAccountParent.AccountId into parentGroup
+                                                                from fiAccountParent in parentGroup.DefaultIfEmpty()
+                                                                where (fiEntry.Journal.FiscalYearId == fiscalYearId && fiEntryDetails.CreationDate > startDate
+                                                                        && fiAccountParent.ParentId == parentAccountId.ParentId)
+                                                                        || (fiEntry.Date > startDate)
+                                                                select (fiEntryDetails.Credit) - (fiEntryDetails.Debit)).Sum(), 2)
+                                                    : filteredEntryDetails.Skip(1).Sum(e => e.Credit - e.Debit),
 
             };
             result.EndingBalance = result.BeginningBalance + result.ChangeWithinPeriod;
@@ -789,7 +817,7 @@ namespace DAL.FI.Account
             foreach (FiAccount account in fixedAssetsAccounts)
             {
                 var DepreciationAccountCode = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
-                var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit).FirstOrDefault();
+                var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit-e.Credit).FirstOrDefault();
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
                     AccumulatedDepreciation = Math.Round((from fiEntryDetails in _context.FiEntryDetails
