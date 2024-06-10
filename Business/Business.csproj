@@ -57,8 +57,8 @@
 		<None Remove="ReportsFiles\HR\EmployeeQualitativeGroupReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeStatisticsReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeStatusReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc" />
-		<None Remove="ReportsFiles\HR\EmploymentStatusReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpPositionReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpVacationReport.rdlc" />
 		<None Remove="ReportsFiles\HR\FunctionalStructureReport.rdlc" />
@@ -213,13 +213,13 @@
 		<Content Include="ReportsFiles\HR\EmployeeVacationBalanceReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeStatusReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="ReportsFiles\HR\EmpPositionReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpVacationReport.rdlc">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="ReportsFiles\HR\EmploymentStatusReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpFunctionalStructureReport.rdlc">
