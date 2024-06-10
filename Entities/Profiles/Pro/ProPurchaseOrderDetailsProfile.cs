@@ -14,8 +14,8 @@ namespace Entities.Profiles
     {
         public ProPurchaseOrderDetailsProfile()
         {
-            CreateMap<ProPurchaseOrderDetails, ProPurchaseOrderDetailsInputVM>()
-                .ReverseMap();
+            CreateMap<ProPurchaseOrderDetailsInputVM, ProPurchaseOrderDetails>();
+            CreateMap<ProPurchaseOrderDetails, ProPurchaseOrderDetailsOutputVM>();
         }
     }
 }

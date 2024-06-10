@@ -13,8 +13,8 @@ namespace Entities.Profiles.Pro
     {
         public ProPurchaseOrderProfile()
         {
-            CreateMap<ProPurchaseOrder, ProPurchaseOrderGeneralVM>()
-                .ReverseMap();
+            CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>();
+            CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>();
         }
     }
 }

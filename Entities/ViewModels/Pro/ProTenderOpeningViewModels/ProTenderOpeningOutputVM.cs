@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
-   public class ProTenderOpeningOutputVM:BaseViewModel
+    public class ProTenderOpeningOutputVM : BaseViewModel
     {
         public int SellerId { get; set; }
-        public String SellerName { get; set; }
+        public string SellerName { get; set; }
+        public int StatusId { get; set; }
         public int StatusName { get; set; }
-       
         public string Notes { get; set; }
- 
         public int TenderId { get; set; }
+        public int TenderName { get; set; }
 
     }
 }

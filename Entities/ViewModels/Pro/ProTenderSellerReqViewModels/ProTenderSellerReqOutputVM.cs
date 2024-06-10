@@ -14,6 +14,7 @@ namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
         public string SellerName { get; set; }
         public DateTime SendDate { get; set; }
         public string SendType { get; set; }
+        public string SendTypeName { get; set; }
         public string Notes { get; set; }
     }
 }

@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
 {
-    public class ProPurchaseOrderOutputVM:BaseViewModel
+    public class ProPurchaseOrderOutputVM : BaseViewModel
     {
-    
+
         public int TenderId { get; set; }
         public string TenderName { get; set; }
         public DateTime Date { get; set; }
-  
+
         public int SellerId { get; set; }
         public string SellerName { get; set; }
         public int StoreId { get; set; }
-     
+        public string StoreName { get; set; }
+
         public string Notes { get; set; }
 
     }

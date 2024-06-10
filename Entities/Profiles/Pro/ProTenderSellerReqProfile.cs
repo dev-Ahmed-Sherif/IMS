@@ -13,13 +13,8 @@ namespace Entities.Profiles.Pro
     {
         public ProTenderSellerReqProfile()
         {
-            CreateMap<ProTenderSellerReq, ProTenderSellerReqInputVM>()
-                .ReverseMap();
-
-            CreateMap<ProTenderSellerReq, ProTenderSellerReqOutputVM>()
-                .ForMember(dest => dest.SellerName, cfg => cfg.MapFrom(src => src.Seller.Name))
-                .ForMember(dest => dest.TenderName, cfg => cfg.MapFrom(src => src.Tender.Name))
-             .ReverseMap();
+            CreateMap<ProTenderSellerReqInputVM, ProTenderSellerReq>();
+            CreateMap<ProTenderSellerReq, ProTenderSellerReqOutputVM>();
         }
     }
 }

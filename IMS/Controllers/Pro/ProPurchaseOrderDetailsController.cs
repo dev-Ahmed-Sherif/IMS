@@ -24,24 +24,24 @@ namespace IMS.Controllers.Pro
             _ProPurchaseOrderDetailsService = ProPurchaseOrderDetailsService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProPurchaseOrderDetailsInputVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProPurchaseOrderDetailsOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProPurchaseOrderDetails model = await _ProPurchaseOrderDetailsService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProPurchaseOrderDetailsInputVM>(model));
+            return Ok(_mapper.Map<ProPurchaseOrderDetailsOutputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProPurchaseOrderDetailsInputVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResult<ProPurchaseOrderDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProPurchaseOrderDetailsFilter filter)
         {
             PaginatedResultUnMapped<ProPurchaseOrderDetails> unmappedResult =
                 _ProPurchaseOrderDetailsService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProPurchaseOrderDetailsInputVM> mappedResult = new()
+            PaginatedResult<ProPurchaseOrderDetailsOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProPurchaseOrderDetailsInputVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProPurchaseOrderDetailsOutputVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,

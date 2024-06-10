@@ -13,8 +13,8 @@ namespace Entities.Profiles.Pro
     {
         public ProTenderSelectionProfile()
         {
-            CreateMap<ProTenderSelection, ProTenderSelectionOutputVM>()
-                .ReverseMap();
+            CreateMap<ProTenderSelectionInputVM, ProTenderSelection>();
+            CreateMap<ProTenderSelection, ProTenderSelectionOutputVM>();
         }
     }
 }

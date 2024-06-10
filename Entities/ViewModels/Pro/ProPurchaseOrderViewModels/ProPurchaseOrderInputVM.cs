@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
 {
-    public class ProPurchaseOrderGeneralVM : BaseViewModel
+    public class ProPurchaseOrderInputVM : BaseViewModel
     {
         [Required]
         public int TenderId { get; set; }
