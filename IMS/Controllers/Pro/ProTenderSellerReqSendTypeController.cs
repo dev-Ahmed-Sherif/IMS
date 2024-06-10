@@ -12,11 +12,11 @@ namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderSellerReqSendTypeSendTypeController : ControllerBase
+    public class ProTenderSellerReqSendTypeController : ControllerBase
     {
         readonly IMapper _mapper;
         readonly ProTenderSellerReqSendTypeService _ProTenderSellerReqSendTypeService;
-        public ProTenderSellerReqSendTypeSendTypeController(
+        public ProTenderSellerReqSendTypeController(
             IMapper mapper,
             ProTenderSellerReqSendTypeService ProTenderSellerReqSendTypeService)
         {
