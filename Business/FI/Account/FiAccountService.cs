@@ -5,6 +5,7 @@ using Entities.Helpers;
 using Entities.ReportViewModels;
 using Entities.ViewModels.FI.Account;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.NETCore;
 using Microsoft.VisualBasic;
@@ -21,10 +22,12 @@ namespace Business.FI.Account
     public class FiAccountService
     {
         public FiAccountRepository _FiRepository;
+        private readonly FiNewAccountsCodes _fiAccountsCodes;
 
-        public FiAccountService(FiAccountRepository FiAccountRepository)
+        public FiAccountService(FiAccountRepository FiAccountRepository, IOptionsSnapshot<FiNewAccountsCodes> fiAccountsCodes)
         {
             _FiRepository = FiAccountRepository;
+            _fiAccountsCodes = fiAccountsCodes.Value;
 
         }
         //---------------------
