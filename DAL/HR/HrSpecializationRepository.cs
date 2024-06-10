@@ -1,4 +1,5 @@
-﻿using Entities.Models.HR;
+﻿using AutoMapper;
+using Entities.Models.HR;
 using Entities.ViewModels.HR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,9 +11,11 @@ namespace DAL.HR
     {
 
         private AppDbContext _context;
-        public HrSpecializationRepository(AppDbContext context)
+        private readonly IMapper _mapper;
+        public HrSpecializationRepository(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public string Add(HrSpecializationVM Specialization)
@@ -21,7 +24,7 @@ namespace DAL.HR
             {
                 var _Specialization = new HrSpecialization()
                 {
-                    Name = Specialization.name,
+                    Name = Specialization.Name,
                     QualificationId = Specialization.QualificationId,
 
                     CreatedByID = Specialization.TransactionUserId,
@@ -43,7 +46,7 @@ namespace DAL.HR
                 var _Specialization = _context.HrSpecialization.FirstOrDefault(n => n.Id == Specialization.Id);
                 if (_Specialization != null)
                 {
-                    _Specialization.Name = Specialization.name;
+                    _Specialization.Name = Specialization.Name;
                     _Specialization.QualificationId = Specialization.QualificationId;
 
 
@@ -88,8 +91,11 @@ namespace DAL.HR
         }
 
 
-        public List<HrSpecializationGetVM> GetAll() => _context.HrSpecialization.Select(n => new HrSpecializationGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, QualificationId = n.QualificationId, QualificationName = n.Qualification.Name }).ToList();
-        public HrSpecializationGetVM GetById(int SpecializationId) => _context.HrSpecialization.Select(n => new HrSpecializationGetVM { Id = n.Id, name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, QualificationId = n.QualificationId, QualificationName = n.Qualification.Name }).FirstOrDefault(n => n.Id == SpecializationId);
+        public List<HrSpecializationGetVM> GetAll()
+        {
+            return _context.HrSpecialization.Select(e => _mapper.Map<HrSpecializationGetVM>(e)).ToList();
+        }
+        public HrSpecializationGetVM GetById(int SpecializationId) => _context.HrSpecialization.Select(n => new HrSpecializationGetVM { Id = n.Id, Name = n.Name, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id, QualificationId = n.QualificationId, QualificationName = n.Qualification.Name }).FirstOrDefault(n => n.Id == SpecializationId);
 
     }
 }
