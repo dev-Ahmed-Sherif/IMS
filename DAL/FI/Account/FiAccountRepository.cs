@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
 using Microsoft.Identity.Client;
 using System.Security.Principal;
+using Microsoft.Extensions.Options;
 
 namespace DAL.FI.Account
 {
@@ -26,12 +27,14 @@ namespace DAL.FI.Account
         private AppDbContext _context;
         private StrFiscalYearRepository _strFiscalRepository;
         private DbSet<FiAccount> _accountsSet;
+        private readonly FiNewAccountsCodes _fiAccountsCodes;
 
-        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository)
+        public FiAccountRepository(AppDbContext context, StrFiscalYearRepository strFiscalRepository, IOptionsSnapshot<FiNewAccountsCodes> fiAccountsCodes)
         {
             _context = context;
             _strFiscalRepository = strFiscalRepository;
             _accountsSet = context.FiAccount;
+            _fiAccountsCodes = fiAccountsCodes.Value;
 
         }
 
@@ -683,7 +686,25 @@ namespace DAL.FI.Account
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
-            List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
+             // Old Tree
+             //List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
+            
+            // New Tree
+            List<string> ChangeInOwnersEquityAccountsCodes =
+                [
+                    _fiAccountsCodes.رأس_المال_المدفوع_21,
+                    _fiAccountsCodes.الاحتياطات_23,
+                    _fiAccountsCodes.احتياطى_قانونى_231,
+                    _fiAccountsCodes.احتياطى_نظامى_232,
+                    _fiAccountsCodes.احتياطى_رأسمالى_233,
+                    _fiAccountsCodes.احتياطى_أخرى_234,
+                    _fiAccountsCodes.الأرباح_أو_الخسائر_المرحلة_24,
+                    _fiAccountsCodes.بنود_دخل_شامل_يعاد_تبوبيها_إلى_الأرباح_أو_الخسائر_261,
+                    _fiAccountsCodes.بنود_الدخل_الشامل_التى_لا_يعاد_تبوبيها_إلى_الأرباح_أو_الخسائر_262,
+                    _fiAccountsCodes.مدفوعات_مبنية_على_أسهم_271,
+                    _fiAccountsCodes.مكون_حقوق_الملكية_لأدوات_الدين_القابلة_للتحول_إلى_أسهم_272,
+                    _fiAccountsCodes.أسهم_خزينة_مدين_28
+                ];
 
             IQueryable<FiAccount> filteredAccounts = _context.FiAccount.Where(e => ChangeInOwnersEquityAccountsCodes.Contains(e.Code));
 
