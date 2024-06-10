@@ -15,6 +15,8 @@ namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
     {
         public int QuotationId { get; set; }
         public int TenderDetailsId { get; set; }
+        
+        public string TenderDetailsName { get; set; }
         public decimal Price { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }

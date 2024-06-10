@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Models.Pro;
+using Entities.ViewModels.Pro.ProTenderComitteeViewModels;
 using Entities.ViewModels.Pro.ProTenderCommitteeViewModels;
 using System;
 using System.Collections.Generic;
