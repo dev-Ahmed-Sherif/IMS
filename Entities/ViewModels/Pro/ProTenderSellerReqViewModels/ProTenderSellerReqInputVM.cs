@@ -17,7 +17,7 @@ namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
         public int SellerId { get; set; }
         [Required]
         public DateTime SendDate { get; set; }
-        [Required, MaxLength(50)]
+        [Required]
         public int SendTypeId { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }

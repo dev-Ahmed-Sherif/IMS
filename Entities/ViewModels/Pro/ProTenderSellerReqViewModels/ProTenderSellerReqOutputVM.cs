@@ -13,7 +13,7 @@ namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
         public int SellerId { get; set; }
         public string SellerName { get; set; }
         public DateTime SendDate { get; set; }
-        public string SendType { get; set; }
+        public int SendTypeId { get; set; }
         public string SendTypeName { get; set; }
         public string Notes { get; set; }
     }

@@ -18,39 +18,39 @@ namespace DAL
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<T>();
         }
-        public EntityEntry<T> Add(T model)
+        public virtual EntityEntry<T> Add(T model)
         {
             model.Id = default;
             return _dbSet.Add(model);
         }
-        public void SoftDelete(T model)
+        public virtual void SoftDelete(T model)
         {
             model.IsDeleted = true;
         }
-        public void SoftDeleteRange(IEnumerable<T> modelsList)
+        public virtual void SoftDeleteRange(IEnumerable<T> modelsList)
         {
             foreach (T model in modelsList)
             {
                 model.IsDeleted = true;
             }
         }
-        public void Delete(T model)
+        public virtual void Delete(T model)
         {
             _dbSet.Remove(model);
         }
-        public void DeleteRange(IEnumerable<T> modelsList)
+        public virtual void DeleteRange(IEnumerable<T> modelsList)
         {
             _dbSet.RemoveRange(modelsList);
         }
-        public EntityEntry<T> Update(T model)
+        public virtual EntityEntry<T> Update(T model)
         {
             return _dbSet.Update(model);
         }
-        public void AddRange(IEnumerable<T> modelsList)
+        public virtual void AddRange(IEnumerable<T> modelsList)
         {
             _dbSet.AddRange(modelsList);
         }
-        public IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null)
+        public virtual IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null)
         {
             IQueryable<T> result =
                 _dbSet
@@ -59,15 +59,15 @@ namespace DAL
             if (predicate == null) return result;
             return result.Where(predicate);
         }
-        public async Task<T?> GetById(int id)
+        public virtual async Task<T?> GetById(int id)
         {
             return await _dbSet.FindAsync(id);
         }
-        public async Task<T?> FirstOrDefault(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T?> FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             return await _dbSet.FirstOrDefaultAsync(predicate);
         }
-        public async Task<int> Count(Expression<Func<T, bool>>? predicate = null)
+        public virtual async Task<int> Count(Expression<Func<T, bool>>? predicate = null)
         {
             if (predicate == null) return await _dbSet.CountAsync();
             return await _dbSet.CountAsync(predicate);

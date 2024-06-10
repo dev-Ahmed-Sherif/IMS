@@ -9,7 +9,7 @@ namespace Entities.Models.Pro
 {
     public class ProTenderOpeningStatus : EntityBase
     {
-        [MaxLength(50)]
-        public string Name { get; set; }
+        [Required, MaxLength(50)]
+        public required string Name { get; set; }
     }
 }
