@@ -50,6 +50,7 @@
 		<None Remove="ReportsFiles\HR\EmpAttendScheduleReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmpFunctionalStructureReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAppraisalReport.rdlc" />
+		<None Remove="ReportsFiles\HR\EmployeeAppraisaNewReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeAttendanceReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeDisciplinaryReport.rdlc" />
 		<None Remove="ReportsFiles\HR\EmployeeFinancialDegreeReport.rdlc" />
@@ -184,6 +185,9 @@
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmpAttendScheduleReport.rdlc">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="ReportsFiles\HR\EmployeeAppraisaNewReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\HR\EmployeeQualitativeGroupReport.rdlc">

@@ -1237,31 +1237,31 @@ namespace Business.FI.Account
                     break;
                 case "AccountChangeOwnerShipRightsReport":
                     {
-                        List<FiChangeInOwnersEquityViewModel> ChangeInPropertyRights,
+                        List<FiChangeInOwnersEquityViewModel> ChangeInPropertyRightsArray,
                                                               precautions = new List<FiChangeInOwnersEquityViewModel>(),
                                                               equityCapital = new List<FiChangeInOwnersEquityViewModel>(),
                                                               stageProfitsAndLosses = new List<FiChangeInOwnersEquityViewModel>(),
                                                               treasuryShares = new List<FiChangeInOwnersEquityViewModel>();
 
-                        ChangeInPropertyRights = GetChangeInOwnersEquityReportData(fiscalYearId);
+                        ChangeInPropertyRightsArray = GetChangeInOwnersEquityReportData(fiscalYearId);
 
-                        for (int i = 0; i < ChangeInPropertyRights.Count; i++)
+                        for (int i = 0; i < ChangeInPropertyRightsArray.Count; i++)
                         {
-                            if (ChangeInPropertyRights[i].AccountCode == _fiAccountsCodes.رأس_المال_المدفوع_21)
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.رأس_المال_المدفوع_21)
                             {
-                                equityCapital.Add(ChangeInPropertyRights[i]);
+                                equityCapital.Add(ChangeInPropertyRightsArray[i]);
                             }
-                            if (ChangeInPropertyRights[i].AccountCode == "23")
+                            if (ChangeInPropertyRightsArray[i].AccountCode == "23")
                             {
-                                stageProfitsAndLosses.Add(ChangeInPropertyRights[i]);
+                                stageProfitsAndLosses.Add(ChangeInPropertyRightsArray[i]);
                             }
-                            if (ChangeInPropertyRights[i].AccountCode == "24")
+                            if (ChangeInPropertyRightsArray[i].AccountCode == "24")
                             {
-                                treasuryShares.Add(ChangeInPropertyRights[i]);
+                                treasuryShares.Add(ChangeInPropertyRightsArray[i]);
                             }
-                            if (ChangeInPropertyRights[i].AccountCode == "22")
+                            if (ChangeInPropertyRightsArray[i].AccountCode == "22")
                             {
-                                precautions.Add(ChangeInPropertyRights[i]);
+                                precautions.Add(ChangeInPropertyRightsArray[i]);
                             }
                         }
 
