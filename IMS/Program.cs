@@ -13,6 +13,15 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Business;
 using Entities.Constants.FiConstants;
+using Entities.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
+using System.Configuration;
+using System.Globalization;
+using System.Threading;
+using System.Linq;
+using System.Security.Claims;
+using Microsoft.IdentityModel.JsonWebTokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add builder.Services to the container.
@@ -44,8 +53,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
         };
     });
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped(provider =>
+{
+    var context = provider.GetService<IHttpContextAccessor>().HttpContext;
+    ClaimsPrincipal user = context?.User ?? default;
+    string userId = user?.Claims?.FirstOrDefault(x => x.Type == "UserId")?.Value;
+    string name = user?.Claims?.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub)?.Value;
+    string employeeId = user?.Claims?.FirstOrDefault(x => x.Type == "EmployeeId")?.Value;
+    string sectionId = user?.Claims?.FirstOrDefault(x => x.Type == "SectionId")?.Value;
+    UserIdentity identity = new(userId, name, employeeId, sectionId);
+    return identity;
+});
+
 builder.Services.AddAuthorization();
-builder.Services.AddTransient<FiNewAccountsCodes>();
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

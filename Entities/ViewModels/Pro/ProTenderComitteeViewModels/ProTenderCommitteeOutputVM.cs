@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderComitteeViewModels
+namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
 {
     public class ProTenderCommitteeOutputVM:BaseViewModel
     {

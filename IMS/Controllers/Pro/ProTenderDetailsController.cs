@@ -25,24 +25,24 @@ namespace IMS.Controllers.PR
             _proTenderDetailsService = proTenderDetailsService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderDetailsInputVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderDetailsOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProTenderDetails model = await _proTenderDetailsService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderDetailsInputVM>(model));
+            return Ok(_mapper.Map<ProTenderDetailsOutputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsInputVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
         {
             PaginatedResultUnMapped<ProTenderDetails> unmappedResult =
                 _proTenderDetailsService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProTenderDetailsInputVM> mappedResult = new()
+            PaginatedResult<ProTenderDetailsOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderDetailsInputVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProTenderDetailsOutputVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,
