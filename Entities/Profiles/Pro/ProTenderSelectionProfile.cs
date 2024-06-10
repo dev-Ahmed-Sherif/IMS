@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Profiles
+namespace Entities.Profiles.Pro
 {
     public class ProTenderSelectionProfile : Profile
     {
         public ProTenderSelectionProfile()
         {
             CreateMap<ProTenderSelection, ProTenderSelectionOutputVM>()
+                 .ForMember(dest => dest.TenderDetailsName, cfg => cfg.MapFrom(src => src.TenderDetails.Name))
+               
                 .ReverseMap();
         }
     }

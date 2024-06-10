@@ -2,7 +2,7 @@
 using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
 
-namespace Entities.Profiles
+namespace Entities.Profiles.Pro
 {
     public class ProTenderDetailsProfile : Profile
     {
