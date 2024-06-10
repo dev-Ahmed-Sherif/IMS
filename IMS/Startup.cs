@@ -76,7 +76,6 @@ namespace IMS
                     };
                 });
             services.AddAuthorization();
-            services.AddTransient<FiNewAccountsCodes>();
             services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
