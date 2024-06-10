@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProPurchaseOrderDetailsViewModels
+namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
 {
-    public class ProPurchaseOrderDetailsGeneralVM : BaseViewModel
+    public class ProTenderSellerReqInputVM : BaseViewModel
     {
         [Required]
-        public int PurchaseOrderId { get; set; }
+        public int TenderId { get; set; }
         [Required]
-        public int TenderDetailsId { get; set; }
+        public int SellerId { get; set; }
         [Required]
-        public int QuotationDetailsId { get; set; }
-        [MaxLength(250)]
+        public DateTime SendDate { get; set; }
+        [Required, MaxLength(50)]
+        public string SendType { get; set; }
+        [MaxLength(50)]
         public string Notes { get; set; }
     }
+  
 }

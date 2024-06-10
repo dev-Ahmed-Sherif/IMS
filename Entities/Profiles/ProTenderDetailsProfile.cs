@@ -8,7 +8,7 @@ namespace Entities.Profiles
     {
         public ProTenderDetailsProfile()
         {
-            CreateMap<ProTenderDetails, ProTenderDetailsGeneralVM>()
+            CreateMap<ProTenderDetails, ProTenderDetailsInputVM>()
                 .ReverseMap();
         }
     }

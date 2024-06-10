@@ -25,24 +25,24 @@ namespace IMS.Controllers.PR
             _proTenderDetailsService = proTenderDetailsService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderDetailsGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderDetailsInputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             ProTenderDetails model = await _proTenderDetailsService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderDetailsGeneralVM>(model));
+            return Ok(_mapper.Map<ProTenderDetailsInputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsGeneralVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsInputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
         {
             PaginatedResultUnMapped<ProTenderDetails> unmappedResult =
                 _proTenderDetailsService
                 .GetFilteredPaginated(pagination, filter);
-            PaginatedResult<ProTenderDetailsGeneralVM> mappedResult = new()
+            PaginatedResult<ProTenderDetailsInputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderDetailsGeneralVM>(unmappedResult.Items).ToListAsync(),
+                Items = await _mapper.ProjectTo<ProTenderDetailsInputVM>(unmappedResult.Items).ToListAsync(),
                 Page = unmappedResult.Page,
                 PageSize = unmappedResult.PageSize,
                 TotalItems = unmappedResult.TotalItems,
@@ -52,7 +52,7 @@ namespace IMS.Controllers.PR
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProTenderDetailsGeneralVM input)
+        public async Task<IActionResult> Add(ProTenderDetailsInputVM input)
         {
             ProTenderDetails model = _mapper.Map<ProTenderDetails>(input);
             int rowsAffected = await _proTenderDetailsService.Add(model);
@@ -63,7 +63,7 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderDetailsGeneralVM input)
+        public async Task<IActionResult> Update(ProTenderDetailsInputVM input)
         {
 
             ProTenderDetails model = await _proTenderDetailsService.GetById(input.Id);

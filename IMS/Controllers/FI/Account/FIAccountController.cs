@@ -143,6 +143,11 @@ namespace IMS.Controllers.FI.Account
         //{
         //    return Ok(await _FiAccountService.GetFixedAssetsFinancialCenterData(fiscalYearId));
         //}
+        [HttpGet("AccountBalances")]
+        public async Task<IActionResult> GetAccountBalances([FromQuery] FiAccountBalancesFilter filter)
+        {
+            return Ok(await _FiAccountService.GetAccountBalances(filter));
+        }
         //[HttpGet("Test")]
         //public IActionResult Test()
         //{
