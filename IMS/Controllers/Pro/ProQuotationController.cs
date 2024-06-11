@@ -51,7 +51,7 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProQuotationInputVM input)
+        public async Task<IActionResult> Add([FromForm] ProQuotationInputVM input)
         {
             ProQuotation model = _mapper.Map<ProQuotation>(input);
             int rowsAffected = await _ProQuotationService.Add(model);
@@ -62,7 +62,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProQuotationInputVM input)
+        public async Task<IActionResult> Update([FromForm] ProQuotationInputVM input)
         {
             ProQuotation model = await _ProQuotationService.GetById(input.Id);
             if (model == null) return NotFound();
