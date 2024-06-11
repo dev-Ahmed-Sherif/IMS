@@ -16,12 +16,8 @@ namespace Entities.Profiles.Pro
     {
         public ProQuotationProfile()
         {
-            CreateMap<ProQuotation, ProQuotationOutputVM>()
-             .ForMember(dest => dest.SellerName, cfg => cfg.MapFrom(src => src.Seller.Name))
-             .ForMember(dest => dest.TenderName, cfg => cfg.MapFrom(src => src.Tender.Name))
-            .ForMember(dest => dest.ReceiveTypeName, cfg => cfg.MapFrom(src => src.ReceiveType.Name));
+            CreateMap<ProQuotation, ProQuotationOutputVM>();
             CreateMap<ProQuotationInputVM, ProQuotation>()
-
                 .AfterMap<ProQuotationInputMapping>();
         }
         public class ProQuotationInputMapping : IMappingAction<ProQuotationInputVM, ProQuotation>
