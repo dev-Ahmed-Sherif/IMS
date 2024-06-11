@@ -18,6 +18,7 @@ using static System.Collections.Specialized.BitVector32;
 using Microsoft.Identity.Client;
 using System.Security.Principal;
 using Microsoft.Extensions.Options;
+using Entities.ViewModels;
 
 namespace DAL.FI.Account
 {
@@ -686,9 +687,9 @@ namespace DAL.FI.Account
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
-             // Old Tree
-             //List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
-            
+            // Old Tree
+            //List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
+
             // New Tree
             List<string> ChangeInOwnersEquityAccountsCodes =
                 [
@@ -1004,7 +1005,13 @@ namespace DAL.FI.Account
             return details.ToList();
 
         }
-
+        public async Task<List<Part1ViewModel>> GetPart1ViewData()
+        {
+            return await _context.Database.SqlQueryRaw<Part1ViewModel>("SELECT * FROM VW_ACC_Balance_Part1").ToListAsync();
+        }public async Task<List<Part2ViewModel>> GetPart2ViewData()
+        {
+            return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_ACC_Balance_Part2").ToListAsync();
+        }
     }
 
 }
