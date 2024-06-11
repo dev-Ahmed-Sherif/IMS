@@ -780,7 +780,6 @@ namespace DAL.FI.Account
             DateTime prevStartDate = startDate.AddYears(-1);
             DateTime prevEndDate = endDate.AddYears(-1);
 
-
             List<FiAccount> fixedAssetsAccounts =
                 await
                 _context
@@ -816,8 +815,9 @@ namespace DAL.FI.Account
 
             foreach (FiAccount account in fixedAssetsAccounts)
             {
+                
                 var DepreciationAccountCode = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
-                var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit-e.Credit).FirstOrDefault();
+                var FirstEntry = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit-e.Credit).FirstOrDefault();
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
                     AccumulatedDepreciation = Math.Round((from fiEntryDetails in _context.FiEntryDetails
@@ -849,7 +849,7 @@ namespace DAL.FI.Account
                                         where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id
                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)),
 
-                    PrevFixedAssetNetValue = depit != 0 ? depit
+                    PrevFixedAssetNetValue = FirstEntry != 0 ? FirstEntry
                               : Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                                             from fiEntry in entryGroup.DefaultIfEmpty()

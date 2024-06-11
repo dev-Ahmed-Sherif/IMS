@@ -301,8 +301,8 @@ namespace Business.FI.Account
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
                         FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+                        #region Old Tree
 
-                        // Old Tree
                         List<string> SumofAssets = new List<string> { "1" };
                         List<string> SumofPropertyRightsAndObligations = new List<string> { "2" };
                         // Non - Current Fixed Assets Filter
@@ -475,14 +475,67 @@ namespace Business.FI.Account
                             "273",
                             "2899"
                         };
-                        List<string> Payment = new List<string>
-                        {
-                            "3"
-                        };
-                        List<string> Income = new List<string>
-                        {
-                            "4"
-                        };
+                        List<string> Payment = new List<string>{"3"};
+                        List<string> Income = new List<string> {"4"};
+                        #endregion
+                        #region New Tree
+                        //SumofAssets = new List<string> { _fiAccountsCodes.الأصول_1 };
+                        List<string> SumofNonCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_غير_المتداولة_11 };
+                        List<string> SumofCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_المتداولة_12 };
+                        List<string> SumofPropertyRights = new List<string> { _fiAccountsCodes.حقوق_الملكية_2 };
+                        List<string> SumofObligations = new List<string> { _fiAccountsCodes.الالتزامات_3 };
+                        List<string> SumofNonCurrentObligations = new List<string> { _fiAccountsCodes.الالتزامات_غير_المتداولة_31 };
+                        List<string> SumofCurrentObligations = new List<string> { _fiAccountsCodes.الألتزامات_المتداولة_32 };
+
+                        //NonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    _fiAccountsCodes.تكوين_استثمارى_بالصافى_1121,
+                        //   _fiAccountsCodes.إنفاق_استثمارى_بالصافى_1122,
+                        //};
+                        //SumNonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    _fiAccountsCodes.المشروعات_تحت_التنفيذ_112
+                        //};
+                        //NonCurrentAssetsSecond = new List<string>
+                        //{ 
+                        //    _fiAccountsCodes.استثمارات_عقارية_1141,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_شركات_تابعة_1142,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_شركات_شقيقة_1143,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_مشروعات_مشتركة_1144,
+                        //    _fiAccountsCodes.استثمارات_مالية_غير_متداولة_أخرى_بالصافى_1145
+                        //};
+                        //NonCurrentAssetsThird = new List<string>
+                        //{
+                        //    _fiAccountsCodes.الأستثمارات_غير_المتداولة_114
+                        //};
+                        //NonCurrentAssetsFourth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.العملاء_وأوراق_القبض_والحسابات_المدينة_غير_المتداولة_115
+                        //};
+                        //NonCurrentAssetsFifth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.حسابات_مدينة_غير_متداولة_لدى_أطراف_ذوى_علاقة_بالصافى_1153,
+                        //    _fiAccountsCodes.قروض_غير_متداولة_من_أطراف_ذوى_علاقة_3111
+                        //};
+                        // Sixth = Fourth - Fifth
+                        //NonCurrentAssetsSixth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.العملاء_وأوراق_القبض_والحسابات_المدينة_غير_المتداولة_115
+                        //};
+                        //CurrentAssetsSeventh = new List<string>
+                        //{
+                        //    _fiAccountsCodes.قروض_لجهات_أخرى_بالصافى_1162
+                        //};
+                        //CurrentAssetsEighth = new List<string>
+                        //{
+                        //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_تامة_بالصافى_1171,
+                        //   _fiAccountsCodes.أصول_مستأجرة_حق_انتفاع_تحت_التنفيذ_بالصافى_1172
+                        //};
+                        //CurrentAssetsNinth = new List<string>
+                        //{
+                        //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_التامة_وتحت_التنفيذ_117
+                        //};
+                        #endregion
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             FIAccountREAdd.Add(FIAccountRE[i]);
