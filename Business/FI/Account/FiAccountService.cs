@@ -301,6 +301,8 @@ namespace Business.FI.Account
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
                         FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+
+                        // Old Tree
                         List<string> SumofAssets = new List<string> { "1" };
                         List<string> SumofPropertyRightsAndObligations = new List<string> { "2" };
                         // Non - Current Fixed Assets Filter
@@ -1313,19 +1315,19 @@ namespace Business.FI.Account
                             }
                         }
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "equityCapital", Value = equityCapital });
-                        report.DataSources.Add(new ReportDataSource() { Name = "legalReserve", Value = stageProfitsAndLosses });
-                        report.DataSources.Add(new ReportDataSource() { Name = "regularReserve", Value = treasuryShares });
-                        report.DataSources.Add(new ReportDataSource() { Name = "capitalReserve", Value = precautions });
-                        report.DataSources.Add(new ReportDataSource() { Name = "otherReserve", Value = equityCapital });
-                        report.DataSources.Add(new ReportDataSource() { Name = "precautions", Value = stageProfitsAndLosses });
-                        report.DataSources.Add(new ReportDataSource() { Name = "stageProfitsAndLosses", Value = treasuryShares });
-                        report.DataSources.Add(new ReportDataSource() { Name = "comprehensiveIncomeToProfitOrLosse", Value = precautions });
-                        report.DataSources.Add(new ReportDataSource() { Name = "comprehensiveIncomeNotToProfitOrLosse", Value = equityCapital });
-                        report.DataSources.Add(new ReportDataSource() { Name = "share_basedPayments", Value = stageProfitsAndLosses });
-                        report.DataSources.Add(new ReportDataSource() { Name = "debtInstrumentsToStocks", Value = treasuryShares });
-                        report.DataSources.Add(new ReportDataSource() { Name = "treasuryShares", Value = precautions });
-                        report.DataSources.Add(new ReportDataSource() { Name = "propertyRights", Value = equityCapital });
+                        report.DataSources.Add(new ReportDataSource() { Name = "EquityCapital", Value = equityCapital });
+                        report.DataSources.Add(new ReportDataSource() { Name = "LegalReserve", Value = legalReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RegularReserve", Value = regularReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CapitalReserve", Value = capitalReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "OtherReserve", Value = otherReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Precautions", Value = precautions });
+                        report.DataSources.Add(new ReportDataSource() { Name = "StageProfitsAndLosses", Value = stageProfitsAndLosses });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ComprehensiveIncomeToProfitOrLosse", Value = comprehensiveIncomeToProfitOrLosse });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ComprehensiveIncomeNotToProfitOrLosse", Value = comprehensiveIncomeNotToProfitOrLosse });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Share_basedPayments", Value = share_basedPayments });
+                        report.DataSources.Add(new ReportDataSource() { Name = "DebtInstrumentsToStocks", Value = debtInstrumentsToStocks });
+                        report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRights", Value = propertyRights });
                     }
                     break;
                 case "AccountCashFlowsReport":

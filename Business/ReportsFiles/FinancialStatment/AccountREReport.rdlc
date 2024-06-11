@@ -7140,7 +7140,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=First(Fields!AccountNet.Value, "CurrentAssetsSecond") - 
+                              <Value>=First(Fields!AccountNet.Value, "CurrentAssetsSecond") +
  First(Fields!AccountNet.Value, "CurrentAssetsThird")</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
@@ -7233,7 +7233,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=First(Fields!PrevAccountNet.Value, "CurrentAssetsSecond") - 
+                              <Value>=First(Fields!PrevAccountNet.Value, "CurrentAssetsSecond") + 
  First(Fields!PrevAccountNet.Value, "CurrentAssetsThird") +
  First(Fields!PrevAccountNet.Value, "CurrentAssetsFourth")</Value>
                               <Style>
@@ -7355,7 +7355,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "Black","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!Code.Value.ToString.Length = 1, "0", IIf(Fields!Code.Value.ToString.Length = 2, "0", IIf(Fields!Code.Value.ToString.Length = 3, Fields!AccountNet.Value, Fields!AccountNet.Value)))</Value>
+                              <Value />
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -7394,7 +7394,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=First(Fields!AccountNet.Value, "CurrentAssetsSecond") - 
+                              <Value>=First(Fields!AccountNet.Value, "CurrentAssetsSecond") + 
  First(Fields!AccountNet.Value, "CurrentAssetsThird") +
  First(Fields!AccountNet.Value, "CurrentAssetsFourth")</Value>
                               <Style>
