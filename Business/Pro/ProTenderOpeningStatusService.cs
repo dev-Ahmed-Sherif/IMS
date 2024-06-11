@@ -19,10 +19,9 @@ namespace Business.Pro
             _repository = repository;
         }
 
-        public PaginatedResultUnMapped<ProTenderOpeningStatus> GetFilteredPaginated(PaginationInputViewModel pagination, ProTenderOpeningStatusFilter filter)
+        public IQueryable<ProTenderOpeningStatus> GetFiltered(ProTenderOpeningStatusFilter filter)
         {
-            IQueryable<ProTenderOpeningStatus> filteredSet = _repository.Filter(filter);
-            return filteredSet.ToPaginatedResultUnMapped(pagination);
+            return _repository.Filter(filter);
         }
     }
 }

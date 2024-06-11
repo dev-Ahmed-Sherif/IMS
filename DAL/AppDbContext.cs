@@ -359,6 +359,31 @@ namespace DAL
 
             modelBuilder.Entity<ProTenderDetails>()
                 .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProPurchaseOrderDetails>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProPurchaseOrder>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProQuotation>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProQuotationDetails>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderCommittee>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderCommitteeRole>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderOpening>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderOpeningStatus>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderSelection>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderSellerReq>()
+                .HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<ProTenderSellerReqSendType>()
+                .HasQueryFilter(e => !e.IsDeleted);
+
+            modelBuilder.Entity<ProTender>()
+                .HasQueryFilter(e => !e.IsDeleted);
 
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
