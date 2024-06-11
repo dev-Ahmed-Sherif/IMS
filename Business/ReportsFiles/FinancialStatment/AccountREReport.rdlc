@@ -578,8 +578,8 @@
         <DataSetName>VW_ACC_Balance_Part1</DataSetName>
         <Top>0.1189cm</Top>
         <Left>0.3175cm</Left>
-        <Height>1.48939cm</Height>
-        <Width>20.15996cm</Width>
+        <Height>1.48938cm</Height>
+        <Width>20.15995cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -3079,7 +3079,6 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                     <FontFamily>arial</FontFamily>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>#1b77a3</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -3089,14 +3088,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.00224cm</Top>
-          <Left>8.11789cm</Left>
+          <Top>0.68474cm</Top>
+          <Left>6.82525cm</Left>
           <Height>0.73457cm</Height>
-          <Width>7.74885cm</Width>
+          <Width>9.95768cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Double</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
