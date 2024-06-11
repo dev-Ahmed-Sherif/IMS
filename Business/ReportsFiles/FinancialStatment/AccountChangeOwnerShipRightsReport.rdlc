@@ -252,7 +252,7 @@
                               <Value>الرصيد فى بداية الفترة السابقة</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -649,10 +649,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value> الرصيد فى نهاية الفترة السابقة</Value>
+                              <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>الرصيد فى نهاية الفترة السابقة</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1115,7 +1123,7 @@
                               <Value>الرصيد فى نهاية الفترة الحالية</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1173,11 +1181,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>equityCapital</DataSetName>
+        <DataSetName>EquityCapital</DataSetName>
         <Top>0.51258cm</Top>
         <Left>24.29432cm</Left>
-        <Height>17.79003cm</Height>
-        <Width>5.10622cm</Width>
+        <Height>17.79004cm</Height>
+        <Width>5.10621cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1759,10 +1767,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>stageProfitsAndLosses</DataSetName>
+        <DataSetName>StageProfitsAndLosses</DataSetName>
         <Top>0.51258cm</Top>
         <Left>13.76018cm</Left>
-        <Height>17.79003cm</Height>
+        <Height>17.79005cm</Height>
         <Width>1.7809cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -2345,10 +2353,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>legalReserve</DataSetName>
+        <DataSetName>LegalReserve</DataSetName>
         <Top>1.37795cm</Top>
         <Left>22.4598cm</Left>
-        <Height>16.92466cm</Height>
+        <Height>16.92467cm</Height>
         <Width>1.83451cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -2969,10 +2977,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>regularReserve</DataSetName>
+        <DataSetName>RegularReserve</DataSetName>
         <Top>1.37795cm</Top>
         <Left>20.80786cm</Left>
-        <Height>16.92466cm</Height>
+        <Height>16.92467cm</Height>
         <Width>1.65195cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
@@ -3555,10 +3563,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>capitalReserve</DataSetName>
+        <DataSetName>CapitalReserve</DataSetName>
         <Top>1.37796cm</Top>
         <Left>18.94952cm</Left>
-        <Height>16.92465cm</Height>
+        <Height>16.92466cm</Height>
         <Width>1.85833cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
@@ -4141,10 +4149,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>otherReserve</DataSetName>
+        <DataSetName>OtherReserve</DataSetName>
         <Top>1.37796cm</Top>
         <Left>17.20035cm</Left>
-        <Height>16.92465cm</Height>
+        <Height>16.92466cm</Height>
         <Width>1.74918cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
@@ -4727,10 +4735,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>precautions</DataSetName>
+        <DataSetName>Precautions</DataSetName>
         <Top>1.37795cm</Top>
         <Left>15.54108cm</Left>
-        <Height>16.92466cm</Height>
+        <Height>16.92467cm</Height>
         <Width>1.65927cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -5313,10 +5321,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>comprehensiveIncomeToProfitOrLosse</DataSetName>
+        <DataSetName>ComprehensiveIncomeToProfitOrLosse</DataSetName>
         <Top>0.51258cm</Top>
         <Left>11.82528cm</Left>
-        <Height>17.79003cm</Height>
+        <Height>17.79004cm</Height>
         <Width>1.9349cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
@@ -5899,10 +5907,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>comprehensiveIncomeNotToProfitOrLosse</DataSetName>
+        <DataSetName>ComprehensiveIncomeNotToProfitOrLosse</DataSetName>
         <Top>0.51258cm</Top>
         <Left>10.00847cm</Left>
-        <Height>17.79003cm</Height>
+        <Height>17.79004cm</Height>
         <Width>1.81681cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
@@ -6485,7 +6493,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>share_basedPayments</DataSetName>
+        <DataSetName>Share_basedPayments</DataSetName>
         <Top>0.51258cm</Top>
         <Left>8.14951cm</Left>
         <Height>17.79003cm</Height>
@@ -7071,7 +7079,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>debtInstrumentsToStocks</DataSetName>
+        <DataSetName>DebtInstrumentsToStocks</DataSetName>
         <Top>0.51258cm</Top>
         <Left>6.01177cm</Left>
         <Height>17.79003cm</Height>
@@ -7673,10 +7681,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>treasuryShares</DataSetName>
+        <DataSetName>TreasuryShares</DataSetName>
         <Top>0.51258cm</Top>
         <Left>4.23562cm</Left>
-        <Height>17.79003cm</Height>
+        <Height>17.79004cm</Height>
         <Width>1.77615cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
@@ -8259,10 +8267,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>regularReserve</DataSetName>
+        <DataSetName>RegularReserve</DataSetName>
         <Top>0.51258cm</Top>
         <Left>2.36782cm</Left>
-        <Height>17.79003cm</Height>
+        <Height>17.79004cm</Height>
         <Width>1.86781cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
@@ -8845,10 +8853,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>propertyRights</DataSetName>
+        <DataSetName>PropertyRights</DataSetName>
         <Top>0.49501cm</Top>
         <Left>0.3175cm</Left>
-        <Height>17.78211cm</Height>
+        <Height>17.78213cm</Height>
         <Width>2.05032cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
@@ -9346,7 +9354,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="equityCapital">
+    <DataSet Name="EquityCapital">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9434,7 +9442,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="legalReserve">
+    <DataSet Name="LegalReserve">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9522,7 +9530,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="regularReserve">
+    <DataSet Name="RegularReserve">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9610,7 +9618,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="capitalReserve">
+    <DataSet Name="CapitalReserve">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9698,7 +9706,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="otherReserve">
+    <DataSet Name="OtherReserve">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9786,7 +9794,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="precautions">
+    <DataSet Name="Precautions">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9874,7 +9882,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="stageProfitsAndLosses">
+    <DataSet Name="StageProfitsAndLosses">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -9962,7 +9970,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="comprehensiveIncomeToProfitOrLosse">
+    <DataSet Name="ComprehensiveIncomeToProfitOrLosse">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -10050,7 +10058,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="comprehensiveIncomeNotToProfitOrLosse">
+    <DataSet Name="ComprehensiveIncomeNotToProfitOrLosse">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -10138,7 +10146,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="share_basedPayments">
+    <DataSet Name="Share_basedPayments">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -10226,7 +10234,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="debtInstrumentsToStocks">
+    <DataSet Name="DebtInstrumentsToStocks">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -10314,7 +10322,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="treasuryShares">
+    <DataSet Name="TreasuryShares">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -10402,7 +10410,7 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="propertyRights">
+    <DataSet Name="PropertyRights">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
