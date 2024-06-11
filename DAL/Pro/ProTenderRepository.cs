@@ -1,9 +1,14 @@
-﻿using Entities.Models.Pro;
+﻿using Entities.ExtensionMethods;
+using Entities.Models.Pro;
+using Entities.ViewModels.FI.General;
 using Entities.ViewModels.Pro;
+using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Entities.ExtensionMethods;
+using Entities.ExtensionMethods.Pro;
 
 namespace DAL.Pro
 {
@@ -332,6 +337,15 @@ namespace DAL.Pro
             return maxNo.ToString();
 
 
+        }
+
+        public PaginatedResult<ProTenderGetVM> GetAllByPagination(int page, int pageSize)
+        {
+            var totalCount = _context.ProTender;
+            var Item = _context.ProTender
+                .OrderByDescending(Item => Item.CreationDate);
+                
+            return Item.ToPaginatedResult(page, pageSize, e => e.ToProTenderVM());
         }
 
     }
