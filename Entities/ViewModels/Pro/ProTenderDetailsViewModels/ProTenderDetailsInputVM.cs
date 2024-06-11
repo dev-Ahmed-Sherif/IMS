@@ -11,12 +11,10 @@ namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
 {
     public class ProTenderDetailsInputVM : BaseViewModel
     {
-        [Required,MaxLength(50)]
+        [Required, MaxLength(50)]
         public string Name { get; set; }
         [Required]
         public int TenderId { get; set; }
-        [Required, MaxLength(50)]
-        public string Item { get; set; }
         [Required]
         public decimal Qty { get; set; }
         [Required]

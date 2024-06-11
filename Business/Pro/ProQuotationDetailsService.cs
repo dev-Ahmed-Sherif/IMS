@@ -22,10 +22,9 @@ namespace Business.Pro
             _repository = repository;
         }
 
-        public PaginatedResultUnMapped<ProQuotationDetails> GetFilteredPaginated(PaginationInputViewModel pagination, ProQuotationDetailsFilter filter)
+        public IQueryable<ProQuotationDetails> GetFiltered(ProQuotationDetailsFilter filter)
         {
-            IQueryable<ProQuotationDetails> filteredSet = _repository.Filter(filter);
-            return filteredSet.ToPaginatedResultUnMapped(pagination);
+            return _repository.Filter(filter);
         }
     }
 }

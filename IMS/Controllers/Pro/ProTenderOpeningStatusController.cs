@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Entities.ViewModels.Pro.ProTenderOpeningStatusViewModels;
+using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using System.Linq;
+using Entities.ExtensionMethods;
 
 namespace IMS.Controllers.Pro
 {
@@ -37,15 +40,16 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProTenderOpeningStatusGeneralVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderOpeningStatusFilter filter)
         {
-            PaginatedResultUnMapped<ProTenderOpeningStatus> unmappedResult =
-                _proTenderOpeningStatusService
-                .GetFilteredPaginated(pagination, filter);
+            IQueryable<ProTenderOpeningStatus> items = _proTenderOpeningStatusService.GetFiltered(filter); ;
+            IQueryable<ProTenderOpeningStatusGeneralVM> result =
+                _mapper.ProjectTo<ProTenderOpeningStatusGeneralVM>(items);
+
             PaginatedResult<ProTenderOpeningStatusGeneralVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderOpeningStatusGeneralVM>(unmappedResult.Items).ToListAsync(),
-                Page = unmappedResult.Page,
-                PageSize = unmappedResult.PageSize,
-                TotalItems = unmappedResult.TotalItems,
+                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Page = pagination.Index,
+                PageSize = pagination.Size,
+                TotalItems = await result.CountAsync(),
             };
             return Ok(mappedResult);
         }

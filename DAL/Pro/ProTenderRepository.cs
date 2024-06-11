@@ -1,9 +1,14 @@
-﻿using Entities.Models.Pro;
+﻿using Entities.ExtensionMethods;
+using Entities.Models.Pro;
+using Entities.ViewModels.FI.General;
 using Entities.ViewModels.Pro;
+using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Entities.ExtensionMethods;
+using Entities.ExtensionMethods.Pro;
 
 namespace DAL.Pro
 {
@@ -18,75 +23,75 @@ namespace DAL.Pro
         //add function
         public string Add(ProTenderGeneralVM add)
         {
-            
-                var _add = new ProTender()
-                {
 
-                    Name = add.Name,
-                    Description = add.Description,
-                    Code = add.Code,
-                    Date = add.Date,
-                    CityStateId = add.CityStateId,
-                    OperationTypeId = add.OperationTypeId,
-                    TenderTypeId = add.TenderTypeId,
-                    Value = add.Value,
-                    PlanTypeId = add.PlanTypeId,
-                    Period = add.Period,
-                    TORValue = add.TORValue,
-                    TenderBondValue = add.TenderBondValue,
-                    TechnicalOpeningDate = add.TechnicalOpeningDate,
-                    TechnicalSelectionDate = add.TechnicalSelectionDate,
-                    FinancialOpeningDate = add.FinancialOpeningDate,
-                    FinancialSelectionDate = add.FinancialSelectionDate,
-                    EstimatingValue = add.EstimatingValue,
-                    AwardValue = add.AwardValue,
-                    AwardLetterDate = add.AwardLetterDate,
-                    WorkOrderDate = add.WorkOrderDate,
-                    DeliveryDate = add.DeliveryDate,
-                    CreatedByID = add.TransactionUserId,
-                    CreationDate = DateTime.Now
+            var _add = new ProTender()
+            {
+
+                Name = add.Name,
+                Description = add.Description,
+                Code = add.Code,
+                Date = add.Date,
+                CityStateId = add.CityStateId,
+                OperationTypeId = add.OperationTypeId,
+                TenderTypeId = add.TenderTypeId,
+                Value = add.Value,
+                PlanTypeId = add.PlanTypeId,
+                Period = add.Period,
+                TORValue = add.TORValue,
+                TenderBondValue = add.TenderBondValue,
+                TechnicalOpeningDate = add.TechnicalOpeningDate,
+                TechnicalSelectionDate = add.TechnicalSelectionDate,
+                FinancialOpeningDate = add.FinancialOpeningDate,
+                FinancialSelectionDate = add.FinancialSelectionDate,
+                EstimatingValue = add.EstimatingValue,
+                AwardValue = add.AwardValue,
+                AwardLetterDate = add.AwardLetterDate,
+                WorkOrderDate = add.WorkOrderDate,
+                DeliveryDate = add.DeliveryDate,
+                CreatedByID = add.TransactionUserId,
+                CreationDate = DateTime.Now
 
 
-                };
-                _context.ProTender.Add(_add);
-                _context.SaveChanges();
-                return _add.Id.ToString();
-            
+            };
+            _context.ProTender.Add(_add);
+            _context.SaveChanges();
+            return _add.Id.ToString();
+
         }
         //-----------------------------------------------
         //update function
         public string Update(ProTenderVM update)
         {
-           
-                var _update = _context.ProTender.Single(n => n.Id == update.Id);
-               
-                    _update.Name = update.Name;
-                    _update.Description = update.Description;
-                    _update.Code = update.Code;
-                    _update.Date = update.Date;
-                    _update.CityStateId = update.CityStateId;
-                    _update.OperationTypeId = update.OperationTypeId;
-                    _update.TenderTypeId = update.TenderTypeId;
-                    _update.Value = update.Value;
-                    _update.PlanTypeId = update.PlanTypeId;
-                    _update.Period = update.Period;
-                    _update.TORValue = update.TORValue;
-                    _update.TenderBondValue = update.TenderBondValue;
-                    _update.TechnicalOpeningDate = update.TechnicalOpeningDate;
-                    _update.TechnicalSelectionDate = update.TechnicalSelectionDate;
-                    _update.FinancialOpeningDate = update.FinancialOpeningDate;
-                    _update.FinancialSelectionDate = update.FinancialSelectionDate;
-                    _update.EstimatingValue = update.EstimatingValue;
-                    _update.AwardValue = update.AwardValue;
-                    _update.AwardLetterDate = update.AwardLetterDate;
-                    _update.WorkOrderDate = update.WorkOrderDate;
-                    _update.DeliveryDate = update.DeliveryDate;
-                    _update.UpdateByID = update.TransactionUserId;
-                    _update.CreationDate = DateTime.Now;
 
-                    _context.SaveChanges();
-                    return "Succeeded";
-              
+            var _update = _context.ProTender.Single(n => n.Id == update.Id);
+
+            _update.Name = update.Name;
+            _update.Description = update.Description;
+            _update.Code = update.Code;
+            _update.Date = update.Date;
+            _update.CityStateId = update.CityStateId;
+            _update.OperationTypeId = update.OperationTypeId;
+            _update.TenderTypeId = update.TenderTypeId;
+            _update.Value = update.Value;
+            _update.PlanTypeId = update.PlanTypeId;
+            _update.Period = update.Period;
+            _update.TORValue = update.TORValue;
+            _update.TenderBondValue = update.TenderBondValue;
+            _update.TechnicalOpeningDate = update.TechnicalOpeningDate;
+            _update.TechnicalSelectionDate = update.TechnicalSelectionDate;
+            _update.FinancialOpeningDate = update.FinancialOpeningDate;
+            _update.FinancialSelectionDate = update.FinancialSelectionDate;
+            _update.EstimatingValue = update.EstimatingValue;
+            _update.AwardValue = update.AwardValue;
+            _update.AwardLetterDate = update.AwardLetterDate;
+            _update.WorkOrderDate = update.WorkOrderDate;
+            _update.DeliveryDate = update.DeliveryDate;
+            _update.UpdateByID = update.TransactionUserId;
+            _update.CreationDate = DateTime.Now;
+
+            _context.SaveChanges();
+            return "Succeeded";
+
         }
         //--------------------------------------------
         //delete function
@@ -98,7 +103,8 @@ namespace DAL.Pro
                 var _Row = _context.ProTender.FirstOrDefault(n => n.Id == ID);
                 if (_Row != null)
                 {
-                    _context.ProTender.Remove(_Row);
+                    _Row.IsDeleted = true;
+                    _context.ProTender.Update(_Row);
                     _context.SaveChanges();
                     return "Succeeded";
                 }
@@ -332,6 +338,15 @@ namespace DAL.Pro
             return maxNo.ToString();
 
 
+        }
+
+        public PaginatedResult<ProTenderGetVM> GetAllByPagination(int page, int pageSize)
+        {
+            var totalCount = _context.ProTender;
+            var Item = _context.ProTender
+                .OrderByDescending(Item => Item.CreationDate);
+
+            return Item.ToPaginatedResult(page, pageSize, e => e.ToProTenderVM());
         }
 
     }

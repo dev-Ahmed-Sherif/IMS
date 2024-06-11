@@ -47,7 +47,7 @@ namespace Business
         {
             return await _repository.GetById(id);
         }
-        virtual  public PaginatedResultUnMapped<T> GetPaginated(PaginationInputViewModel pagination)
+        virtual public IQueryable<T> GetPaginated(PaginationInputViewModel pagination)
         {
             return _repository.GetAll().ToPaginatedResultUnMapped(pagination);
         }

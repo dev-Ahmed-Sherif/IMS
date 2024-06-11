@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Entities.ExtensionMethods;
+using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
 
 namespace IMS.Controllers.Pro
 {
@@ -36,15 +39,16 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProPurchaseOrderOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProPurchaseOrderFilter filter)
         {
-            PaginatedResultUnMapped<ProPurchaseOrder> unmappedResult =
-                _ProPurchaseOrderService
-                .GetFilteredPaginated(pagination, filter);
+            IQueryable<ProPurchaseOrder> items = _ProPurchaseOrderService.GetFiltered(filter);
+            IQueryable<ProPurchaseOrderOutputVM> result =
+                _mapper.ProjectTo<ProPurchaseOrderOutputVM>(items);
+
             PaginatedResult<ProPurchaseOrderOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProPurchaseOrderOutputVM>(unmappedResult.Items).ToListAsync(),
-                Page = unmappedResult.Page,
-                PageSize = unmappedResult.PageSize,
-                TotalItems = unmappedResult.TotalItems,
+                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Page = pagination.Index,
+                PageSize = pagination.Size,
+                TotalItems = await result.CountAsync(),
             };
             return Ok(mappedResult);
         }
