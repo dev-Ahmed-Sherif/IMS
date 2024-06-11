@@ -10,11 +10,17 @@ using Microsoft.Reporting.NETCore;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Reporting.NETCore;
+using System.Data;
+using System.Data.SqlClient;
 using static DAL.FI.Account.FiAccountRepository;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.ReportingServices.Diagnostics.Internal;
 
 namespace Business.FI.Account
 {
@@ -592,7 +598,20 @@ namespace Business.FI.Account
                                 }
                             }
                         }
+                        //var connectionString = "your-database-connection-string";
 
+                        //using (var connection = new SqlConnection(connectionString))
+                        //{
+                        //    // Create a command to retrieve data from the view
+                        //    var command = new SqlCommand("SELECT * FROM vw_Part1", connection);
+                        //    var adapter = new SqlDataAdapter(command);
+                        //    var dataSet = new System.Data.DataSet();
+                        //    adapter.Fill(dataSet, "Part1");
+
+                        //    // Add the dataset to the report
+                        //    var reportDataSource = new ReportDataSource("Part1", dataSet.Tables["Part1"]);
+                        //    reportViewer.DataSources.Add(reportDataSource);
+                        //}
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = restofAsstsArray });
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRECount", Value = restofAsstsCountArray });

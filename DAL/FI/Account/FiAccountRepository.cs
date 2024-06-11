@@ -342,7 +342,7 @@ namespace DAL.FI.Account
             DateTime endDate = fiscalYear.EndDate;
             DateTime prevStartDate = startDate.AddYears(-1);
             DateTime prevEndDate = endDate.AddYears(-1);
-
+            var x = _context.Database.SqlQueryRaw<dynamic>("SELECT Code, Name, NetBasedOnDebit, Stale, Net FROM VW_ACC_Balance_Part1").ToList();
 
             if (codeLength != 0)
             {

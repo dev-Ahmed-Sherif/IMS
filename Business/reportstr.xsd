@@ -2,12 +2,35 @@
 <xs:schema id="reportstr" targetNamespace="http://tempuri.org/reportstr.xsd" xmlns:mstns="http://tempuri.org/reportstr.xsd" xmlns="http://tempuri.org/reportstr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection ConnectionStringObject="Data Source=API2;Initial Catalog=IMS;User ID=Hussien;Password=P@$$w0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="IMSConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
           <Connection ConnectionStringObject="Data Source=BWSSD9\SQLEXPRESS;Initial Catalog=IMS;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="IMSConnectionString1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;Persist Security Info=True;User ID=Hussien;Password=P@$$w0rd;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="api2.IMS-Nazem.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
-        <Tables />
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Part1TableAdapter" GeneratorDataComponentClassName="Part1TableAdapter" Name="Part1" UserDataComponentName="Part1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="api2.IMS-Nazem.dbo" DbObjectName="[IMS-Nazem].dbo.VW_ACC_Balance_Part1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Code, Name, NetBasedOnDebit, Stale, Net
+FROM            VW_ACC_Balance_Part1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="NetBasedOnDebit" DataSetColumn="NetBasedOnDebit" />
+              <Mapping SourceColumn="Stale" DataSetColumn="Stale" />
+              <Mapping SourceColumn="Net" DataSetColumn="Net" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -787,6 +810,10 @@
               <xs:element name="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_UserColumnName="ReportDate" msprop:Generator_ColumnVarNameInTable="columnReportDate" type="xs:string" minOccurs="0" />
               <xs:element name="Section" msprop:Generator_ColumnPropNameInTable="SectionColumn" msprop:Generator_ColumnPropNameInRow="Section" msprop:Generator_UserColumnName="Section" msprop:Generator_ColumnVarNameInTable="columnSection" type="xs:string" minOccurs="0" />
               <xs:element name="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_UserColumnName="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_UserColumnName="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCount" msprop:Generator_ColumnPropNameInRow="EmployeeCount" msprop:Generator_ColumnPropNameInTable="EmployeeCountColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCount" msprop:Generator_UserColumnName="EmployeeCount" type="xs:string" minOccurs="0" />
+              <xs:element name="QualitativeGroupName" msprop:Generator_ColumnPropNameInRow="QualitativeGroupName" msprop:Generator_ColumnPropNameInTable="QualitativeGroupNameColumn" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupName" msprop:Generator_UserColumnName="QualitativeGroupName" type="xs:string" minOccurs="0" />
+              <xs:element name="QualitativeGroupId" msprop:Generator_ColumnPropNameInRow="QualitativeGroupId" msprop:Generator_ColumnPropNameInTable="QualitativeGroupIdColumn" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupId" msprop:Generator_UserColumnName="QualitativeGroupId" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -878,6 +905,29 @@
               <xs:element name="FixedAssetNetValue" msprop:Generator_UserColumnName="FixedAssetNetValue" msprop:Generator_ColumnPropNameInTable="FixedAssetNetValueColumn" msprop:Generator_ColumnPropNameInRow="FixedAssetNetValue" msprop:Generator_ColumnVarNameInTable="columnFixedAssetNetValue" type="xs:string" minOccurs="0" />
               <xs:element name="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
               <xs:element name="PrevFixedAssetNetValue" msprop:Generator_ColumnPropNameInRow="PrevFixedAssetNetValue" msprop:Generator_ColumnPropNameInTable="PrevFixedAssetNetValueColumn" msprop:Generator_ColumnVarNameInTable="columnPrevFixedAssetNetValue" msprop:Generator_UserColumnName="PrevFixedAssetNetValue" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Part1" msprop:Generator_RowEvHandlerName="Part1RowChangeEventHandler" msprop:Generator_RowDeletedName="Part1RowDeleted" msprop:Generator_RowDeletingName="Part1RowDeleting" msprop:Generator_RowEvArgName="Part1RowChangeEvent" msprop:Generator_TablePropName="Part1" msprop:Generator_RowChangedName="Part1RowChanged" msprop:Generator_RowChangingName="Part1RowChanging" msprop:Generator_TableClassName="Part1DataTable" msprop:Generator_RowClassName="Part1Row" msprop:Generator_TableVarName="tablePart1" msprop:Generator_UserTableName="Part1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_UserColumnName="Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NetBasedOnDebit" msprop:Generator_ColumnPropNameInRow="NetBasedOnDebit" msprop:Generator_ColumnPropNameInTable="NetBasedOnDebitColumn" msprop:Generator_ColumnVarNameInTable="columnNetBasedOnDebit" msprop:Generator_UserColumnName="NetBasedOnDebit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Stale" msprop:Generator_ColumnPropNameInRow="Stale" msprop:Generator_ColumnPropNameInTable="StaleColumn" msprop:Generator_ColumnVarNameInTable="columnStale" msprop:Generator_UserColumnName="Stale" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Net" msprop:Generator_ColumnPropNameInRow="Net" msprop:Generator_ColumnPropNameInTable="NetColumn" msprop:Generator_ColumnVarNameInTable="columnNet" msprop:Generator_UserColumnName="Net" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
