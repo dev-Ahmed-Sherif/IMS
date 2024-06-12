@@ -113,10 +113,10 @@
               <Width>2.57554cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.62353cm</Width>
+              <Width>1.66601cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.26992cm</Width>
+              <Width>6.22201cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.2028cm</Width>
@@ -579,7 +579,7 @@
         <Top>0.1189cm</Top>
         <Left>0.3175cm</Left>
         <Height>1.48938cm</Height>
-        <Width>20.15995cm</Width>
+        <Width>20.15452cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -594,10 +594,10 @@
               <Width>2.57554cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.62353cm</Width>
+              <Width>1.68231cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.26992cm</Width>
+              <Width>6.22201cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.45611cm</Width>
@@ -1009,7 +1009,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
         <Top>2.01455cm</Top>
         <Left>0.3012cm</Left>
         <Height>1.48938cm</Height>
-        <Width>20.17082cm</Width>
+        <Width>20.18169cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
