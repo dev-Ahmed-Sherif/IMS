@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using Business.Pro;
+using Entities.ExtensionMethods;
 using Entities.Models.Pro;
 using Entities.ViewModels;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
+using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IMS.Controllers.PR
@@ -37,15 +40,16 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
         {
-            PaginatedResultUnMapped<ProTenderDetails> unmappedResult =
-                _proTenderDetailsService
-                .GetFilteredPaginated(pagination, filter);
+            IQueryable<ProTenderDetails> items = _proTenderDetailsService.GetFiltered(filter); ;
+            IQueryable<ProTenderDetailsOutputVM> result =
+                _mapper.ProjectTo<ProTenderDetailsOutputVM>(items);
+
             PaginatedResult<ProTenderDetailsOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderDetailsOutputVM>(unmappedResult.Items).ToListAsync(),
-                Page = unmappedResult.Page,
-                PageSize = unmappedResult.PageSize,
-                TotalItems = unmappedResult.TotalItems,
+                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Page = pagination.Index,
+                PageSize = pagination.Size,
+                TotalItems = await result.CountAsync(),
             };
             return Ok(mappedResult);
         }

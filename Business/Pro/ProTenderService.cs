@@ -1,6 +1,8 @@
 ﻿using DAL;
 using DAL.Pro;
+using Entities.ViewModels.FI.General;
 using Entities.ViewModels.Pro;
+using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -40,6 +42,10 @@ namespace Business.Pro
         public string GetLastNo()
         {
             return _ProTenderRepository.GetLastNo();
+        }
+        public PaginatedResult<ProTenderGetVM> getAllByPagination(int page, int pageSize)
+        {
+            return _ProTenderRepository.GetAllByPagination(page, pageSize);
         }
     }
 }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Entities.ExtensionMethods;
 
 namespace IMS.Controllers.Pro
 {
@@ -36,15 +38,14 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProTenderSellerReqOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderSellerReqFilter filter)
         {
-            PaginatedResultUnMapped<ProTenderSellerReq> unmappedResult =
-                _proTenderSellerReqService
-                .GetFilteredPaginated(pagination, filter);
+            IQueryable<ProTenderSellerReq> items = _proTenderSellerReqService.GetFiltered(filter);
+            IQueryable<ProTenderSellerReq> result = items.ToPaginatedResultUnMapped(pagination);
             PaginatedResult<ProTenderSellerReqOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProTenderSellerReqOutputVM>(unmappedResult.Items).ToListAsync(),
-                Page = unmappedResult.Page,
-                PageSize = unmappedResult.PageSize,
-                TotalItems = unmappedResult.TotalItems,
+                Items = await _mapper.ProjectTo<ProTenderSellerReqOutputVM>(result).ToListAsync(),
+                Page = pagination.Index,
+                PageSize = pagination.Size,
+                TotalItems = await items.CountAsync(),
             };
             return Ok(mappedResult);
         }

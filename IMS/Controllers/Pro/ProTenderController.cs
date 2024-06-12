@@ -63,5 +63,11 @@ namespace IMS.Controllers.Pro
             var _response = _pro.GetLastNo();
             return new JsonResult(_response);
         }
+        [HttpGet("get/by/pagination")]
+        public IActionResult getAllByPagination(int page, int pageSize)
+        {
+            var Pagination = _pro.getAllByPagination(page, pageSize);
+            return Ok(Pagination);
+        }
     }
 }

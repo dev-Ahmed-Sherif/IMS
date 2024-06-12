@@ -11,7 +11,10 @@ using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.NETCore;
 using Microsoft.VisualBasic;
 using System;
+using System.Buffers.Text;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -298,6 +301,8 @@ namespace Business.FI.Account
                         List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
                         FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
                         fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+                        #region Old Tree
+
                         List<string> SumofAssets = new List<string> { "1" };
                         List<string> SumofPropertyRightsAndObligations = new List<string> { "2" };
                         // Non - Current Fixed Assets Filter
@@ -440,6 +445,7 @@ namespace Business.FI.Account
                         //    "255"
                         //};
 
+
                         //// CurrentObligations
                         //List<string> CurrentObligationsFirst = new List<string>
                         //{
@@ -478,6 +484,99 @@ namespace Business.FI.Account
                         //{
                         //    "4"
                         //};
+
+                        // CurrentObligations
+                        List<string> CurrentObligationsFirst = new List<string>
+                        {
+                            "267",
+                            "268",
+                            "269",
+                        };
+                        List<string> CurrentObligationsSecond = new List<string>
+                        {
+                            "271",
+                        };
+                        List<string> CurrentObligationsThird = new List<string>
+                        {
+                            "281",
+                            "282",
+                            "283",
+                            "2831",
+                            "28311",
+                            "2832",
+                            "284",
+                            "285",
+                            "286",
+                            "287",
+                            "288"
+                        };
+                        List<string> CurrentObligationsFourth = new List<string>
+                        {
+                            "273",
+                            "2899"
+                        };
+                        List<string> Payment = new List<string>{"3"};
+                        List<string> Income = new List<string> {"4"};
+                        #endregion
+                        #region New Tree
+                        //SumofAssets = new List<string> { _fiAccountsCodes.الأصول_1 };
+                        List<string> SumofNonCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_غير_المتداولة_11 };
+                        List<string> SumofCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_المتداولة_12 };
+                        List<string> SumofPropertyRights = new List<string> { _fiAccountsCodes.حقوق_الملكية_2 };
+                        List<string> SumofObligations = new List<string> { _fiAccountsCodes.الالتزامات_3 };
+                        List<string> SumofNonCurrentObligations = new List<string> { _fiAccountsCodes.الالتزامات_غير_المتداولة_31 };
+                        List<string> SumofCurrentObligations = new List<string> { _fiAccountsCodes.الألتزامات_المتداولة_32 };
+
+                        //NonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    _fiAccountsCodes.تكوين_استثمارى_بالصافى_1121,
+                        //   _fiAccountsCodes.إنفاق_استثمارى_بالصافى_1122,
+                        //};
+                        //SumNonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    _fiAccountsCodes.المشروعات_تحت_التنفيذ_112
+                        //};
+                        //NonCurrentAssetsSecond = new List<string>
+                        //{ 
+                        //    _fiAccountsCodes.استثمارات_عقارية_1141,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_شركات_تابعة_1142,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_شركات_شقيقة_1143,
+                        //    _fiAccountsCodes.استثمارات_مالية_فى_مشروعات_مشتركة_1144,
+                        //    _fiAccountsCodes.استثمارات_مالية_غير_متداولة_أخرى_بالصافى_1145
+                        //};
+                        //NonCurrentAssetsThird = new List<string>
+                        //{
+                        //    _fiAccountsCodes.الأستثمارات_غير_المتداولة_114
+                        //};
+                        //NonCurrentAssetsFourth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.العملاء_وأوراق_القبض_والحسابات_المدينة_غير_المتداولة_115
+                        //};
+                        //NonCurrentAssetsFifth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.حسابات_مدينة_غير_متداولة_لدى_أطراف_ذوى_علاقة_بالصافى_1153,
+                        //    _fiAccountsCodes.قروض_غير_متداولة_من_أطراف_ذوى_علاقة_3111
+                        //};
+                        // Sixth = Fourth - Fifth
+                        //NonCurrentAssetsSixth = new List<string>
+                        //{
+                        //    _fiAccountsCodes.العملاء_وأوراق_القبض_والحسابات_المدينة_غير_المتداولة_115
+                        //};
+                        //CurrentAssetsSeventh = new List<string>
+                        //{
+                        //    _fiAccountsCodes.قروض_لجهات_أخرى_بالصافى_1162
+                        //};
+                        //CurrentAssetsEighth = new List<string>
+                        //{
+                        //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_تامة_بالصافى_1171,
+                        //   _fiAccountsCodes.أصول_مستأجرة_حق_انتفاع_تحت_التنفيذ_بالصافى_1172
+                        //};
+                        //CurrentAssetsNinth = new List<string>
+                        //{
+                        //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_التامة_وتحت_التنفيذ_117
+                        //};
+                        #endregion
+
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             FIAccountREAdd.Add(FIAccountRE[i]);
@@ -1241,37 +1340,91 @@ namespace Business.FI.Account
                 case "AccountChangeOwnerShipRightsReport":
                     {
                         List<FiChangeInOwnersEquityViewModel> ChangeInPropertyRightsArray,
-                                                              precautions = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              propertyRights = new List<FiChangeInOwnersEquityViewModel>(),
                                                               equityCapital = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              legalReserve = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              regularReserve = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              capitalReserve = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              otherReserve = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              precautions = new List<FiChangeInOwnersEquityViewModel>(),
                                                               stageProfitsAndLosses = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              comprehensiveIncomeToProfitOrLosse = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              comprehensiveIncomeNotToProfitOrLosse = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              share_basedPayments = new List<FiChangeInOwnersEquityViewModel>(),
+                                                              debtInstrumentsToStocks = new List<FiChangeInOwnersEquityViewModel>(),
                                                               treasuryShares = new List<FiChangeInOwnersEquityViewModel>();
 
                         ChangeInPropertyRightsArray = GetChangeInOwnersEquityReportData(fiscalYearId);
 
                         for (int i = 0; i < ChangeInPropertyRightsArray.Count; i++)
                         {
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.حقوق_الملكية_2)
+                            {
+                                propertyRights.Add(ChangeInPropertyRightsArray[i]);
+                            }
                             if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.رأس_المال_المدفوع_21)
                             {
                                 equityCapital.Add(ChangeInPropertyRightsArray[i]);
                             }
-                            if (ChangeInPropertyRightsArray[i].AccountCode == "23")
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.احتياطى_قانونى_231)
+                            {
+                                legalReserve.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.احتياطى_نظامى_232)
+                            {
+                                regularReserve.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.احتياطى_رأسمالى_233)
+                            {
+                                capitalReserve.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.احتياطى_أخرى_234)
+                            {
+                                otherReserve.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.الاحتياطات_23)
+                            {
+                                precautions.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.الأرباح_أو_الخسائر_المرحلة_24)
                             {
                                 stageProfitsAndLosses.Add(ChangeInPropertyRightsArray[i]);
                             }
-                            if (ChangeInPropertyRightsArray[i].AccountCode == "24")
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.بنود_دخل_شامل_يعاد_تبوبيها_إلى_الأرباح_أو_الخسائر_261)
+                            {
+                                comprehensiveIncomeToProfitOrLosse.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.بنود_الدخل_الشامل_التى_لا_يعاد_تبوبيها_إلى_الأرباح_أو_الخسائر_262)
+                            {
+                                comprehensiveIncomeNotToProfitOrLosse.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.مدفوعات_مبنية_على_أسهم_271)
+                            {
+                                share_basedPayments.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.مكون_حقوق_الملكية_لأدوات_الدين_القابلة_للتحول_إلى_أسهم_272)
+                            {
+                                debtInstrumentsToStocks.Add(ChangeInPropertyRightsArray[i]);
+                            }
+                            if (ChangeInPropertyRightsArray[i].AccountCode == _fiAccountsCodes.أسهم_خزينة_مدين_28)
                             {
                                 treasuryShares.Add(ChangeInPropertyRightsArray[i]);
-                            }
-                            if (ChangeInPropertyRightsArray[i].AccountCode == "22")
-                            {
-                                precautions.Add(ChangeInPropertyRightsArray[i]);
                             }
                         }
 
                         report.DataSources.Add(new ReportDataSource() { Name = "EquityCapital", Value = equityCapital });
+                        report.DataSources.Add(new ReportDataSource() { Name = "LegalReserve", Value = legalReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RegularReserve", Value = regularReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "CapitalReserve", Value = capitalReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "OtherReserve", Value = otherReserve });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Precautions", Value = precautions });
                         report.DataSources.Add(new ReportDataSource() { Name = "StageProfitsAndLosses", Value = stageProfitsAndLosses });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ComprehensiveIncomeToProfitOrLosse", Value = comprehensiveIncomeToProfitOrLosse });
+                        report.DataSources.Add(new ReportDataSource() { Name = "ComprehensiveIncomeNotToProfitOrLosse", Value = comprehensiveIncomeNotToProfitOrLosse });
+                        report.DataSources.Add(new ReportDataSource() { Name = "Share_basedPayments", Value = share_basedPayments });
+                        report.DataSources.Add(new ReportDataSource() { Name = "DebtInstrumentsToStocks", Value = debtInstrumentsToStocks });
                         report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItem", Value = precautions });
+                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRights", Value = propertyRights });
                     }
                     break;
                 case "AccountCashFlowsReport":

@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using System.Linq;
+using Entities.ExtensionMethods;
 
 namespace IMS.Controllers.Pro
 {
@@ -36,22 +39,23 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProQuotationDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProQuotationDetailsFilter filter)
         {
-            PaginatedResultUnMapped<ProQuotationDetails> unmappedResult =
-                _ProQuotationDetailsService
-                .GetFilteredPaginated(pagination, filter);
+            IQueryable<ProQuotationDetails> items = _ProQuotationDetailsService.GetFiltered(filter); ;
+            IQueryable<ProQuotationDetailsOutputVM> result =
+                _mapper.ProjectTo<ProQuotationDetailsOutputVM>(items);
+
             PaginatedResult<ProQuotationDetailsOutputVM> mappedResult = new()
             {
-                Items = await _mapper.ProjectTo<ProQuotationDetailsOutputVM>(unmappedResult.Items).ToListAsync(),
-                Page = unmappedResult.Page,
-                PageSize = unmappedResult.PageSize,
-                TotalItems = unmappedResult.TotalItems,
+                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Page = pagination.Index,
+                PageSize = pagination.Size,
+                TotalItems = await result.CountAsync(),
             };
             return Ok(mappedResult);
         }
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProQuotationDetailsInputVM input)
+        public async Task<IActionResult> Add([FromForm] ProQuotationDetailsInputVM input)
         {
             ProQuotationDetails model = _mapper.Map<ProQuotationDetails>(input);
             int rowsAffected = await _ProQuotationDetailsService.Add(model);
@@ -62,7 +66,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProQuotationDetailsInputVM input)
+        public async Task<IActionResult> Update([FromForm] ProQuotationDetailsInputVM input)
         {
             ProQuotationDetails model = await _ProQuotationDetailsService.GetById(input.Id);
             if (model == null) return NotFound();

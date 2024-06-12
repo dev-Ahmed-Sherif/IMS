@@ -14,6 +14,7 @@ namespace Entities.ViewModels.Pro.ProTenderSelectionViewModels
         public int TenderDetailsId { get; set; }
         public string TenderDetailsName { get; set; }
         public int QuotationDetailsId { get; set; }
+        public decimal QuotationDetailsPrice { get; set; }
 
         public bool TechnicalPass { get; set; }
 
