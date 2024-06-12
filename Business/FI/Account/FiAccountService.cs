@@ -445,6 +445,46 @@ namespace Business.FI.Account
                         //    "255"
                         //};
 
+
+                        //// CurrentObligations
+                        //List<string> CurrentObligationsFirst = new List<string>
+                        //{
+                        //    "267",
+                        //    "268",
+                        //    "269",
+                        //};
+                        //List<string> CurrentObligationsSecond = new List<string>
+                        //{
+                        //    "271",
+                        //};
+                        //List<string> CurrentObligationsThird = new List<string>
+                        //{
+                        //    "281",
+                        //    "282",
+                        //    "283",
+                        //    "2831",
+                        //    "28311",
+                        //    "2832",
+                        //    "284",
+                        //    "285",
+                        //    "286",
+                        //    "287",
+                        //    "288"
+                        //};
+                        //List<string> CurrentObligationsFourth = new List<string>
+                        //{
+                        //    "273",
+                        //    "2899"
+                        //};
+                        //List<string> Payment = new List<string>
+                        //{
+                        //    "3"
+                        //};
+                        //List<string> Income = new List<string>
+                        //{
+                        //    "4"
+                        //};
+
                         // CurrentObligations
                         List<string> CurrentObligationsFirst = new List<string>
                         {
@@ -536,6 +576,7 @@ namespace Business.FI.Account
                         //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_التامة_وتحت_التنفيذ_117
                         //};
                         #endregion
+
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             FIAccountREAdd.Add(FIAccountRE[i]);

@@ -613,6 +613,7 @@
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox41">
+
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -650,13 +651,18 @@
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox6">
+
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+
+                              <Value>سنة المقارنة</Value>
+
                               <Value>الدليل</Value>
+
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -668,7 +674,11 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
+
+                      <rd:DefaultName>Textbox39</rd:DefaultName>
+
                       <rd:DefaultName>Textbox5</rd:DefaultName>
+
                       <RepeatWith>Tablix2</RepeatWith>
                       <Style>
                         <Border>
@@ -686,14 +696,22 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+
+                    <Textbox Name="Textbox6">
+
                     <Textbox Name="Textbox11">
+
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+
+                              <Value>الدليل</Value>
+
                               <Value>البيان</Value>
+
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -705,7 +723,11 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
+
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+
                       <rd:DefaultName>Textbox9</rd:DefaultName>
+
                       <RepeatWith>Tablix2</RepeatWith>
                       <Style>
                         <Border>
@@ -723,14 +745,22 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+
+                    <Textbox Name="Textbox11">
+
                     <Textbox Name="Textbox24">
+
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+
+                              <Value>البيان</Value>
+
                               <Value>المبلغ الجزئي</Value>
+
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -742,7 +772,11 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
+
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+
                       <rd:DefaultName>Textbox23</rd:DefaultName>
+
                       <RepeatWith>Tablix2</RepeatWith>
                       <Style>
                         <Border>
@@ -760,16 +794,79 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+
+                    <Textbox Name="Textbox24">
+
                     <Textbox Name="Textbox13">
+
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+
+                              <Value>المبلغ الجزئي</Value>
+
+                              <Value>المبلغ الكلي</Value>
+
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
+
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
+
+                      <RepeatWith>Tablix2</RepeatWith>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.76536cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+
+                    <Textbox Name="Textbox13">
+
+                    <Textbox Name="Textbox42">
+
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+
                               <Value>المبلغ الكلي</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
+
+                              <Value />
+                              <Style>
+
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -779,13 +876,17 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
+
                       <rd:DefaultName>Textbox12</rd:DefaultName>
                       <RepeatWith>Tablix2</RepeatWith>
+
+                      <rd:DefaultName>Textbox40</rd:DefaultName>
+
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+
                         <BackgroundColor>Turquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -825,6 +926,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+
                         <BackgroundColor>=IIf(Fields!Code.Value.ToString().Length = 0, "LightGrey", "Transparent")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -966,6 +1068,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                       <rd:DefaultName>Net</rd:DefaultName>
                       <Style>
                         <Border>
+
+
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>=IIf(Fields!Code.Value.ToString().Length = 0, "LightGrey", "Transparent")</BackgroundColor>
@@ -1227,8 +1331,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
+
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>=IIf(Fields!Code.Value.ToString().Length = 0, "LightGrey", "Transparent")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1253,6 +1359,26 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
+
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details2" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
+        <FixedColumnHeaders>true</FixedColumnHeaders>
+        <FixedRowHeaders>true</FixedRowHeaders>
+        <DataSetName>VW_ACC_Balance_Part2</DataSetName>
+        <Top>2.01455cm</Top>
+        <Left>0.3012cm</Left>
+        <Height>1.48938cm</Height>
+        <Width>20.18169cm</Width>
+        <ZIndex>4</ZIndex>
+
               <Group Name="Details20" />
             </TablixMember>
           </TablixMembers>
@@ -1263,12 +1389,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
         <Height>0.72044cm</Height>
         <Width>26.11312cm</Width>
         <ZIndex>28</ZIndex>
+
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+
       <Tablix Name="Tablix24">
         <TablixBody>
           <TablixColumns>
@@ -2993,6 +3121,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "LimeGreen","Black")))</Color>
           </Border>
         </Style>
       </Tablix>
+
     </ReportItems>
     <Height>5.0287cm</Height>
     <Style />
