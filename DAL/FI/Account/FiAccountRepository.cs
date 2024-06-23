@@ -18,6 +18,7 @@ using static System.Collections.Specialized.BitVector32;
 using Microsoft.Identity.Client;
 using System.Security.Principal;
 using Microsoft.Extensions.Options;
+using Entities.ViewModels;
 
 namespace DAL.FI.Account
 {
@@ -686,9 +687,9 @@ namespace DAL.FI.Account
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
-             // Old Tree
-             //List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
-            
+            // Old Tree
+            //List<string> ChangeInOwnersEquityAccountsCodes = [AccountsCodes.رأس_المال_المصدر, AccountsCodes.احتياطيات, AccountsCodes.ارباح_أو_خسائر_مرحلة, AccountsCodes.اسهم_الخزينة];
+
             // New Tree
             List<string> ChangeInOwnersEquityAccountsCodes =
                 [
@@ -780,7 +781,6 @@ namespace DAL.FI.Account
             DateTime prevStartDate = startDate.AddYears(-1);
             DateTime prevEndDate = endDate.AddYears(-1);
 
-
             List<FiAccount> fixedAssetsAccounts =
                 await
                 _context
@@ -816,8 +816,9 @@ namespace DAL.FI.Account
 
             foreach (FiAccount account in fixedAssetsAccounts)
             {
+                
                 var DepreciationAccountCode = ConvertFixedAssetToFixedAssetDepreciationAccountCode(account.Code);
-                var depit = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit-e.Credit).FirstOrDefault();
+                var FirstEntry = _context.FiEntryDetails.Where(e => e.CreationDate == startDate && account.Id == e.AccountId).Select(e => e.Debit-e.Credit).FirstOrDefault();
                 FixedAssetsFinancialCenterViewModel e = new()
                 {
                     AccumulatedDepreciation = Math.Round((from fiEntryDetails in _context.FiEntryDetails
@@ -849,7 +850,7 @@ namespace DAL.FI.Account
                                         where fiEntry.Journal.FiscalYearId == fiscalYearId && fiAccountParent.ParentId == account.Id
                                         select (fiEntryDetails.Debit) - (fiEntryDetails.Credit)).Sum(), 2)),
 
-                    PrevFixedAssetNetValue = depit != 0 ? depit
+                    PrevFixedAssetNetValue = FirstEntry != 0 ? FirstEntry
                               : Math.Round((from fiEntryDetails in _context.FiEntryDetails
                                             join fiEntry in _context.FiEntry on fiEntryDetails.EntryId equals fiEntry.Id into entryGroup
                                             from fiEntry in entryGroup.DefaultIfEmpty()
@@ -1004,7 +1005,13 @@ namespace DAL.FI.Account
             return details.ToList();
 
         }
-
+        public async Task<List<Part1ViewModel>> GetPart1ViewData()
+        {
+            return await _context.Database.SqlQueryRaw<Part1ViewModel>("SELECT * FROM VW_ACC_Balance_Part1").ToListAsync();
+        }public async Task<List<Part2ViewModel>> GetPart2ViewData()
+        {
+            return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_ACC_Balance_Part2").ToListAsync();
+        }
     }
 
 }
