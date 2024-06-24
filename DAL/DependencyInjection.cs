@@ -20,6 +20,7 @@ using DAL.TR.General;
 using DAL.TR.Instructor;
 using DAL.TR.Plan;
 using DAL.TR.Training;
+using DAL.VL;
 using Entities.Models.Pro;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -204,7 +205,11 @@ namespace DAL
 
             //SE
             services.AddScoped<ImsSectionRepository>();
-
+            //VL
+            services.AddScoped<VlGarageRepository>();
+            services.AddScoped<VlModelRepository>();
+            services.AddScoped<VlTypeRepository>();
+            services.AddScoped<VlManufacturerRepository>();
             #endregion
             return services;
         }

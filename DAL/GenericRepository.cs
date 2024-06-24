@@ -63,15 +63,6 @@ namespace DAL
         {
             return await _dbSet.FindAsync(id);
         }
-        public virtual async Task<T?> FirstOrDefault(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.FirstOrDefaultAsync(predicate);
-        }
-        public virtual async Task<int> Count(Expression<Func<T, bool>>? predicate = null)
-        {
-            if (predicate == null) return await _dbSet.CountAsync();
-            return await _dbSet.CountAsync(predicate);
-        }
 
     }
 }
