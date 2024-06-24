@@ -22,6 +22,7 @@ using System.Threading;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.IdentityModel.JsonWebTokens;
+using IMS.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add builder.Services to the container.
@@ -115,6 +116,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseLazyLoadingPro
 builder.Services.InjectEntitiesDependencies();
 builder.Services.InjectRepositories();
 builder.Services.InjectServices();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "IMS", Version = "v1" });
@@ -136,6 +139,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseExceptionHandler();
 
 app.UseRouting();
 

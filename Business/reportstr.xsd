@@ -2,12 +2,57 @@
 <xs:schema id="reportstr" targetNamespace="http://tempuri.org/reportstr.xsd" xmlns:mstns="http://tempuri.org/reportstr.xsd" xmlns="http://tempuri.org/reportstr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection ConnectionStringObject="Data Source=API2;Initial Catalog=IMS;User ID=Hussien;Password=P@$$w0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="IMSConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
           <Connection ConnectionStringObject="Data Source=BWSSD9\SQLEXPRESS;Initial Catalog=IMS;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="IMSConnectionString1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;Persist Security Info=True;User ID=Hussien;Password=P@$$w0rd;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="api2.IMS-Nazem.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
-        <Tables />
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_ACC_Balance_Part1TableAdapter" GeneratorDataComponentClassName="VW_ACC_Balance_Part1TableAdapter" Name="VW_ACC_Balance_Part1" UserDataComponentName="VW_ACC_Balance_Part1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="api2.IMS-Nazem.dbo" DbObjectName="[IMS-Nazem].dbo.VW_ACC_Balance_Part1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        VW_ACC_Balance_Part1.*
+FROM            VW_ACC_Balance_Part1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Num" DataSetColumn="Num" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="NetBasedOnDebit" DataSetColumn="NetBasedOnDebit" />
+              <Mapping SourceColumn="Stale" DataSetColumn="Stale" />
+              <Mapping SourceColumn="Net" DataSetColumn="Net" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_ACC_Balance_Part2TableAdapter" GeneratorDataComponentClassName="VW_ACC_Balance_Part2TableAdapter" Name="VW_ACC_Balance_Part2" UserDataComponentName="VW_ACC_Balance_Part2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="api2.IMS-Nazem.dbo" DbObjectName="[IMS-Nazem].dbo.VW_ACC_Balance_Part2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        VW_ACC_Balance_Part2.*
+FROM            VW_ACC_Balance_Part2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Num" DataSetColumn="Num" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -572,12 +617,12 @@
               <xs:element name="FinancialDegreeDateShort" msprop:Generator_ColumnPropNameInTable="FinancialDegreeDateShortColumn" msprop:Generator_ColumnPropNameInRow="FinancialDegreeDateShort" msprop:Generator_UserColumnName="FinancialDegreeDateShort" msprop:Generator_ColumnVarNameInTable="columnFinancialDegreeDateShort" type="xs:string" minOccurs="0" />
               <xs:element name="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_UserColumnName="ReportDate" msprop:Generator_ColumnVarNameInTable="columnReportDate" type="xs:string" minOccurs="0" />
               <xs:element name="Section" msprop:Generator_ColumnPropNameInTable="SectionColumn" msprop:Generator_ColumnPropNameInRow="Section" msprop:Generator_UserColumnName="Section" msprop:Generator_ColumnVarNameInTable="columnSection" type="xs:string" minOccurs="0" />
-              <xs:element name="InsuranceNumber" msprop:Generator_UserColumnName="InsuranceNumber" msprop:Generator_ColumnPropNameInTable="InsuranceNumberColumn" msprop:Generator_ColumnPropNameInRow="InsuranceNumber" msprop:Generator_ColumnVarNameInTable="columnInsuranceNumber" type="xs:string" minOccurs="0" />
-              <xs:element name="PreLastYearAppraisal" msprop:Generator_UserColumnName="PreLastYearAppraisal" msprop:Generator_ColumnPropNameInTable="PreLastYearAppraisalColumn" msprop:Generator_ColumnPropNameInRow="PreLastYearAppraisal" msprop:Generator_ColumnVarNameInTable="columnPreLastYearAppraisal" type="xs:string" minOccurs="0" />
-              <xs:element name="LastYearAppraisal" msprop:Generator_UserColumnName="LastYearAppraisal" msprop:Generator_ColumnPropNameInTable="LastYearAppraisalColumn" msprop:Generator_ColumnPropNameInRow="LastYearAppraisal" msprop:Generator_ColumnVarNameInTable="columnLastYearAppraisal" type="xs:string" minOccurs="0" />
-              <xs:element name="GeneralDepartmentName" msprop:Generator_UserColumnName="GeneralDepartmentName" msprop:Generator_ColumnPropNameInTable="GeneralDepartmentNameColumn" msprop:Generator_ColumnPropNameInRow="GeneralDepartmentName" msprop:Generator_ColumnVarNameInTable="columnGeneralDepartmentName" type="xs:string" minOccurs="0" />
-              <xs:element name="QualitativeGroupName" msprop:Generator_UserColumnName="QualitativeGroupName" msprop:Generator_ColumnPropNameInTable="QualitativeGroupNameColumn" msprop:Generator_ColumnPropNameInRow="QualitativeGroupName" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupName" type="xs:string" minOccurs="0" />
-              <xs:element name="DisciplinaryName" msprop:Generator_UserColumnName="DisciplinaryName" msprop:Generator_ColumnPropNameInTable="DisciplinaryNameColumn" msprop:Generator_ColumnPropNameInRow="DisciplinaryName" msprop:Generator_ColumnVarNameInTable="columnDisciplinaryName" type="xs:string" minOccurs="0" />
+              <xs:element name="InsuranceNumber" msprop:Generator_ColumnPropNameInTable="InsuranceNumberColumn" msprop:Generator_ColumnPropNameInRow="InsuranceNumber" msprop:Generator_UserColumnName="InsuranceNumber" msprop:Generator_ColumnVarNameInTable="columnInsuranceNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PreLastYearAppraisal" msprop:Generator_ColumnPropNameInTable="PreLastYearAppraisalColumn" msprop:Generator_ColumnPropNameInRow="PreLastYearAppraisal" msprop:Generator_UserColumnName="PreLastYearAppraisal" msprop:Generator_ColumnVarNameInTable="columnPreLastYearAppraisal" type="xs:string" minOccurs="0" />
+              <xs:element name="LastYearAppraisal" msprop:Generator_ColumnPropNameInTable="LastYearAppraisalColumn" msprop:Generator_ColumnPropNameInRow="LastYearAppraisal" msprop:Generator_UserColumnName="LastYearAppraisal" msprop:Generator_ColumnVarNameInTable="columnLastYearAppraisal" type="xs:string" minOccurs="0" />
+              <xs:element name="GeneralDepartmentName" msprop:Generator_ColumnPropNameInTable="GeneralDepartmentNameColumn" msprop:Generator_ColumnPropNameInRow="GeneralDepartmentName" msprop:Generator_UserColumnName="GeneralDepartmentName" msprop:Generator_ColumnVarNameInTable="columnGeneralDepartmentName" type="xs:string" minOccurs="0" />
+              <xs:element name="QualitativeGroupName" msprop:Generator_ColumnPropNameInTable="QualitativeGroupNameColumn" msprop:Generator_ColumnPropNameInRow="QualitativeGroupName" msprop:Generator_UserColumnName="QualitativeGroupName" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupName" type="xs:string" minOccurs="0" />
+              <xs:element name="DisciplinaryName" msprop:Generator_ColumnPropNameInTable="DisciplinaryNameColumn" msprop:Generator_ColumnPropNameInRow="DisciplinaryName" msprop:Generator_UserColumnName="DisciplinaryName" msprop:Generator_ColumnVarNameInTable="columnDisciplinaryName" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -794,9 +839,9 @@
               <xs:element name="Section" msprop:Generator_ColumnPropNameInTable="SectionColumn" msprop:Generator_ColumnPropNameInRow="Section" msprop:Generator_UserColumnName="Section" msprop:Generator_ColumnVarNameInTable="columnSection" type="xs:string" minOccurs="0" />
               <xs:element name="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_UserColumnName="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" type="xs:string" minOccurs="0" />
               <xs:element name="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_UserColumnName="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" type="xs:string" minOccurs="0" />
-              <xs:element name="EmployeeCount" msprop:Generator_ColumnPropNameInRow="EmployeeCount" msprop:Generator_ColumnPropNameInTable="EmployeeCountColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCount" msprop:Generator_UserColumnName="EmployeeCount" type="xs:string" minOccurs="0" />
-              <xs:element name="QualitativeGroupName" msprop:Generator_ColumnPropNameInRow="QualitativeGroupName" msprop:Generator_ColumnPropNameInTable="QualitativeGroupNameColumn" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupName" msprop:Generator_UserColumnName="QualitativeGroupName" type="xs:string" minOccurs="0" />
-              <xs:element name="QualitativeGroupId" msprop:Generator_ColumnPropNameInRow="QualitativeGroupId" msprop:Generator_ColumnPropNameInTable="QualitativeGroupIdColumn" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupId" msprop:Generator_UserColumnName="QualitativeGroupId" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCount" msprop:Generator_UserColumnName="EmployeeCount" msprop:Generator_ColumnPropNameInTable="EmployeeCountColumn" msprop:Generator_ColumnPropNameInRow="EmployeeCount" msprop:Generator_ColumnVarNameInTable="columnEmployeeCount" type="xs:string" minOccurs="0" />
+              <xs:element name="QualitativeGroupName" msprop:Generator_UserColumnName="QualitativeGroupName" msprop:Generator_ColumnPropNameInTable="QualitativeGroupNameColumn" msprop:Generator_ColumnPropNameInRow="QualitativeGroupName" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupName" type="xs:string" minOccurs="0" />
+              <xs:element name="QualitativeGroupId" msprop:Generator_UserColumnName="QualitativeGroupId" msprop:Generator_ColumnPropNameInTable="QualitativeGroupIdColumn" msprop:Generator_ColumnPropNameInRow="QualitativeGroupId" msprop:Generator_ColumnVarNameInTable="columnQualitativeGroupId" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -888,6 +933,53 @@
               <xs:element name="FixedAssetNetValue" msprop:Generator_ColumnPropNameInTable="FixedAssetNetValueColumn" msprop:Generator_ColumnPropNameInRow="FixedAssetNetValue" msprop:Generator_UserColumnName="FixedAssetNetValue" msprop:Generator_ColumnVarNameInTable="columnFixedAssetNetValue" type="xs:string" minOccurs="0" />
               <xs:element name="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnVarNameInTable="columnCode" type="xs:string" minOccurs="0" />
               <xs:element name="PrevFixedAssetNetValue" msprop:Generator_ColumnPropNameInTable="PrevFixedAssetNetValueColumn" msprop:Generator_ColumnPropNameInRow="PrevFixedAssetNetValue" msprop:Generator_UserColumnName="PrevFixedAssetNetValue" msprop:Generator_ColumnVarNameInTable="columnPrevFixedAssetNetValue" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_ACC_Balance_Part1" msprop:Generator_RowEvHandlerName="VW_ACC_Balance_Part1RowChangeEventHandler" msprop:Generator_RowDeletedName="VW_ACC_Balance_Part1RowDeleted" msprop:Generator_RowDeletingName="VW_ACC_Balance_Part1RowDeleting" msprop:Generator_RowEvArgName="VW_ACC_Balance_Part1RowChangeEvent" msprop:Generator_TablePropName="VW_ACC_Balance_Part1" msprop:Generator_RowChangedName="VW_ACC_Balance_Part1RowChanged" msprop:Generator_RowChangingName="VW_ACC_Balance_Part1RowChanging" msprop:Generator_TableClassName="VW_ACC_Balance_Part1DataTable" msprop:Generator_RowClassName="VW_ACC_Balance_Part1Row" msprop:Generator_TableVarName="tableVW_ACC_Balance_Part1" msprop:Generator_UserTableName="VW_ACC_Balance_Part1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num" msprop:Generator_ColumnPropNameInRow="Num" msprop:Generator_ColumnPropNameInTable="NumColumn" msprop:Generator_ColumnVarNameInTable="columnNum" msprop:Generator_UserColumnName="Num" type="xs:int" />
+              <xs:element name="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_UserColumnName="Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NetBasedOnDebit" msprop:Generator_ColumnPropNameInRow="NetBasedOnDebit" msprop:Generator_ColumnPropNameInTable="NetBasedOnDebitColumn" msprop:Generator_ColumnVarNameInTable="columnNetBasedOnDebit" msprop:Generator_UserColumnName="NetBasedOnDebit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Stale" msprop:Generator_ColumnPropNameInRow="Stale" msprop:Generator_ColumnPropNameInTable="StaleColumn" msprop:Generator_ColumnVarNameInTable="columnStale" msprop:Generator_UserColumnName="Stale" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Net" msprop:Generator_ColumnPropNameInRow="Net" msprop:Generator_ColumnPropNameInTable="NetColumn" msprop:Generator_ColumnVarNameInTable="columnNet" msprop:Generator_UserColumnName="Net" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_ACC_Balance_Part2" msprop:Generator_RowEvHandlerName="VW_ACC_Balance_Part2RowChangeEventHandler" msprop:Generator_RowDeletedName="VW_ACC_Balance_Part2RowDeleted" msprop:Generator_RowDeletingName="VW_ACC_Balance_Part2RowDeleting" msprop:Generator_RowEvArgName="VW_ACC_Balance_Part2RowChangeEvent" msprop:Generator_TablePropName="VW_ACC_Balance_Part2" msprop:Generator_RowChangedName="VW_ACC_Balance_Part2RowChanged" msprop:Generator_RowChangingName="VW_ACC_Balance_Part2RowChanging" msprop:Generator_TableClassName="VW_ACC_Balance_Part2DataTable" msprop:Generator_RowClassName="VW_ACC_Balance_Part2Row" msprop:Generator_TableVarName="tableVW_ACC_Balance_Part2" msprop:Generator_UserTableName="VW_ACC_Balance_Part2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num" msprop:Generator_ColumnPropNameInRow="Num" msprop:Generator_ColumnPropNameInTable="NumColumn" msprop:Generator_ColumnVarNameInTable="columnNum" msprop:Generator_UserColumnName="Num" type="xs:int" />
+              <xs:element name="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_UserColumnName="Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_UserColumnName="GrandTotal" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

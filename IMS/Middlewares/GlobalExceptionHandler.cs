@@ -33,7 +33,9 @@ namespace IMS.Middlewares
             var problemDetails = new ProblemDetails
             {
                 Status = StatusCodes.Status500InternalServerError,
-                Title = "Server error"
+                Title = "Server error",
+                Detail = $"'{exception.Source}', '{exception.StackTrace}', {exception.Message}",
+                Instance = exception.TargetSite.Name
             };
 
             httpContext.Response.StatusCode = problemDetails.Status.Value;

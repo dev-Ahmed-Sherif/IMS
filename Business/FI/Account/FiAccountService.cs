@@ -311,139 +311,179 @@ namespace Business.FI.Account
                             "121",
                             "122",
                         };
-                        List<string> SumNonCurrentAssetsFirst = new List<string>
-                        {
-                            "12"
-                        };
-                        List<string> NonCurrentAssetsSecond = new List<string>
-                        {
-                            "131"
-                        };
-                        List<string> NonCurrentAssetsThird = new List<string>
-                        {
-                            "1511",
-                            "1512",
-                            "1513",
-                        };
-                        List<string> NonCurrentAssetsFourth = new List<string>
-                        {
-                            "151",
-                            "152",
-                            "153",
-                        };
-                        List<string> NonCurrentAssetsFifth = new List<string>
-                        {
-                            "132",
-                            "133",
-                            "134",
-                        };
-                        List<string> NonCurrentAssetsSixth = new List<string>
-                        {
-                            "135",
-                            "136",
-                        };
-                        List<string> NonCurrentAssetsSeventh = new List<string>
-                        {
-                            "13",
-                        };
-                        List<string> NonCurrentAssetsEighth = new List<string>
-                        {
-                            "14",
-                        };
-                        List<string> NonCurrentAssetsNinth = new List<string>
-                        {
-                            "15",
-                        };
+                        //List<string> SumNonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    "12"
+                        //};
+                        //List<string> NonCurrentAssetsSecond = new List<string>
+                        //{
+                        //    "131"
+                        //};
+                        //List<string> NonCurrentAssetsThird = new List<string>
+                        //{
+                        //    "1511",
+                        //    "1512",
+                        //    "1513",
+                        //};
+                        //List<string> NonCurrentAssetsFourth = new List<string>
+                        //{
+                        //    "151",
+                        //    "152",
+                        //    "153",
+                        //};
+                        //List<string> NonCurrentAssetsFifth = new List<string>
+                        //{
+                        //    "132",
+                        //    "133",
+                        //    "134",
+                        //};
+                        //List<string> NonCurrentAssetsSixth = new List<string>
+                        //{
+                        //    "135",
+                        //    "136",
+                        //};
+                        //List<string> NonCurrentAssetsSeventh = new List<string>
+                        //{
+                        //    "13",
+                        //};
+                        //List<string> NonCurrentAssetsEighth = new List<string>
+                        //{
+                        //    "14",
+                        //};
+                        //List<string> NonCurrentAssetsNinth = new List<string>
+                        //{
+                        //    "15",
+                        //};
 
-                        // Current Fixed Assets Filter
-                        List<string> CurrentAssetsFirst = new List<string>
-                        {
-                            "161",
-                            "162",
-                            "163",
-                            "164",
-                            "165",
-                            "166",
-                        };
-                        List<string> SumCurrentAssetsFirst = new List<string> { "16" };
-                        List<string> CurrentAssetsSecond = new List<string>
-                        {
-                            "171",
-                        };
-                        List<string> CurrentAssetsThird = new List<string>
-                        {
-                            "266",
-                        };
-                        List<string> CurrentAssetsFourth = new List<string>
-                        {
-                            "1716",
-                        };
-                        List<string> CurrentAssetsFivth = new List<string>
-                        {
-                            "14"
-                        };
-                        List<string> CurrentAssetsSixth = new List<string>
-                        {
-                            "174",
-                            "175",
-                            "176",
-                            "177",
-                        };
-                        List<string> CurrentAssetsSeventh = new List<string>
-                        {
-                            "173",
-                            "1731",
-                            "1732",
-                        };
-                        List<string> CurrentAssetsEighth = new List<string>
-                        {
-                            "18",
-                        };
-                        List<string> CurrentAssetsNinth = new List<string>
-                        {
-                            "191",
-                            "192",
-                            "193",
-                            "194",
-                        };
-                        List<string> CurrentAssetsTenth = new List<string>
-                        {
-                            "19",
-                        };
-                        List<string> CurrentAssetsEleventh = new List<string>
-                        {
-                            "17",
-                        };
+                        //// Current Fixed Assets Filter
+                        //List<string> CurrentAssetsFirst = new List<string>
+                        //{
+                        //    "161",
+                        //    "162",
+                        //    "163",
+                        //    "164",
+                        //    "165",
+                        //    "166",
+                        //};
+                        //List<string> SumCurrentAssetsFirst = new List<string> { "16" };
+                        //List<string> CurrentAssetsSecond = new List<string>
+                        //{
+                        //    "171",
+                        //};
+                        //List<string> CurrentAssetsThird = new List<string>
+                        //{
+                        //    "266",
+                        //};
+                        //List<string> CurrentAssetsFourth = new List<string>
+                        //{
+                        //    "1716",
+                        //};
+                        //List<string> CurrentAssetsFivth = new List<string>
+                        //{
+                        //    "14"
+                        //};
+                        //List<string> CurrentAssetsSixth = new List<string>
+                        //{
+                        //    "174",
+                        //    "175",
+                        //    "176",
+                        //    "177",
+                        //};
+                        //List<string> CurrentAssetsSeventh = new List<string>
+                        //{
+                        //    "173",
+                        //    "1731",
+                        //    "1732",
+                        //};
+                        //List<string> CurrentAssetsEighth = new List<string>
+                        //{
+                        //    "18",
+                        //};
+                        //List<string> CurrentAssetsNinth = new List<string>
+                        //{
+                        //    "191",
+                        //    "192",
+                        //    "193",
+                        //    "194",
+                        //};
+                        //List<string> CurrentAssetsTenth = new List<string>
+                        //{
+                        //    "19",
+                        //};
+                        //List<string> CurrentAssetsEleventh = new List<string>
+                        //{
+                        //    "17",
+                        //};
 
-                        // PropertyRights
-                        List<string> PropertyRightsFirst = new List<string>
-                        {
-                            "211",
-                            "212",
-                            "213",
-                        };
-                        List<string> PropertyRightsSecond = new List<string>
-                        {
-                            "221",
-                            "222",
-                            "223",
-                            "224"
-                        };
-                        List<string> PropertyRightsThird = new List<string>
-                        {
-                            "23",
-                            "24"
-                        };
+                        //// PropertyRights
+                        //List<string> PropertyRightsFirst = new List<string>
+                        //{
+                        //    "211",
+                        //    "212",
+                        //    "213",
+                        //};
+                        //List<string> PropertyRightsSecond = new List<string>
+                        //{
+                        //    "221",
+                        //    "222",
+                        //    "223",
+                        //    "224"
+                        //};
+                        //List<string> PropertyRightsThird = new List<string>
+                        //{
+                        //    "23",
+                        //    "24"
+                        //};
 
-                        // NonCurrentObligations
-                        List<string> NonCurrentObligations = new List<string>
-                        {
-                            "251",
-                            "252",
-                            "253",
-                            "254",
-                            "255"
-                        };
+                        //// NonCurrentObligations
+                        //List<string> NonCurrentObligations = new List<string>
+                        //{
+                        //    "251",
+                        //    "252",
+                        //    "253",
+                        //    "254",
+                        //    "255"
+                        //};
+
+
+                        //// CurrentObligations
+                        //List<string> CurrentObligationsFirst = new List<string>
+                        //{
+                        //    "267",
+                        //    "268",
+                        //    "269",
+                        //};
+                        //List<string> CurrentObligationsSecond = new List<string>
+                        //{
+                        //    "271",
+                        //};
+                        //List<string> CurrentObligationsThird = new List<string>
+                        //{
+                        //    "281",
+                        //    "282",
+                        //    "283",
+                        //    "2831",
+                        //    "28311",
+                        //    "2832",
+                        //    "284",
+                        //    "285",
+                        //    "286",
+                        //    "287",
+                        //    "288"
+                        //};
+                        //List<string> CurrentObligationsFourth = new List<string>
+                        //{
+                        //    "273",
+                        //    "2899"
+                        //};
+                        //List<string> Payment = new List<string>
+                        //{
+                        //    "3"
+                        //};
+                        //List<string> Income = new List<string>
+                        //{
+                        //    "4"
+                        //};
 
                         // CurrentObligations
                         List<string> CurrentObligationsFirst = new List<string>
@@ -536,6 +576,7 @@ namespace Business.FI.Account
                         //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_التامة_وتحت_التنفيذ_117
                         //};
                         #endregion
+
                         for (int i = 0; i < FIAccountRE.Count; i++)
                         {
                             FIAccountREAdd.Add(FIAccountRE[i]);
@@ -549,63 +590,63 @@ namespace Business.FI.Account
                         }
 
                         // Non - Current Fixed Assets
-                        List<AccountItemVM> SumofAssetsArray = new List<AccountItemVM>();
-                        List<AccountItemVM> SumofPropertyRightsAndObligationsArray = new List<AccountItemVM>();
                         List<AccountItemVM> NonCurrentAssetsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> SumNonCurrentAssetsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsThirdArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsFourthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsFifthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsSixthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsSeventhArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsEighthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> NonCurrentAssetsNinthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> SumofAssetsArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> SumofPropertyRightsAndObligationsArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> SumNonCurrentAssetsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsSecondArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsThirdArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsFourthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsFifthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsSixthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsSeventhArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsEighthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsNinthArray = new List<AccountItemVM>();
 
                         // Current Fixed Assets Report Data
-                        List<AccountItemVM> CurrentAssetsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> SumCurrentAssetsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsThirdArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsFourthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsFivthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsSixthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsSeventhArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsEighthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsNinthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsTenthArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentAssetsEleventhArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> SumCurrentAssetsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsSecondArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsThirdArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsFourthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsFivthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsSixthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsSeventhArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsEighthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsNinthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsTenthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentAssetsEleventhArray = new List<AccountItemVM>();
 
-                        List<AccountItemVM> PropertyRightsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> PropertyRightsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> PropertyRightsThirdArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> PropertyRightsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> PropertyRightsSecondArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> PropertyRightsThirdArray = new List<AccountItemVM>();
 
-                        List<AccountItemVM> NonCurrentObligationsArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentObligationsArray = new List<AccountItemVM>();
 
-                        List<AccountItemVM> CurrentObligationsFirstArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsSecondArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
-                        List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentObligationsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentObligationsSecondArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentObligationsThirdArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> CurrentObligationsFourthArray = new List<AccountItemVM>();
 
-                        List<AccountItemVM> PaymentArray = new List<AccountItemVM>();
-                        List<AccountItemVM> IncomeArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> PaymentArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> IncomeArray = new List<AccountItemVM>();
 
                         for (int i = 0; i < FIAccountREAdd.Count; i++)
                         {
-                            for (int j = 0; j < SumofAssets.Count; j++)
-                            {
-                                if (SumofAssets[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    SumofAssetsArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < SumofPropertyRightsAndObligations.Count; j++)
-                            {
-                                if (SumofPropertyRightsAndObligations[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    SumofPropertyRightsAndObligationsArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
+                            //for (int j = 0; j < SumofAssets.Count; j++)
+                            //{
+                            //    if (SumofAssets[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        SumofAssetsArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < SumofPropertyRightsAndObligations.Count; j++)
+                            //{
+                            //    if (SumofPropertyRightsAndObligations[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        SumofPropertyRightsAndObligationsArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
                             for (int j = 0; j < NonCurrentAssetsFirst.Count; j++)
                             {
                                 if (NonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
@@ -613,226 +654,226 @@ namespace Business.FI.Account
                                     NonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
                                 }
                             }
-                            for (int j = 0; j < SumNonCurrentAssetsFirst.Count; j++)
-                            {
-                                if (SumNonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    SumNonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsSecond.Count; j++)
-                            {
-                                if (NonCurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsThird.Count; j++)
-                            {
-                                if (NonCurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsFourth.Count; j++)
-                            {
-                                if (NonCurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsFifth.Count; j++)
-                            {
-                                if (NonCurrentAssetsFifth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsFifthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsSixth.Count; j++)
-                            {
-                                if (NonCurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsSeventh.Count; j++)
-                            {
-                                if (NonCurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsEighth.Count; j++)
-                            {
-                                if (NonCurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentAssetsNinth.Count; j++)
-                            {
-                                if (NonCurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
+                            //for (int j = 0; j < SumNonCurrentAssetsFirst.Count; j++)
+                            //{
+                            //    if (SumNonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        SumNonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsSecond.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsThird.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsFourth.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsFifth.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsFifth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsFifthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsSixth.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsSeventh.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsEighth.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentAssetsNinth.Count; j++)
+                            //{
+                            //    if (NonCurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
 
-                            for (int j = 0; j < CurrentAssetsFirst.Count; j++)
-                            {
-                                if (CurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < SumCurrentAssetsFirst.Count; j++)
-                            {
-                                if (SumCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    SumCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsSecond.Count; j++)
-                            {
-                                if (CurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsThird.Count; j++)
-                            {
-                                if (CurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsFourth.Count; j++)
-                            {
-                                if (CurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsFivth.Count; j++)
-                            {
-                                if (CurrentAssetsFivth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsFivthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsSixth.Count; j++)
-                            {
-                                if (CurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsSeventh.Count; j++)
-                            {
-                                if (CurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsEighth.Count; j++)
-                            {
-                                if (CurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsNinth.Count; j++)
-                            {
-                                if (CurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsTenth.Count; j++)
-                            {
-                                if (CurrentAssetsTenth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsTenthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentAssetsEleventh.Count; j++)
-                            {
-                                if (CurrentAssetsEleventh[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentAssetsEleventhArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
+                            //for (int j = 0; j < CurrentAssetsFirst.Count; j++)
+                            //{
+                            //    if (CurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < SumCurrentAssetsFirst.Count; j++)
+                            //{
+                            //    if (SumCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        SumCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsSecond.Count; j++)
+                            //{
+                            //    if (CurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsThird.Count; j++)
+                            //{
+                            //    if (CurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsFourth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsFivth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsFivth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsFivthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsSixth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsSeventh.Count; j++)
+                            //{
+                            //    if (CurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsEighth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsNinth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsTenth.Count; j++)
+                            //{
+                            //    if (CurrentAssetsTenth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsTenthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentAssetsEleventh.Count; j++)
+                            //{
+                            //    if (CurrentAssetsEleventh[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentAssetsEleventhArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
 
-                            for (int j = 0; j < PropertyRightsFirst.Count; j++)
-                            {
-                                if (PropertyRightsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    PropertyRightsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < PropertyRightsSecond.Count; j++)
-                            {
-                                if (PropertyRightsSecond[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    PropertyRightsSecondArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < PropertyRightsThird.Count; j++)
-                            {
-                                if (PropertyRightsThird[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    PropertyRightsThirdArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < NonCurrentObligations.Count; j++)
-                            {
-                                if (NonCurrentObligations[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentObligationsArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentObligationsFirst.Count; j++)
-                            {
-                                if (CurrentObligationsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentObligationsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentObligationsSecond.Count; j++)
-                            {
-                                if (CurrentObligationsSecond[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentObligationsSecondArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentObligationsThird.Count; j++)
-                            {
-                                if (CurrentObligationsThird[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentObligationsThirdArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < CurrentObligationsFourth.Count; j++)
-                            {
-                                if (CurrentObligationsFourth[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
+                            //for (int j = 0; j < PropertyRightsFirst.Count; j++)
+                            //{
+                            //    if (PropertyRightsFirst[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        PropertyRightsFirstArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < PropertyRightsSecond.Count; j++)
+                            //{
+                            //    if (PropertyRightsSecond[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        PropertyRightsSecondArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < PropertyRightsThird.Count; j++)
+                            //{
+                            //    if (PropertyRightsThird[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        PropertyRightsThirdArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < NonCurrentObligations.Count; j++)
+                            //{
+                            //    if (NonCurrentObligations[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        NonCurrentObligationsArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentObligationsFirst.Count; j++)
+                            //{
+                            //    if (CurrentObligationsFirst[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentObligationsFirstArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentObligationsSecond.Count; j++)
+                            //{
+                            //    if (CurrentObligationsSecond[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentObligationsSecondArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentObligationsThird.Count; j++)
+                            //{
+                            //    if (CurrentObligationsThird[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentObligationsThirdArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < CurrentObligationsFourth.Count; j++)
+                            //{
+                            //    if (CurrentObligationsFourth[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
 
-                            for (int j = 0; j < Payment.Count; j++)
-                            {
-                                if (Payment[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    PaymentArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            for (int j = 0; j < Income.Count; j++)
-                            {
-                                if (Income[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    IncomeArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
+                            //for (int j = 0; j < Payment.Count; j++)
+                            //{
+                            //    if (Payment[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        PaymentArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
+                            //for (int j = 0; j < Income.Count; j++)
+                            //{
+                            //    if (Income[j].Equals(FIAccountREAdd[i].Code))
+                            //    {
+                            //        IncomeArray.Add(FIAccountREAdd[i]);
+                            //    }
+                            //}
                         }
 
 
@@ -840,44 +881,47 @@ namespace Business.FI.Account
 
                         // Non - Current Fixed Assets Data Sets
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFirst", Value = NonCurrentAssetsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "SumNonCurrentAssetsFirst", Value = SumNonCurrentAssetsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSecond", Value = NonCurrentAssetsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsThird", Value = NonCurrentAssetsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFourth", Value = NonCurrentAssetsFourthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFifth", Value = NonCurrentAssetsFifthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSixth", Value = NonCurrentAssetsSixthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSeventh", Value = NonCurrentAssetsSeventhArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsEighth", Value = NonCurrentAssetsEighthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsNinth", Value = NonCurrentAssetsNinthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "SumNonCurrentAssetsFirst", Value = SumNonCurrentAssetsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSecond", Value = NonCurrentAssetsSecondArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsThird", Value = NonCurrentAssetsThirdArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFourth", Value = NonCurrentAssetsFourthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFifth", Value = NonCurrentAssetsFifthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSixth", Value = NonCurrentAssetsSixthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSeventh", Value = NonCurrentAssetsSeventhArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsEighth", Value = NonCurrentAssetsEighthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsNinth", Value = NonCurrentAssetsNinthArray });
 
-                        // Current Fixed Assets Data Sets
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFirst", Value = CurrentAssetsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "SumCurrentAssetsFirst", Value = SumCurrentAssetsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSecond", Value = CurrentAssetsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsThird", Value = CurrentAssetsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFourth", Value = CurrentAssetsFourthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFivth", Value = CurrentAssetsFivthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSixth", Value = CurrentAssetsSixthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSeventh", Value = CurrentAssetsSeventhArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsEighth", Value = CurrentAssetsEighthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsNinth", Value = CurrentAssetsNinthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsTenth", Value = CurrentAssetsTenthArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsEleventh", Value = CurrentAssetsEleventhArray });
+                        //Current Fixed Assets Data Sets
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFirst", Value = CurrentAssetsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "SumCurrentAssetsFirst", Value = SumCurrentAssetsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSecond", Value = CurrentAssetsSecondArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsThird", Value = CurrentAssetsThirdArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFourth", Value = CurrentAssetsFourthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsFivth", Value = CurrentAssetsFivthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSixth", Value = CurrentAssetsSixthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsSeventh", Value = CurrentAssetsSeventhArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsEighth", Value = CurrentAssetsEighthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsNinth", Value = CurrentAssetsNinthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsTenth", Value = CurrentAssetsTenthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentAssetsEleventh", Value = CurrentAssetsEleventhArray });
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFirst", Value = CurrentObligationsFirstArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsFirst", Value = PropertyRightsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsSecond", Value = PropertyRightsSecondArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "PropertyRightsThird", Value = PropertyRightsThirdArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentObligations", Value = NonCurrentObligationsArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFirst", Value = CurrentObligationsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsSecond", Value = CurrentObligationsSecondArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsThird", Value = CurrentObligationsThirdArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "CurrentObligationsFourth", Value = CurrentObligationsFourthArray });
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "Payment", Value = PaymentArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "Income", Value = IncomeArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "Payment", Value = PaymentArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "Income", Value = IncomeArray });
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "SumofAssets", Value = SumofAssetsArray });
-                        report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "SumofAssets", Value = SumofAssetsArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
+
+                        report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part1", Value = await _FiRepository.GetPart1ViewData() });
+                        report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part2", Value = await _FiRepository.GetPart2ViewData() });
                     }
 
                     break;
