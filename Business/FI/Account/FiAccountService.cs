@@ -1082,7 +1082,7 @@ namespace Business.FI.Account
                                 FIAccountREAdd.Add(AccountActivity[i]);
                             }
                         }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = await _FiRepository.GetVW_Income_Statement_Full_ReportViewData() });
 
                         List<string> Invest = new List<string>
                         {
@@ -1174,7 +1174,7 @@ namespace Business.FI.Account
                                 FIAccountREAdd.Add(AccountActivity[i]);
                             }
                         }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = FIAccountREAdd });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = await _FiRepository.GetVW_Income_Statement_Full_ReportViewData() });
 
                         List<string> Invest = new List<string>
                         {
@@ -1230,7 +1230,7 @@ namespace Business.FI.Account
                             }
                         }
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
-                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
                     }
                     break;
                 case "AccountProductionAndAddedValueReport":

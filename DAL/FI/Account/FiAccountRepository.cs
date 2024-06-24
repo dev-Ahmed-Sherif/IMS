@@ -1005,12 +1005,18 @@ namespace DAL.FI.Account
             return details.ToList();
 
         }
+
         public async Task<List<Part1ViewModel>> GetPart1ViewData()
         {
             return await _context.Database.SqlQueryRaw<Part1ViewModel>("SELECT * FROM VW_ACC_Balance_Part1").ToListAsync();
-        }public async Task<List<Part2ViewModel>> GetPart2ViewData()
+        }
+        public async Task<List<Part2ViewModel>> GetPart2ViewData()
         {
             return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_ACC_Balance_Part2").ToListAsync();
+        }
+        public async Task<List<Part2ViewModel>> GetVW_Income_Statement_Full_ReportViewData()
+        {
+            return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Income_Statement_Full_Report").ToListAsync();
         }
     }
 

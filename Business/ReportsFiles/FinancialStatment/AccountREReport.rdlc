@@ -159,7 +159,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -195,7 +195,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -231,7 +231,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -267,7 +267,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -303,7 +303,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -339,7 +339,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -638,7 +638,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -675,7 +675,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -712,7 +712,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -749,7 +749,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -786,7 +786,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>Turquoise</BackgroundColor>
+                        <BackgroundColor>#1b77a3</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1098,11 +1098,20 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value> قائمة المركز المالي</Value>
+                  <Value xml:space="preserve"> </Value>
                   <Style>
                     <FontFamily>arial</FontFamily>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>قائمة المركز المالي</Value>
+                  <Style>
+                    <FontFamily>arial</FontFamily>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>#1b77a3</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1315,7 +1324,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.75595cm</Height>
+      <Height>1.31157cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1338,7 +1347,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0cm</Top>
+          <Top>0.29104cm</Top>
           <Left>4.36507cm</Left>
           <Height>0.65292cm</Height>
           <Width>2.07666cm</Width>
@@ -1371,7 +1380,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0cm</Top>
+          <Top>0.29104cm</Top>
           <Left>0.86847cm</Left>
           <Height>0.65292cm</Height>
           <Width>2.15604cm</Width>
@@ -1406,7 +1415,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0cm</Top>
+          <Top>0.29104cm</Top>
           <Left>6.51229cm</Left>
           <Height>0.65292cm</Height>
           <Width>1.81208cm</Width>
@@ -1441,7 +1450,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0cm</Top>
+          <Top>0.29104cm</Top>
           <Left>3.11743cm</Left>
           <Height>0.65292cm</Height>
           <Width>1.07125cm</Width>
