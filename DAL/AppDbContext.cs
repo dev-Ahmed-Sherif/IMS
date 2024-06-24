@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities;
+using Entities.Models;
 using Entities.Models.Cc;
 using Entities.Models.Fa;
 using Entities.Models.FI;
@@ -24,10 +25,12 @@ using Entities.Models.TR.Excuted;
 using Entities.Models.TR.General;
 using Entities.Models.TR.Instructor;
 using Entities.Models.TR.Plan;
+using Entities.Models.VL;
 using Entities.ViewModels.TR.General;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DAL
 {
@@ -385,10 +388,28 @@ namespace DAL
             modelBuilder.Entity<ProTender>()
                 .HasQueryFilter(e => !e.IsDeleted);
 
+
             foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 if (foreignKey.GetConstraintName().Contains("Pro"))
                     foreignKey.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            }
+            ApplySoftDeleteFilter(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
+        private static void ApplySoftDeleteFilter(ModelBuilder modelBuilder)
+        {
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                if (typeof(EntityBase).IsAssignableFrom(entityType.ClrType))
+                {
+                    var parameter = Expression.Parameter(entityType.ClrType, "e");
+                    var property = Expression.Property(parameter, nameof(EntityBase.IsDeleted));
+                    var falseConstant = Expression.Constant(false);
+                    var lambda = Expression.Lambda(Expression.Equal(property, falseConstant), parameter);
+
+                    modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+                }
             }
         }
         //privileges
@@ -579,5 +600,23 @@ namespace DAL
 
         public DbSet<ImsSection> ImsSection { get; set; }
         public DbSet<Report> Reports { get; set; }
+
+        public DbSet<VlDrivierLicense> VlDrivierLicenses { get; set; }
+        public DbSet<VlDrivierLicenseType> VlDrivierLicenseTypes { get; set; }
+        public DbSet<VlGarage> VlGarages { get; set; }
+        public DbSet<VlItinerary> VlItineraries { get; set; }
+        public DbSet<VlManufacturer> VlManufacturers { get; set; }
+        public DbSet<VlModel> VlModels { get; set; }
+        public DbSet<VlStaff> VlStaff { get; set; }
+        public DbSet<VlStaffPosition> VlStaffPositions { get; set; }
+        public DbSet<VlStaffStatus> VlStaffStatuses { get; set; }
+        public DbSet<VlType> VlTypes { get; set; }
+        public DbSet<VlVehicleGarage> VlVehicleGarages { get; set; }
+        public DbSet<VlVehicleItinerary> VlVehicleItineraries { get; set; }
+        public DbSet<VlVehicleJobOrder> VlVehicleJobOrders { get; set; }
+        public DbSet<VlVehicleLicense> VlVehicleLicenses { get; set; }
+        public DbSet<VlVehicleStatus> VlVehicleStatuses { get; set; }
+        public DbSet<VlViechle> VlVehicles { get; set; }
+
     }
 }
