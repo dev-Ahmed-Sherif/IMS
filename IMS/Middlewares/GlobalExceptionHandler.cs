@@ -33,7 +33,10 @@ namespace IMS.Middlewares
             {
                 Status = StatusCodes.Status500InternalServerError,
                 Title = "Server error",
-                Detail = $"'{exception.Message}', '{exception.InnerException?.Message}'",
+                Detail = 
+                exception.InnerException?.InnerException?.Message ??
+                exception.InnerException?.Message ??
+                exception.Message,
                 Instance = exception.Source
             };
 
