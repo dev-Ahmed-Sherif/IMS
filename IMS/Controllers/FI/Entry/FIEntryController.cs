@@ -1,6 +1,8 @@
 ﻿using Business.FI.Entry;
+using Entities.ViewModels.Cc;
 using Entities.ViewModels.FI.Entry;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
@@ -56,6 +58,11 @@ namespace IMS.Controllers.FI.Entry
             var Add = _item.Search(searchModel);
             return Ok(Add);
         }
+        [HttpGet("CostAccounts")]
+        public async Task<ActionResult<List<CcEntryVM>>> GetCostAccounts([FromQuery] searcccentry search)
+        {
+            return Ok(await _item.GetCostAccounts(search));
+        }
         [HttpGet("get/Last/index")]
         public IActionResult GetLastIndex([FromQuery] int? indexSize = null)
         {
@@ -71,7 +78,7 @@ namespace IMS.Controllers.FI.Entry
         [HttpGet("get/search/pagnation")]
         public IActionResult SearchPagination([FromQuery] searchFiEntry searchModel, int page, int pageSize)
         {
-            var allItems = _item.SearchPagination(searchModel ,page, pageSize);
+            var allItems = _item.SearchPagination(searchModel, page, pageSize);
             return Ok(allItems);
         }
         [HttpGet("get/Report")]

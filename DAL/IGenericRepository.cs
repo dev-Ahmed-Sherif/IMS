@@ -15,7 +15,6 @@ namespace DAL
         void SoftDelete(T model);
         IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null);
         Task<T?> GetById(int id);
-        Task<T?> FirstOrDefault(Expression<Func<T, bool>> predicate);
         EntityEntry<T> Update(T model);
     }
 }

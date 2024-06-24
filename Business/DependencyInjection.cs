@@ -20,8 +20,10 @@ using Business.TR.General;
 using Business.TR.Instructor;
 using Business.TR.Plan;
 using Business.TR.Training;
+using Business.Vl;
 using DAL;
 using DAL.Pro;
+using DAL.VL;
 using Entities.Models.Pro;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -218,6 +220,12 @@ namespace Business
             //SE
             services.AddScoped<ImsSectionService>();
             services.AddScoped<UnitOfWork>();
+            //VL
+            services.AddScoped<VlGarageService>();
+            services.AddScoped<VlModelService>();
+            services.AddScoped<VlTypeService>();
+            services.AddScoped<VlManufacturerService>();
+
             #endregion
             return services;
         }

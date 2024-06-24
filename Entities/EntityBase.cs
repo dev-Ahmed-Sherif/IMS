@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
@@ -11,5 +12,10 @@ namespace Entities
         public DateTime LastUpdateDate { get; set; }
         public bool IsDeleted { get; set; }
 
+    }
+    public class EntityBaseNotes : EntityBase
+    {
+        [StringLength(250)]
+        public string Notes { get; set; }
     }
 }

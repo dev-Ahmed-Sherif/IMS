@@ -1,6 +1,7 @@
 ﻿using DAL;
 using DAL.FI.Entry;
 using Entities.ViewModels;
+using Entities.ViewModels.Cc;
 using Entities.ViewModels.FI.Entry;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Reporting.NETCore;
@@ -70,6 +71,10 @@ namespace Business.FI.Entry
         {
             return _FiRepository.Search(searchModel);
         }
+        public async Task<List<CcEntryGetVM>> GetCostAccounts(searcccentry search)
+        {
+            return await _FiRepository.GetCostAccounts(search);
+        }
         public List<FiEntryGetVM> GetLastIndex(int? indexSize)
         {
             return _FiRepository.GetLastIndex(indexSize);
@@ -81,9 +86,9 @@ namespace Business.FI.Entry
         {
             return _FiRepository.GetPagination(page, pageSize, YearID);
         }
-        public PaginatedResult<FiEntryGetVM> SearchPagination(searchFiEntry searchModel ,int page, int pageSize)
+        public PaginatedResult<FiEntryGetVM> SearchPagination(searchFiEntry searchModel, int page, int pageSize)
         {
-            return _FiRepository.SearchPagination(searchModel ,page, pageSize);
+            return _FiRepository.SearchPagination(searchModel, page, pageSize);
         }
         //-------------------------------------------
         // Report

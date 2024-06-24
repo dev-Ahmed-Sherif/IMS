@@ -1,22 +1,27 @@
-﻿using Entities.ExtensionMethods;
+﻿using AutoMapper;
+using Entities.ExtensionMethods;
 using Entities.ExtensionMethods.FI.Entry;
 using Entities.Models.FI.Entry;
 using Entities.ViewModels;
+using Entities.ViewModels.Cc;
 using Entities.ViewModels.FI.Entry;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DAL.FI.Entry
 {
     public class FiEntryRepository
     {
         private AppDbContext _context;
-        public FiEntryRepository(AppDbContext context)
+        private IMapper _mapper;
+        public FiEntryRepository(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         //-------------------------
         // Add new (FI)Entry
@@ -39,7 +44,7 @@ namespace DAL.FI.Entry
         }
         public string Add(FiEntryGeneralVM ID)
         {
-            bool exists = _context.FiEntry.Any(s => s.No == ID.No&& s.Journal.FiscalYearId==ID.FiscalYearId);
+            bool exists = _context.FiEntry.Any(s => s.No == ID.No && s.Journal.FiscalYearId == ID.FiscalYearId);
             if (exists)
             {
                 return " Number of entry already exists.";
@@ -213,7 +218,7 @@ namespace DAL.FI.Entry
 
 
         }
-        public PaginatedResult<FiEntryGetVM> SearchPagination(searchFiEntry searchModel , int page, int pageSize)
+        public PaginatedResult<FiEntryGetVM> SearchPagination(searchFiEntry searchModel, int page, int pageSize)
         {
 
             var query = _context.FiEntry.AsQueryable();
@@ -284,6 +289,36 @@ namespace DAL.FI.Entry
 
             fiEntries.SelectMany(fi => fi.Fi_Entry_Details.Select(e => e.AccountId));
 
+        }
+        public async Task<List<CcEntryGetVM>> GetCostAccounts(searcccentry search)
+        {
+            IQueryable<FiEntry> query =
+                _context
+                .FiEntry
+                .Where(e =>
+                    e
+                    .Fi_Entry_Details
+                    .Any(entryDetails =>
+                        entryDetails.Account.Code.Substring(0, 1) == "3"));
+            if (search.No.HasValue)
+            {
+                query = query.Where(e => e.No.Equals(search.No));
+            }
+            if (search.JournalId.HasValue)
+            {
+                query = query.Where(e => e.JournalId.Equals(search.JournalId));
+            }
+            if (search.FiscalYearId.HasValue)
+            {
+                query = query.Where(e => e.Journal.FiscalYear.Equals(search.FiscalYearId));
+            }
+            if (search.Date.HasValue)
+            {
+                query = query.Where(e => e.Date.Date <= search.Date.Value.Date);
+            }
+
+            IQueryable<CcEntryGetVM> result = _mapper.ProjectTo<CcEntryGetVM>(query);
+            return await result.ToListAsync();
         }
     }
 }

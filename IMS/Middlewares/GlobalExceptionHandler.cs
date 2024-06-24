@@ -29,13 +29,15 @@ namespace IMS.Middlewares
         {
             _logger.LogError(
                 exception, "Exception occurred: {Message}", exception.Message);
-
             var problemDetails = new ProblemDetails
             {
                 Status = StatusCodes.Status500InternalServerError,
                 Title = "Server error",
-                Detail = $"'{exception.Source}', '{exception.StackTrace}', {exception.Message}",
-                Instance = exception.TargetSite.Name
+                Detail = 
+                exception.InnerException?.InnerException?.Message ??
+                exception.InnerException?.Message ??
+                exception.Message,
+                Instance = exception.Source
             };
 
             httpContext.Response.StatusCode = problemDetails.Status.Value;
