@@ -23,7 +23,7 @@
 		<None Remove="ReportsFiles\FIEntryDetailsReport.rdlc" />
 		<None Remove="ReportsFiles\FIEntryReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountCashFlowsReport.rdlc" />
-		<None Remove="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReport.rdlc" />
+		<None Remove="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReportNew.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountComStockWithdrawTotalReport.rdlc" />
 		<None Remove="ReportsFiles\FinancialStatment\AccountCreditAccountsReport.rdlc" />
@@ -103,7 +103,7 @@
 		<Content Include="ReportsFiles\FinancialStatment\AccountCashFlowsReport.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<Content Include="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReport.rdlc">
+		<Content Include="ReportsFiles\FinancialStatment\AccountChangeOwnerShipRightsReportNew.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="ReportsFiles\FinancialStatment\AccountCommodityStockReport.rdlc">
