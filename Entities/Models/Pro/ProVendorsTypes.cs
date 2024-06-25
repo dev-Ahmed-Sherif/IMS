@@ -2,12 +2,12 @@
 
 namespace Entities.Models.Pro
 {
-    public class ProContractorTypes : EntityBase
+    public class ProVendorsTypes : EntityBase
     {
-        public int ContractorId { get; set; }
-        public virtual ProContractor Contractor { get; set; }
-        public int ContractorTypeId { get; set; }
-        public virtual ProSupplierType ContractorType { get; set; }
+        public int VendorId { get; set; }
+        public virtual ProVendor Vendor { get; set; }
+        public int VendorTypeId { get; set; }
+        public virtual ProVendorType VendorType { get; set; }
         //-----------------------------------------------------------------------//
         // Relation { PrUser => AddReceipt } +++ {View Model => TransactionUserId} 
         //-----------------------------------------------------------------------//

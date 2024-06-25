@@ -200,9 +200,8 @@ namespace Business
             services.AddScoped<ProOperationTypeService>();//07/11
             services.AddScoped<ProPlanTypeService>();//07/11
             services.AddScoped<ProTenderTypeService>();//07/11
-            services.AddScoped<ProSupplierTypeService>();//07/11
             services.AddScoped<ProTenderService>();//07/11
-            services.AddScoped<ProSellerService>();//07/11
+            services.AddScoped<ProVendorsTypesService>();//07/11
             services.AddScoped<ProTenderDetailsService>();
             services.AddScoped<ProTenderCommitteeService>();
             services.AddScoped<ProTenderCommitteeRoleService>();

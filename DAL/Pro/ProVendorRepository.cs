@@ -7,32 +7,34 @@ using System.Linq;
 
 namespace DAL.Pro
 {
-    public class ProSellerRepository
+    public class ProVendorRepository
     {
         private AppDbContext _context;
-        public ProSellerRepository(AppDbContext context)
+        public ProVendorRepository(AppDbContext context)
         {
             _context = context;
         }
-        public string Add(ProSellerVM seller)
+        public string Add(ProVendorVM Vendor)
         {
             try
             {
-                var _seller = new ProSeller()
+                var _Vendor = new ProVendor()
                 {
-                    Name = seller.Name,
-                    Code = seller.Code,
-                    Phone = seller.Phone,
-                    Email = seller.Email,
-                    CityId = seller.CityId,
-                    CityStateId = seller.CityStateId,
-                    Address = seller.Address,
-                    CommericalRegister = seller.CommericalRegister,
-                    TaxCard = seller.TaxCard,
-                    CreatedByID = seller.TransactionUserId,
-                    CreationDate = DateTime.Now
+                    Name = Vendor.Name,
+                    Code = Vendor.Code,
+                    Phone = Vendor.Phone,
+                    Email = Vendor.Email,
+                    CityId = Vendor.CityId,
+                    CityStateId = Vendor.CityStateId,
+                    Address = Vendor.Address,
+                    CommericalRegister = Vendor.CommericalRegister,
+                    TaxCard = Vendor.TaxCard,
+                    CreatedByID = Vendor.TransactionUserId,
+                    CreationDate = DateTime.Now,
+                    IndusterialRegister = Vendor.IndusterialRegister,
+                    TheLevel = Vendor.TheLevel,
                 };
-                _context.ProSeller.Add(_seller);
+                _context.ProVendors.Add(_Vendor);
                 _context.SaveChanges();
                 return "Succeeded";
             }
@@ -42,41 +44,41 @@ namespace DAL.Pro
             }
         }
 
-        public string Update(ProSellerVM seller)
+        public string Update(ProVendorVM Vendor)
         {
-           
-                    var _seller = _context.ProSeller.Single(n => n.Id == seller.Id);
-               
-                    _seller.Name = seller.Name;
-                    _seller.Code = seller.Code;
-                    _seller.Phone = seller.Phone;
-                    _seller.Email = seller.Email;
-                    _seller.CityId = seller.CityId;
-                    _seller.CityStateId = seller.CityStateId;
-                    _seller.Address = seller.Address;
-                    _seller.CommericalRegister = seller.CommericalRegister;
-                    _seller.TaxCard = seller.TaxCard;
-                    _seller.UpdateByID = seller.TransactionUserId;
-                    _seller.LastUpdateDate = DateTime.Now;
 
-                    _context.SaveChanges();
-                    return "Succeeded";
-           
+            var _Vendor = _context.ProVendors.Single(n => n.Id == Vendor.Id);
+
+            _Vendor.Name = Vendor.Name;
+            _Vendor.Code = Vendor.Code;
+            _Vendor.Phone = Vendor.Phone;
+            _Vendor.Email = Vendor.Email;
+            _Vendor.CityId = Vendor.CityId;
+            _Vendor.CityStateId = Vendor.CityStateId;
+            _Vendor.Address = Vendor.Address;
+            _Vendor.CommericalRegister = Vendor.CommericalRegister;
+            _Vendor.TaxCard = Vendor.TaxCard;
+            _Vendor.UpdateByID = Vendor.TransactionUserId;
+            _Vendor.LastUpdateDate = DateTime.Now;
+
+            _context.SaveChanges();
+            return "Succeeded";
+
         }
 
-        public string Delete(int sellerId)
+        public string Delete(int VendorId)
         {
-            
-                var _seller = _context.ProSeller.Single(n => n.Id == sellerId);
-             
-                    _context.ProSeller.Remove(_seller);
-                    _context.SaveChanges();
-                    return "Succeeded";
-            
+
+            var _Vendor = _context.ProVendors.Single(n => n.Id == VendorId);
+
+            _context.ProVendors.Remove(_Vendor);
+            _context.SaveChanges();
+            return "Succeeded";
+
         }
 
-        public List<ProSellerGetVM> GetAll() => _context.ProSeller
-            .Select(n => new ProSellerGetVM
+        public List<ProVendorGetVM> GetAll() => _context.ProVendors
+            .Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
                 Name = n.Name,
@@ -91,12 +93,14 @@ namespace DAL.Pro
                 TaxCard = n.TaxCard,
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
-
                 CreateUserName = n.CreatedBy.Name,
-                TransactionUserId = n.CreatedBy.Id
+                TransactionUserId = n.CreatedBy.Id,
+                IndusterialRegister = n.IndusterialRegister,
+                TheLevel = n.TheLevel,
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
             }).ToList();
-        public ProSellerGetVM GetById(int sellerId) => _context.ProSeller
-            .Select(n => new ProSellerGetVM
+        public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
+            .Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
                 Name = n.Name,
@@ -110,15 +114,19 @@ namespace DAL.Pro
                 CommericalRegister = n.CommericalRegister,
                 TaxCard = n.TaxCard,
                 CreateUserName = n.CreatedBy.Name,
+                TransactionUserId = n.CreatedBy.Id,
+                CityName = n.City.Name,
+                CityStateName = n.CityState.Name,
+                IndusterialRegister = n.IndusterialRegister,
+                TheLevel = n.TheLevel,
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
+            }).Single(n => n.Id == VendorId);
 
-                TransactionUserId = n.CreatedBy.Id
-            }).Single(n => n.Id == sellerId);
-
-        public List<ProSellerGetVM> GetByName(string SellerName)
+        public List<ProVendorGetVM> GetByName(string VendorName)
         {
             return _context.StrVendor
-                .Where(n => n.Name.Contains(SellerName))
-                .Select(n => new ProSellerGetVM
+                .Where(n => n.Name.Contains(VendorName))
+                .Select(n => new ProVendorGetVM
                 {
                     Id = n.Id,
                     Name = n.Name,
@@ -132,7 +140,7 @@ namespace DAL.Pro
         //autocode function
         public string GetLastNo()
         {
-            int maxNo = _context.ProSeller
+            int maxNo = _context.ProVendors
              .Select(item => item.Code).DefaultIfEmpty()
              .Max();
             if (maxNo == 0)
@@ -152,9 +160,9 @@ namespace DAL.Pro
         //-------------------------------------------------
         //search function
 
-        public List<ProSellerGetVM> Search(SellerSearchGeneral searchModel)
+        public List<ProVendorGetVM> Search(VendorSearchGeneral searchModel)
         {
-            var query = _context.ProSeller.AsQueryable();
+            var query = _context.ProVendors.AsQueryable();
             if (searchModel.Id.HasValue)
             {
                 query = query.Where(p => p.Id == searchModel.Id);
@@ -189,7 +197,7 @@ namespace DAL.Pro
                 query = query.Where(p => p.Email == searchModel.Email);
             }
 
-            var results = query.Select(n => new ProSellerGetVM
+            var results = query.Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
                 Name = n.Name,
@@ -202,7 +210,12 @@ namespace DAL.Pro
                 CommericalRegister = n.CommericalRegister,
                 TaxCard = n.TaxCard,
                 CreateUserName = n.CreatedBy.Name,
-                TransactionUserId = n.CreatedBy.Id
+                TransactionUserId = n.CreatedBy.Id,
+                CityName = n.City.Name,
+                CityStateName = n.CityState.Name,
+                IndusterialRegister = n.IndusterialRegister,
+                TheLevel = n.TheLevel,
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
             }).ToList();
 
 

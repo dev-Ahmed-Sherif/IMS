@@ -222,7 +222,7 @@ namespace DAL.STR.Add
             }
             if (searchModel.SellerId.HasValue)
             {
-                query = query.Where(p => p.SellerId == searchModel.SellerId);
+                query = query.Where(p => p.VendorId == searchModel.SellerId);
             }
             if (searchModel.SectionId.HasValue)
             {
@@ -256,12 +256,12 @@ namespace DAL.STR.Add
               AddId = n.AddId,
               HeaderStoreName = n.STR_Add.STR_Store.Name,
               HeaderSourceName =
-                  n.STR_Add.Seller.Name == null ?
+                  n.STR_Add.Vendor.Name == null ?
                       (n.STR_Add.SourceStore.Name == null ?
                           (n.STR_Add.Employee.Name == null ? ""
                            : n.STR_Add.Employee.Name)
                       : n.STR_Add.SourceStore.Name)
-                  : n.STR_Add.Seller.Name,
+                  : n.STR_Add.Vendor.Name,
               //HeaderSellerName = n.STR_Add.PRO_Seller.Name,
               //HeaderSourceStoreName = n.STR_Add.STR_Store1.Name,
               HeaderEmployeeName = n.STR_Add.Employee.Name,
@@ -313,7 +313,7 @@ namespace DAL.STR.Add
                     //Add Header
                     AddId = n.AddId,
                     HeaderStoreName = n.STR_Add.STR_Store.Name,
-                    HeaderSourceName = n.STR_Add.Seller.Name == null ? n.STR_Add.SourceStore.Name : n.STR_Add.Seller.Name,
+                    HeaderSourceName = n.STR_Add.Vendor.Name == null ? n.STR_Add.SourceStore.Name : n.STR_Add.Vendor.Name,
                     //HeaderSellerName = n.STR_Add.PRO_Seller.Name,
                     //HeaderSourceStoreName = n.STR_Add.STR_Store1.Name,
                     HeaderEmployeeName = n.STR_Add.Employee.Name,

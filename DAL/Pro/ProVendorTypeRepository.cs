@@ -7,19 +7,19 @@ using System.Linq;
 
 namespace DAL.Pro
 {
-    public class ProSupplierTypeRepository
+    public class ProVendorTypeRepository
     {
         private AppDbContext _context;
-        public ProSupplierTypeRepository(AppDbContext context)
+        public ProVendorTypeRepository(AppDbContext context)
         {
             _context = context;
         }
         //----------------------------------------------
         //add function
-        public string Add(ProSupplierTypeGeneralVM add)
+        public string Add(ProVendorTypeGeneralVM add)
         {
           
-                var _add = new ProSupplierType()
+                var _add = new ProVendorType()
                 {
                     Name = add.Name,
 
@@ -29,17 +29,17 @@ namespace DAL.Pro
                     CreationDate = DateTime.Now
 
                 };
-                _context.ProSupplierTypes.Add(_add);
+                _context.ProVendorTypes.Add(_add);
                 _context.SaveChanges();
                 return _add.Id.ToString();
            
         }
         //-----------------------------------------------
         //update function
-        public string Update(ProSupplierTypeVM update)
+        public string Update(ProVendorTypeVM update)
         {
            
-                var _update = _context.ProSupplierTypes.Single(n => n.Id == update.Id);
+                var _update = _context.ProVendorTypes.Single(n => n.Id == update.Id);
                  _update.Name = update.Name;
                     _update.Code = update.Code;
                     _update.UpdateByID = update.TransactionUserId;
@@ -56,22 +56,22 @@ namespace DAL.Pro
         public string Delete(int ID)
         {
           
-                var _Row = _context.ProSupplierTypes.Single(n => n.Id == ID);
+                var _Row = _context.ProVendorTypes.Single(n => n.Id == ID);
              
-                    _context.ProSupplierTypes.Remove(_Row);
+                    _context.ProVendorTypes.Remove(_Row);
                     _context.SaveChanges();
                     return "Succeeded";
              
         }
         //-----------------------------------
         //get function
-        public List<ProSupplierTypeGetVM> GetAll() => _context.ProSupplierTypes.Select(n => new ProSupplierTypeGetVM { Id = n.Id, Name = n.Name, Code = n.Code, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).ToList();
-        public ProSupplierTypeGetVM GetById(int itemId) => _context.ProSupplierTypes.Select(n => new ProSupplierTypeGetVM { Id = n.Id, Name = n.Name, Code = n.Code, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).Single(n => n.Id == itemId);
+        public List<ProVendorTypeGetVM> GetAll() => _context.ProVendorTypes.Select(n => new ProVendorTypeGetVM { Id = n.Id, Name = n.Name, Code = n.Code, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).ToList();
+        public ProVendorTypeGetVM GetById(int itemId) => _context.ProVendorTypes.Select(n => new ProVendorTypeGetVM { Id = n.Id, Name = n.Name, Code = n.Code, CreateUserName = n.CreatedBy.Name, TransactionUserId = n.CreatedBy.Id }).Single(n => n.Id == itemId);
         //------------------------------------------
         //autocode function
         public string GetLastNo()
         {
-            int maxNo = _context.ProSupplierTypes
+            int maxNo = _context.ProVendorTypes
              .Select(item => item.Code).DefaultIfEmpty()
              .Max();
             if (maxNo == 0)

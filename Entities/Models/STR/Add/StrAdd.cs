@@ -42,8 +42,8 @@ namespace Entities.Models.STR.Add
         public virtual StrStore STR_Store { get; set; }
         public int? withdrawId { get; set; }
         public virtual StrWithDraw withdraw { get; set; }
-        public int? SellerId { get; set; }
-        public virtual ProSeller Seller { get; set; }
+        public int? VendorId { get; set; }
+        public virtual ProVendor Vendor { get; set; }
         public int? EmployeeId { get; set; }
         public virtual HrEmployee Employee { get; set; }
         public int FiscalYearId { get; set; }

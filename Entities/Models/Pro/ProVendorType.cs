@@ -1,14 +1,18 @@
 ﻿using Entities.Models.PR;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models.Pro
 {
-    public class ProSupplierType : EntityBase
+    public class ProVendorType : EntityBase
     {
         [StringLength(50)]
         public string Name { get; set; }
         public int Code { get; set; }
+        public int OperationTypeId { get; set; }
+        [ForeignKey(nameof(OperationTypeId))]
+        public virtual ProOperationType OperationType { get; set; }
         //-----------------------------------------------------------------------//
         // Relation { PrUser => AddReceipt } +++ {View Model => TransactionUserId} 
         //-----------------------------------------------------------------------//
@@ -17,7 +21,6 @@ namespace Entities.Models.Pro
         public override int? UpdateByID { get; set; }
         public virtual PrUser UpdateBy { get; set; }
         //navigation
-        public virtual ICollection<ProContractorTypes> ProContractorTypes { get; set; }
-        public virtual ICollection<ProSellerTypes> ProSellerTypes { get; set; }
+        public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
     }
 }

@@ -20,9 +20,9 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            if (filter.SellerId.HasValue)
+            if (filter.VendorId.HasValue)
             {
-                result = result.Where(e => e.SellerId == filter.SellerId);
+                result = result.Where(e => e.VendorId == filter.VendorId);
             }
             if (filter.StartSendDate.HasValue)
             {

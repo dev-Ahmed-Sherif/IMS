@@ -13,7 +13,7 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
         [AllowNull]
         public int? TenderId { get; set; }
         [AllowNull]
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         [AllowNull]
         public int? StatusId { get; set; }
     }

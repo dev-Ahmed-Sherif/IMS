@@ -160,9 +160,9 @@ namespace DAL
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<StrAdd>()
-                .HasOne(b => b.Seller)
+                .HasOne(b => b.Vendor)
                 .WithMany(ba => ba.STR_Add)
-                .HasForeignKey(bi => bi.SellerId)
+                .HasForeignKey(bi => bi.VendorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<StrAdd>()
@@ -474,7 +474,6 @@ namespace DAL
         public DbSet<FiAccountBalance> FiAccountBalances { get; set; }
 
         //Procurement
-        public DbSet<ProSeller> ProSeller { get; set; }
         //Human resources
         public DbSet<HrEmployee> HrEmployee { get; set; }
         public DbSet<HrMillitryState> HrMillitryState { get; set; }
@@ -578,13 +577,12 @@ namespace DAL
         public DbSet<ProOperationType> ProOperationType { get; set; }//06/11
         public DbSet<ProPlanType> ProPlantType { get; set; }//06/11
         public DbSet<ProTenderType> ProTenderType { get; set; }//06/11
-        public DbSet<ProSupplierType> ProSupplierTypes { get; set; }//06/11
+        public DbSet<ProVendorType> ProVendorTypes { get; set; }//06/11
         public DbSet<ProTender> ProTender { get; set; }//07/11
                                                        //Procurement
                                                        // public DbSet<ProSeller> ProSeller { get; set; }
-        public DbSet<ProSellerTypes> ProSellerTypes { get; set; }//08/11
-        public DbSet<ProContractorTypes> ProContractorTypes { get; set; }//08/11
-        public DbSet<ProContractor> ProContractor { get; set; }//08/11
+        public DbSet<ProVendorsTypes> ProVendorsTypes { get; set; }//08/11
+        public DbSet<ProVendor> ProVendors { get; set; }//08/11
         public DbSet<ProPurchaseOrder> ProPurchaseOrders { get; set; }
         public DbSet<ProPurchaseOrderDetails> ProPurchaseOrderDetails { get; set; }
         public DbSet<ProQuotation> ProQuotations { get; set; }
