@@ -578,8 +578,7 @@ namespace DAL
         public DbSet<ProOperationType> ProOperationType { get; set; }//06/11
         public DbSet<ProPlanType> ProPlantType { get; set; }//06/11
         public DbSet<ProTenderType> ProTenderType { get; set; }//06/11
-        public DbSet<ProContractorType> ProContractorType { get; set; }//06/11
-        public DbSet<ProSellerType> ProSellerType { get; set; }//06/11
+        public DbSet<ProSupplierType> ProSupplierTypes { get; set; }//06/11
         public DbSet<ProTender> ProTender { get; set; }//07/11
                                                        //Procurement
                                                        // public DbSet<ProSeller> ProSeller { get; set; }

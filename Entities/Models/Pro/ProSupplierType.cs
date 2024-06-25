@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models.Pro
 {
-    public class ProContractorType : EntityBase
+    public class ProSupplierType : EntityBase
     {
         [StringLength(50)]
         public string Name { get; set; }
@@ -18,5 +18,6 @@ namespace Entities.Models.Pro
         public virtual PrUser UpdateBy { get; set; }
         //navigation
         public virtual ICollection<ProContractorTypes> ProContractorTypes { get; set; }
+        public virtual ICollection<ProSellerTypes> ProSellerTypes { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 ﻿namespace Entities.ViewModels.Pro
 {
-    public class ProContractorTypeGeneralVM
+    public class ProSupplierTypeGeneralVM
     {
         public string Name { get; set; }
         public int Code { get; set; }
         public int TransactionUserId { get; set; }
     }
-    public class ProContractorTypeVM : ProContractorTypeGeneralVM
+    public class ProSupplierTypeVM : ProSupplierTypeGeneralVM
     {
         public int Id { get; set; }
 
     }
-    public class ProContractorTypeGetVM : ProContractorTypeVM
+    public class ProSupplierTypeGetVM : ProSupplierTypeVM
     {
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }

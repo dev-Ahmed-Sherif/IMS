@@ -6,24 +6,24 @@ namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProSellerTypeController : ControllerBase
+    public class ProSupplierTypeController : ControllerBase
     {
-        private ProSellerTypeService _pro;
+        private ProSupplierTypeService _pro;
 
-        public ProSellerTypeController(ProSellerTypeService AddService)
+        public ProSupplierTypeController(ProSupplierTypeService AddService)
         {
             _pro = AddService;
         }
 
         [HttpPost("Add")]
-        public IActionResult Add([FromBody] ProSellerTypeGeneralVM add)
+        public IActionResult Add([FromBody] ProSupplierTypeGeneralVM add)
         {
             var _response = _pro.Add(add);
             return new JsonResult(_response);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] ProSellerTypeVM update)
+        public IActionResult Update([FromBody] ProSupplierTypeVM update)
         {
             var _response = _pro.Update(update);
             return new JsonResult(_response);

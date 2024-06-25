@@ -6,19 +6,19 @@ using System.Collections.Generic;
 
 namespace Business.Pro
 {
-    public class ProContractorTypeService
+    public class ProSupplierTypeService
     {
 
-        public ProContractorTypeRepository _ProContractorTypeRepository;
-        public ProContractorTypeService(ProContractorTypeRepository ProContractorTypeRepository)
+        public ProSupplierTypeRepository _ProContractorTypeRepository;
+        public ProSupplierTypeService(ProSupplierTypeRepository ProContractorTypeRepository)
         {
             _ProContractorTypeRepository = ProContractorTypeRepository;
         }
-        public string Add(ProContractorTypeGeneralVM vtype)
+        public string Add(ProSupplierTypeGeneralVM vtype)
         {
             return _ProContractorTypeRepository.Add(vtype);
         }
-        public string Update(ProContractorTypeVM type)
+        public string Update(ProSupplierTypeVM type)
         {
             return _ProContractorTypeRepository.Update(type);
         }
@@ -26,11 +26,11 @@ namespace Business.Pro
         {
             return _ProContractorTypeRepository.Delete(typeId);
         }
-        public List<ProContractorTypeGetVM> GetAll()
+        public List<ProSupplierTypeGetVM> GetAll()
         {
             return _ProContractorTypeRepository.GetAll();
         }
-        public ProContractorTypeGetVM GetById(int typeId)
+        public ProSupplierTypeGetVM GetById(int typeId)
         {
             return _ProContractorTypeRepository.GetById(typeId);
         }

@@ -7,7 +7,7 @@ namespace Entities.Models.Pro
         public int ContractorId { get; set; }
         public virtual ProContractor Contractor { get; set; }
         public int ContractorTypeId { get; set; }
-        public virtual ProContractorType ContractorType { get; set; }
+        public virtual ProSupplierType ContractorType { get; set; }
         //-----------------------------------------------------------------------//
         // Relation { PrUser => AddReceipt } +++ {View Model => TransactionUserId} 
         //-----------------------------------------------------------------------//
