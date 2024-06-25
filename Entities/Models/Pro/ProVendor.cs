@@ -38,7 +38,7 @@ namespace Entities.Models.Pro
         public override int? UpdateByID { get; set; }
         public virtual PrUser UpdateBy { get; set; }
         //navigation
-        public virtual ICollection<ProVendorsTypes> ProContractorTypes { get; set; }
+        public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
 
         [StringLength(50)]
         public string CommericalRegister { get; set; }

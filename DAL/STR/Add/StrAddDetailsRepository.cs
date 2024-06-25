@@ -139,12 +139,12 @@ namespace DAL.STR.Add
         //                No = sa.No,
         //                Total = sa.Total,
         //                Notes = sa.Notes,
-        //                SellerId = sa.SellerId,
+        //                VendorId = sa.VendorId,
         //                SourceStoreId = sa.SourceStoreId,
         //                StoreId = sa.StoreId,
         //                EmployeeId = sa.EmployeeId,
         //                StoreName = sa.STR_Store.Name,
-        //                SellerName = sa.PRO_Seller.Name,
+        //                VendorName = sa.PRO_Vendor.Name,
         //                EmployeeName = sa.HR_Employee.Name,
         //                fiscalyear = sa.fiscalyear.fiscalyear,
         //                SourceStoreName = sa.STR_Store1.Name,
@@ -220,9 +220,9 @@ namespace DAL.STR.Add
             {
                 query = query.Where(p => p.SourceStoreId == searchModel.SourceStoreId);
             }
-            if (searchModel.SellerId.HasValue)
+            if (searchModel.VendorId.HasValue)
             {
-                query = query.Where(p => p.VendorId == searchModel.SellerId);
+                query = query.Where(p => p.VendorId == searchModel.VendorId);
             }
             if (searchModel.SectionId.HasValue)
             {
@@ -262,7 +262,7 @@ namespace DAL.STR.Add
                            : n.STR_Add.Employee.Name)
                       : n.STR_Add.SourceStore.Name)
                   : n.STR_Add.Vendor.Name,
-              //HeaderSellerName = n.STR_Add.PRO_Seller.Name,
+              //HeaderVendorName = n.STR_Add.PRO_Vendor.Name,
               //HeaderSourceStoreName = n.STR_Add.STR_Store1.Name,
               HeaderEmployeeName = n.STR_Add.Employee.Name,
               HeaderCreateUserName = n.STR_Add.CreatedBy.Name,
@@ -314,7 +314,7 @@ namespace DAL.STR.Add
                     AddId = n.AddId,
                     HeaderStoreName = n.STR_Add.STR_Store.Name,
                     HeaderSourceName = n.STR_Add.Vendor.Name == null ? n.STR_Add.SourceStore.Name : n.STR_Add.Vendor.Name,
-                    //HeaderSellerName = n.STR_Add.PRO_Seller.Name,
+                    //HeaderVendorName = n.STR_Add.PRO_Vendor.Name,
                     //HeaderSourceStoreName = n.STR_Add.STR_Store1.Name,
                     HeaderEmployeeName = n.STR_Add.Employee.Name,
                     HeaderCreateUserName = n.STR_Add.CreatedBy.Name,

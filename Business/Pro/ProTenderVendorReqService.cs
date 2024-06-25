@@ -9,21 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using AutoMapper;
 
 namespace Business.Pro
 {
-    public class ProTenderSellerReqService : GenericService<ProTenderSellerReq>
+    public class ProTenderVendorReqService : GenericService<ProTenderVendorReq>
     {
-        new readonly ProTenderSellerReqRepository _repository;
+        new readonly ProTenderVendorReqRepository _repository;
 
-        public ProTenderSellerReqService(ProTenderSellerReqRepository repository, UnitOfWork unitOfWork, IMapper mapper) : base(repository, unitOfWork, mapper)
+        public ProTenderVendorReqService(ProTenderVendorReqRepository repository, UnitOfWork unitOfWork, IMapper mapper) : base(repository, unitOfWork, mapper)
         {
             _repository = repository;
         }
 
-        public IQueryable<ProTenderSellerReq> GetFiltered(ProTenderSellerReqFilter filter)
+        public IQueryable<ProTenderVendorReq> GetFiltered(ProTenderVendorReqFilter filter)
         {
             return _repository.Filter(filter);
         }

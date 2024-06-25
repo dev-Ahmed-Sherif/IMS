@@ -17,7 +17,7 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         [Required]
         public DateTime Date { get; set; }
         [Required]
-        public int SellerId { get; set; }
+        public int VendorId { get; set; }
         [Required]
         public int StoreId { get; set; }
         [MaxLength(250)]

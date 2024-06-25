@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Entities.ExtensionMethods;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 
 namespace IMS.Controllers.Pro
 {

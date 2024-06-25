@@ -1,5 +1,5 @@
 ﻿using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Pro
 {
-    public class ProTenderSellerReqRepository : GenericRepository<ProTenderSellerReq>
+    public class ProTenderVendorReqRepository : GenericRepository<ProTenderVendorReq>
     {
-        public ProTenderSellerReqRepository(AppDbContext dbContext) : base(dbContext)
+        public ProTenderVendorReqRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
-        public IQueryable<ProTenderSellerReq> Filter(ProTenderSellerReqFilter filter)
+        public IQueryable<ProTenderVendorReq> Filter(ProTenderVendorReqFilter filter)
         {
-            IQueryable<ProTenderSellerReq> result = GetAll();
+            IQueryable<ProTenderVendorReq> result = GetAll();
             if (filter.TenderId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);

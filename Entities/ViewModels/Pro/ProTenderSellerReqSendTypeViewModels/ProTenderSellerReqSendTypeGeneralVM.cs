@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels
+namespace Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels
 {
-    public class ProTenderSellerReqSendTypeGeneralVM : BaseViewModel
+    public class ProTenderVendorReqSendTypeGeneralVM : BaseViewModel
     {
         [Required, MaxLength(50)]
         public string Name { get; set; }

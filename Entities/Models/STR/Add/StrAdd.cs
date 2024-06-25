@@ -32,7 +32,7 @@ namespace Entities.Models.STR.Add
         public virtual PrUser UpdateBy { get; set; }
 
         //---------------------------------------------------------------------------//
-        // Relation Foregin Key { Store,AddType,AddReceipt,Seller,Employee,FiscalYear }
+        // Relation Foregin Key { Store,AddType,AddReceipt,Vendor,Employee,FiscalYear }
         //---------------------------------------------------------------------------//
         public int? SourceStoreId { get; set; }
         [ForeignKey("SourceStoreId")]

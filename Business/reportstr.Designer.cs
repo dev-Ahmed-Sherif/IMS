@@ -2311,7 +2311,7 @@ namespace Business {
             
             private global::System.Data.DataColumn columnEmployeeName;
             
-            private global::System.Data.DataColumn columnSellerName;
+            private global::System.Data.DataColumn columnVendorName;
             
             private global::System.Data.DataColumn columnSourceStoreName;
             
@@ -2404,9 +2404,9 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SellerNameColumn {
+            public global::System.Data.DataColumn VendorNameColumn {
                 get {
-                    return this.columnSellerName;
+                    return this.columnVendorName;
                 }
             }
             
@@ -2579,7 +2579,7 @@ namespace Business {
                         string StoreName, 
                         string AddTypeName, 
                         short EmployeeName, 
-                        string SellerName, 
+                        string VendorName, 
                         string SourceStoreName, 
                         string CreateUserName, 
                         System.DateTime fiscalyear, 
@@ -2601,7 +2601,7 @@ namespace Business {
                         StoreName,
                         AddTypeName,
                         EmployeeName,
-                        SellerName,
+                        VendorName,
                         SourceStoreName,
                         CreateUserName,
                         fiscalyear,
@@ -2643,7 +2643,7 @@ namespace Business {
                 this.columnStoreName = base.Columns["StoreName"];
                 this.columnAddTypeName = base.Columns["AddTypeName"];
                 this.columnEmployeeName = base.Columns["EmployeeName"];
-                this.columnSellerName = base.Columns["SellerName"];
+                this.columnVendorName = base.Columns["VendorName"];
                 this.columnSourceStoreName = base.Columns["SourceStoreName"];
                 this.columnCreateUserName = base.Columns["CreateUserName"];
                 this.columnfiscalyear = base.Columns["fiscalyear"];
@@ -2671,8 +2671,8 @@ namespace Business {
                 base.Columns.Add(this.columnAddTypeName);
                 this.columnEmployeeName = new global::System.Data.DataColumn("EmployeeName", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeName);
-                this.columnSellerName = new global::System.Data.DataColumn("SellerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSellerName);
+                this.columnVendorName = new global::System.Data.DataColumn("VendorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVendorName);
                 this.columnSourceStoreName = new global::System.Data.DataColumn("SourceStoreName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSourceStoreName);
                 this.columnCreateUserName = new global::System.Data.DataColumn("CreateUserName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -21178,17 +21178,17 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string SellerName {
+            public string VendorName {
                 get {
                     try {
-                        return ((string)(this[this.tableSTRAdd.SellerNameColumn]));
+                        return ((string)(this[this.tableSTRAdd.VendorNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SellerName\' in table \'STRAdd\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VendorName\' in table \'STRAdd\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSTRAdd.SellerNameColumn] = value;
+                    this[this.tableSTRAdd.VendorNameColumn] = value;
                 }
             }
             
@@ -21486,14 +21486,14 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSellerNameNull() {
-                return this.IsNull(this.tableSTRAdd.SellerNameColumn);
+            public bool IsVendorNameNull() {
+                return this.IsNull(this.tableSTRAdd.VendorNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSellerNameNull() {
-                this[this.tableSTRAdd.SellerNameColumn] = global::System.Convert.DBNull;
+            public void SetVendorNameNull() {
+                this[this.tableSTRAdd.VendorNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

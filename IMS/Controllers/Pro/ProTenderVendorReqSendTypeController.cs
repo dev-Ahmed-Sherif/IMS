@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Business.Pro;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using System.Linq;
 using Entities.ExtensionMethods;
 
@@ -15,35 +15,35 @@ namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderSellerReqSendTypeController : ControllerBase
+    public class ProTenderVendorReqSendTypeController : ControllerBase
     {
         readonly IMapper _mapper;
-        readonly ProTenderSellerReqSendTypeService _ProTenderSellerReqSendTypeService;
-        public ProTenderSellerReqSendTypeController(
+        readonly ProTenderVendorReqSendTypeService _ProTenderVendorReqSendTypeService;
+        public ProTenderVendorReqSendTypeController(
             IMapper mapper,
-            ProTenderSellerReqSendTypeService ProTenderSellerReqSendTypeService)
+            ProTenderVendorReqSendTypeService ProTenderVendorReqSendTypeService)
         {
             _mapper = mapper;
-            _ProTenderSellerReqSendTypeService = ProTenderSellerReqSendTypeService;
+            _ProTenderVendorReqSendTypeService = ProTenderVendorReqSendTypeService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderSellerReqSendTypeGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderVendorReqSendTypeGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            ProTenderSellerReqSendType model = await _ProTenderSellerReqSendTypeService.GetById(id);
+            ProTenderVendorReqSendType model = await _ProTenderVendorReqSendTypeService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderSellerReqSendTypeGeneralVM>(model));
+            return Ok(_mapper.Map<ProTenderVendorReqSendTypeGeneralVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderSellerReqSendTypeGeneralVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderSellerReqSendTypeFilter filter)
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderVendorReqSendTypeGeneralVM>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderVendorReqSendTypeFilter filter)
         {
-            IQueryable<ProTenderSellerReqSendType> items = _ProTenderSellerReqSendTypeService.GetFiltered(filter); ;
-            IQueryable<ProTenderSellerReqSendTypeGeneralVM> result =
-                _mapper.ProjectTo<ProTenderSellerReqSendTypeGeneralVM>(items);
+            IQueryable<ProTenderVendorReqSendType> items = _ProTenderVendorReqSendTypeService.GetFiltered(filter); ;
+            IQueryable<ProTenderVendorReqSendTypeGeneralVM> result =
+                _mapper.ProjectTo<ProTenderVendorReqSendTypeGeneralVM>(items);
 
-            PaginatedResult<ProTenderSellerReqSendTypeGeneralVM> mappedResult = new()
+            PaginatedResult<ProTenderVendorReqSendTypeGeneralVM> mappedResult = new()
             {
                 Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
                 Page = pagination.Index,
@@ -55,10 +55,10 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProTenderSellerReqSendTypeGeneralVM input)
+        public async Task<IActionResult> Add(ProTenderVendorReqSendTypeGeneralVM input)
         {
-            ProTenderSellerReqSendType model = _mapper.Map<ProTenderSellerReqSendType>(input);
-            int rowsAffected = await _ProTenderSellerReqSendTypeService.Add(model);
+            ProTenderVendorReqSendType model = _mapper.Map<ProTenderVendorReqSendType>(input);
+            int rowsAffected = await _ProTenderVendorReqSendTypeService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -66,13 +66,13 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderSellerReqSendTypeGeneralVM input)
+        public async Task<IActionResult> Update(ProTenderVendorReqSendTypeGeneralVM input)
         {
 
-            ProTenderSellerReqSendType model = await _ProTenderSellerReqSendTypeService.GetById(input.Id);
+            ProTenderVendorReqSendType model = await _ProTenderVendorReqSendTypeService.GetById(input.Id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
-            int rowsAffected = await _ProTenderSellerReqSendTypeService.Update(model);
+            int rowsAffected = await _ProTenderVendorReqSendTypeService.Update(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -82,9 +82,9 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProTenderSellerReqSendType model = await _ProTenderSellerReqSendTypeService.GetById(id);
+            ProTenderVendorReqSendType model = await _ProTenderVendorReqSendTypeService.GetById(id);
             if (model == null) return NotFound();
-            int rowsAffected = await _ProTenderSellerReqSendTypeService.SoftDelete(model);
+            int rowsAffected = await _ProTenderVendorReqSendTypeService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }

@@ -4,7 +4,7 @@ using Entities.ExtensionMethods;
 using Entities.Models.Pro;
 using Entities.ViewModels;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;

@@ -207,8 +207,8 @@ namespace Business
             services.AddScoped<ProTenderCommitteeRoleService>();
             services.AddScoped<ProTenderOpeningService>();
             services.AddScoped<ProTenderOpeningStatusService>();
-            services.AddScoped<ProTenderSellerReqService>();
-            services.AddScoped<ProTenderSellerReqSendTypeService>();
+            services.AddScoped<ProTenderVendorReqService>();
+            services.AddScoped<ProTenderVendorReqSendTypeService>();
             services.AddScoped<ProPurchaseOrderService>();
             services.AddScoped<ProPurchaseOrderDetailsService>();
             services.AddScoped<ProTenderSelectionService>();

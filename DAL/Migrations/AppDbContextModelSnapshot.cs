@@ -4239,9 +4239,6 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
 
@@ -4251,13 +4248,16 @@ namespace DAL.Migrations
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("SellerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("StoreId");
 
                     b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("ProPurchaseOrders");
                 });
@@ -4344,9 +4344,6 @@ namespace DAL.Migrations
                     b.Property<int>("ReceiveTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TenderId")
                         .HasColumnType("int");
 
@@ -4356,13 +4353,16 @@ namespace DAL.Migrations
                     b.Property<DateTime>("ValidationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ReceiveTypeId");
 
-                    b.HasIndex("SellerId");
-
                     b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("ProQuotations");
                 });
@@ -4714,9 +4714,6 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
 
@@ -4726,13 +4723,16 @@ namespace DAL.Migrations
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("SellerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("StatusId");
 
                     b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("ProTenderOpenings");
                 });
@@ -4824,89 +4824,6 @@ namespace DAL.Migrations
                     b.ToTable("ProTenderSelections");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReq", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Notes")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SendDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SendTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TenderId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SellerId");
-
-                    b.HasIndex("SendTypeId");
-
-                    b.HasIndex("TenderId");
-
-                    b.ToTable("ProTenderSellerReqs");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReqSendType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProTenderSellerReqSendType");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
                 {
                     b.Property<int>("Id")
@@ -4944,6 +4861,89 @@ namespace DAL.Migrations
                     b.HasIndex("UpdateByID");
 
                     b.ToTable("ProTenderType");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReq", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("SendDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SendTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SendTypeId");
+
+                    b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
+
+                    b.ToTable("ProTenderVendorReqs");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReqSendType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProTenderVendorReqSendType");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
@@ -11191,11 +11191,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrder", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProVendor", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.STR.StoreOpen.StrStore", "Store")
                         .WithMany()
                         .HasForeignKey("StoreId")
@@ -11206,11 +11201,16 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
-                    b.Navigation("Seller");
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
 
                     b.Navigation("Store");
 
                     b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrderDetails", b =>
@@ -11244,21 +11244,21 @@ namespace DAL.Migrations
                         .HasForeignKey("ReceiveTypeId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProVendor", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
+
                     b.Navigation("ReceiveType");
 
-                    b.Navigation("Seller");
-
                     b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
@@ -11356,11 +11356,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProVendor", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.Pro.ProTenderOpeningStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
@@ -11371,11 +11366,16 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
-                    b.Navigation("Seller");
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
 
                     b.Navigation("Status");
 
                     b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderSelection", b =>
@@ -11395,30 +11395,6 @@ namespace DAL.Migrations
                     b.Navigation("TenderDetails");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReq", b =>
-                {
-                    b.HasOne("Entities.Models.Pro.ProVendor", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProTenderSellerReqSendType", "SendType")
-                        .WithMany()
-                        .HasForeignKey("SendTypeId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProTender", "Tender")
-                        .WithMany()
-                        .HasForeignKey("TenderId")
-                        .IsRequired();
-
-                    b.Navigation("Seller");
-
-                    b.Navigation("SendType");
-
-                    b.Navigation("Tender");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
                 {
                     b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
@@ -11432,6 +11408,30 @@ namespace DAL.Migrations
                     b.Navigation("CreatedBy");
 
                     b.Navigation("UpdateBy");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReq", b =>
+                {
+                    b.HasOne("Entities.Models.Pro.ProTenderVendorReqSendType", "SendType")
+                        .WithMany()
+                        .HasForeignKey("SendTypeId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTender", "Tender")
+                        .WithMany()
+                        .HasForeignKey("TenderId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
+
+                    b.Navigation("SendType");
+
+                    b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
@@ -11498,7 +11498,7 @@ namespace DAL.Migrations
                         .HasForeignKey("UpdateByID");
 
                     b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
-                        .WithMany("ProContractorTypes")
+                        .WithMany("ProVendorTypes")
                         .HasForeignKey("VendorId")
                         .IsRequired();
 
@@ -13778,7 +13778,7 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
                 {
-                    b.Navigation("ProContractorTypes");
+                    b.Navigation("ProVendorTypes");
 
                     b.Navigation("STR_Add");
                 });

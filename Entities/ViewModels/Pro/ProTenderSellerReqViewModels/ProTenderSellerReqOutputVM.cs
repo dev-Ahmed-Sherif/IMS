@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
+namespace Entities.ViewModels.Pro.ProTenderVendorReqViewModels
 {
-    public class ProTenderSellerReqOutputVM : BaseViewModel
+    public class ProTenderVendorReqOutputVM : BaseViewModel
     {
         public int TenderId { get; set; }
         public string TenderName { get; set; }
-        public int SellerId { get; set; }
-        public string SellerName { get; set; }
+        public int VendorId { get; set; }
+        public string VendorName { get; set; }
         public DateTime SendDate { get; set; }
         public int SendTypeId { get; set; }
         public string SendTypeName { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
-    public class ProTenderSellerReqSendType : EntityBase
+    public class ProTenderVendorReqSendType : EntityBase
     {
         [Required, MaxLength(50)]
         public required string Name { get; set; }

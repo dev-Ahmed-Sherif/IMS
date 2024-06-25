@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
+namespace Entities.ViewModels.Pro.ProTenderVendorReqViewModels
 {
-    public class ProTenderSellerReqFilter
+    public class ProTenderVendorReqFilter
     {
         [AllowNull]
         public int? TenderId { get; set; }

@@ -380,9 +380,9 @@ namespace DAL
                 .HasQueryFilter(e => !e.IsDeleted);
             modelBuilder.Entity<ProTenderSelection>()
                 .HasQueryFilter(e => !e.IsDeleted);
-            modelBuilder.Entity<ProTenderSellerReq>()
+            modelBuilder.Entity<ProTenderVendorReq>()
                 .HasQueryFilter(e => !e.IsDeleted);
-            modelBuilder.Entity<ProTenderSellerReqSendType>()
+            modelBuilder.Entity<ProTenderVendorReqSendType>()
                 .HasQueryFilter(e => !e.IsDeleted);
 
             modelBuilder.Entity<ProTender>()
@@ -580,7 +580,7 @@ namespace DAL
         public DbSet<ProVendorType> ProVendorTypes { get; set; }//06/11
         public DbSet<ProTender> ProTender { get; set; }//07/11
                                                        //Procurement
-                                                       // public DbSet<ProSeller> ProSeller { get; set; }
+                                                       // public DbSet<ProVendor> ProVendor { get; set; }
         public DbSet<ProVendorsTypes> ProVendorsTypes { get; set; }//08/11
         public DbSet<ProVendor> ProVendors { get; set; }//08/11
         public DbSet<ProPurchaseOrder> ProPurchaseOrders { get; set; }
@@ -593,7 +593,7 @@ namespace DAL
         public DbSet<ProTenderOpening> ProTenderOpenings { get; set; }
         public DbSet<ProTenderOpeningStatus> ProTenderOpeningStatuses { get; set; }
         public DbSet<ProTenderSelection> ProTenderSelections { get; set; }
-        public DbSet<ProTenderSellerReq> ProTenderSellerReqs { get; set; }
+        public DbSet<ProTenderVendorReq> ProTenderVendorReqs { get; set; }
 
         public DbSet<ImsSection> ImsSection { get; set; }
         public DbSet<Report> Reports { get; set; }

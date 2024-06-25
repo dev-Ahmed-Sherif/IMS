@@ -12,7 +12,7 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
     public class ProTenderOpeningInputVM : BaseViewModel
     {
         [Required]
-        public int SellerId { get; set; }
+        public int VendorId { get; set; }
         [Required]
         public int StatusId { get; set; }
         [MaxLength(250)]

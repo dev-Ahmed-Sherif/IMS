@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
-    public class ProTenderSellerReq : EntityBase
+    public class ProTenderVendorReq : EntityBase
     {
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
@@ -19,7 +19,7 @@ namespace Entities.Models.Pro
         public DateTime SendDate { get; set; }
         public int SendTypeId { get; set; }
         [ForeignKey(nameof(SendTypeId))]
-        public virtual ProTenderSellerReqSendType SendType { get; set; }
+        public virtual ProTenderVendorReqSendType SendType { get; set; }
         [MaxLength(50)]
         public string Notes { get; set; }
     }

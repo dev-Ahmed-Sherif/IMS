@@ -22,7 +22,7 @@ namespace Entities.ViewModels.STR.AddDetails
         public int StoreId { get; set; }
 
         public int? SourceStoreId { get; set; }
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         public int? EmployeeId { get; set; }
         public int TransactionUserId { get; set; }
         public int FiscalYearId { get; set; }
@@ -41,7 +41,7 @@ namespace Entities.ViewModels.STR.AddDetails
     {
         public string StoreName { get; set; }
 
-        public string SellerName { get; set; }
+        public string VendorName { get; set; }
         public string EmployeeName { get; set; }
         public string SourceStoreName { get; set; }
         public string CreateUserName { get; set; }
@@ -66,7 +66,7 @@ namespace Entities.ViewModels.STR.AddDetails
         public int? No { get; set; }
         public int? EntryNo { get; set; }
         public int? SourceStoreId { get; set; }
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         public int? EmployeeId { get; set; }
         public int? ItemId { get; set; }
         public int? FiscalYearId { get; set; }
