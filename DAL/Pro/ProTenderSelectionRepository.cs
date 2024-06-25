@@ -13,10 +13,6 @@ namespace DAL.Pro
         public IQueryable<ProTenderSelection> Filter(ProTenderSelectionFilter filter)
         {
             IQueryable<ProTenderSelection> result = GetAll();
-            if (filter.TenderDetailsId.HasValue)
-            {
-                result = result.Where(e => e.TenderDetailsId == filter.TenderDetailsId);
-            }
             if (filter.QuotationDetailsId.HasValue)
             {
                 result = result.Where(e => e.QuotationDetailsId == filter.QuotationDetailsId);

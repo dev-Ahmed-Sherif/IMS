@@ -16,13 +16,9 @@ namespace DAL.Pro
         public IQueryable<ProTenderOpening> Filter(ProTenderOpeningFilter filter)
         {
             IQueryable<ProTenderOpening> result = GetAll();
-            if (filter.TenderId.HasValue)
+            if (filter.QuotationId.HasValue)
             {
-                result = result.Where(e => e.TenderId == filter.TenderId);
-            }
-            if (filter.VendorId.HasValue)
-            {
-                result = result.Where(e => e.VendorId == filter.VendorId);
+                result = result.Where(e => e.TenderId == filter.QuotationId);
             }
             if (filter.StatusId.HasValue)
             {

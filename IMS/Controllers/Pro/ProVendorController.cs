@@ -1,6 +1,7 @@
 ﻿using Business.Pro;
 using Entities.ViewModels.Pro;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace IMS.Controllers.Pro
 {
@@ -17,16 +18,16 @@ namespace IMS.Controllers.Pro
         }
 
         [HttpPost("Add")]
-        public IActionResult Add([FromBody] ProVendorVM Vendor)
+        public async Task<IActionResult> Add([FromBody] ProVendorVM Vendor)
         {
-            var _response = _VendorService.Add(Vendor);
+            string _response = await _VendorService.Add(Vendor);
             return new JsonResult(_response);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] ProVendorVM Vendor)
+        public async Task<IActionResult> Update([FromBody] ProVendorVM Vendor)
         {
-            var _response = _VendorService.Update(Vendor);
+            string _response = await _VendorService.Update(Vendor);
             return new JsonResult(_response);
         }
 

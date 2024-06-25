@@ -10,7 +10,6 @@ namespace Entities.Models.Pro
 {
     public class ProTenderOpening : EntityBase
     {
-        public int VendorId { get; set; }
         public int StatusId { get; set; }
         [ForeignKey(nameof(StatusId))]
         public virtual ProTenderOpeningStatus Status { get; set; }
@@ -19,7 +18,6 @@ namespace Entities.Models.Pro
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
-        [ForeignKey(nameof(VendorId))]
-        public virtual ProVendor Vendor { get; set; }
+        public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
     }
 }

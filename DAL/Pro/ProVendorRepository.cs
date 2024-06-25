@@ -1,9 +1,11 @@
-﻿using Entities.Models.Pro;
+﻿using Entities.Helpers;
+using Entities.Models.Pro;
 using Entities.ViewModels.Pro;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DAL.Pro
 {
@@ -14,7 +16,7 @@ namespace DAL.Pro
         {
             _context = context;
         }
-        public string Add(ProVendorVM Vendor)
+        public async Task<string> Add(ProVendorGeneralVM Vendor)
         {
             try
             {
@@ -33,6 +35,12 @@ namespace DAL.Pro
                     CreationDate = DateTime.Now,
                     IndusterialRegister = Vendor.IndusterialRegister,
                     TheLevel = Vendor.TheLevel,
+                    AddedValueTaxUrl =
+                    Vendor.AddedValueTax != null ?
+                    await FileHelper.UploadFile(Vendor.AddedValueTax) : "",
+                    UnionCardUrl =
+                    Vendor.UnionCard != null ?
+                    await FileHelper.UploadFile(Vendor.UnionCard) : "",
                 };
                 _context.ProVendors.Add(_Vendor);
                 _context.SaveChanges();
@@ -44,7 +52,7 @@ namespace DAL.Pro
             }
         }
 
-        public string Update(ProVendorVM Vendor)
+        public async Task<string> Update(ProVendorVM Vendor)
         {
 
             var _Vendor = _context.ProVendors.Single(n => n.Id == Vendor.Id);
@@ -60,7 +68,16 @@ namespace DAL.Pro
             _Vendor.TaxCard = Vendor.TaxCard;
             _Vendor.UpdateByID = Vendor.TransactionUserId;
             _Vendor.LastUpdateDate = DateTime.Now;
-
+            if (Vendor.AddedValueTax != null)
+            {
+                string addedValueTaxUrl = await FileHelper.UploadFile(Vendor.AddedValueTax);
+                _Vendor.AddedValueTaxUrl = addedValueTaxUrl;
+            }
+            if (Vendor.UnionCard != null)
+            {
+                string unionCardUrl = await FileHelper.UploadFile(Vendor.UnionCard);
+                _Vendor.UnionCardUrl = unionCardUrl;
+            }
             _context.SaveChanges();
             return "Succeeded";
 
@@ -97,14 +114,15 @@ namespace DAL.Pro
                 TransactionUserId = n.CreatedBy.Id,
                 IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
-                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
+                UnionCard = n.UnionCardUrl,
+                AddedValueTax = n.AddedValueTaxUrl
             }).ToList();
         public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
             .Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
                 Name = n.Name,
-
                 Code = n.Code,
                 Phone = n.Phone,
                 Email = n.Email,
@@ -119,7 +137,9 @@ namespace DAL.Pro
                 CityStateName = n.CityState.Name,
                 IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
-                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
+                UnionCard = n.UnionCardUrl,
+                AddedValueTax = n.AddedValueTaxUrl,
             }).Single(n => n.Id == VendorId);
 
         public List<ProVendorGetVM> GetByName(string VendorName)
@@ -130,9 +150,8 @@ namespace DAL.Pro
                 {
                     Id = n.Id,
                     Name = n.Name,
-
                     CreateUserName = n.CreatedBy.Name,
-                    TransactionUserId = n.CreatedBy.Id
+                    TransactionUserId = n.CreatedBy.Id,
                 })
                .ToList();
         }
@@ -215,7 +234,9 @@ namespace DAL.Pro
                 CityStateName = n.CityState.Name,
                 IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
-                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : ""
+                UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
+                UnionCard = n.UnionCardUrl,
+                AddedValueTax = n.AddedValueTaxUrl
             }).ToList();
 
 

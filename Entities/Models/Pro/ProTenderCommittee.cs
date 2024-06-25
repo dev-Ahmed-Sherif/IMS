@@ -9,24 +9,16 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
-    public class ProTenderCommittee : EntityBase
+    public class ProTenderCommittee : EntityBaseNotes
     {
-        [Required]
-        public int RoleId { get; set; }
-        [ForeignKey(nameof(RoleId))]
-        public virtual ProTenderCommitteeRole Role { get; set; }
-        [Required]
-        public bool Close { get; set; }
-        [MaxLength(50)]
-        public string Notes { get; set; }
         //Navigation Properties
-        [Required]
-        public int EmployeeId { get; set; }
-        [ForeignKey(nameof(EmployeeId))]
-        public virtual HrEmployee Employee { get; set; }
         [Required]
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
+        public int StatusId { get; set; }
+        [ForeignKey(nameof(StatusId))]
+        public virtual ProTenderOpeningStatus Status { get; set; }
+        public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
     }
 }

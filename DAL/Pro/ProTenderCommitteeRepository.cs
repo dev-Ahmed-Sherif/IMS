@@ -13,23 +13,14 @@ namespace DAL.Pro
         public IQueryable<ProTenderCommittee> Filter(ProTenderCommitteeFilter filter)
         {
             IQueryable<ProTenderCommittee> result = GetAll();
-            if (filter.Close.HasValue)
+            if (filter.StatusId.HasValue)
             {
-                result = result.Where(e => e.Close == filter.Close);
+                result = result.Where(e => e.StatusId == filter.StatusId);
             }
             if (filter.TenderId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            if (filter.EmployeeId.HasValue)
-            {
-                result = result.Where(e => e.EmployeeId == filter.EmployeeId);
-            }
-            if (filter.RoleId.HasValue)
-            {
-                result = result.Where(e => e.RoleId == filter.RoleId);
-            }
-
             return result;
         }
     }

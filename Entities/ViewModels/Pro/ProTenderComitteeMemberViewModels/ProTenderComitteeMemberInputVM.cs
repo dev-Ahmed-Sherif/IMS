@@ -8,16 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
+namespace Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels
 {
-    public class ProTenderCommitteeInputVM : BaseViewModel
+    public class ProTenderComitteeMemberInput : BaseViewModel
     {
         [Required]
-        public int StatusId { get; set; }
+        public int RoleId { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
         //Navigation Properties
         [Required]
-        public int TenderId { get; set; }
+        public int EmployeeId { get; set; }
+        [Required]
+        public int TenderCommitteeId { get; set; }
     }
 }

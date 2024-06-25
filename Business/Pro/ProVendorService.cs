@@ -3,6 +3,7 @@ using DAL.Pro;
 using Entities.ViewModels.Pro;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Business.Pro
 {
@@ -13,14 +14,14 @@ namespace Business.Pro
         {
             _ProVendorRepository = ProVendorRepository;
         }
-        public string Add(ProVendorVM Vendor)
+        public async Task<string> Add(ProVendorVM Vendor)
         {
-            return _ProVendorRepository.Add(Vendor);
+            return await _ProVendorRepository.Add(Vendor);
         }
 
-        public string Update(ProVendorVM Vendor)
+        public async Task<string> Update(ProVendorVM Vendor)
         {
-            return _ProVendorRepository.Update(Vendor);
+            return await _ProVendorRepository.Update(Vendor);
         }
 
         public string Delete(int VendorId)

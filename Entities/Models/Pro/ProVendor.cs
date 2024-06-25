@@ -30,6 +30,12 @@ namespace Entities.Models.Pro
 
         [StringLength(50)]
         public string IndusterialRegister { get; set; }
+
+        [StringLength(50)]
+        public string CommericalRegister { get; set; }
+
+        public string UnionCardUrl { get; set; }
+        public string AddedValueTaxUrl { get; set; }
         //--------------------------------------------------------------------------
         // Relation { PrUser => AccountParent } +++ {View Model => TransactionUserId} 
         //--------------------------------------------------------------------------
@@ -38,11 +44,8 @@ namespace Entities.Models.Pro
         public override int? UpdateByID { get; set; }
         public virtual PrUser UpdateBy { get; set; }
         //navigation
-        public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
-
-        [StringLength(50)]
-        public string CommericalRegister { get; set; }
         //Navigation Primary
+        public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
         public virtual ICollection<StrAdd> STR_Add { get; set; }
     }
 }

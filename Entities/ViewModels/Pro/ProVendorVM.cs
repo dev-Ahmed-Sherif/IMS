@@ -1,4 +1,6 @@
-﻿namespace Entities.ViewModels.Pro
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Entities.ViewModels.Pro
 {
     public class ProVendorGeneralVM
     {
@@ -14,6 +16,8 @@
         public string TaxCard { get; set; }
         public int TransactionUserId { get; set; }
         public string CommericalRegister { get; set; }
+        public IFormFile UnionCard { get; set; }
+        public IFormFile AddedValueTax { get; set; }
     }
     public class ProVendorVM : ProVendorGeneralVM
     {
@@ -25,6 +29,8 @@
         public string UpdateUserName { get; set; }
         public string CityName { get; set; }
         public string CityStateName { get; set; }
+        public new string UnionCard { get; set; }
+        public new string AddedValueTax { get; set; }
     }
     public class VendorSearchGeneral
     {
