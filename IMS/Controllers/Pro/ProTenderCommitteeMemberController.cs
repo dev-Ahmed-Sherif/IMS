@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Business.Pro;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProQuotationDetailsViewModels;
+using Entities.ViewModels.Pro.ProTenderCommitteeMemberViewModels;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,40 +9,41 @@ using System.Linq;
 using System.Threading.Tasks;
 using Entities.ExtensionMethods;
 using Microsoft.EntityFrameworkCore;
+using Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels;
 
 namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderCommitteeMember : ControllerBase
+    public class ProTenderCommitteeMemberController : ControllerBase
     {
         readonly IMapper _mapper;
-        readonly ProQuotationDetailsService _ProQuotationDetailsService;
-        public ProTenderCommitteeMember(
+        readonly ProTenderCommitteeMemberService _ProTenderCommitteeMemberService;
+        public ProTenderCommitteeMemberController(
             IMapper mapper,
-            ProQuotationDetailsService ProQuotationDetailsService)
+            ProTenderCommitteeMemberService ProTenderCommitteeMemberService)
         {
             _mapper = mapper;
-            _ProQuotationDetailsService = ProQuotationDetailsService;
+            _ProTenderCommitteeMemberService = ProTenderCommitteeMemberService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProQuotationDetailsOutputVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProTenderCommitteeMemberOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            ProQuotationDetails model = await _ProQuotationDetailsService.GetById(id);
+            ProTenderCommitteeMember model = await _ProTenderCommitteeMemberService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProQuotationDetailsOutputVM>(model));
+            return Ok(_mapper.Map<ProTenderCommitteeMemberOutputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProQuotationDetailsOutputVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProQuotationDetailsFilter filter)
+        [ProducesResponseType(typeof(PaginatedResult<ProTenderCommitteeMemberOutputVM>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderCommitteeMemberFilter filter)
         {
-            IQueryable<ProQuotationDetails> items = _ProQuotationDetailsService.GetFiltered(filter); ;
-            IQueryable<ProQuotationDetailsOutputVM> result =
-                _mapper.ProjectTo<ProQuotationDetailsOutputVM>(items);
+            IQueryable<ProTenderCommitteeMember> items = _ProTenderCommitteeMemberService.GetPaginated(pagination);
+            IQueryable<ProTenderCommitteeMemberOutputVM> result =
+                _mapper.ProjectTo<ProTenderCommitteeMemberOutputVM>(items);
 
-            PaginatedResult<ProQuotationDetailsOutputVM> mappedResult = new()
+            PaginatedResult<ProTenderCommitteeMemberOutputVM> mappedResult = new()
             {
                 Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
                 Page = pagination.Index,
@@ -54,10 +55,10 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add([FromForm] ProQuotationDetailsInputVM input)
+        public async Task<IActionResult> Add([FromForm] ProTenderCommitteeMemberInputVM input)
         {
-            ProQuotationDetails model = _mapper.Map<ProQuotationDetails>(input);
-            int rowsAffected = await _ProQuotationDetailsService.Add(model);
+            ProTenderCommitteeMember model = _mapper.Map<ProTenderCommitteeMember>(input);
+            int rowsAffected = await _ProTenderCommitteeMemberService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -65,12 +66,12 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update([FromForm] ProQuotationDetailsInputVM input)
+        public async Task<IActionResult> Update([FromForm] ProTenderCommitteeMemberInputVM input)
         {
-            ProQuotationDetails model = await _ProQuotationDetailsService.GetById(input.Id);
+            ProTenderCommitteeMember model = await _ProTenderCommitteeMemberService.GetById(input.Id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
-            int rowsAffected = await _ProQuotationDetailsService.Update(model);
+            int rowsAffected = await _ProTenderCommitteeMemberService.Update(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -80,9 +81,9 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProQuotationDetails model = await _ProQuotationDetailsService.GetById(id);
+            ProTenderCommitteeMember model = await _ProTenderCommitteeMemberService.GetById(id);
             if (model == null) return NotFound();
-            int rowsAffected = await _ProQuotationDetailsService.SoftDelete(model);
+            int rowsAffected = await _ProTenderCommitteeMemberService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }

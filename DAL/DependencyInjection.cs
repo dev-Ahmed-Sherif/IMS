@@ -191,9 +191,12 @@ namespace DAL
             services.AddScoped<ProVendorRepository>();//07/11
             services.AddScoped<ProTenderDetailsRepository>();
             services.AddScoped<ProTenderCommitteeRepository>();
+            services.AddScoped<ProTenderCommitteeMemberRepository>();
             services.AddScoped<ProTenderCommitteeRoleRepository>();
             services.AddScoped<ProTenderOpeningRepository>();
+            services.AddScoped<ProTenderOpeningMemberRepository>();
             services.AddScoped<ProTenderOpeningStatusRepository>();
+            services.AddScoped<ProTenderOpeningDetailsRepository>();
             services.AddScoped<ProTenderVendorReqRepository>();
             services.AddScoped<ProTenderVendorReqSendTypeRepository>();
             services.AddScoped<ProPurchaseOrderRepository>();
