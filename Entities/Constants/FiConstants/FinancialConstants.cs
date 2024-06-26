@@ -12,6 +12,10 @@ namespace Entities.Constants.FiConstants
         public const string حسابات_دائنة_أخرى = "289";
         public const string رأس_المال_المصدر = "2113";
         public const string احتياطيات = "22";
+        public const string احتياطى_قانونى = "221";
+        public const string احتياطى_نظامى = "222";
+        public const string احتياطى_رأسمالى = "223";
+        public const string احتياطات_أخرى = "224";
         public const string ارباح_أو_خسائر_مرحلة = "23";
         public const string اسهم_الخزينة = "24";
         public const string اصول_ثابتة = "11";

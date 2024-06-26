@@ -692,23 +692,29 @@ namespace DAL.FI.Account
             List<string> ChangeInOwnersEquityAccountsCodes =
                 [AccountsCodes.رأس_المال_المصدر,
                 AccountsCodes.احتياطيات,
+                AccountsCodes.احتياطى_قانونى,
+                AccountsCodes.احتياطى_نظامى,
+                AccountsCodes.احتياطى_رأسمالى,
+                AccountsCodes.احتياطات_أخرى,
                 AccountsCodes.ارباح_أو_خسائر_مرحلة,
                 AccountsCodes.اسهم_الخزينة];
-            List<Part2ViewModel> Part2List = new List<Part2ViewModel>();
+            List<ChangeInOwnersEquityViewModelDB> ChangeInOwnersEquityData = new List<ChangeInOwnersEquityViewModelDB>();
             ChangeInOwnersEquityAccountsCodes.ForEach(async e =>
             {
                 var result = await GetChangeOwnerShipRightsReportData(e);
                 if (result != null)
                 {
-                    Part2List.Add(result);
+                    ChangeInOwnersEquityData.Add(result);
                 }
             });
 
-            Part2List.Select(e => new FiChangeInOwnersEquityViewModel
+            var result2 = ChangeInOwnersEquityData.Select(e => new FiChangeInOwnersEquityViewModel
             {
                 AccountCode = e.Code,
                 AccountName = e.Name,
-                //BeginningBalance = e.
+                BeginningBalance = e.Opening_BasedOnDebit,
+                ChangeWithinPeriod = e.NetBasedOnDebit - e.Opening_BasedOnDebit, 
+                EndingBalance = e.NetBasedOnDebit,
             });
 
             // New Tree
@@ -731,9 +737,11 @@ namespace DAL.FI.Account
 
 
 
-            IQueryable<FiAccount> filteredAccounts = _context.FiAccount.Where(e => ChangeInOwnersEquityAccountsCodes.Equals(e.Code));
+            //IQueryable<FiAccount> filteredAccounts = _context.FiAccount.Where(e => ChangeInOwnersEquityAccountsCodes.Equals(e.Code));
 
-            return filteredAccounts.Select(account => GetChangeInOwnersEquityData(account, fiscalYearId)).ToList();
+            //return filteredAccounts.Select(account => GetChangeInOwnersEquityData(account, fiscalYearId)).ToList();
+
+            return result2.ToList();
         }
         private FiChangeInOwnersEquityViewModel GetChangeInOwnersEquityData(FiAccount account, int fiscalYearId)
         {
@@ -1043,9 +1051,9 @@ namespace DAL.FI.Account
         {
             return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Production_And_Added_Value").ToListAsync();
         }
-        public async Task<Part2ViewModel?> GetChangeOwnerShipRightsReportData(string variableName)
+        public async Task<ChangeInOwnersEquityViewModelDB?> GetChangeOwnerShipRightsReportData(string variableName)
         {
-            return await _context.Database.SqlQuery<Part2ViewModel>($"SELECT * FROM VW_Income_Statement_Full_rpt where Code = '{variableName}'").FirstOrDefaultAsync();
+            return await _context.Database.SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT * FROM VW_Income_Statement_Full_rpt where Code = '{variableName}'").FirstOrDefaultAsync();
         }
     }
 
