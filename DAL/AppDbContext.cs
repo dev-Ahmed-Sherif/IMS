@@ -582,7 +582,7 @@ namespace DAL
                                                        //Procurement
                                                        // public DbSet<ProVendor> ProVendor { get; set; }
         public DbSet<ProVendorsTypes> ProVendorsTypes { get; set; }//08/11
-        //public DbSet<ProSeller> ProSeller { get; set; }//08/11
+        public DbSet<ProSeller> ProSeller { get; set; }//08/11
         public DbSet<ProPurchaseOrder> ProPurchaseOrders { get; set; }
         public DbSet<ProPurchaseOrderDetails> ProPurchaseOrderDetails { get; set; }
         public DbSet<ProQuotation> ProQuotations { get; set; }

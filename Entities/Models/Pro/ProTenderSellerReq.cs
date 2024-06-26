@@ -13,9 +13,9 @@ namespace Entities.Models.Pro
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
-        //public int VendorId { get; set; }
-        //[ForeignKey(nameof(VendorId))]
-        //public virtual ProSeller Vendor { get; set; }
+        public int VendorId { get; set; }
+        [ForeignKey(nameof(VendorId))]
+        public virtual ProSeller Vendor { get; set; }
         public DateTime SendDate { get; set; }
         public int SendTypeId { get; set; }
         [ForeignKey(nameof(SendTypeId))]

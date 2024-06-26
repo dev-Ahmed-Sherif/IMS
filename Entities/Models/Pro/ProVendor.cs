@@ -3,9 +3,11 @@ using Entities.Models.PR;
 using Entities.Models.STR.Add;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models.Pro
 {
+    [Table("ProVendors")]
     public class ProSeller : EntityBase
     {
         [StringLength(50)]
