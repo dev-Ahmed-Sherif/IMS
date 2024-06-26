@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240625113128_VendorTablesNoSeller")]
-    partial class VendorTablesNoSeller
+    [Migration("20240626104432_ProMemberMigrations")]
+    partial class ProMemberMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -5071,6 +5071,50 @@ namespace DAL.Migrations
                     b.ToTable("ProVendors");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("ProVendorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProVendorId");
+
+                    b.ToTable("ProVendorAttachment");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
                 {
                     b.Property<int>("Id")
@@ -5098,17 +5142,12 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("OperationTypeId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedByID");
-
-                    b.HasIndex("OperationTypeId");
 
                     b.HasIndex("UpdateByID");
 
@@ -11520,24 +11559,24 @@ namespace DAL.Migrations
                     b.Navigation("UpdateBy");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
+                {
+                    b.HasOne("Entities.Models.Pro.ProVendor", null)
+                        .WithMany("Attachments")
+                        .HasForeignKey("ProVendorId");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
                 {
                     b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedByID");
 
-                    b.HasOne("Entities.Models.Pro.ProOperationType", "OperationType")
-                        .WithMany()
-                        .HasForeignKey("OperationTypeId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
 
                     b.Navigation("CreatedBy");
-
-                    b.Navigation("OperationType");
 
                     b.Navigation("UpdateBy");
                 });
@@ -13847,6 +13886,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
                 {
+                    b.Navigation("Attachments");
+
                     b.Navigation("ProVendorTypes");
 
                     b.Navigation("STR_Add");

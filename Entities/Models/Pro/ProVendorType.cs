@@ -10,9 +10,6 @@ namespace Entities.Models.Pro
         [StringLength(50)]
         public string Name { get; set; }
         public int Code { get; set; }
-        public int OperationTypeId { get; set; }
-        [ForeignKey(nameof(OperationTypeId))]
-        public virtual ProOperationType OperationType { get; set; }
         //-----------------------------------------------------------------------//
         // Relation { PrUser => AddReceipt } +++ {View Model => TransactionUserId} 
         //-----------------------------------------------------------------------//
