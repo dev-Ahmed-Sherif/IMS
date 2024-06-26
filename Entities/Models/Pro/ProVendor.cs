@@ -49,5 +49,6 @@ namespace Entities.Models.Pro
         //Navigation Primary
         public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
         public virtual ICollection<StrAdd> STR_Add { get; set; }
+        public virtual ICollection<ProVendorAttachment> Attachments { get; set; }
     }
 }

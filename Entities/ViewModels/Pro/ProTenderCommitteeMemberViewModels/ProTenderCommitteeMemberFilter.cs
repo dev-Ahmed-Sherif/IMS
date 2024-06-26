@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels
+namespace Entities.ViewModels.Pro.ProTenderCommitteeMemberViewModels
 {
     public class ProTenderCommitteeMemberFilter
     {
