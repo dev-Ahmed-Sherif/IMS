@@ -201,6 +201,8 @@ namespace Business
             services.AddScoped<ProPlanTypeService>();//07/11
             services.AddScoped<ProTenderTypeService>();//07/11
             services.AddScoped<ProTenderService>();//07/11
+            services.AddScoped<ProVendorService>();//07/11
+            services.AddScoped<ProVendorTypeService>();//07/11
             services.AddScoped<ProVendorsTypesService>();//07/11
             services.AddScoped<ProTenderDetailsService>();
             services.AddScoped<ProTenderCommitteeService>();

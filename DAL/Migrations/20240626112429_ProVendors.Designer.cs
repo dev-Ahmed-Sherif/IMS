@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240626112429_ProVendors")]
+    partial class ProVendors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -5063,132 +5066,6 @@ namespace DAL.Migrations
                     b.ToTable("ProTenderVendorReqSendType");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AddedValueTaxUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CityStateId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CommericalRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("IndusterialRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TaxCard")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TheLevel")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("UnionCardUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CityStateId");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProVendors");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Notes")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<int?>("ProVendorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProVendorId");
-
-                    b.ToTable("ProVendorAttachment");
-                });
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
                 {
                     b.Property<int>("Id")
@@ -5216,12 +5093,17 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("OperationTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedByID");
+
+                    b.HasIndex("OperationTypeId");
 
                     b.HasIndex("UpdateByID");
 
@@ -11626,50 +11508,24 @@ namespace DAL.Migrations
                     b.Navigation("Vendor");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
-                {
-                    b.HasOne("Entities.Models.HR.HrCity", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId");
-
-                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
-                        .WithMany()
-                        .HasForeignKey("CityStateId");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("City");
-
-                    b.Navigation("CityState");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
-                {
-                    b.HasOne("Entities.Models.Pro.ProVendor", null)
-                        .WithMany("Attachments")
-                        .HasForeignKey("ProVendorId");
-                });
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
                 {
                     b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedByID");
 
+                    b.HasOne("Entities.Models.Pro.ProOperationType", "OperationType")
+                        .WithMany()
+                        .HasForeignKey("OperationTypeId")
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
 
                     b.Navigation("CreatedBy");
+
+                    b.Navigation("OperationType");
 
                     b.Navigation("UpdateBy");
                 });
@@ -13979,15 +13835,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
                 {
                     b.Navigation("ProTender");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
-                {
-                    b.Navigation("Attachments");
-
-                    b.Navigation("ProVendorTypes");
-
-                    b.Navigation("STR_Add");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>

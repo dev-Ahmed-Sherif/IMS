@@ -21,10 +21,10 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            if (filter.VendorId.HasValue)
-            {
-                result = result.Where(e => e.VendorId == filter.VendorId);
-            }
+            //if (filter.VendorId.HasValue)
+            //{
+            //    result = result.Where(e => e.VendorId == filter.VendorId);
+            //}
             if (filter.StoreId.HasValue)
             {
                 result = result.Where(e => e.StoreId == filter.StoreId);
