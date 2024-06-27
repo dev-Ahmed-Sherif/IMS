@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240610095133_NotNull")]
-    partial class NotNull
+    [Migration("20240627101502_AdjInit")]
+    partial class AdjInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -4137,165 +4137,6 @@ namespace DAL.Migrations
                     b.ToTable("PyTaxBracket");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProContractor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CityStateId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("IndusterialRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TaxCard")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TheLevel")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CityStateId");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProContractor");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProContractorType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProContractorType");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProContractorTypes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ContractorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ContractorTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("HrCityStateId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContractorId");
-
-                    b.HasIndex("ContractorTypeId");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("HrCityStateId");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProContractorTypes");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProOperationType", b =>
                 {
                     b.Property<int>("Id")
@@ -4401,9 +4242,6 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
 
@@ -4414,8 +4252,6 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SellerId");
 
                     b.HasIndex("StoreId");
 
@@ -4506,9 +4342,6 @@ namespace DAL.Migrations
                     b.Property<int>("ReceiveTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TenderId")
                         .HasColumnType("int");
 
@@ -4518,13 +4351,16 @@ namespace DAL.Migrations
                     b.Property<DateTime>("ValidationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ReceiveTypeId");
 
-                    b.HasIndex("SellerId");
-
                     b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("ProQuotations");
                 });
@@ -4609,156 +4445,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProQuotationReceiveType");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CityStateId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CommericalRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TaxCard")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CityStateId");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProSeller");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSellerType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProSellerType");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSellerTypes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SellerTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("SellerId");
-
-                    b.HasIndex("SellerTypeId");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProSellerTypes");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTender", b =>
@@ -4876,8 +4562,47 @@ namespace DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Close")
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("TenderId");
+
+                    b.ToTable("ProTenderCommittees");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("CreatedByID")
                         .HasColumnType("int");
@@ -4895,13 +4620,16 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Notes")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("ProTenderOpeningId")
+                        .HasColumnType("int");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TenderId")
+                    b.Property<int>("TenderCommitteeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -4911,11 +4639,13 @@ namespace DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
+                    b.HasIndex("ProTenderOpeningId");
+
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("TenderId");
+                    b.HasIndex("TenderCommitteeId");
 
-                    b.ToTable("ProTenderCommittees");
+                    b.ToTable("ProTenderCommitteeMembers");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeRole", b =>
@@ -5026,9 +4756,6 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
 
@@ -5040,13 +4767,103 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SellerId");
-
                     b.HasIndex("StatusId");
 
                     b.HasIndex("TenderId");
 
                     b.ToTable("ProTenderOpenings");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Accepted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("QuotationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderOpeningId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuotationId");
+
+                    b.HasIndex("TenderOpeningId");
+
+                    b.ToTable("ProTenderOpeningDetails");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderOpeningId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("TenderOpeningId");
+
+                    b.ToTable("ProTenderOpeningMembers");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningStatus", b =>
@@ -5109,6 +4926,9 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int?>("ProTenderDetailsId")
+                        .HasColumnType("int");
+
                     b.Property<int>("QuotationDetailsId")
                         .HasColumnType("int");
 
@@ -5116,9 +4936,6 @@ namespace DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("TechnicalScore")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TenderDetailsId")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalScore")
@@ -5129,95 +4946,11 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProTenderDetailsId");
+
                     b.HasIndex("QuotationDetailsId");
 
-                    b.HasIndex("TenderDetailsId");
-
                     b.ToTable("ProTenderSelections");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReq", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Notes")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SendDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SendTypeId")
-                        .HasMaxLength(50)
-                        .HasColumnType("int");
-
-                    b.Property<int>("TenderId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SellerId");
-
-                    b.HasIndex("SendTypeId");
-
-                    b.HasIndex("TenderId");
-
-                    b.ToTable("ProTenderSellerReqs");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReqSendType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProTenderSellerReqSendType");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
@@ -5257,6 +4990,302 @@ namespace DAL.Migrations
                     b.HasIndex("UpdateByID");
 
                     b.ToTable("ProTenderType");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReq", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("SendDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SendTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SendTypeId");
+
+                    b.HasIndex("TenderId");
+
+                    b.HasIndex("VendorId");
+
+                    b.ToTable("ProTenderVendorReqs");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReqSendType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProTenderVendorReqSendType");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AddedValueTaxUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityStateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CommericalRegister")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("IndusterialRegister")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TaxCard")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TheLevel")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UnionCardUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CityStateId");
+
+                    b.HasIndex("CreatedByID");
+
+                    b.HasIndex("UpdateByID");
+
+                    b.ToTable("ProVendors");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("ProVendorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProVendorId");
+
+                    b.ToTable("ProVendorAttachment");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedByID");
+
+                    b.HasIndex("UpdateByID");
+
+                    b.ToTable("ProVendorTypes");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorsTypes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("HrCityStateId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ProVendorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VendorTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedByID");
+
+                    b.HasIndex("HrCityStateId");
+
+                    b.HasIndex("ProVendorId");
+
+                    b.HasIndex("UpdateByID");
+
+                    b.HasIndex("VendorTypeId");
+
+                    b.ToTable("ProVendorsTypes");
                 });
 
             modelBuilder.Entity("Entities.Models.Report", b =>
@@ -5371,9 +5400,6 @@ namespace DAL.Migrations
                     b.Property<int?>("STR_CommodityId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SellerId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SourceStoreId")
                         .HasColumnType("int");
 
@@ -5387,6 +5413,9 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VendorId")
                         .HasColumnType("int");
 
                     b.Property<int?>("withdrawId")
@@ -5406,13 +5435,13 @@ namespace DAL.Migrations
 
                     b.HasIndex("STR_CommodityId");
 
-                    b.HasIndex("SellerId");
-
                     b.HasIndex("SourceStoreId");
 
                     b.HasIndex("StoreId");
 
                     b.HasIndex("UpdateByID");
+
+                    b.HasIndex("VendorId");
 
                     b.HasIndex("withdrawId");
 
@@ -8432,6 +8461,726 @@ namespace DAL.Migrations
                     b.ToTable("TrTrainingCenterCourse");
                 });
 
+            modelBuilder.Entity("Entities.Models.VL.VlDrivierLicense", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DriverId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DriverId");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("VlDrivierLicenses");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlDrivierLicenseType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlDrivierLicenseTypes");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlGarage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlGarages");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlItinerary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlItineraries");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlManufacturer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlManufacturers");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlModels");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlStaff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("PositionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("PositionId");
+
+                    b.HasIndex("StatusId");
+
+                    b.ToTable("VlStaff");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlStaffPosition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlStaffPositions");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlStaffStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlStaffStatuses");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlTypes");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleGarage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GarageId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GarageId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("VlVehicleGarages");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleItinerary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ItineraryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItineraryId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("VlVehicleItineraries");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleJobOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Companion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DriverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GarageManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ItineraryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MeterEnd")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MeterStart")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SupervisorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DriverId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("GarageManagerId");
+
+                    b.HasIndex("ItineraryId");
+
+                    b.HasIndex("SupervisorId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("VlVehicleJobOrders");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleLicense", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("VlVehicleLicenses");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("VlVehicleStatuses");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlViechle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BoardNo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ChassisNo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ManufacturerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MotorNo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManufacturerId");
+
+                    b.HasIndex("ModelId");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("TypeId");
+
+                    b.HasIndex("BoardNo", "ChassisNo", "MotorNo")
+                        .IsUnique()
+                        .HasFilter("[BoardNo] IS NOT NULL AND [ChassisNo] IS NOT NULL AND [MotorNo] IS NOT NULL");
+
+                    b.ToTable("VlVehicles");
+                });
+
             modelBuilder.Entity("Entities.ViewModels.TR.General.TrCorporateCLient", b =>
                 {
                     b.Property<int>("Id")
@@ -10584,81 +11333,6 @@ namespace DAL.Migrations
                     b.Navigation("UpdateBy");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProContractor", b =>
-                {
-                    b.HasOne("Entities.Models.HR.HrCity", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId");
-
-                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
-                        .WithMany()
-                        .HasForeignKey("CityStateId");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("City");
-
-                    b.Navigation("CityState");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProContractorType", b =>
-                {
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProContractorTypes", b =>
-                {
-                    b.HasOne("Entities.Models.Pro.ProContractor", "Contractor")
-                        .WithMany("ProContractorTypes")
-                        .HasForeignKey("ContractorId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProContractorType", "ContractorType")
-                        .WithMany("ProContractorTypes")
-                        .HasForeignKey("ContractorTypeId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.HR.HrCityState", null)
-                        .WithMany("ProContractorTypes")
-                        .HasForeignKey("HrCityStateId");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("Contractor");
-
-                    b.Navigation("ContractorType");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProOperationType", b =>
                 {
                     b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
@@ -10691,11 +11365,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrder", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.STR.StoreOpen.StrStore", "Store")
                         .WithMany()
                         .HasForeignKey("StoreId")
@@ -10705,8 +11374,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
-
-                    b.Navigation("Seller");
 
                     b.Navigation("Store");
 
@@ -10744,21 +11411,21 @@ namespace DAL.Migrations
                         .HasForeignKey("ReceiveTypeId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
+
                     b.Navigation("ReceiveType");
 
-                    b.Navigation("Seller");
-
                     b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
@@ -10769,84 +11436,13 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
-                        .WithMany()
+                        .WithMany("ProQuotationDetails")
                         .HasForeignKey("TenderDetailsId")
                         .IsRequired();
 
                     b.Navigation("Quotation");
 
                     b.Navigation("TenderDetails");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
-                {
-                    b.HasOne("Entities.Models.HR.HrCity", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId");
-
-                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
-                        .WithMany("ProSeller")
-                        .HasForeignKey("CityStateId");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("City");
-
-                    b.Navigation("CityState");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSellerType", b =>
-                {
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSellerTypes", b =>
-                {
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany("ProSellerTypes")
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProSellerType", "SellerType")
-                        .WithMany("ProSellerTypes")
-                        .HasForeignKey("SellerTypeId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("Seller");
-
-                    b.Navigation("SellerType");
-
-                    b.Navigation("UpdateBy");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTender", b =>
@@ -10893,14 +11489,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommittee", b =>
                 {
-                    b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
+                    b.HasOne("Entities.Models.Pro.ProTenderOpeningStatus", "Status")
                         .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProTenderCommitteeRole", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
+                        .HasForeignKey("StatusId")
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
@@ -10908,11 +11499,37 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
+                    b.Navigation("Status");
+
+                    b.Navigation("Tender");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeMember", b =>
+                {
+                    b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTenderOpening", null)
+                        .WithMany("TenderCommitteeMembers")
+                        .HasForeignKey("ProTenderOpeningId");
+
+                    b.HasOne("Entities.Models.Pro.ProTenderCommitteeRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTenderCommittee", "TenderCommittee")
+                        .WithMany("TenderCommitteeMembers")
+                        .HasForeignKey("TenderCommitteeId")
+                        .IsRequired();
+
                     b.Navigation("Employee");
 
                     b.Navigation("Role");
 
-                    b.Navigation("Tender");
+                    b.Navigation("TenderCommittee");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
@@ -10927,11 +11544,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.Pro.ProTenderOpeningStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
@@ -10942,52 +11554,64 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
-                    b.Navigation("Seller");
-
                     b.Navigation("Status");
 
                     b.Navigation("Tender");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningDetails", b =>
+                {
+                    b.HasOne("Entities.Models.Pro.ProQuotation", "Quotation")
+                        .WithMany()
+                        .HasForeignKey("QuotationId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTenderOpening", "TenderOpening")
+                        .WithMany()
+                        .HasForeignKey("TenderOpeningId")
+                        .IsRequired();
+
+                    b.Navigation("Quotation");
+
+                    b.Navigation("TenderOpening");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningMember", b =>
+                {
+                    b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTenderCommitteeRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTenderOpening", "TenderOpening")
+                        .WithMany()
+                        .HasForeignKey("TenderOpeningId")
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Role");
+
+                    b.Navigation("TenderOpening");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProTenderSelection", b =>
                 {
+                    b.HasOne("Entities.Models.Pro.ProTenderDetails", null)
+                        .WithMany("ProTenderSelections")
+                        .HasForeignKey("ProTenderDetailsId");
+
                     b.HasOne("Entities.Models.Pro.ProQuotationDetails", "QuotationDetails")
                         .WithMany()
                         .HasForeignKey("QuotationDetailsId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProTenderDetails", "TenderDetails")
-                        .WithMany("ProTenderSelections")
-                        .HasForeignKey("TenderDetailsId")
-                        .IsRequired();
-
                     b.Navigation("QuotationDetails");
-
-                    b.Navigation("TenderDetails");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderSellerReq", b =>
-                {
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProTenderSellerReqSendType", "SendType")
-                        .WithMany()
-                        .HasForeignKey("SendTypeId")
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Pro.ProTender", "Tender")
-                        .WithMany()
-                        .HasForeignKey("TenderId")
-                        .IsRequired();
-
-                    b.Navigation("Seller");
-
-                    b.Navigation("SendType");
-
-                    b.Navigation("Tender");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
@@ -11003,6 +11627,109 @@ namespace DAL.Migrations
                     b.Navigation("CreatedBy");
 
                     b.Navigation("UpdateBy");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReq", b =>
+                {
+                    b.HasOne("Entities.Models.Pro.ProTenderVendorReqSendType", "SendType")
+                        .WithMany()
+                        .HasForeignKey("SendTypeId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProTender", "Tender")
+                        .WithMany()
+                        .HasForeignKey("TenderId")
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany()
+                        .HasForeignKey("VendorId")
+                        .IsRequired();
+
+                    b.Navigation("SendType");
+
+                    b.Navigation("Tender");
+
+                    b.Navigation("Vendor");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.HasOne("Entities.Models.HR.HrCity", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId");
+
+                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
+                        .WithMany()
+                        .HasForeignKey("CityStateId");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByID");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateByID");
+
+                    b.Navigation("City");
+
+                    b.Navigation("CityState");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("UpdateBy");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
+                {
+                    b.HasOne("Entities.Models.Pro.ProVendor", null)
+                        .WithMany("Attachments")
+                        .HasForeignKey("ProVendorId");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
+                {
+                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByID");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateByID");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("UpdateBy");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorsTypes", b =>
+                {
+                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByID");
+
+                    b.HasOne("Entities.Models.HR.HrCityState", null)
+                        .WithMany("ProVendorsTypes")
+                        .HasForeignKey("HrCityStateId");
+
+                    b.HasOne("Entities.Models.Pro.ProVendor", null)
+                        .WithMany("ProVendorTypes")
+                        .HasForeignKey("ProVendorId");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateByID");
+
+                    b.HasOne("Entities.Models.Pro.ProVendorType", "VendorType")
+                        .WithMany("ProVendorTypes")
+                        .HasForeignKey("VendorTypeId")
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("UpdateBy");
+
+                    b.Navigation("VendorType");
                 });
 
             modelBuilder.Entity("Entities.Models.Report", b =>
@@ -11060,10 +11787,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("STR_CommodityId");
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Seller")
-                        .WithMany("STR_Add")
-                        .HasForeignKey("SellerId");
-
                     b.HasOne("Entities.Models.STR.StoreOpen.StrStore", "SourceStore")
                         .WithMany("STR_Add1")
                         .HasForeignKey("SourceStoreId")
@@ -11078,6 +11801,10 @@ namespace DAL.Migrations
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
+
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
+                        .WithMany("STR_Add")
+                        .HasForeignKey("VendorId");
 
                     b.HasOne("Entities.Models.STR.WithDraw.StrWithDraw", "withdraw")
                         .WithMany()
@@ -11095,11 +11822,11 @@ namespace DAL.Migrations
 
                     b.Navigation("STR_Store");
 
-                    b.Navigation("Seller");
-
                     b.Navigation("SourceStore");
 
                     b.Navigation("UpdateBy");
+
+                    b.Navigation("Vendor");
 
                     b.Navigation("fiscalyear");
 
@@ -12805,6 +13532,187 @@ namespace DAL.Migrations
                     b.Navigation("UpdateBy");
                 });
 
+            modelBuilder.Entity("Entities.Models.VL.VlDrivierLicense", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlStaff", "Driver")
+                        .WithMany()
+                        .HasForeignKey("DriverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlDrivierLicenseType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Driver");
+
+                    b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlStaff", b =>
+                {
+                    b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlStaffPosition", "Position")
+                        .WithMany()
+                        .HasForeignKey("PositionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlStaffStatus", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Position");
+
+                    b.Navigation("Status");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleGarage", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlGarage", "Garage")
+                        .WithMany()
+                        .HasForeignKey("GarageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlViechle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Garage");
+
+                    b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleItinerary", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlItinerary", "Itinerary")
+                        .WithMany()
+                        .HasForeignKey("ItineraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlViechle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Itinerary");
+
+                    b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleJobOrder", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlStaff", "Driver")
+                        .WithMany()
+                        .HasForeignKey("DriverId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.HR.HrEmployee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlStaff", "GarageManager")
+                        .WithMany()
+                        .HasForeignKey("GarageManagerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlItinerary", "Itinerary")
+                        .WithMany()
+                        .HasForeignKey("ItineraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlStaff", "Supervisor")
+                        .WithMany()
+                        .HasForeignKey("SupervisorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlViechle", "VLVehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Driver");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("GarageManager");
+
+                    b.Navigation("Itinerary");
+
+                    b.Navigation("Supervisor");
+
+                    b.Navigation("VLVehicle");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlVehicleLicense", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlViechle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("Entities.Models.VL.VlViechle", b =>
+                {
+                    b.HasOne("Entities.Models.VL.VlManufacturer", "Manufacturer")
+                        .WithMany()
+                        .HasForeignKey("ManufacturerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlModel", "Model")
+                        .WithMany()
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlVehicleStatus", "VehicleStatus")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.VL.VlType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Manufacturer");
+
+                    b.Navigation("Model");
+
+                    b.Navigation("Type");
+
+                    b.Navigation("VehicleStatus");
+                });
+
             modelBuilder.Entity("Entities.ViewModels.TR.General.TrCorporateCLient", b =>
                 {
                     b.HasOne("Entities.Models.HR.HrCity", "City")
@@ -12989,11 +13897,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.HR.HrCityState", b =>
                 {
-                    b.Navigation("ProContractorTypes");
-
-                    b.Navigation("ProSeller");
-
                     b.Navigation("ProTender");
+
+                    b.Navigation("ProVendorsTypes");
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployee", b =>
@@ -13062,16 +13968,6 @@ namespace DAL.Migrations
                     b.Navigation("PrUserGroupCreated");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProContractor", b =>
-                {
-                    b.Navigation("ProContractorTypes");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProContractorType", b =>
-                {
-                    b.Navigation("ProContractorTypes");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProOperationType", b =>
                 {
                     b.Navigation("ProTender");
@@ -13082,28 +13978,42 @@ namespace DAL.Migrations
                     b.Navigation("ProTender");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderCommittee", b =>
                 {
-                    b.Navigation("ProSellerTypes");
-
-                    b.Navigation("STR_Add");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSellerType", b =>
-                {
-                    b.Navigation("ProSellerTypes");
+                    b.Navigation("TenderCommitteeMembers");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
                 {
+                    b.Navigation("ProQuotationDetails");
+
                     b.Navigation("ProTenderSelections");
 
                     b.Navigation("PurchaseOrderDetails");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
+                {
+                    b.Navigation("TenderCommitteeMembers");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
                 {
                     b.Navigation("ProTender");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.Navigation("Attachments");
+
+                    b.Navigation("ProVendorTypes");
+
+                    b.Navigation("STR_Add");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
+                {
+                    b.Navigation("ProVendorTypes");
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrAdd", b =>

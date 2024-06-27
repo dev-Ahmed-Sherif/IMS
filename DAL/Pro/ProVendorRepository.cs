@@ -20,7 +20,7 @@ namespace DAL.Pro
         {
             try
             {
-                var _Vendor = new ProSeller()
+                var _Vendor = new ProVendor()
                 {
                     Name = Vendor.Name,
                     Code = Vendor.Code,
@@ -42,7 +42,7 @@ namespace DAL.Pro
                     Vendor.UnionCard != null ?
                     await FileHelper.UploadFile(Vendor.UnionCard) : "",
                 };
-                _context.ProSeller.Add(_Vendor);
+                _context.ProVendors.Add(_Vendor);
                 _context.SaveChanges();
                 return "Succeeded";
             }
@@ -55,7 +55,7 @@ namespace DAL.Pro
         public async Task<string> Update(ProVendorVM Vendor)
         {
 
-            var _Vendor = _context.ProSeller.Single(n => n.Id == Vendor.Id);
+            var _Vendor = _context.ProVendors.Single(n => n.Id == Vendor.Id);
 
             _Vendor.Name = Vendor.Name;
             _Vendor.Code = Vendor.Code;
@@ -86,15 +86,15 @@ namespace DAL.Pro
         public string Delete(int VendorId)
         {
 
-            var _Vendor = _context.ProSeller.Single(n => n.Id == VendorId);
+            var _Vendor = _context.ProVendors.Single(n => n.Id == VendorId);
 
-            _context.ProSeller.Remove(_Vendor);
+            _context.ProVendors.Remove(_Vendor);
             _context.SaveChanges();
             return "Succeeded";
 
         }
 
-        public List<ProVendorGetVM> GetAll() => _context.ProSeller
+        public List<ProVendorGetVM> GetAll() => _context.ProVendors
             .Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
@@ -118,7 +118,7 @@ namespace DAL.Pro
                 UnionCard = n.UnionCardUrl,
                 AddedValueTax = n.AddedValueTaxUrl
             }).ToList();
-        public ProVendorGetVM GetById(int VendorId) => _context.ProSeller
+        public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
             .Select(n => new ProVendorGetVM
             {
                 Id = n.Id,
@@ -159,7 +159,7 @@ namespace DAL.Pro
         //autocode function
         public string GetLastNo()
         {
-            int maxNo = _context.ProSeller
+            int maxNo = _context.ProVendors
              .Select(item => item.Code).DefaultIfEmpty()
              .Max();
             if (maxNo == 0)
@@ -181,7 +181,7 @@ namespace DAL.Pro
 
         public List<ProVendorGetVM> Search(VendorSearchGeneral searchModel)
         {
-            var query = _context.ProSeller.AsQueryable();
+            var query = _context.ProVendors.AsQueryable();
             if (searchModel.Id.HasValue)
             {
                 query = query.Where(p => p.Id == searchModel.Id);

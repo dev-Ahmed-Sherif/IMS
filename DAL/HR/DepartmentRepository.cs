@@ -1,5 +1,4 @@
-﻿using DAL.Migrations;
-using Entities.Models;
+﻿using Entities.Models;
 using Entities.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;

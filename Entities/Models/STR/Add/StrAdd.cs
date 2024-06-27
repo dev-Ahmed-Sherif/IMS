@@ -43,7 +43,7 @@ namespace Entities.Models.STR.Add
         public int? withdrawId { get; set; }
         public virtual StrWithDraw withdraw { get; set; }
         public int? VendorId { get; set; }
-        public virtual ProSeller Vendor { get; set; }
+        public virtual ProVendor Vendor { get; set; }
         public int? EmployeeId { get; set; }
         public virtual HrEmployee Employee { get; set; }
         public int FiscalYearId { get; set; }

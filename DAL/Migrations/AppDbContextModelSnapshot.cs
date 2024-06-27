@@ -61,7 +61,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcActivity");
+                    b.ToTable("CcActivity", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcCostCenter", b =>
@@ -145,7 +145,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcCostCenter");
+                    b.ToTable("CcCostCenter", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcCostCenterCategory", b =>
@@ -177,7 +177,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CcCostCenterCategory");
+                    b.ToTable("CcCostCenterCategory", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcEntry", b =>
@@ -238,7 +238,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcEntry");
+                    b.ToTable("CcEntry", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcEntryDetails", b =>
@@ -308,7 +308,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcEntryDetails");
+                    b.ToTable("CcEntryDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcEquipment", b =>
@@ -352,7 +352,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcEquipment");
+                    b.ToTable("CcEquipment", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcFunction", b =>
@@ -391,7 +391,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcFunction");
+                    b.ToTable("CcFunction", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcPlant", b =>
@@ -435,7 +435,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcPlant");
+                    b.ToTable("CcPlant", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcPlantComponent", b =>
@@ -474,7 +474,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcPlantComponent");
+                    b.ToTable("CcPlantComponent", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcSource", b =>
@@ -518,7 +518,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcSource");
+                    b.ToTable("CcSource", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcSubRegion", b =>
@@ -562,7 +562,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcSubRegion");
+                    b.ToTable("CcSubRegion", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.CcRegion", b =>
@@ -601,7 +601,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("CcRegion");
+                    b.ToTable("CcRegion", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Department", b =>
@@ -645,7 +645,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccount", b =>
@@ -693,7 +693,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiAccount");
+                    b.ToTable("FiAccount", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccountBalance", b =>
@@ -719,7 +719,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("FiscalYearId");
 
-                    b.ToTable("FiAccountBalances");
+                    b.ToTable("FiAccountBalances", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccountHierarchy", b =>
@@ -758,7 +758,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiAccountHierarchy");
+                    b.ToTable("FiAccountHierarchy", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccountItem", b =>
@@ -807,7 +807,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiAccountItem");
+                    b.ToTable("FiAccountItem", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccountItemCategory", b =>
@@ -843,7 +843,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiAccountItemCategory");
+                    b.ToTable("FiAccountItemCategory", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Account.FiAccountParent", b =>
@@ -885,7 +885,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiAccountParent");
+                    b.ToTable("FiAccountParent", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Currency.FiCurrency", b =>
@@ -904,7 +904,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FiCurrencies");
+                    b.ToTable("FiCurrencies", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Currency.FiCurrencyPrice", b =>
@@ -928,7 +928,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("CurrencyId");
 
-                    b.ToTable("FiCurrencyPrices");
+                    b.ToTable("FiCurrencyPrices", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Entry.FiEntry", b =>
@@ -993,7 +993,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiEntry");
+                    b.ToTable("FiEntry", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Entry.FiEntryDetails", b =>
@@ -1058,7 +1058,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiEntryDetails");
+                    b.ToTable("FiEntryDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.FiEntrySource", b =>
@@ -1093,7 +1093,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiEntrySource");
+                    b.ToTable("FiEntrySource", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.FiEntrySourceType", b =>
@@ -1133,7 +1133,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiEntrySourceType");
+                    b.ToTable("FiEntrySourceType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Journal.FiJournal", b =>
@@ -1193,7 +1193,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiJournal");
+                    b.ToTable("FiJournal", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.FI.Journal.FiJournalType", b =>
@@ -1209,7 +1209,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FiJournalTypes");
+                    b.ToTable("FiJournalTypes", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Fa.FaCategoryFirst", b =>
@@ -1248,7 +1248,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FaCategoryFirst");
+                    b.ToTable("FaCategoryFirst", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Fa.FaCategorySecond", b =>
@@ -1288,7 +1288,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FaCategorySecond");
+                    b.ToTable("FaCategorySecond", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Fa.FaCategoryThird", b =>
@@ -1328,7 +1328,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FaCategoryThird");
+                    b.ToTable("FaCategoryThird", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Fa.FaFixedAsset", b =>
@@ -1429,7 +1429,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FaFixedAsset");
+                    b.ToTable("FaFixedAsset", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Fa.FaMoveFixedAsset", b =>
@@ -1498,7 +1498,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FaMoveFixedAsset");
+                    b.ToTable("FaMoveFixedAsset", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.GeneralDepartment", b =>
@@ -1534,7 +1534,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("GeneralDepartment");
+                    b.ToTable("GeneralDepartment", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrAttendanceMachine", b =>
@@ -1573,7 +1573,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrAttendanceMachine");
+                    b.ToTable("HrAttendanceMachine", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrAttendanceMachineWorkPlace", b =>
@@ -1622,7 +1622,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("WorkPlaceId");
 
-                    b.ToTable("HrAttendanceMachineWorkPlace");
+                    b.ToTable("HrAttendanceMachineWorkPlace", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrAttendancePermission", b =>
@@ -1658,7 +1658,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrAttendancePermission");
+                    b.ToTable("HrAttendancePermission", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrAttendanceSchedule", b =>
@@ -1712,7 +1712,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrAttendanceSchedule");
+                    b.ToTable("HrAttendanceSchedule", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrBank", b =>
@@ -1747,7 +1747,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HrBank");
+                    b.ToTable("HrBank", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrCity", b =>
@@ -1783,7 +1783,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrCity");
+                    b.ToTable("HrCity", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrCityState", b =>
@@ -1824,7 +1824,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrCityState");
+                    b.ToTable("HrCityState", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployee", b =>
@@ -2001,7 +2001,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("WorkPlaceId");
 
-                    b.ToTable("HrEmployee");
+                    b.ToTable("HrEmployee", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeAttendance", b =>
@@ -2052,7 +2052,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeAttendance");
+                    b.ToTable("HrEmployeeAttendance", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeAttendancePermission", b =>
@@ -2101,7 +2101,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeAttendancePermission");
+                    b.ToTable("HrEmployeeAttendancePermission", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeAttendanceSchedule", b =>
@@ -2152,7 +2152,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeAttendanceSchedule");
+                    b.ToTable("HrEmployeeAttendanceSchedule", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeFinancialDegree", b =>
@@ -2197,7 +2197,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeFinancialDegree");
+                    b.ToTable("HrEmployeeFinancialDegree", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeQualification", b =>
@@ -2256,7 +2256,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeQualification");
+                    b.ToTable("HrEmployeeQualification", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeVacation", b =>
@@ -2316,7 +2316,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VacationId");
 
-                    b.ToTable("HrEmployeeVacation");
+                    b.ToTable("HrEmployeeVacation", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrEmployeeVacationBalance", b =>
@@ -2368,7 +2368,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VacationId");
 
-                    b.ToTable("HrEmployeeVacationBalance");
+                    b.ToTable("HrEmployeeVacationBalance", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrFinancialDegree", b =>
@@ -2410,7 +2410,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrFinancialDegree");
+                    b.ToTable("HrFinancialDegree", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrFinancialDegreeSalary", b =>
@@ -2457,7 +2457,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrFinancialDegreeSalary");
+                    b.ToTable("HrFinancialDegreeSalary", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrHiringType", b =>
@@ -2493,7 +2493,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrHiringType");
+                    b.ToTable("HrHiringType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrHoliday", b =>
@@ -2529,7 +2529,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrHoliday");
+                    b.ToTable("HrHoliday", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrHolidaySchedule", b =>
@@ -2579,7 +2579,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrHolidaySchedule");
+                    b.ToTable("HrHolidaySchedule", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrJobTitle", b =>
@@ -2615,7 +2615,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrJobTitle");
+                    b.ToTable("HrJobTitle", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrMillitryState", b =>
@@ -2651,7 +2651,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrMillitryState");
+                    b.ToTable("HrMillitryState", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrPayMethod", b =>
@@ -2683,7 +2683,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HrPayMethod");
+                    b.ToTable("HrPayMethod", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrPosition", b =>
@@ -2719,7 +2719,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrPosition");
+                    b.ToTable("HrPosition", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrQualification", b =>
@@ -2760,7 +2760,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrQualification");
+                    b.ToTable("HrQualification", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrQualificationLevel", b =>
@@ -2796,7 +2796,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrQualificationLevel");
+                    b.ToTable("HrQualificationLevel", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrQualitativeGroup", b =>
@@ -2834,7 +2834,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrQualitativeGroup");
+                    b.ToTable("HrQualitativeGroup", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrReligion", b =>
@@ -2866,7 +2866,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HrReligion");
+                    b.ToTable("HrReligion", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrSalaryStatus", b =>
@@ -2898,7 +2898,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HrSalaryStatus");
+                    b.ToTable("HrSalaryStatus", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrSeveranceReason", b =>
@@ -2934,7 +2934,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrSeveranceReason");
+                    b.ToTable("HrSeveranceReason", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrSpecialization", b =>
@@ -2975,7 +2975,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrSpecialization");
+                    b.ToTable("HrSpecialization", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrVacation", b =>
@@ -3011,7 +3011,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrVacation");
+                    b.ToTable("HrVacation", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HR.HrWorkPlace", b =>
@@ -3052,7 +3052,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrWorkPlace");
+                    b.ToTable("HrWorkPlace", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HrDisciplinary", b =>
@@ -3088,7 +3088,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrDisciplinary");
+                    b.ToTable("HrDisciplinary", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HrEmployeeAppraisal", b =>
@@ -3135,7 +3135,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeAppraisal");
+                    b.ToTable("HrEmployeeAppraisal", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HrEmployeeDisciplinary", b =>
@@ -3190,7 +3190,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrEmployeeDisciplinary");
+                    b.ToTable("HrEmployeeDisciplinary", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HrEmployeePosition", b =>
@@ -3241,7 +3241,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("WorkPlaceId");
 
-                    b.ToTable("HrEmployeePosition");
+                    b.ToTable("HrEmployeePosition", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.HrIncentiveAllowance", b =>
@@ -3290,7 +3290,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("HrIncentiveAllowance");
+                    b.ToTable("HrIncentiveAllowance", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrGroup", b =>
@@ -3330,7 +3330,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrGroup");
+                    b.ToTable("PrGroup", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrGroupPrivileges", b =>
@@ -3372,7 +3372,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrGroupPrivileges");
+                    b.ToTable("PrGroupPrivileges", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrGroupRole", b =>
@@ -3429,7 +3429,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrGroupRole");
+                    b.ToTable("PrGroupRole", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrModule", b =>
@@ -3469,7 +3469,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrModule");
+                    b.ToTable("PrModule", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrPrivileges", b =>
@@ -3505,7 +3505,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrPrivileges");
+                    b.ToTable("PrPrivileges", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrRole", b =>
@@ -3550,7 +3550,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PrRole");
+                    b.ToTable("PrRole", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrUser", b =>
@@ -3603,7 +3603,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("PrUser");
+                    b.ToTable("PrUser", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrUserGroup", b =>
@@ -3645,7 +3645,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("PrUserGroup");
+                    b.ToTable("PrUserGroup", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PR.PrUserModule", b =>
@@ -3690,7 +3690,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("PrUserModule");
+                    b.ToTable("PrUserModule", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyExchange", b =>
@@ -3740,7 +3740,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyExchange");
+                    b.ToTable("PyExchange", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyExchangeDetails", b =>
@@ -3791,7 +3791,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyExchangeDetails");
+                    b.ToTable("PyExchangeDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyInstallment", b =>
@@ -3855,7 +3855,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyInstallment");
+                    b.ToTable("PyInstallment", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyItem", b =>
@@ -3938,7 +3938,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyItem");
+                    b.ToTable("PyItem", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyItemCategory", b =>
@@ -3973,7 +3973,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyItemCategory");
+                    b.ToTable("PyItemCategory", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyItemGroup", b =>
@@ -4009,7 +4009,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyItemGroup");
+                    b.ToTable("PyItemGroup", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyItemGroupDetails", b =>
@@ -4051,7 +4051,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyItemGroupDetails");
+                    b.ToTable("PyItemGroupDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyItemGroupEmployee", b =>
@@ -4093,7 +4093,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyItemGroupEmployee");
+                    b.ToTable("PyItemGroupEmployee", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.PY.PyTaxBracket", b =>
@@ -4131,7 +4131,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("PyTaxBracket");
+                    b.ToTable("PyTaxBracket", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProOperationType", b =>
@@ -4170,7 +4170,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ProOperationType");
+                    b.ToTable("ProOperationType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProPlanType", b =>
@@ -4209,7 +4209,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ProPlantType");
+                    b.ToTable("ProPlantType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrder", b =>
@@ -4254,7 +4254,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderId");
 
-                    b.ToTable("ProPurchaseOrders");
+                    b.ToTable("ProPurchaseOrders", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrderDetails", b =>
@@ -4302,7 +4302,7 @@ namespace DAL.Migrations
                     b.HasIndex("TenderDetailsId")
                         .IsUnique();
 
-                    b.ToTable("ProPurchaseOrderDetails");
+                    b.ToTable("ProPurchaseOrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotation", b =>
@@ -4359,7 +4359,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("ProQuotations");
+                    b.ToTable("ProQuotations", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
@@ -4408,7 +4408,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderDetailsId");
 
-                    b.ToTable("ProQuotationDetails");
+                    b.ToTable("ProQuotationDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProQuotationReceiveType", b =>
@@ -4441,90 +4441,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProQuotationReceiveType");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AddedValueTaxUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CityStateId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CommericalRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("IndusterialRegister")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TaxCard")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TheLevel")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("UnionCardUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CityStateId");
-
-                    b.HasIndex("CreatedByID");
-
-                    b.HasIndex("UpdateByID");
-
-                    b.ToTable("ProVendors");
+                    b.ToTable("ProQuotationReceiveType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTender", b =>
@@ -4631,7 +4548,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ProTender");
+                    b.ToTable("ProTender", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommittee", b =>
@@ -4673,7 +4590,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderId");
 
-                    b.ToTable("ProTenderCommittees");
+                    b.ToTable("ProTenderCommittees", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeMember", b =>
@@ -4725,7 +4642,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderCommitteeId");
 
-                    b.ToTable("ProTenderCommitteeMembers");
+                    b.ToTable("ProTenderCommitteeMembers", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommitteeRole", b =>
@@ -4758,7 +4675,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProTenderCommitteeRoles");
+                    b.ToTable("ProTenderCommitteeRoles", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
@@ -4809,7 +4726,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderId");
 
-                    b.ToTable("ProTenderDetails");
+                    b.ToTable("ProTenderDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
@@ -4851,7 +4768,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderId");
 
-                    b.ToTable("ProTenderOpenings");
+                    b.ToTable("ProTenderOpenings", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningDetails", b =>
@@ -4896,7 +4813,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderOpeningId");
 
-                    b.ToTable("ProTenderOpeningDetails");
+                    b.ToTable("ProTenderOpeningDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningMember", b =>
@@ -4943,7 +4860,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TenderOpeningId");
 
-                    b.ToTable("ProTenderOpeningMembers");
+                    b.ToTable("ProTenderOpeningMembers", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpeningStatus", b =>
@@ -4976,7 +4893,7 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProTenderOpeningStatuses");
+                    b.ToTable("ProTenderOpeningStatuses", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderSelection", b =>
@@ -5030,7 +4947,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("QuotationDetailsId");
 
-                    b.ToTable("ProTenderSelections");
+                    b.ToTable("ProTenderSelections", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
@@ -5069,7 +4986,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ProTenderType");
+                    b.ToTable("ProTenderType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReq", b =>
@@ -5119,7 +5036,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("ProTenderVendorReqs");
+                    b.ToTable("ProTenderVendorReqs", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderVendorReqSendType", b =>
@@ -5152,7 +5069,90 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProTenderVendorReqSendType");
+                    b.ToTable("ProTenderVendorReqSendType", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AddedValueTaxUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityStateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CommericalRegister")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("CreatedByID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("IndusterialRegister")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TaxCard")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TheLevel")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UnionCardUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdateByID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CityStateId");
+
+                    b.HasIndex("CreatedByID");
+
+                    b.HasIndex("UpdateByID");
+
+                    b.ToTable("ProVendors", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
@@ -5186,7 +5186,7 @@ namespace DAL.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int?>("ProSellerId")
+                    b.Property<int?>("ProVendorId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -5194,9 +5194,9 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProSellerId");
+                    b.HasIndex("ProVendorId");
 
-                    b.ToTable("ProVendorAttachment");
+                    b.ToTable("ProVendorAttachment", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
@@ -5235,7 +5235,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ProVendorTypes");
+                    b.ToTable("ProVendorTypes", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorsTypes", b =>
@@ -5261,7 +5261,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("LastUpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ProSellerId")
+                    b.Property<int?>("ProVendorId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -5276,13 +5276,13 @@ namespace DAL.Migrations
 
                     b.HasIndex("HrCityStateId");
 
-                    b.HasIndex("ProSellerId");
+                    b.HasIndex("ProVendorId");
 
                     b.HasIndex("UpdateByID");
 
                     b.HasIndex("VendorTypeId");
 
-                    b.ToTable("ProVendorsTypes");
+                    b.ToTable("ProVendorsTypes", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Report", b =>
@@ -5303,7 +5303,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("ModuleId");
 
-                    b.ToTable("Reports");
+                    b.ToTable("Reports", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.SE.ImsSection", b =>
@@ -5339,7 +5339,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("ImsSection");
+                    b.ToTable("ImsSection", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrAdd", b =>
@@ -5442,7 +5442,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("withdrawId");
 
-                    b.ToTable("StrAdd");
+                    b.ToTable("StrAdd", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrAddDetails", b =>
@@ -5509,7 +5509,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrAddDetails");
+                    b.ToTable("StrAddDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrAddDetailsSerial", b =>
@@ -5559,7 +5559,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrAddDetailsSerial");
+                    b.ToTable("StrAddDetailsSerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrAddType", b =>
@@ -5602,7 +5602,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrAddType");
+                    b.ToTable("StrAddType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Add.StrWithDrawType", b =>
@@ -5645,7 +5645,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrWithDrawType");
+                    b.ToTable("StrWithDrawType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Employee.StrEmployeeExchange", b =>
@@ -5713,7 +5713,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeExchange");
+                    b.ToTable("StrEmployeeExchange", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Employee.StrEmployeeExchangeDetails", b =>
@@ -5774,7 +5774,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeExchangeDetails");
+                    b.ToTable("StrEmployeeExchangeDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Employee.StrEmployeeOpeningCustody", b =>
@@ -5837,7 +5837,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeOpeningCustody");
+                    b.ToTable("StrEmployeeOpeningCustody", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Employee.StrEmployeeOpeningCustodyDetails", b =>
@@ -5902,7 +5902,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeOpeningCustodyDetails");
+                    b.ToTable("StrEmployeeOpeningCustodyDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrApprovalStatus", b =>
@@ -5938,7 +5938,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrApprovalStatus");
+                    b.ToTable("StrApprovalStatus", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrCommodity", b =>
@@ -5982,7 +5982,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrCommodity");
+                    b.ToTable("StrCommodity", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrFiscalYear", b =>
@@ -6023,7 +6023,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("FiscalYear");
+                    b.ToTable("FiscalYear", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrGrade", b =>
@@ -6077,7 +6077,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrGrade");
+                    b.ToTable("StrGrade", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrGroup", b =>
@@ -6122,7 +6122,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrGroup");
+                    b.ToTable("StrGroup", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrItem", b =>
@@ -6202,7 +6202,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrItem");
+                    b.ToTable("StrItem", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrModel", b =>
@@ -6242,7 +6242,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("StrModel");
+                    b.ToTable("StrModel", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrPlatoon", b =>
@@ -6287,7 +6287,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrPlatoon");
+                    b.ToTable("StrPlatoon", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrUnit", b =>
@@ -6323,7 +6323,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrUnit");
+                    b.ToTable("StrUnit", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.General.StrVendor", b =>
@@ -6358,7 +6358,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrVendor");
+                    b.ToTable("StrVendor", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Product.StrProduct", b =>
@@ -6415,7 +6415,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("StrProduct");
+                    b.ToTable("StrProduct", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.Product.StrProductSerial", b =>
@@ -6461,7 +6461,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrProductSerial");
+                    b.ToTable("StrProductSerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrOpeningStock", b =>
@@ -6519,7 +6519,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrOpeningStock");
+                    b.ToTable("StrOpeningStock", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrOpeningStockDetails", b =>
@@ -6574,7 +6574,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrOpeningStockDetails");
+                    b.ToTable("StrOpeningStockDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrStockTaking", b =>
@@ -6632,7 +6632,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrStockTaking");
+                    b.ToTable("StrStockTaking", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrStockTakingDetails", b =>
@@ -6693,7 +6693,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrStockTakingDetails");
+                    b.ToTable("StrStockTakingDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrStore", b =>
@@ -6742,7 +6742,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrStore");
+                    b.ToTable("StrStore", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StoreOpen.StrUserStore", b =>
@@ -6784,7 +6784,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("StrUserStore");
+                    b.ToTable("StrUserStore", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StrEmployeeExchangeSerial", b =>
@@ -6834,7 +6834,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeExchangeSerial");
+                    b.ToTable("StrEmployeeExchangeSerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StrEmployeeOpeningCustodySerial", b =>
@@ -6884,7 +6884,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrEmployeeOpeningCustodySerial");
+                    b.ToTable("StrEmployeeOpeningCustodySerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.StrOpeningStockDetailsSerial", b =>
@@ -6937,7 +6937,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrOpeningStockDetailsSerial");
+                    b.ToTable("StrOpeningStockDetailsSerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.WithDraw.StrWithDraw", b =>
@@ -7039,7 +7039,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("WithDrawTypeId");
 
-                    b.ToTable("StrWithDraw");
+                    b.ToTable("StrWithDraw", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.WithDraw.StrWithDrawDetails", b =>
@@ -7099,7 +7099,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrWithDrawDetails");
+                    b.ToTable("StrWithDrawDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.STR.WithDraw.StrWithDrawDetailsSerial", b =>
@@ -7149,7 +7149,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("StrWithDrawDetailsSerial");
+                    b.ToTable("StrWithDrawDetailsSerial", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Course.TrCourse", b =>
@@ -7209,7 +7209,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrCourse");
+                    b.ToTable("TrCourse", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Course.TrCourseCategory", b =>
@@ -7244,7 +7244,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrCourseCategory");
+                    b.ToTable("TrCourseCategory", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Course.TrCourseType", b =>
@@ -7284,7 +7284,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrCourseType");
+                    b.ToTable("TrCourseType", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Course.TrTrack", b =>
@@ -7325,7 +7325,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrTrack");
+                    b.ToTable("TrTrack", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Course.TrTrackDetails", b =>
@@ -7367,7 +7367,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrTrackDetails");
+                    b.ToTable("TrTrackDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Excuted.TrExcuted", b =>
@@ -7461,7 +7461,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrExcuted");
+                    b.ToTable("TrExcuted", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Excuted.TrExcutedFinancier", b =>
@@ -7503,7 +7503,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrExcutedFinancier");
+                    b.ToTable("TrExcutedFinancier", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Excuted.TrExcutedInstructor", b =>
@@ -7545,7 +7545,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrExcutedInstructor");
+                    b.ToTable("TrExcutedInstructor", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Excuted.TrExcutedPosition", b =>
@@ -7587,7 +7587,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrExcutedPosition");
+                    b.ToTable("TrExcutedPosition", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Excuted.TrExcutedTrainee", b =>
@@ -7634,7 +7634,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrExcutedTrainee");
+                    b.ToTable("TrExcutedTrainee", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.General.TrBudget", b =>
@@ -7704,7 +7704,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrBudget");
+                    b.ToTable("TrBudget", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.General.TrFinancier", b =>
@@ -7742,7 +7742,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrFinancier");
+                    b.ToTable("TrFinancier", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.General.TrPurpose", b =>
@@ -7780,7 +7780,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPurpose");
+                    b.ToTable("TrPurpose", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Instructor.TrInstructor", b =>
@@ -7831,7 +7831,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrInstructor");
+                    b.ToTable("TrInstructor", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Instructor.TrInstructorCourse", b =>
@@ -7884,7 +7884,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrInstructorCourse");
+                    b.ToTable("TrInstructorCourse", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Instructor.TrInstructorData", b =>
@@ -7948,7 +7948,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrInstructorData");
+                    b.ToTable("TrInstructorData", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Plan.TrPlan", b =>
@@ -8025,7 +8025,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPlan");
+                    b.ToTable("TrPlan", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Plan.TrPlanCourseData", b =>
@@ -8090,7 +8090,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPlanCourseData");
+                    b.ToTable("TrPlanCourseData", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Plan.TrPlanFinancier", b =>
@@ -8132,7 +8132,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPlanFinancier");
+                    b.ToTable("TrPlanFinancier", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Plan.TrPlanInstructor", b =>
@@ -8174,7 +8174,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPlanInstructor");
+                    b.ToTable("TrPlanInstructor", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.Plan.TrPlanPosition", b =>
@@ -8216,7 +8216,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrPlanPosition");
+                    b.ToTable("TrPlanPosition", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.TrClassRoom", b =>
@@ -8277,7 +8277,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrClassRoom");
+                    b.ToTable("TrClassRoom", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.TrTrainee", b =>
@@ -8346,7 +8346,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrTrainee");
+                    b.ToTable("TrTrainee", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.TrTrainingCenter", b =>
@@ -8402,7 +8402,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrTrainingCenter");
+                    b.ToTable("TrTrainingCenter", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.TR.TrTrainingCenterCourse", b =>
@@ -8455,7 +8455,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrTrainingCenterCourse");
+                    b.ToTable("TrTrainingCenterCourse", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlDrivierLicense", b =>
@@ -8497,7 +8497,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("VlDrivierLicenses");
+                    b.ToTable("VlDrivierLicenses", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlDrivierLicenseType", b =>
@@ -8533,7 +8533,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlDrivierLicenseTypes");
+                    b.ToTable("VlDrivierLicenseTypes", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlGarage", b =>
@@ -8573,7 +8573,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlGarages");
+                    b.ToTable("VlGarages", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlItinerary", b =>
@@ -8613,7 +8613,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlItineraries");
+                    b.ToTable("VlItineraries", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlManufacturer", b =>
@@ -8653,7 +8653,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlManufacturers");
+                    b.ToTable("VlManufacturers", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlModel", b =>
@@ -8693,7 +8693,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlModels");
+                    b.ToTable("VlModels", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlStaff", b =>
@@ -8740,7 +8740,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("StatusId");
 
-                    b.ToTable("VlStaff");
+                    b.ToTable("VlStaff", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlStaffPosition", b =>
@@ -8776,7 +8776,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlStaffPositions");
+                    b.ToTable("VlStaffPositions", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlStaffStatus", b =>
@@ -8812,7 +8812,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlStaffStatuses");
+                    b.ToTable("VlStaffStatuses", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlType", b =>
@@ -8852,7 +8852,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlTypes");
+                    b.ToTable("VlTypes", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlVehicleGarage", b =>
@@ -8900,7 +8900,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("VlVehicleGarages");
+                    b.ToTable("VlVehicleGarages", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlVehicleItinerary", b =>
@@ -8948,7 +8948,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("VlVehicleItineraries");
+                    b.ToTable("VlVehicleItineraries", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlVehicleJobOrder", b =>
@@ -9028,7 +9028,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("VlVehicleJobOrders");
+                    b.ToTable("VlVehicleJobOrders", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlVehicleLicense", b =>
@@ -9071,7 +9071,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("VlVehicleLicenses");
+                    b.ToTable("VlVehicleLicenses", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlVehicleStatus", b =>
@@ -9107,7 +9107,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.ToTable("VlVehicleStatuses");
+                    b.ToTable("VlVehicleStatuses", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.VL.VlViechle", b =>
@@ -9175,7 +9175,7 @@ namespace DAL.Migrations
                         .IsUnique()
                         .HasFilter("[BoardNo] IS NOT NULL AND [ChassisNo] IS NOT NULL AND [MotorNo] IS NOT NULL");
 
-                    b.ToTable("VlVehicles");
+                    b.ToTable("VlVehicles", (string)null);
                 });
 
             modelBuilder.Entity("Entities.ViewModels.TR.General.TrCorporateCLient", b =>
@@ -9231,7 +9231,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UpdateByID");
 
-                    b.ToTable("TrCorporateCLient");
+                    b.ToTable("TrCorporateCLient", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.Cc.CcActivity", b =>
@@ -11413,7 +11413,7 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Vendor")
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
                         .WithMany()
                         .HasForeignKey("VendorId")
                         .IsRequired();
@@ -11440,33 +11440,6 @@ namespace DAL.Migrations
                     b.Navigation("Quotation");
 
                     b.Navigation("TenderDetails");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
-                {
-                    b.HasOne("Entities.Models.HR.HrCity", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId");
-
-                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
-                        .WithMany()
-                        .HasForeignKey("CityStateId");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByID");
-
-                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
-                        .WithMany()
-                        .HasForeignKey("UpdateByID");
-
-                    b.Navigation("City");
-
-                    b.Navigation("CityState");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("UpdateBy");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTender", b =>
@@ -11665,7 +11638,7 @@ namespace DAL.Migrations
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Vendor")
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
                         .WithMany()
                         .HasForeignKey("VendorId")
                         .IsRequired();
@@ -11677,11 +11650,38 @@ namespace DAL.Migrations
                     b.Navigation("Vendor");
                 });
 
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.HasOne("Entities.Models.HR.HrCity", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId");
+
+                    b.HasOne("Entities.Models.HR.HrCityState", "CityState")
+                        .WithMany()
+                        .HasForeignKey("CityStateId");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByID");
+
+                    b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
+                        .WithMany()
+                        .HasForeignKey("UpdateByID");
+
+                    b.Navigation("City");
+
+                    b.Navigation("CityState");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("UpdateBy");
+                });
+
             modelBuilder.Entity("Entities.Models.Pro.ProVendorAttachment", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProSeller", null)
+                    b.HasOne("Entities.Models.Pro.ProVendor", null)
                         .WithMany("Attachments")
-                        .HasForeignKey("ProSellerId");
+                        .HasForeignKey("ProVendorId");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>
@@ -11709,9 +11709,9 @@ namespace DAL.Migrations
                         .WithMany("ProVendorsTypes")
                         .HasForeignKey("HrCityStateId");
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", null)
+                    b.HasOne("Entities.Models.Pro.ProVendor", null)
                         .WithMany("ProVendorTypes")
-                        .HasForeignKey("ProSellerId");
+                        .HasForeignKey("ProVendorId");
 
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
@@ -11799,7 +11799,7 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("UpdateByID");
 
-                    b.HasOne("Entities.Models.Pro.ProSeller", "Vendor")
+                    b.HasOne("Entities.Models.Pro.ProVendor", "Vendor")
                         .WithMany("STR_Add")
                         .HasForeignKey("VendorId");
 
@@ -13975,15 +13975,6 @@ namespace DAL.Migrations
                     b.Navigation("ProTender");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProSeller", b =>
-                {
-                    b.Navigation("Attachments");
-
-                    b.Navigation("ProVendorTypes");
-
-                    b.Navigation("STR_Add");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommittee", b =>
                 {
                     b.Navigation("TenderCommitteeMembers");
@@ -14006,6 +13997,15 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProTenderType", b =>
                 {
                     b.Navigation("ProTender");
+                });
+
+            modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
+                {
+                    b.Navigation("Attachments");
+
+                    b.Navigation("ProVendorTypes");
+
+                    b.Navigation("STR_Add");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendorType", b =>

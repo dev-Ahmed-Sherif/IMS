@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities.Models.Pro
 {
     [Table("ProVendors")]
-    public class ProSeller : EntityBase
+    public class ProVendor : EntityBase
     {
         [StringLength(50)]
         public string Name { get; set; }
