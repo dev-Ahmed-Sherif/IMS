@@ -852,6 +852,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                         <FontFamily>arial</FontFamily>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>#1b77a3</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>

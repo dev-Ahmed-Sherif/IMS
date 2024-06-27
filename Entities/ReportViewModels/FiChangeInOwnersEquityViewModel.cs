@@ -14,5 +14,7 @@ namespace Entities.ReportViewModels
         public decimal BeginningBalance { get; set; }
         public decimal ChangeWithinPeriod { get; set; }
         public decimal EndingBalance { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

@@ -298,9 +298,10 @@ namespace Business.FI.Account
             {
                 case "AccountREReport":
                     {
-                        List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
-                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
-                        fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
+
+                        //List<Part2ViewModel> part2ViewModel = await _FiRepository.GetVW_Rest_Finical_CenterData();
+                        
+                        //fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
                         #region Old Tree
 
                         List<string> SumofAssets = new List<string> { "1" };
@@ -576,18 +577,20 @@ namespace Business.FI.Account
                         //   _fiAccountsCodes.الأصول_المستأجرة_حق_انتفاع_التامة_وتحت_التنفيذ_117
                         //};
                         #endregion
+                        #region Old Code for Report Data
+                        //List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
+                        //FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        //for (int i = 0; i < FIAccountRE.Count; i++)
+                        //{
+                        //    FIAccountREAdd.Add(FIAccountRE[i]);
+                        //    if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
+                        //    {
+                        //        //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                        //        //{
 
-                        for (int i = 0; i < FIAccountRE.Count; i++)
-                        {
-                            FIAccountREAdd.Add(FIAccountRE[i]);
-                            if (FIAccountRE[i].Code.FirstOrDefault() == '1' || FIAccountRE[i].Code.FirstOrDefault() == '2')
-                            {
-                                //if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                                //{
-
-                                //}
-                            }
-                        }
+                        //        //}
+                        //    }
+                        //}
 
                         // Non - Current Fixed Assets
                         List<AccountItemVM> NonCurrentAssetsFirstArray = new List<AccountItemVM>();
@@ -877,7 +880,7 @@ namespace Business.FI.Account
                         }
 
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
 
                         // Non - Current Fixed Assets Data Sets
                         report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFirst", Value = NonCurrentAssetsFirstArray });
@@ -919,6 +922,8 @@ namespace Business.FI.Account
 
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumofAssets", Value = SumofAssetsArray });
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
+                        #endregion
+                       
 
                         report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part1", Value = await _FiRepository.GetFixed_Assest_Finical_CenterData() });
                         report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part2", Value = await _FiRepository.GetVW_Rest_Finical_CenterData() });

@@ -688,20 +688,28 @@ namespace DAL.FI.Account
         }
         public List<FiChangeInOwnersEquityViewModel> GetChangeInOwnersEquityReportData(int fiscalYearId)
         {
+            FiscalYearGetVM fiscalYear = _strFiscalRepository.GetById(fiscalYearId);
+            DateTime startDate = fiscalYear.StartDate;
+            DateTime endDate = fiscalYear.EndDate;
+            DateTime prevStartDate = startDate.AddYears(-1);
+            DateTime prevEndDate = endDate.AddYears(-1);
+
             // Old Tree
             List<string> ChangeInOwnersEquityAccountsCodes =
-                [AccountsCodes.رأس_المال_المصدر,
-                AccountsCodes.احتياطيات,
-                AccountsCodes.احتياطى_قانونى,
-                AccountsCodes.احتياطى_نظامى,
-                AccountsCodes.احتياطى_رأسمالى,
-                AccountsCodes.احتياطات_أخرى,
-                AccountsCodes.ارباح_أو_خسائر_مرحلة,
-                AccountsCodes.اسهم_الخزينة];
+                [
+                    AccountsCodes.رأس_المال_المصدر,
+                    AccountsCodes.احتياطيات,
+                    AccountsCodes.احتياطى_قانونى,
+                    AccountsCodes.احتياطى_نظامى,
+                    AccountsCodes.احتياطى_رأسمالى,
+                    AccountsCodes.احتياطات_أخرى,
+                    AccountsCodes.ارباح_أو_خسائر_مرحلة,
+                    AccountsCodes.اسهم_الخزينة
+                ];
             List<ChangeInOwnersEquityViewModelDB> ChangeInOwnersEquityData = new List<ChangeInOwnersEquityViewModelDB>();
-            ChangeInOwnersEquityAccountsCodes.ForEach(async e =>
+            ChangeInOwnersEquityAccountsCodes.ForEach(e =>
             {
-                var result = await GetChangeOwnerShipRightsReportData(e);
+                var result = GetChangeOwnerShipRightsReportData(e);
                 if (result != null)
                 {
                     ChangeInOwnersEquityData.Add(result);
@@ -713,8 +721,10 @@ namespace DAL.FI.Account
                 AccountCode = e.Code,
                 AccountName = e.Name,
                 BeginningBalance = e.Opening_BasedOnDebit,
-                ChangeWithinPeriod = e.NetBasedOnDebit - e.Opening_BasedOnDebit, 
+                ChangeWithinPeriod = e.NetBasedOnDebit - e.Opening_BasedOnDebit,
                 EndingBalance = e.NetBasedOnDebit,
+                StartDate = startDate.ToShortDateString(),
+                EndDate = endDate.ToShortDateString()
             });
 
             // New Tree
@@ -1041,6 +1051,7 @@ namespace DAL.FI.Account
         }
         public async Task<List<Part2ViewModel>> GetVW_Rest_Finical_CenterData()
         {
+            var res = await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Rest_Finical_Center").ToListAsync();
             return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Rest_Finical_Center").ToListAsync();
         }
         public async Task<List<Part2ViewModel>> GetVW_Income_Statement_Full_ReportData()
@@ -1051,9 +1062,14 @@ namespace DAL.FI.Account
         {
             return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Production_And_Added_Value").ToListAsync();
         }
-        public async Task<ChangeInOwnersEquityViewModelDB?> GetChangeOwnerShipRightsReportData(string variableName)
+        public ChangeInOwnersEquityViewModelDB? GetChangeOwnerShipRightsReportData(string code)
         {
-            return await _context.Database.SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT * FROM VW_Income_Statement_Full_rpt where Code = '{variableName}'").FirstOrDefaultAsync();
+            //var res = _context.Database.SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT * FROM VW_ACC_Balance where Code='{variableName}'").FirstOrDefault();
+            return
+                _context
+                .Database
+                .SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT TOP (1) * FROM VW_ACC_Balance WHERE Code = {code}")
+                .FirstOrDefault();
         }
     }
 
