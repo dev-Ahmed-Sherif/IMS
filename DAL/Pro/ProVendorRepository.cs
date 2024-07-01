@@ -18,38 +18,24 @@ namespace DAL.Pro
         }
         public async Task<string> Add(ProVendorGeneralVM Vendor)
         {
-            try
+
+            var _Vendor = new ProVendor()
             {
-                var _Vendor = new ProVendor()
-                {
-                    Name = Vendor.Name,
-                    Code = Vendor.Code,
-                    Phone = Vendor.Phone,
-                    Email = Vendor.Email,
-                    CityId = Vendor.CityId,
-                    CityStateId = Vendor.CityStateId,
-                    Address = Vendor.Address,
-                    CommericalRegister = Vendor.CommericalRegister,
-                    TaxCard = Vendor.TaxCard,
-                    CreatedByID = Vendor.TransactionUserId,
-                    CreationDate = DateTime.Now,
-                    IndusterialRegister = Vendor.IndusterialRegister,
-                    TheLevel = Vendor.TheLevel,
-                    AddedValueTaxUrl =
-                    Vendor.AddedValueTax != null ?
-                    await FileHelper.UploadFile(Vendor.AddedValueTax) : "",
-                    UnionCardUrl =
-                    Vendor.UnionCard != null ?
-                    await FileHelper.UploadFile(Vendor.UnionCard) : "",
-                };
-                _context.ProVendors.Add(_Vendor);
-                _context.SaveChanges();
-                return "Succeeded";
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
+                Name = Vendor.Name,
+                Code = Vendor.Code,
+                Phone = Vendor.Phone,
+                Email = Vendor.Email,
+                CityId = Vendor.CityId,
+                CityStateId = Vendor.CityStateId,
+                Address = Vendor.Address,
+                CreatedByID = Vendor.TransactionUserId,
+                CreationDate = DateTime.Now,
+                TheLevel = Vendor.TheLevel,
+            };
+            _context.ProVendors.Add(_Vendor);
+            await _context.SaveChangesAsync();
+            return "Succeeded";
+
         }
 
         public async Task<string> Update(ProVendorVM Vendor)
@@ -64,21 +50,9 @@ namespace DAL.Pro
             _Vendor.CityId = Vendor.CityId;
             _Vendor.CityStateId = Vendor.CityStateId;
             _Vendor.Address = Vendor.Address;
-            _Vendor.CommericalRegister = Vendor.CommericalRegister;
-            _Vendor.TaxCard = Vendor.TaxCard;
             _Vendor.UpdateByID = Vendor.TransactionUserId;
             _Vendor.LastUpdateDate = DateTime.Now;
-            if (Vendor.AddedValueTax != null)
-            {
-                string addedValueTaxUrl = await FileHelper.UploadFile(Vendor.AddedValueTax);
-                _Vendor.AddedValueTaxUrl = addedValueTaxUrl;
-            }
-            if (Vendor.UnionCard != null)
-            {
-                string unionCardUrl = await FileHelper.UploadFile(Vendor.UnionCard);
-                _Vendor.UnionCardUrl = unionCardUrl;
-            }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return "Succeeded";
 
         }
@@ -106,17 +80,12 @@ namespace DAL.Pro
                 CityId = n.CityId,
                 CityStateId = n.CityStateId,
                 Address = n.Address,
-                CommericalRegister = n.CommericalRegister,
-                TaxCard = n.TaxCard,
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
-                IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
-                UnionCard = n.UnionCardUrl,
-                AddedValueTax = n.AddedValueTaxUrl
             }).ToList();
         public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
             .Select(n => new ProVendorGetVM
@@ -129,17 +98,12 @@ namespace DAL.Pro
                 CityId = n.CityId,
                 CityStateId = n.CityStateId,
                 Address = n.Address,
-                CommericalRegister = n.CommericalRegister,
-                TaxCard = n.TaxCard,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
-                IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
-                UnionCard = n.UnionCardUrl,
-                AddedValueTax = n.AddedValueTaxUrl,
             }).Single(n => n.Id == VendorId);
 
         public List<ProVendorGetVM> GetByName(string VendorName)
@@ -226,17 +190,12 @@ namespace DAL.Pro
                 CityId = n.CityId,
                 CityStateId = n.CityStateId,
                 Address = n.Address,
-                CommericalRegister = n.CommericalRegister,
-                TaxCard = n.TaxCard,
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
-                IndusterialRegister = n.IndusterialRegister,
                 TheLevel = n.TheLevel,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
-                UnionCard = n.UnionCardUrl,
-                AddedValueTax = n.AddedValueTaxUrl
             }).ToList();
 
 

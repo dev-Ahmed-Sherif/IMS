@@ -1,6 +1,7 @@
 ﻿using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels;
 using Entities.ViewModels.Pro.ProTenderOpeningMemberViewModels;
+using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 
 namespace DAL.Pro
@@ -25,6 +26,11 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.EmployeeId == filter.EmployeeId);
             }
+            if (!filter.EmployeeName.IsNullOrEmpty())
+            {
+                result = result.Where(e => e.Employee.Name.Contains(filter.EmployeeName, System.StringComparison.OrdinalIgnoreCase));
+            }
+
             return result;
         }
     }

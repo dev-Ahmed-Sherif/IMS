@@ -13,7 +13,10 @@ namespace Entities.Models.Pro
         public int QuotationDetailsId { get; set; }
         [ForeignKey(nameof(QuotationDetailsId))]
         public virtual ProQuotationDetails QuotationDetails { get; set; }
-        public int CommitteeId { get; set; }
+        public int? TenderDetailsId { get; set; }
+        [ForeignKey(nameof(TenderDetailsId))]
+        public virtual ProTenderDetails TenderDetails { get; set; }
+        public int? CommitteeId { get; set; }
         [ForeignKey(nameof(CommitteeId))]
         public virtual ProTenderCommittee Committee { get; set; }
         public bool TechnicalPass { get; set; }

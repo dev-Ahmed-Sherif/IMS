@@ -20,6 +20,6 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeMemberViewModels
         [AllowNull]
         public int? EmployeeId { get; set; }
         [AllowNull]
-        public string? EmployeeName { get; set; }
+        public string EmployeeName { get; set; }
     }
 }

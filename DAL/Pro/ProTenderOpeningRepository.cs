@@ -1,5 +1,6 @@
 ﻿using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProTenderOpeningViewModels;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,13 @@ namespace DAL.Pro
                         .TenderOpeningDetails
                         .Any(tod => tod.QuotationId == filter.QuotationId));
             }
-            if (filter.StatusId.HasValue)
+            if (filter.Date.HasValue)
             {
-                result = result.Where(e => e.StatusId >= filter.StatusId);
+                result = result.Where(e => e.Date.Date == filter.Date.Value.Date);
+            }
+            if (!filter.Code.IsNullOrEmpty())
+            {
+                result = result.Where(e => e.Code.Equals(filter.Code, StringComparison.OrdinalIgnoreCase));
             }
             return result;
         }
