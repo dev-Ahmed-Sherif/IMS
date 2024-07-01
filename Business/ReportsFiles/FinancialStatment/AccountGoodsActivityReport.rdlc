@@ -11,12 +11,16 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AccountLose">
+    <DataSet Name="GoodsActivityLeft">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="Num">
+          <DataField>Num</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Code">
           <DataField>Code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -25,53 +29,69 @@
           <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AccountNet">
-          <DataField>AccountNet</DataField>
+        <Field Name="Total">
+          <DataField>Total</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AccountSubNet">
-          <DataField>AccountSubNet</DataField>
+        <Field Name="GrandTotal">
+          <DataField>GrandTotal</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TransactionUserId">
-          <DataField>TransactionUserId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountNet">
-          <DataField>PrevAccountNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountSubNet">
-          <DataField>PrevAccountSubNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Section">
-          <DataField>Section</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UserName">
-          <DataField>UserName</DataField>
+        <Field Name="OpeningValue">
+          <DataField>OpeningValue</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
         <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
-        <rd:TableName>AccountProfit</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
+        <rd:TableName>VW_ACC_Balance_Part2</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>VW_ACC_Balance_Part2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="AccountProfit">
+    <DataSet Name="GoodsActivityRight">
+      <Query>
+        <DataSourceName>reportstr</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Num">
+          <DataField>Num</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GrandTotal">
+          <DataField>GrandTotal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OpeningValue">
+          <DataField>OpeningValue</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>reportstr</rd:DataSetName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>VW_ACC_Balance_Part2</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>VW_ACC_Balance_Part2TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Date">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -168,7 +188,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>السنه الماضية</Value>
+                                  <Value>سنة المقارنة</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                     <FontSize>16pt</FontSize>
@@ -244,7 +264,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>بيان الخسارة</Value>
+                                  <Value>البيان</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                     <FontSize>16pt</FontSize>
@@ -356,14 +376,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PrevAccountNet">
+                        <Textbox Name="OpeningValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PrevAccountNet.Value</Value>
+                                  <Value>=Fields!OpeningValue.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -376,7 +396,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PrevAccountNet</rd:DefaultName>
+                          <rd:DefaultName>OpeningValue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -464,14 +484,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="AccountSubNet">
+                        <Textbox Name="Total">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AccountSubNet.Value</Value>
+                                  <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -484,7 +504,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>AccountSubNet</rd:DefaultName>
+                          <rd:DefaultName>Total</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -500,14 +520,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="AccountNet">
+                        <Textbox Name="GrandTotal">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AccountNet.Value</Value>
+                                  <Value>=Fields!GrandTotal.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -520,7 +540,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>AccountNet</rd:DefaultName>
+                          <rd:DefaultName>GrandTotal</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -558,7 +578,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>AccountLose</DataSetName>
+            <DataSetName>GoodsActivityRight</DataSetName>
             <Top>0.73198cm</Top>
             <Left>15.12622cm</Left>
             <Height>1.91838cm</Height>
@@ -601,9 +621,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>السنه الماضية</Value>
+                                  <Value>سنة المقارنة</Value>
                                   <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontFamily>times New Roman</FontFamily>
                                     <FontSize>16pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -677,9 +697,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>بيان الربح</Value>
+                                  <Value>البيان</Value>
                                   <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontFamily>times New Roman</FontFamily>
                                     <FontSize>16pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -796,7 +816,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PrevAccountNet.Value</Value>
+                                  <Value>=Fields!OpeningValue.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -904,7 +924,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AccountSubNet.Value</Value>
+                                  <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -940,7 +960,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AccountNet.Value</Value>
+                                  <Value>=Fields!GrandTotal.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>14pt</FontSize>
@@ -992,7 +1012,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <DataSetName>AccountProfit</DataSetName>
+            <DataSetName>GoodsActivityLeft</DataSetName>
             <Top>0.73198cm</Top>
             <Left>0.28604cm</Left>
             <Height>1.91838cm</Height>
@@ -1038,6 +1058,7 @@
                     <TextRun>
                       <Value>قطاع الشؤن المالية والادارية</Value>
                       <Style>
+                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1052,6 +1073,7 @@
                     <TextRun>
                       <Value>ادارة الحسابات</Value>
                       <Style>
+                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1085,9 +1107,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>تقرير تكلفة انتاج او شراء وحدات مباعة </Value>
+                      <Value>حساب تكلفة انتاج او شراء وحدات مباعة </Value>
                       <Style>
-                        <FontFamily>arial</FontFamily>
+                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>20pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>#1b77a3</Color>
@@ -1096,7 +1118,7 @@
                     <TextRun>
                       <Value xml:space="preserve"> </Value>
                       <Style>
-                        <FontFamily>arial</FontFamily>
+                        <FontFamily>Times New Roman</FontFamily>
                         <FontSize>20pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1180,7 +1202,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox47</rd:DefaultName>
-              <Top>2.42646cm</Top>
+              <Top>2.02958cm</Top>
               <Left>19.77091cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.69222cm</Width>
@@ -1202,7 +1224,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!StartDate.Value, "AccountLose")</Value>
+                      <Value>=First(Fields!StartDate.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
@@ -1216,7 +1238,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox48</rd:DefaultName>
-              <Top>2.42646cm</Top>
+              <Top>2.02958cm</Top>
               <Left>15.69476cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.65094cm</Width>
@@ -1252,7 +1274,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox49</rd:DefaultName>
-              <Top>2.42646cm</Top>
+              <Top>2.02958cm</Top>
               <Left>12.82747cm</Left>
               <Height>0.9175cm</Height>
               <Width>2.26347cm</Width>
@@ -1274,7 +1296,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!EndDate.Value, "AccountLose")</Value>
+                      <Value>=First(Fields!EndDate.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>16pt</FontSize>
@@ -1288,7 +1310,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox50</rd:DefaultName>
-              <Top>2.42646cm</Top>
+              <Top>2.02958cm</Top>
               <Left>8.55507cm</Left>
               <Height>0.9175cm</Height>
               <Width>3.85948cm</Width>

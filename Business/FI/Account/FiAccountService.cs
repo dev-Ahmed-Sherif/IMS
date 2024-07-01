@@ -1460,32 +1460,44 @@ namespace Business.FI.Account
                     break;
                 case "AccountGoodsActivityReport":
                     {
-                        List<string> codes = new List<string>
-                        {
-                            "164",
-                            "36",
-                            "34",
-                        };
-                        foreach (string itemCode in codes)
-                        {
-                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
-                            for (int i = 0; i < AccountActivity.Count; i++)
-                            {
-                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
-                                {
-                                    if (AccountActivity[i].Code.ToString().StartsWith("1"))
-                                    {
-                                        AccountActivityProfit.Add(AccountActivity[i]);
-                                    }
-                                    else if (AccountActivity[i].Code.ToString().StartsWith("3"))
-                                    {
-                                        AccountActivityLose.Add(AccountActivity[i]);
-                                    }
-                                }
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, "1", 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
+                        report.DataSources.Add(new ReportDataSource()
+                        { 
+                            Name = "GoodsActivityLeft", 
+                            Value = await _FiRepository.GetVW_Acc_Cost_Produc_purch_lft_ReportData() 
+                        });
+                        report.DataSources.Add(new ReportDataSource() 
+                        { 
+                            Name = "GoodsActivityRight", 
+                            Value = await _FiRepository.GetVW_Acc_Cost_Produc_purch_rgt_ReportData() 
+                        });
+                        #region Old Code
+                        //List<string> codes = new List<string>
+                        //{
+                        //    "164",
+                        //    "36",
+                        //    "34",
+                        //};
+                        //foreach (string itemCode in codes)
+                        //{
+                        //    AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                        //    for (int i = 0; i < AccountActivity.Count; i++)
+                        //    {
+                        //        if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
+                        //        {
+                        //            if (AccountActivity[i].Code.ToString().StartsWith("1"))
+                        //            {
+                        //                AccountActivityProfit.Add(AccountActivity[i]);
+                        //            }
+                        //            else if (AccountActivity[i].Code.ToString().StartsWith("3"))
+                        //            {
+                        //                AccountActivityLose.Add(AccountActivity[i]);
+                        //            }
+                        //        }
+                        //    }
+                        //}
+                        #endregion
                     }
                     break;
                 case "AccountMasterReport":

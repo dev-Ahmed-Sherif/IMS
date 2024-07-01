@@ -13,5 +13,6 @@ namespace Entities.ReportViewModels
         public string Name { get; set; }
         public decimal Total { get; set; }
         public decimal GrandTotal { get; set; }
+        public decimal OpeningValue { get; set; }
     }
 }

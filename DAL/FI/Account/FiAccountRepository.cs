@@ -1070,6 +1070,14 @@ namespace DAL.FI.Account
                 .SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT TOP (1) * FROM VW_ACC_Balance WHERE Code = {code}")
                 .FirstOrDefault();
         }
+        public async Task<List<Part2ViewModel>> GetVW_Acc_Cost_Produc_purch_lft_ReportData()
+        {
+            return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Acc_Cost_Produc_purch_lft_rpt").ToListAsync();
+        }
+        public async Task<List<Part2ViewModel>> GetVW_Acc_Cost_Produc_purch_rgt_ReportData()
+        {
+            return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Acc_Cost_Produc_purch_rgt_rpt").ToListAsync();
+        }
     }
 
 }

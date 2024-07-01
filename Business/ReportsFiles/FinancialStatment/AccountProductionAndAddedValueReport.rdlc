@@ -19,7 +19,7 @@
       <Fields>
         <Field Name="Num">
           <DataField>Num</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Code">
           <DataField>Code</DataField>
@@ -31,11 +31,15 @@
         </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="GrandTotal">
           <DataField>GrandTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OpeningValue">
+          <DataField>OpeningValue</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -254,7 +258,7 @@
                                   <Value>سنة المقارنة</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -293,7 +297,7 @@
                                   <Value>الدليل</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -332,7 +336,7 @@
                                   <Value>البيان</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -371,7 +375,7 @@
                                   <Value>المبلغ الجزئي</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -410,7 +414,7 @@
                                   <Value>المبلغ الكلي</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -451,10 +455,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!OpeningValue.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -490,7 +494,7 @@
                                   <Value>=Fields!Code.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
 IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
@@ -529,7 +533,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default")))</TextDecoratio
                                   <Value>=Fields!Name.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 0, "Underline",
 IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
@@ -569,7 +573,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -605,7 +609,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                                   <Value>=Fields!GrandTotal.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -657,7 +661,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <FixedColumnHeaders>true</FixedColumnHeaders>
             <FixedRowHeaders>true</FixedRowHeaders>
-            <DataSetName>VW_ACC_Balance_Part2</DataSetName>
+            <DataSetName>Data</DataSetName>
             <Top>1.01479cm</Top>
             <Left>1.27815cm</Left>
             <Height>1.51584cm</Height>
