@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AccountProfit">
+    <DataSet Name="Data">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -47,7 +47,7 @@
         <rd:TableAdapterName>VW_ACC_Balance_Part2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="AccountProfitOne">
+    <DataSet Name="Date">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -93,123 +93,15 @@
           <DataField>Section</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Water\ASWC Github\IMS\Business\reportstr.xsd</rd:SchemaPath>
-        <rd:TableName>AccountProfitOne</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="AccountProfitTwo">
-      <Query>
-        <DataSourceName>reportstr</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Code">
-          <DataField>Code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AccountNet">
-          <DataField>AccountNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AccountSubNet">
-          <DataField>AccountSubNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TransactionUserId">
-          <DataField>TransactionUserId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountNet">
-          <DataField>PrevAccountNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountSubNet">
-          <DataField>PrevAccountSubNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Section">
-          <DataField>Section</DataField>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Water\ASWC Github\IMS\Business\reportstr.xsd</rd:SchemaPath>
-        <rd:TableName>AccountProfitTwo</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="AccountProfitThree">
-      <Query>
-        <DataSourceName>reportstr</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Code">
-          <DataField>Code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AccountNet">
-          <DataField>AccountNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AccountSubNet">
-          <DataField>AccountSubNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TransactionUserId">
-          <DataField>TransactionUserId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountNet">
-          <DataField>PrevAccountNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PrevAccountSubNet">
-          <DataField>PrevAccountSubNet</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Section">
-          <DataField>Section</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>D:\ASW Water\ASWC Github\IMS\Business\reportstr.xsd</rd:SchemaPath>
-        <rd:TableName>AccountProfitThree</rd:TableName>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -658,7 +550,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <FixedColumnHeaders>true</FixedColumnHeaders>
             <FixedRowHeaders>true</FixedRowHeaders>
-            <DataSetName>AccountProfit</DataSetName>
+            <DataSetName>Data</DataSetName>
             <Top>0.70384cm</Top>
             <Left>0.40916cm</Left>
             <Height>1.62168cm</Height>
@@ -933,7 +825,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!StartDate.Value, "AccountProfitOne")</Value>
+                      <Value>=First(Fields!StartDate.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>12pt</FontSize>
@@ -1005,7 +897,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!EndDate.Value, "AccountProfitOne")</Value>
+                      <Value>=First(Fields!EndDate.Value, "Date")</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>12pt</FontSize>

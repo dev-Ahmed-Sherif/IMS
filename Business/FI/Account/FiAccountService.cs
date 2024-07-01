@@ -291,8 +291,8 @@ namespace Business.FI.Account
             List<AccountItemVM> AccountActivityLose = new List<AccountItemVM>();
 
             List<AccountItemVM> FIAccountRE;
-            List<AccountItemVM> FIAccountREAdd = new List<AccountItemVM>();
-            List<AccountItemVM> FIAccountRERemove = new List<AccountItemVM>();
+            //List<AccountItemVM> FIAccountREAdd = new List<AccountItemVM>();
+            //List<AccountItemVM> FIAccountRERemove = new List<AccountItemVM>();
 
             switch (reportName)
             {
@@ -921,7 +921,7 @@ namespace Business.FI.Account
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
                         #endregion
 
-                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, "1", 0);
                         report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
                         report.DataSources.Add(new ReportDataSource() { Name = "FixedAssest", Value = await _FiRepository.GetFixed_Assest_Finical_CenterData() });
                         report.DataSources.Add(new ReportDataSource() { Name = "RestFinicalCenter", Value = await _FiRepository.GetVW_Rest_Finical_CenterData() });
@@ -950,121 +950,13 @@ namespace Business.FI.Account
                         //report.DataSources.Add(new ReportDataSource() { Name = "AccountREv2", Value = FIAccountRERemove });
                     }
                     break;
-                case "AccountProfitLoseActivityReport":
-                    {
-                        List<string> codes = new List<string>
-                        {
-                            "43",
-                            "44",
-                            "35",
-                            "38",
-                        };
-                        foreach (string itemCode in codes)
-                        {
-                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
-                            for (int i = 0; i < AccountActivity.Count; i++)
-                            {
-                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
-                                {
-                                    if (AccountActivity[i].Code.StartsWith("43") || AccountActivity[i].Code.StartsWith("44"))
-                                    {
-                                        AccountActivityProfit.Add(AccountActivity[i]);
-                                    }
-                                    else if (AccountActivity[i].Code.StartsWith("35") || AccountActivity[i].Code.StartsWith("38"))
-                                    {
-                                        AccountActivityLose.Add(AccountActivity[i]);
-                                    }
-                                }
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
-                    }
-                    break;
-                case "AccountTradingActivityReport":
-                    {
-                        List<string> codes = new List<string>
-                        {
-                            "41",
-                            "42",
-                            "37",
-                        };
-                        foreach (string itemCode in codes)
-                        {
-                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
-                            for (int i = 0; i < AccountActivity.Count; i++)
-                            {
-                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
-                                {
-                                    if (AccountActivity[i].Code.ToString().StartsWith("41")
-                                        || AccountActivity[i].Code.ToString().StartsWith("42"))
-                                    {
-                                        AccountActivityProfit.Add(AccountActivity[i]);
-                                    }
-                                    else if (AccountActivity[i].Code.ToString().StartsWith("37"))
-                                    {
-                                        AccountActivityLose.Add(AccountActivity[i]);
-                                    }
-                                }
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
-                        //ReportParameter startDateParam = new() { Name = "StartDate" };
-                        //startDateParam.Values.Add(startDate.ToShortDateString());
-                        //ReportParameter endDateParam = new() { Name = "EndDate" };
-                        //endDateParam.Values.Add(endDate.ToShortDateString());
-                        //report.SetParameters([startDateParam, endDateParam]);
-                    }
-                    break;
-                case "AccountGoodsActivityReport":
-                    {
-                        List<string> codes = new List<string>
-                        {
-                            "164",
-                            "36",
-                            "34",
-                        };
-                        foreach (string itemCode in codes)
-                        {
-                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
-                            for (int i = 0; i < AccountActivity.Count; i++)
-                            {
-                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
-                                {
-                                    if (AccountActivity[i].Code.ToString().StartsWith("1"))
-                                    {
-                                        AccountActivityProfit.Add(AccountActivity[i]);
-                                    }
-                                    else if (AccountActivity[i].Code.ToString().StartsWith("3"))
-                                    {
-                                        AccountActivityLose.Add(AccountActivity[i]);
-                                    }
-                                }
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
-                    }
-                    break;
-                case "AccountMasterReport":
-                    {
-                        List<AccountItemByCode> AccountMaster = GetAccountMasterReportData(code, fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountMaster", Value = AccountMaster });
-                    }
-                    break;
-                case "AccountMasterDetailsReport":
-                    {
-                        List<AccountItemWithParent> AccountMasterDetails = GetAccountMasterDetailsReportData(code, fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountMasterDetails", Value = AccountMasterDetails });
-                    }
-                    break;
                 case "AccountWaterAndWasteWaterIncomeStatementReport":
                     {
-
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, "1", 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
                         report.DataSources.Add(new ReportDataSource() 
                         { 
-                            Name = "AccountProfit", 
+                            Name = "Data", 
                             Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() 
                         });
                         #region Old Code
@@ -1159,10 +1051,11 @@ namespace Business.FI.Account
                     break;
                 case "AccountIncomeStatementReport":
                     {
-
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, "1", 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
                         report.DataSources.Add(new ReportDataSource() 
                         { 
-                            Name = "AccountProfit", 
+                            Name = "Data", 
                             Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() 
                         });
                         #region Old Code
@@ -1252,10 +1145,11 @@ namespace Business.FI.Account
                     break;
                 case "AccountProductionAndAddedValueReport":
                     {
-
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, "1", 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
                         report.DataSources.Add(new ReportDataSource()
                         {
-                            Name = "AccountProfit",
+                            Name = "Data",
                             Value = await _FiRepository.GetVW_Production_And_Added_Value_ReportData()
                         });
                         #region Old Code
@@ -1346,28 +1240,6 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = AccountSuppliers });
                     }
                     break;
-                case "AccountCreditAccountsReport":
-                    {
-                        List<FiAccountItemBalancesViewModel> CreditAccounts;
-                        CreditAccounts = await GetCreditAccountsReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = CreditAccounts });
-
-                    }
-                    break;
-                case "AccountSuppliersReport":
-                    {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
-                    }
-                    break;
-                case "AccountTrailBalanceReport":
-                    {
-                        List<FiAccountItemBalancesViewModel> TrailBalance;
-                        TrailBalance = await GetTriaBalanceReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = TrailBalance });
-                    }
-                    break;
                 case "AccountChangeOwnerShipRightsReport":
                     {
                         List<FiChangeInOwnersEquityViewModel> ChangeInPropertyRightsArray,
@@ -1384,7 +1256,7 @@ namespace Business.FI.Account
 
                         for (int i = 0; i < ChangeInPropertyRightsArray.Count; i++)
                         {
-                           
+
                             if (ChangeInPropertyRightsArray[i].AccountCode == AccountsCodes.رأس_المال_المصدر)
                             {
                                 equityCapital.Add(ChangeInPropertyRightsArray[i]);
@@ -1517,6 +1389,137 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "DebtInstrumentsToStocks", Value = debtInstrumentsToStocks });
                         report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRights", Value = propertyRights });
+                    }
+                    break;
+                case "AccountProfitLoseActivityReport":
+                    {
+                        List<string> codes = new List<string>
+                        {
+                            "43",
+                            "44",
+                            "35",
+                            "38",
+                        };
+                        foreach (string itemCode in codes)
+                        {
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 4);
+                            for (int i = 0; i < AccountActivity.Count; i++)
+                            {
+                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
+                                {
+                                    if (AccountActivity[i].Code.StartsWith("43") || AccountActivity[i].Code.StartsWith("44"))
+                                    {
+                                        AccountActivityProfit.Add(AccountActivity[i]);
+                                    }
+                                    else if (AccountActivity[i].Code.StartsWith("35") || AccountActivity[i].Code.StartsWith("38"))
+                                    {
+                                        AccountActivityLose.Add(AccountActivity[i]);
+                                    }
+                                }
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                    }
+                    break;
+                case "AccountTradingActivityReport":
+                    {
+                        List<string> codes = new List<string>
+                        {
+                            "41",
+                            "42",
+                            "37",
+                        };
+                        foreach (string itemCode in codes)
+                        {
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            for (int i = 0; i < AccountActivity.Count; i++)
+                            {
+                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
+                                {
+                                    if (AccountActivity[i].Code.ToString().StartsWith("41")
+                                        || AccountActivity[i].Code.ToString().StartsWith("42"))
+                                    {
+                                        AccountActivityProfit.Add(AccountActivity[i]);
+                                    }
+                                    else if (AccountActivity[i].Code.ToString().StartsWith("37"))
+                                    {
+                                        AccountActivityLose.Add(AccountActivity[i]);
+                                    }
+                                }
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        //ReportParameter startDateParam = new() { Name = "StartDate" };
+                        //startDateParam.Values.Add(startDate.ToShortDateString());
+                        //ReportParameter endDateParam = new() { Name = "EndDate" };
+                        //endDateParam.Values.Add(endDate.ToShortDateString());
+                        //report.SetParameters([startDateParam, endDateParam]);
+                    }
+                    break;
+                case "AccountGoodsActivityReport":
+                    {
+                        List<string> codes = new List<string>
+                        {
+                            "164",
+                            "36",
+                            "34",
+                        };
+                        foreach (string itemCode in codes)
+                        {
+                            AccountActivity = await GetFinancialCenterReportData(fiscalYearId, itemCode, 5);
+                            for (int i = 0; i < AccountActivity.Count; i++)
+                            {
+                                if (AccountActivity[i].AccountNet != 0 || AccountActivity[i].AccountSubNet != 0)
+                                {
+                                    if (AccountActivity[i].Code.ToString().StartsWith("1"))
+                                    {
+                                        AccountActivityProfit.Add(AccountActivity[i]);
+                                    }
+                                    else if (AccountActivity[i].Code.ToString().StartsWith("3"))
+                                    {
+                                        AccountActivityLose.Add(AccountActivity[i]);
+                                    }
+                                }
+                            }
+                        }
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = AccountActivityProfit });
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                    }
+                    break;
+                case "AccountMasterReport":
+                    {
+                        List<AccountItemByCode> AccountMaster = GetAccountMasterReportData(code, fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountMaster", Value = AccountMaster });
+                    }
+                    break;
+                case "AccountMasterDetailsReport":
+                    {
+                        List<AccountItemWithParent> AccountMasterDetails = GetAccountMasterDetailsReportData(code, fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountMasterDetails", Value = AccountMasterDetails });
+                    }
+                    break;
+                case "AccountCreditAccountsReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> CreditAccounts;
+                        CreditAccounts = await GetCreditAccountsReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = CreditAccounts });
+
+                    }
+                    break;
+                case "AccountSuppliersReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = AccountSuppliers });
+                    }
+                    break;
+                case "AccountTrailBalanceReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> TrailBalance;
+                        TrailBalance = await GetTriaBalanceReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountItemReport", Value = TrailBalance });
                     }
                     break;
                 case "AccountDebitAccountsReport":
