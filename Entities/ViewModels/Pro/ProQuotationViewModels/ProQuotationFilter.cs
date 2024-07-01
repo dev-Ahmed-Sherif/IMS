@@ -27,5 +27,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         public DateTime? StartValidationDate { get; set; }
         [AllowNull]
         public DateTime? EndValidationDate { get; set; }
+        [AllowNull]
+        public string? Code { get; set; }
     }
 }

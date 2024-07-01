@@ -18,9 +18,10 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         public string VendorName { get; set; }
         public DateTime ReceiveDate { get; set; }
         public int ReceiveTypeId { get; set; }
-       public string ReceiveTypeName { get; set; }
+        public string ReceiveTypeName { get; set; }
         public DateTime ValidationDate { get; set; }
         public string Notes { get; set; }
         public string Attachment { get; set; }
+        public string Code { get; set; }
     }
 }

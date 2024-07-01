@@ -12,3 +12,9 @@ AppDbInitialer.cs		to send data to database table
 add migration =>    dotnet ef migrations add HR -p DAL
 
 
+//Nazem
+List Nullable Columns
+  SELECT 
+  [Table_NAME],[Column_Name]
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE IS_NULLABLE = 'YES';

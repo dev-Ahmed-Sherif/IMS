@@ -33,7 +33,7 @@ namespace DAL.Pro
                 Date = add.Date,
                 CityStateId = add.CityStateId,
                 OperationTypeId = add.OperationTypeId,
-                TenderTypeId = add.TenderTypeId,
+                //BiddingMethodId = add.BiddingMethodId,
                 Value = add.Value,
                 PlanTypeId = add.PlanTypeId,
                 Period = add.Period,
@@ -71,7 +71,7 @@ namespace DAL.Pro
             _update.Date = update.Date;
             _update.CityStateId = update.CityStateId;
             _update.OperationTypeId = update.OperationTypeId;
-            _update.TenderTypeId = update.TenderTypeId;
+            //_update.BiddingMethodId = update.BiddingMethodId;
             _update.Value = update.Value;
             _update.PlanTypeId = update.PlanTypeId;
             _update.Period = update.Period;
@@ -133,9 +133,9 @@ namespace DAL.Pro
                OperationTypeId = n.OperationTypeId,
                OperationTypeName = n.OperationType.Name,
                OperationTypeCode = n.OperationType.Code,
-               TenderTypeId = n.TenderTypeId,
-               TenderTypeName = n.TenderType.Name,
-               TenderTypeCode = n.TenderType.Code,
+               //BiddingMethodId = n.BiddingMethodId,
+               //TenderTypeName = n.BiddingMethod.Name,
+               //TenderTypeCode = n.BiddingMethod.Code,
                Value = n.Value,
                PlanTypeId = n.PlanTypeId,
                PlanTypeName = n.PlanType.Name,
@@ -169,9 +169,9 @@ namespace DAL.Pro
               OperationTypeId = n.OperationTypeId,
               OperationTypeName = n.OperationType.Name,
               OperationTypeCode = n.OperationType.Code,
-              TenderTypeId = n.TenderTypeId,
-              TenderTypeName = n.TenderType.Name,
-              TenderTypeCode = n.TenderType.Code,
+              //BiddingMethodId = n.BiddingMethodId,
+              //TenderTypeName = n.BiddingMethod.Name,
+              //TenderTypeCode = n.BiddingMethod.Code,
               Value = n.Value,
               PlanTypeId = n.PlanTypeId,
               PlanTypeName = n.PlanType.Name,
@@ -216,10 +216,10 @@ namespace DAL.Pro
             {
                 query = query.Where(p => p.OperationTypeId == searchModel.OperationTypeId);
             }
-            if (searchModel.TenderTypeId.HasValue)
-            {
-                query = query.Where(p => p.TenderTypeId == searchModel.TenderTypeId);
-            }
+            //if (searchModel.BiddingMethodId.HasValue)
+            //{
+            //    query = query.Where(p => p.BiddingMethodId == searchModel.BiddingMethodId);
+            //}
             if (searchModel.PlanTypeId.HasValue)
             {
                 query = query.Where(p => p.PlanTypeId == searchModel.PlanTypeId);
@@ -294,7 +294,7 @@ namespace DAL.Pro
                 Date = n.Date,
                 CityStateId = n.CityStateId,
                 OperationTypeId = n.OperationTypeId,
-                TenderTypeId = n.TenderTypeId,
+                //BiddingMethodId = n.BiddingMethodId,
                 Value = n.Value,
                 PlanTypeId = n.PlanTypeId,
                 Period = n.Period,
@@ -322,7 +322,7 @@ namespace DAL.Pro
         //autocode function
         public string GetLastNo()
         {
-            int maxNo = _context.ProTenderType
+            int maxNo = _context.ProTenderBiddingMethods
              .Select(item => item.Code).DefaultIfEmpty()
              .Max();
             if (maxNo == 0)

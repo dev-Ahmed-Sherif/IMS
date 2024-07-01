@@ -4,8 +4,8 @@ namespace Entities.Models.Pro
 {
     public class ProVendorsTypes : EntityBase
     {
-        //public int VendorId { get; set; }
-        //public virtual ProSeller Vendor { get; set; }
+        public int VendorId { get; set; }
+        public virtual ProVendor Vendor { get; set; }
         public int VendorTypeId { get; set; }
         public virtual ProVendorType VendorType { get; set; }
         //-----------------------------------------------------------------------//

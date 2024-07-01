@@ -184,7 +184,7 @@ namespace DAL
                                                              //Pro
             services.AddScoped<ProOperationTypeRepository>();//07/11
             services.AddScoped<ProPlanTypeRepository>();//07/11
-            services.AddScoped<ProTenderTypeRepository>();//07/11
+            services.AddScoped<ProTenderBiddingMethodRepository>();//07/11
             services.AddScoped<ProTenderRepository>();//07/11
             services.AddScoped<ProVendorsTypesRepository>();//07/11
             services.AddScoped<ProVendorTypeRepository>();//07/11

@@ -6,24 +6,24 @@ namespace IMS.Controllers.Pro
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderTypeController : ControllerBase
+    public class ProTenderBiddingMethodController : ControllerBase
     {
-        private ProTenderTypeService _pro;
+        private ProTenderBiddingMethodService _pro;
 
-        public ProTenderTypeController(ProTenderTypeService AddService)
+        public ProTenderBiddingMethodController(ProTenderBiddingMethodService AddService)
         {
             _pro = AddService;
         }
 
         [HttpPost("Add")]
-        public IActionResult Add([FromBody] ProTenderTypeGeneralVM add)
+        public IActionResult Add([FromBody] ProTenderBiddingMethodGeneralVM add)
         {
             var _response = _pro.Add(add);
             return new JsonResult(_response);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] ProTenderTypeVM update)
+        public IActionResult Update([FromBody] ProTenderBiddingMethodVM update)
         {
             var _response = _pro.Update(update);
             return new JsonResult(_response);

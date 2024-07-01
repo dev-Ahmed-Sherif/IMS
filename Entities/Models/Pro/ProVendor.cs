@@ -50,5 +50,8 @@ namespace Entities.Models.Pro
         public virtual ICollection<ProVendorsTypes> ProVendorTypes { get; set; }
         public virtual ICollection<StrAdd> STR_Add { get; set; }
         public virtual ICollection<ProVendorAttachment> Attachments { get; set; }
+        public int TypeId { get; set; }
+        [ForeignKey(nameof(TypeId))]
+        public virtual ProType Type { get; set; }
     }
 }

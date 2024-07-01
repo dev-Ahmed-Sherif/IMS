@@ -25,5 +25,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         [MaxLength(150)]
         public string Notes { get; set; }
         public IFormFile? Attachment { get; set; }
+        [Required]
+        public string Code { get; set; }
     }
 }

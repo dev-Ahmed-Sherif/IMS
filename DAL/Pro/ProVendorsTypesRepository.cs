@@ -1,4 +1,6 @@
 ﻿using Entities.Models.Pro;
+using Entities.ViewModels.Pro;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;

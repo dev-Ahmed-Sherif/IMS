@@ -6,36 +6,36 @@ using System.Collections.Generic;
 
 namespace Business.Pro
 {
-    public class ProTenderTypeService
+    public class ProTenderBiddingMethodService
     {
-        public ProTenderTypeRepository _ProTenderTypeRepository;
-        public ProTenderTypeService(ProTenderTypeRepository ProTenderTypeRepository)
+        public ProTenderBiddingMethodRepository _ProTenderBiddingMethodRepository;
+        public ProTenderBiddingMethodService(ProTenderBiddingMethodRepository ProTenderBiddingMethodRepository)
         {
-            _ProTenderTypeRepository = ProTenderTypeRepository;
+            _ProTenderBiddingMethodRepository = ProTenderBiddingMethodRepository;
         }
-        public string Add(ProTenderTypeGeneralVM vtype)
+        public string Add(ProTenderBiddingMethodGeneralVM vtype)
         {
-            return _ProTenderTypeRepository.Add(vtype);
+            return _ProTenderBiddingMethodRepository.Add(vtype);
         }
-        public string Update(ProTenderTypeVM type)
+        public string Update(ProTenderBiddingMethodVM type)
         {
-            return _ProTenderTypeRepository.Update(type);
+            return _ProTenderBiddingMethodRepository.Update(type);
         }
         public string Delete(int typeId)
         {
-            return _ProTenderTypeRepository.Delete(typeId);
+            return _ProTenderBiddingMethodRepository.Delete(typeId);
         }
-        public List<ProTenderTypeGetVM> GetAll()
+        public List<ProTenderBiddingMethodGetVM> GetAll()
         {
-            return _ProTenderTypeRepository.GetAll();
+            return _ProTenderBiddingMethodRepository.GetAll();
         }
-        public ProTenderTypeGetVM GetById(int typeId)
+        public ProTenderBiddingMethodGetVM GetById(int typeId)
         {
-            return _ProTenderTypeRepository.GetById(typeId);
+            return _ProTenderBiddingMethodRepository.GetById(typeId);
         }
         public string GetLastNo()
         {
-            return _ProTenderTypeRepository.GetLastNo();
+            return _ProTenderBiddingMethodRepository.GetLastNo();
         }
     }
 }

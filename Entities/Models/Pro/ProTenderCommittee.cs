@@ -1,4 +1,5 @@
 ﻿using Entities.Models.HR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
+    [Index(nameof(Code), IsUnique = true)]
     public class ProTenderCommittee : EntityBaseNotes
     {
         //Navigation Properties
@@ -20,5 +22,7 @@ namespace Entities.Models.Pro
         [ForeignKey(nameof(StatusId))]
         public virtual ProTenderOpeningStatus Status { get; set; }
         public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }    
     }
 }

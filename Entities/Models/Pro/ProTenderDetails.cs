@@ -10,9 +10,9 @@ namespace Entities.Models.Pro
 {
     public class ProTenderDetails : EntityBase
     {
-        public int TenderId { get; set; }
-        [ForeignKey(nameof(TenderId))]
-        public virtual ProTender Tender { get; set; }
+        public int TenderOpeningId { get; set; }
+        [ForeignKey(nameof(TenderOpeningId))]
+        public virtual ProTenderOpening TenderOpening { get; set; }
         public virtual ProPurchaseOrderDetails PurchaseOrderDetails { get; set; }
         public virtual ICollection<ProTenderSelection> ProTenderSelections { get; set; }
         public virtual ICollection<ProQuotationDetails> ProQuotationDetails { get; set; }

@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240627113719_ProTypes")]
+    partial class ProTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4525,7 +4528,7 @@ namespace DAL.Migrations
                     b.Property<decimal?>("TenderBondValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateByID")
@@ -5180,7 +5183,7 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("UnionCardUrl")
@@ -11518,8 +11521,7 @@ namespace DAL.Migrations
 
                     b.HasOne("Entities.Models.Pro.ProType", "Type")
                         .WithMany("ProTenders")
-                        .HasForeignKey("TypeId")
-                        .IsRequired();
+                        .HasForeignKey("TypeId");
 
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
@@ -11722,8 +11724,7 @@ namespace DAL.Migrations
 
                     b.HasOne("Entities.Models.Pro.ProType", "Type")
                         .WithMany("ProVendors")
-                        .HasForeignKey("TypeId")
-                        .IsRequired();
+                        .HasForeignKey("TypeId");
 
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()

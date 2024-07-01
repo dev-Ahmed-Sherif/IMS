@@ -14,7 +14,7 @@ namespace Entities.ViewModels.Pro
 
         public int OperationTypeId { get; set; }
 
-        public int TenderTypeId { get; set; }
+        public int BiddingMethodId { get; set; }
 
 
         public decimal Value { get; set; }
@@ -66,7 +66,7 @@ namespace Entities.ViewModels.Pro
 
         public int? OperationTypeId { get; set; }
 
-        public int? TenderTypeId { get; set; }
+        public int? BiddingMethodId { get; set; }
 
 
         public decimal? Value { get; set; }

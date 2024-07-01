@@ -199,7 +199,7 @@ namespace Business
             //Pro
             services.AddScoped<ProOperationTypeService>();//07/11
             services.AddScoped<ProPlanTypeService>();//07/11
-            services.AddScoped<ProTenderTypeService>();//07/11
+            services.AddScoped<ProTenderBiddingMethodService>();//07/11
 
             services.AddScoped<ProTenderService>();//07/11
             services.AddScoped<ProVendorService>();//07/11

@@ -14,6 +14,17 @@ namespace Entities.Profiles.Pro
         public ProVendorsTypesProfile()
         {
             CreateMap<ProVendorsTypesGeneralVM, ProVendorsTypes>();
+            CreateMap<ProVendorsTypesBulkInputVM, IEnumerable<ProVendorsTypes>>()
+                .ForMember(
+                    e => e,
+                    cfg => cfg
+                    .MapFrom(dest =>
+                        dest.VendorTypes.Select(e =>
+                            new ProVendorsTypes
+                            {
+                                VendorId = dest.VendorId,
+                                VendorTypeId = e
+                            })));
             CreateMap<ProVendorsTypes, ProVendorsTypesGetVM>();
         }
     }

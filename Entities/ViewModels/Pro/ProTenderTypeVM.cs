@@ -1,17 +1,17 @@
 ﻿namespace Entities.ViewModels.Pro
 {
-    public class ProTenderTypeGeneralVM
+    public class ProTenderBiddingMethodGeneralVM
     {
         public string Name { get; set; }
         public int Code { get; set; }
         public int TransactionUserId { get; set; }
     }
-    public class ProTenderTypeVM : ProTenderTypeGeneralVM
+    public class ProTenderBiddingMethodVM : ProTenderBiddingMethodGeneralVM
     {
         public int Id { get; set; }
 
     }
-    public class ProTenderTypeGetVM : ProTenderTypeVM
+    public class ProTenderBiddingMethodGetVM : ProTenderBiddingMethodVM
     {
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }

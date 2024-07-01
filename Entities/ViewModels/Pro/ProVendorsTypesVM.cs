@@ -1,5 +1,10 @@
 ﻿namespace Entities.ViewModels.Pro
 {
+    public class ProVendorsTypesBulkInputVM
+    {
+        public int VendorId { get; set; }
+        public int[] VendorTypes { get; set; }
+    }
     public class ProVendorsTypesGeneralVM
     {
         public int VendorId { get; set; }

@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240627104516_ProTenderBiddingMethods")]
+    partial class ProTenderBiddingMethods
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4458,9 +4461,6 @@ namespace DAL.Migrations
                     b.Property<decimal?>("AwardValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("BiddingMethodId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("CityStateId")
                         .HasColumnType("int");
 
@@ -4525,9 +4525,6 @@ namespace DAL.Migrations
                     b.Property<decimal?>("TenderBondValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("TypeId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UpdateByID")
                         .HasColumnType("int");
 
@@ -4539,8 +4536,6 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BiddingMethodId");
-
                     b.HasIndex("CityStateId");
 
                     b.HasIndex("CreatedByID");
@@ -4548,8 +4543,6 @@ namespace DAL.Migrations
                     b.HasIndex("OperationTypeId");
 
                     b.HasIndex("PlanTypeId");
-
-                    b.HasIndex("TypeId");
 
                     b.HasIndex("UpdateByID");
 
@@ -5077,45 +5070,6 @@ namespace DAL.Migrations
                     b.ToTable("ProTenderVendorReqSendType");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CreatedByID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("UpdateByID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name", "Code")
-                        .IsUnique()
-                        .HasFilter("[Name] IS NOT NULL");
-
-                    b.ToTable("ProTypes");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>
                 {
                     b.Property<int>("Id")
@@ -5180,9 +5134,6 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TypeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UnionCardUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -5196,8 +5147,6 @@ namespace DAL.Migrations
                     b.HasIndex("CityStateId");
 
                     b.HasIndex("CreatedByID");
-
-                    b.HasIndex("TypeId");
 
                     b.HasIndex("UpdateByID");
 
@@ -11493,11 +11442,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTender", b =>
                 {
-                    b.HasOne("Entities.Models.Pro.ProTenderBiddingMethod", "BiddingMethod")
-                        .WithMany("ProTender")
-                        .HasForeignKey("BiddingMethodId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.HR.HrCityState", "CityState")
                         .WithMany("ProTender")
                         .HasForeignKey("CityStateId");
@@ -11516,16 +11460,9 @@ namespace DAL.Migrations
                         .HasForeignKey("PlanTypeId")
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Pro.ProType", "Type")
-                        .WithMany("ProTenders")
-                        .HasForeignKey("TypeId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
-
-                    b.Navigation("BiddingMethod");
 
                     b.Navigation("CityState");
 
@@ -11534,8 +11471,6 @@ namespace DAL.Migrations
                     b.Navigation("OperationType");
 
                     b.Navigation("PlanType");
-
-                    b.Navigation("Type");
 
                     b.Navigation("UpdateBy");
                 });
@@ -11720,11 +11655,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("CreatedByID");
 
-                    b.HasOne("Entities.Models.Pro.ProType", "Type")
-                        .WithMany("ProVendors")
-                        .HasForeignKey("TypeId")
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.PR.PrUser", "UpdateBy")
                         .WithMany()
                         .HasForeignKey("UpdateByID");
@@ -11734,8 +11664,6 @@ namespace DAL.Migrations
                     b.Navigation("CityState");
 
                     b.Navigation("CreatedBy");
-
-                    b.Navigation("Type");
 
                     b.Navigation("UpdateBy");
                 });
@@ -14038,11 +13966,6 @@ namespace DAL.Migrations
                     b.Navigation("ProTender");
                 });
 
-            modelBuilder.Entity("Entities.Models.Pro.ProTenderBiddingMethod", b =>
-                {
-                    b.Navigation("ProTender");
-                });
-
             modelBuilder.Entity("Entities.Models.Pro.ProTenderCommittee", b =>
                 {
                     b.Navigation("TenderCommitteeMembers");
@@ -14060,13 +13983,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
                 {
                     b.Navigation("TenderCommitteeMembers");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProType", b =>
-                {
-                    b.Navigation("ProTenders");
-
-                    b.Navigation("ProVendors");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProVendor", b =>

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models.Pro
 {
-    public class ProTenderType : EntityBase
+    public class ProTenderBiddingMethod : EntityBase
     {
         [StringLength(50)]
         public string Name { get; set; }
