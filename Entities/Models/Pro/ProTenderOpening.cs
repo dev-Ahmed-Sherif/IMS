@@ -21,6 +21,7 @@ namespace Entities.Models.Pro
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
         public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
+        public virtual ICollection<ProTenderOpeningDetails> TenderOpeningDetails { get; set; }
         public DateTime Date { get; set; }
         public string Code { get; set; }
     }

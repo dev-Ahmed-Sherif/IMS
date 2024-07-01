@@ -17,6 +17,8 @@ namespace Entities.ViewModels.Pro.ProTenderSelectionViewModels
         [AllowNull]
         public int? QuotationDetailsId { get; set; }
         [AllowNull]
+        public int? CommitteeId { get; set; }
+        [AllowNull]
         public bool? TechnicalPass { get; set; }
         [AllowNull]
         public int? TechnicalScore { get; set; }

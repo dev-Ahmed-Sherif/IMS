@@ -19,5 +19,8 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
         //Navigation Properties
         [Required]
         public int TenderId { get; set; }
+
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

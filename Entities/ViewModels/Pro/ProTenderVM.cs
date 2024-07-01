@@ -36,7 +36,7 @@ namespace Entities.ViewModels.Pro
         public DateTime? WorkOrderDate { get; set; }
         public DateTime? DeliveryDate { get; set; }
         public int TransactionUserId { get; set; }
-
+        public int TypeId { get; set; }
 
     }
     public class ProTenderVM : ProTenderGeneralVM
@@ -86,7 +86,7 @@ namespace Entities.ViewModels.Pro
         public DateTime? WorkOrderDate { get; set; }
         public DateTime? DeliveryDate { get; set; }
         public int? TransactionUserId { get; set; }
-
+        public string TypeName { get; set; }
 
 
 

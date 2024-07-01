@@ -18,11 +18,11 @@ namespace Entities.Models.Pro
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
-        public int StatusId { get; set; }
-        [ForeignKey(nameof(StatusId))]
-        public virtual ProTenderOpeningStatus Status { get; set; }
+        //ترسية أو إعادة طرح
+        public bool Result { get; set; }
         public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
+        public virtual ICollection<ProTenderSelection> TenderSelection { get; set; }
         public DateTime Date { get; set; }
-        public string Code { get; set; }    
+        public string Code { get; set; }
     }
 }

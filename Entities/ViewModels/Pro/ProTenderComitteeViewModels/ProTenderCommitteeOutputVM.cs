@@ -9,12 +9,12 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
 {
     public class ProTenderCommitteeOutputVM : BaseViewModel
     {
-        public string StatusId { get; set; }
-        public string StatusName { get; set; }
-
+        public bool Result { get; set; }
         public string Notes { get; set; }
 
         public int TenderId { get; set; }
         public string TenderName { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

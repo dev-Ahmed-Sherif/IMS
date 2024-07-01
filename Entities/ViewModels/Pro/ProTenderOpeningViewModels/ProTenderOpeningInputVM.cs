@@ -12,12 +12,12 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
     public class ProTenderOpeningInputVM : BaseViewModel
     {
         [Required]
-        public int QuotationId { get; set; }
-        [Required]
         public int StatusId { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
         [Required]
         public int TenderId { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

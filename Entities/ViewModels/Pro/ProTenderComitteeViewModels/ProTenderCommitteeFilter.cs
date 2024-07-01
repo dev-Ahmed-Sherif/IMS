@@ -11,8 +11,12 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
     public class ProTenderCommitteeFilter
     {
         [AllowNull]
-        public int? StatusId { get; set; }
-        [AllowNull]
         public int? TenderId { get; set; }
+        [AllowNull]
+        public bool? Result { get; set; }
+        [AllowNull]
+        public DateTime? Date { get; set; }
+        [AllowNull]
+        public string? Code { get; set; }
     }
 }

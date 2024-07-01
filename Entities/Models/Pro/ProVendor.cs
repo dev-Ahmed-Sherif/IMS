@@ -21,23 +21,12 @@ namespace Entities.Models.Pro
 
         [StringLength(50)]
         public string Email { get; set; }
-        [StringLength(50)]
-        public string TaxCard { get; set; }
         public int? CityId { get; set; }
         public virtual HrCity City { get; set; }
         public int? CityStateId { get; set; }
         public virtual HrCityState CityState { get; set; }
         [StringLength(50)]
         public string Address { get; set; }
-
-        [StringLength(50)]
-        public string IndusterialRegister { get; set; }
-
-        [StringLength(50)]
-        public string CommericalRegister { get; set; }
-
-        public string UnionCardUrl { get; set; }
-        public string AddedValueTaxUrl { get; set; }
         //--------------------------------------------------------------------------
         // Relation { PrUser => AccountParent } +++ {View Model => TransactionUserId} 
         //--------------------------------------------------------------------------

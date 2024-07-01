@@ -19,5 +19,7 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeMemberViewModels
         public int? RoleId { get; set; }
         [AllowNull]
         public int? EmployeeId { get; set; }
+        [AllowNull]
+        public string? EmployeeName { get; set; }
     }
 }

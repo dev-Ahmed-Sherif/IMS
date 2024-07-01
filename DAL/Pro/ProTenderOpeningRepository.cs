@@ -22,6 +22,19 @@ namespace DAL.Pro
             }
             if (filter.StatusId.HasValue)
             {
+                result = result.Where(e => e.StatusId == filter.StatusId);
+            }
+            if (filter.QuotationId.HasValue)
+            {
+                result =
+                    result
+                    .Where(e =>
+                        e
+                        .TenderOpeningDetails
+                        .Any(tod => tod.QuotationId == filter.QuotationId));
+            }
+            if (filter.StatusId.HasValue)
+            {
                 result = result.Where(e => e.StatusId >= filter.StatusId);
             }
             return result;

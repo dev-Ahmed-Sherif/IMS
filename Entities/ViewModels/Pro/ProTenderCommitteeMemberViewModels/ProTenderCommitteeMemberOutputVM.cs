@@ -16,7 +16,6 @@ namespace Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels
 
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
-
         public int TenderCommitteeId { get; set; }
 
     }
