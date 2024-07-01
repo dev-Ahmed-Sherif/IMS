@@ -357,7 +357,8 @@ namespace DAL.FI.Account
 
 
                 var query = from fiAccount in _context.FiAccount
-                            where fiAccount.Code.StartsWith(code) && fiAccount.Code.Length < codeLength
+                            //where fiAccount.Code.StartsWith(code) && fiAccount.Code.Length < codeLength
+                            where fiAccount.Code.Equals(code)
                             select new AccountItemVM
                             {
                                 Id = fiAccount.Id,
@@ -1051,7 +1052,6 @@ namespace DAL.FI.Account
         }
         public async Task<List<Part2ViewModel>> GetVW_Rest_Finical_CenterData()
         {
-            var res = await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Rest_Finical_Center").ToListAsync();
             return await _context.Database.SqlQueryRaw<Part2ViewModel>("SELECT * FROM VW_Rest_Finical_Center").ToListAsync();
         }
         public async Task<List<Part2ViewModel>> GetVW_Income_Statement_Full_ReportData()
@@ -1064,7 +1064,6 @@ namespace DAL.FI.Account
         }
         public ChangeInOwnersEquityViewModelDB? GetChangeOwnerShipRightsReportData(string code)
         {
-            //var res = _context.Database.SqlQuery<ChangeInOwnersEquityViewModelDB>($"SELECT * FROM VW_ACC_Balance where Code='{variableName}'").FirstOrDefault();
             return
                 _context
                 .Database

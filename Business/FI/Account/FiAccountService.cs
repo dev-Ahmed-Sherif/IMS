@@ -298,20 +298,17 @@ namespace Business.FI.Account
             {
                 case "AccountREReport":
                     {
-
-                        //List<Part2ViewModel> part2ViewModel = await _FiRepository.GetVW_Rest_Finical_CenterData();
                         
-                        //fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
                         #region Old Tree
 
-                        List<string> SumofAssets = new List<string> { "1" };
-                        List<string> SumofPropertyRightsAndObligations = new List<string> { "2" };
+                        //List<string> SumofAssets = new List<string> { "1" };
+                        //List<string> SumofPropertyRightsAndObligations = new List<string> { "2" };
                         // Non - Current Fixed Assets Filter
-                        List<string> NonCurrentAssetsFirst = new List<string>
-                        {
-                            "121",
-                            "122",
-                        };
+                        //List<string> NonCurrentAssetsFirst = new List<string>
+                        //{
+                        //    "121",
+                        //    "122",
+                        //};
                         //List<string> SumNonCurrentAssetsFirst = new List<string>
                         //{
                         //    "12"
@@ -487,46 +484,46 @@ namespace Business.FI.Account
                         //};
 
                         // CurrentObligations
-                        List<string> CurrentObligationsFirst = new List<string>
-                        {
-                            "267",
-                            "268",
-                            "269",
-                        };
-                        List<string> CurrentObligationsSecond = new List<string>
-                        {
-                            "271",
-                        };
-                        List<string> CurrentObligationsThird = new List<string>
-                        {
-                            "281",
-                            "282",
-                            "283",
-                            "2831",
-                            "28311",
-                            "2832",
-                            "284",
-                            "285",
-                            "286",
-                            "287",
-                            "288"
-                        };
-                        List<string> CurrentObligationsFourth = new List<string>
-                        {
-                            "273",
-                            "2899"
-                        };
-                        List<string> Payment = new List<string>{"3"};
-                        List<string> Income = new List<string> {"4"};
+                        //List<string> CurrentObligationsFirst = new List<string>
+                        //{
+                        //    "267",
+                        //    "268",
+                        //    "269",
+                        //};
+                        //List<string> CurrentObligationsSecond = new List<string>
+                        //{
+                        //    "271",
+                        //};
+                        //List<string> CurrentObligationsThird = new List<string>
+                        //{
+                        //    "281",
+                        //    "282",
+                        //    "283",
+                        //    "2831",
+                        //    "28311",
+                        //    "2832",
+                        //    "284",
+                        //    "285",
+                        //    "286",
+                        //    "287",
+                        //    "288"
+                        //};
+                        //List<string> CurrentObligationsFourth = new List<string>
+                        //{
+                        //    "273",
+                        //    "2899"
+                        //};
+                        //List<string> Payment = new List<string>{"3"};
+                        //List<string> Income = new List<string> {"4"};
                         #endregion
                         #region New Tree
                         //SumofAssets = new List<string> { _fiAccountsCodes.الأصول_1 };
-                        List<string> SumofNonCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_غير_المتداولة_11 };
-                        List<string> SumofCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_المتداولة_12 };
-                        List<string> SumofPropertyRights = new List<string> { _fiAccountsCodes.حقوق_الملكية_2 };
-                        List<string> SumofObligations = new List<string> { _fiAccountsCodes.الالتزامات_3 };
-                        List<string> SumofNonCurrentObligations = new List<string> { _fiAccountsCodes.الالتزامات_غير_المتداولة_31 };
-                        List<string> SumofCurrentObligations = new List<string> { _fiAccountsCodes.الألتزامات_المتداولة_32 };
+                        //List<string> SumofNonCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_غير_المتداولة_11 };
+                        //List<string> SumofCurrentAssets = new List<string> { _fiAccountsCodes.الأصول_المتداولة_12 };
+                        //List<string> SumofPropertyRights = new List<string> { _fiAccountsCodes.حقوق_الملكية_2 };
+                        //List<string> SumofObligations = new List<string> { _fiAccountsCodes.الالتزامات_3 };
+                        //List<string> SumofNonCurrentObligations = new List<string> { _fiAccountsCodes.الالتزامات_غير_المتداولة_31 };
+                        //List<string> SumofCurrentObligations = new List<string> { _fiAccountsCodes.الألتزامات_المتداولة_32 };
 
                         //NonCurrentAssetsFirst = new List<string>
                         //{
@@ -579,7 +576,7 @@ namespace Business.FI.Account
                         #endregion
                         #region Old Code for Report Data
                         //List<FixedAssetsFinancialCenterViewModel> fixedAssetsArray;
-                        //FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        //fixedAssetsArray = await GetFixedAssetsFinancialCenterData(fiscalYearId);
                         //for (int i = 0; i < FIAccountRE.Count; i++)
                         //{
                         //    FIAccountREAdd.Add(FIAccountRE[i]);
@@ -593,7 +590,7 @@ namespace Business.FI.Account
                         //}
 
                         // Non - Current Fixed Assets
-                        List<AccountItemVM> NonCurrentAssetsFirstArray = new List<AccountItemVM>();
+                        //List<AccountItemVM> NonCurrentAssetsFirstArray = new List<AccountItemVM>();
                         //List<AccountItemVM> SumofAssetsArray = new List<AccountItemVM>();
                         //List<AccountItemVM> SumofPropertyRightsAndObligationsArray = new List<AccountItemVM>();
                         //List<AccountItemVM> SumNonCurrentAssetsFirstArray = new List<AccountItemVM>();
@@ -634,256 +631,256 @@ namespace Business.FI.Account
                         //List<AccountItemVM> PaymentArray = new List<AccountItemVM>();
                         //List<AccountItemVM> IncomeArray = new List<AccountItemVM>();
 
-                        for (int i = 0; i < FIAccountREAdd.Count; i++)
-                        {
-                            //for (int j = 0; j < SumofAssets.Count; j++)
-                            //{
-                            //    if (SumofAssets[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        SumofAssetsArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < SumofPropertyRightsAndObligations.Count; j++)
-                            //{
-                            //    if (SumofPropertyRightsAndObligations[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        SumofPropertyRightsAndObligationsArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            for (int j = 0; j < NonCurrentAssetsFirst.Count; j++)
-                            {
-                                if (NonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                                {
-                                    NonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                                }
-                            }
-                            //for (int j = 0; j < SumNonCurrentAssetsFirst.Count; j++)
-                            //{
-                            //    if (SumNonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        SumNonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsSecond.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsThird.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsFourth.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsFifth.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsFifth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsFifthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsSixth.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsSeventh.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsEighth.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentAssetsNinth.Count; j++)
-                            //{
-                            //    if (NonCurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
+                        //for (int i = 0; i < FIAccountREAdd.Count; i++)
+                        //{
+                        //    for (int j = 0; j < SumofAssets.Count; j++)
+                        //    {
+                        //        if (SumofAssets[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            SumofAssetsArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < SumofPropertyRightsAndObligations.Count; j++)
+                        //    {
+                        //        if (SumofPropertyRightsAndObligations[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            SumofPropertyRightsAndObligationsArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsFirst.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < SumNonCurrentAssetsFirst.Count; j++)
+                        //    {
+                        //        if (SumNonCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            SumNonCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsSecond.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsThird.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsFourth.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsFifth.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsFifth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsFifthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsSixth.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsSeventh.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsEighth.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentAssetsNinth.Count; j++)
+                        //    {
+                        //        if (NonCurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
 
-                            //for (int j = 0; j < CurrentAssetsFirst.Count; j++)
-                            //{
-                            //    if (CurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < SumCurrentAssetsFirst.Count; j++)
-                            //{
-                            //    if (SumCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        SumCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsSecond.Count; j++)
-                            //{
-                            //    if (CurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsThird.Count; j++)
-                            //{
-                            //    if (CurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsFourth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsFivth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsFivth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsFivthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsSixth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsSeventh.Count; j++)
-                            //{
-                            //    if (CurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsEighth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsNinth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsTenth.Count; j++)
-                            //{
-                            //    if (CurrentAssetsTenth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsTenthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentAssetsEleventh.Count; j++)
-                            //{
-                            //    if (CurrentAssetsEleventh[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentAssetsEleventhArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
+                        //    for (int j = 0; j < CurrentAssetsFirst.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < SumCurrentAssetsFirst.Count; j++)
+                        //    {
+                        //        if (SumCurrentAssetsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            SumCurrentAssetsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsSecond.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsSecond[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsSecondArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsThird.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsThird[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsThirdArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsFourth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsFourth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsFourthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsFivth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsFivth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsFivthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsSixth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsSixth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsSixthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsSeventh.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsSeventh[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsSeventhArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsEighth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsEighth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsEighthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsNinth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsNinth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsNinthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsTenth.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsTenth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsTenthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentAssetsEleventh.Count; j++)
+                        //    {
+                        //        if (CurrentAssetsEleventh[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentAssetsEleventhArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
 
-                            //for (int j = 0; j < PropertyRightsFirst.Count; j++)
-                            //{
-                            //    if (PropertyRightsFirst[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        PropertyRightsFirstArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < PropertyRightsSecond.Count; j++)
-                            //{
-                            //    if (PropertyRightsSecond[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        PropertyRightsSecondArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < PropertyRightsThird.Count; j++)
-                            //{
-                            //    if (PropertyRightsThird[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        PropertyRightsThirdArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < NonCurrentObligations.Count; j++)
-                            //{
-                            //    if (NonCurrentObligations[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        NonCurrentObligationsArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentObligationsFirst.Count; j++)
-                            //{
-                            //    if (CurrentObligationsFirst[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentObligationsFirstArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentObligationsSecond.Count; j++)
-                            //{
-                            //    if (CurrentObligationsSecond[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentObligationsSecondArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentObligationsThird.Count; j++)
-                            //{
-                            //    if (CurrentObligationsThird[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentObligationsThirdArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < CurrentObligationsFourth.Count; j++)
-                            //{
-                            //    if (CurrentObligationsFourth[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
+                        //    for (int j = 0; j < PropertyRightsFirst.Count; j++)
+                        //    {
+                        //        if (PropertyRightsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            PropertyRightsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < PropertyRightsSecond.Count; j++)
+                        //    {
+                        //        if (PropertyRightsSecond[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            PropertyRightsSecondArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < PropertyRightsThird.Count; j++)
+                        //    {
+                        //        if (PropertyRightsThird[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            PropertyRightsThirdArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < NonCurrentObligations.Count; j++)
+                        //    {
+                        //        if (NonCurrentObligations[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            NonCurrentObligationsArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentObligationsFirst.Count; j++)
+                        //    {
+                        //        if (CurrentObligationsFirst[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentObligationsFirstArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentObligationsSecond.Count; j++)
+                        //    {
+                        //        if (CurrentObligationsSecond[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentObligationsSecondArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentObligationsThird.Count; j++)
+                        //    {
+                        //        if (CurrentObligationsThird[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentObligationsThirdArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < CurrentObligationsFourth.Count; j++)
+                        //    {
+                        //        if (CurrentObligationsFourth[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            CurrentObligationsFourthArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
 
-                            //for (int j = 0; j < Payment.Count; j++)
-                            //{
-                            //    if (Payment[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        PaymentArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                            //for (int j = 0; j < Income.Count; j++)
-                            //{
-                            //    if (Income[j].Equals(FIAccountREAdd[i].Code))
-                            //    {
-                            //        IncomeArray.Add(FIAccountREAdd[i]);
-                            //    }
-                            //}
-                        }
+                        //    for (int j = 0; j < Payment.Count; j++)
+                        //    {
+                        //        if (Payment[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            PaymentArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //    for (int j = 0; j < Income.Count; j++)
+                        //    {
+                        //        if (Income[j].Equals(FIAccountREAdd[i].Code))
+                        //        {
+                        //            IncomeArray.Add(FIAccountREAdd[i]);
+                        //        }
+                        //    }
+                        //}
 
 
                         //report.DataSources.Add(new ReportDataSource() { Name = "FixedAssets", Value = fixedAssetsArray });
 
                         // Non - Current Fixed Assets Data Sets
-                        report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFirst", Value = NonCurrentAssetsFirstArray });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsFirst", Value = NonCurrentAssetsFirstArray });
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumNonCurrentAssetsFirst", Value = SumNonCurrentAssetsFirstArray });
                         //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsSecond", Value = NonCurrentAssetsSecondArray });
                         //report.DataSources.Add(new ReportDataSource() { Name = "NonCurrentAssetsThird", Value = NonCurrentAssetsThirdArray });
@@ -923,33 +920,34 @@ namespace Business.FI.Account
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumofAssets", Value = SumofAssetsArray });
                         //report.DataSources.Add(new ReportDataSource() { Name = "SumofPropertyRightsAndObligations", Value = SumofPropertyRightsAndObligationsArray });
                         #endregion
-                       
 
-                        report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part1", Value = await _FiRepository.GetFixed_Assest_Finical_CenterData() });
-                        report.DataSources.Add(new ReportDataSource() { Name = "VW_ACC_Balance_Part2", Value = await _FiRepository.GetVW_Rest_Finical_CenterData() });
+                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        report.DataSources.Add(new ReportDataSource() { Name = "Date", Value = FIAccountRE });
+                        report.DataSources.Add(new ReportDataSource() { Name = "FixedAssest", Value = await _FiRepository.GetFixed_Assest_Finical_CenterData() });
+                        report.DataSources.Add(new ReportDataSource() { Name = "RestFinicalCenter", Value = await _FiRepository.GetVW_Rest_Finical_CenterData() });
                     }
 
                     break;
                 case "AccountACReport":
                     {
-                        FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
-                        for (int i = 0; i < FIAccountRE.Count; i++)
-                        {
-                            if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
-                            {
-                                if (FIAccountRE[i].Code.FirstOrDefault() == '1')
-                                {
-                                    FIAccountREAdd.Add(FIAccountRE[i]);
-                                }
-                                else if (FIAccountRE[i].Code.FirstOrDefault() == '2')
-                                {
-                                    FIAccountRERemove.Add(FIAccountRE[i]);
-                                }
-                            }
+                        //FIAccountRE = await GetFinancialCenterReportData(fiscalYearId, code, 0);
+                        //for (int i = 0; i < FIAccountRE.Count; i++)
+                        //{
+                        //    if (FIAccountRE[i].AccountNet != 0 || FIAccountRE[i].AccountSubNet != 0)
+                        //    {
+                        //        if (FIAccountRE[i].Code.FirstOrDefault() == '1')
+                        //        {
+                        //            FIAccountREAdd.Add(FIAccountRE[i]);
+                        //        }
+                        //        else if (FIAccountRE[i].Code.FirstOrDefault() == '2')
+                        //        {
+                        //            FIAccountRERemove.Add(FIAccountRE[i]);
+                        //        }
+                        //    }
 
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountREv2", Value = FIAccountRERemove });
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = FIAccountREAdd });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountREv2", Value = FIAccountRERemove });
                     }
                     break;
                 case "AccountProfitLoseActivityReport":
@@ -1063,265 +1061,289 @@ namespace Business.FI.Account
                     break;
                 case "AccountWaterAndWasteWaterIncomeStatementReport":
                     {
-                        List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
 
-                        List<string> Revenues = new List<string>
-                        {
-                            "41",
-                            "411",
-                            "412",
-                            "413",
-                            "414",
-                            "415",
-                            "416",
-                            "417",
-                            "42",
-                        };
-                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Revenues.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAdd.Add(AccountActivity[i]);
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() });
+                        report.DataSources.Add(new ReportDataSource() 
+                        { 
+                            Name = "AccountProfit", 
+                            Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() 
+                        });
+                        #region Old Code
+                        //List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
 
-                        List<string> Invest = new List<string>
-                        {
+                        //List<string> Revenues = new List<string>
+                        //{
+                        //    "41",
+                        //    "411",
+                        //    "412",
+                        //    "413",
+                        //    "414",
+                        //    "415",
+                        //    "416",
+                        //    "417",
+                        //    "42",
+                        //};
+                        //AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Revenues.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAdd.Add(AccountActivity[i]);
+                        //    }
+                        //}
+                        //List<string> Invest = new List<string>
+                        //{
 
-                            "433",
-                            "434",
-                            "435",
+                        //    "433",
+                        //    "434",
+                        //    "435",
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Invest.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddOne.Add(AccountActivity[i]);
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Invest.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddOne.Add(AccountActivity[i]);
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
 
-                        List<string> codes = new List<string>
-                        {
-                            "352",
-                            "353",
-                            "354",
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (codes.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddTwo.Add(AccountActivity[i]);
+                        //List<string> codes = new List<string>
+                        //{
+                        //    "352",
+                        //    "353",
+                        //    "354",
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (codes.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddTwo.Add(AccountActivity[i]);
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
 
-                        List<string> Revenues2 = new List<string>
-                        {
-                            "442",
-                            "443",
-                            "444",
-                            "445",
-                            "446",
-                            "447",
-                            "448",
-                            "353",
-                            "441",
-                            "357",
-                            "355",
-                            "356",
-                            "358",
-                            "333",
-                            "431",
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (codes.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddThree.Add(AccountActivity[i]);
+                        //List<string> Revenues2 = new List<string>
+                        //{
+                        //    "442",
+                        //    "443",
+                        //    "444",
+                        //    "445",
+                        //    "446",
+                        //    "447",
+                        //    "448",
+                        //    "353",
+                        //    "441",
+                        //    "357",
+                        //    "355",
+                        //    "356",
+                        //    "358",
+                        //    "333",
+                        //    "431",
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (codes.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddThree.Add(AccountActivity[i]);
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
                         //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        #endregion
                     }
                     break;
                 case "AccountIncomeStatementReport":
                     {
-                        List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
 
-                        List<string> Revenues = new List<string>
-                        {
-                            "41",
-                            "411",
-                            "412",
-                            "413",
-                            "414",
-                            "415",
-                            "416",
-                            "417",
-                            "42",
-                        };
-                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Revenues.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAdd.Add(AccountActivity[i]);
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfit", Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() });
+                        report.DataSources.Add(new ReportDataSource() 
+                        { 
+                            Name = "AccountProfit", 
+                            Value = await _FiRepository.GetVW_Income_Statement_Full_ReportData() 
+                        });
+                        #region Old Code
+                        //List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
 
-                        List<string> Invest = new List<string>
-                        {
+                        //List<string> Revenues = new List<string>
+                        //{
+                        //    "41",
+                        //    "411",
+                        //    "412",
+                        //    "413",
+                        //    "414",
+                        //    "415",
+                        //    "416",
+                        //    "417",
+                        //    "42",
+                        //};
+                        //AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Revenues.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAdd.Add(AccountActivity[i]);
+                        //    }
+                        //}
 
-                            "433",
-                            "434",
-                            "435",
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Invest.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddOne.Add(AccountActivity[i]);
+                        //List<string> Invest = new List<string>
+                        //{
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
+                        //    "433",
+                        //    "434",
+                        //    "435",
 
-                        List<string> codes = new List<string>
-                        {
-                            "352",
-                            "353",
-                            "354",
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (codes.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddTwo.Add(AccountActivity[i]);
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Invest.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddOne.Add(AccountActivity[i]);
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitOne", Value = FIAccountREAddOne });
 
-                        List<string> Revenues2 = new List<string>
-                        {
-                            "442",
-                            "443",
-                            "444",
-                            "445",
-                            "446",
-                            "447",
-                            "448",
+                        //List<string> codes = new List<string>
+                        //{
+                        //    "352",
+                        //    "353",
+                        //    "354",
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (codes.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddTwo.Add(AccountActivity[i]);
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Revenues2.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddThree.Add(AccountActivity[i]);
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        //List<string> Revenues2 = new List<string>
+                        //{
+                        //    "442",
+                        //    "443",
+                        //    "444",
+                        //    "445",
+                        //    "446",
+                        //    "447",
+                        //    "448",
+
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Revenues2.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddThree.Add(AccountActivity[i]);
+
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        #endregion
                     }
                     break;
                 case "AccountProductionAndAddedValueReport":
                     {
-                        List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
-                        List<AccountItemVM> FIAccountREAddfour = new List<AccountItemVM>();
 
-                        List<string> Revenues = new List<string>
+                        report.DataSources.Add(new ReportDataSource()
                         {
-
-                            "411",
-                            "412",
-                            "414",
-                            "415",
-                            "417",
-
-                        };
-                        AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Revenues.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAdd.Add(AccountActivity[i]);
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() 
-                        { 
-                            Name = "AccountProfit", 
-                            Value = await _FiRepository.GetVW_Production_And_Added_Value_ReportData() 
+                            Name = "AccountProfit",
+                            Value = await _FiRepository.GetVW_Production_And_Added_Value_ReportData()
                         });
+                        #region Old Code
+                        //List<AccountItemVM> FIAccountREAddOne = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddTwo = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddThree = new List<AccountItemVM>();
+                        //List<AccountItemVM> FIAccountREAddfour = new List<AccountItemVM>();
+
+                        //List<string> Revenues = new List<string>
+                        //{
+
+                        //    "411",
+                        //    "412",
+                        //    "414",
+                        //    "415",
+                        //    "417",
+
+                        //};
+                        //AccountActivity = await GetFinancialCenterReportData(fiscalYearId, null, 0);
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Revenues.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAdd.Add(AccountActivity[i]);
+                        //    }
+                        //}
 
 
 
 
-                        List<string> codes = new List<string>
-                        {
 
-                            "34",
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (codes.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddTwo.Add(AccountActivity[i]);
+                        //List<string> codes = new List<string>
+                        //{
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
+                        //    "34",
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (codes.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddTwo.Add(AccountActivity[i]);
 
-                        List<string> Revenues2 = new List<string>
-                        {
-                            "332",
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitTwo", Value = FIAccountREAddTwo });
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Revenues2.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddThree.Add(AccountActivity[i]);
+                        //List<string> Revenues2 = new List<string>
+                        //{
+                        //    "332",
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
-                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Revenues2.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddThree.Add(AccountActivity[i]);
 
-
-                        List<string> Invest = new List<string>
-                        {
-
-                            "3635",
-                            "3636",
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitThree", Value = FIAccountREAddThree });
+                        ////report.DataSources.Add(new ReportDataSource() { Name = "AccountLose", Value = AccountActivityLose });
 
 
-                        };
-                        for (int i = 0; i < AccountActivity.Count; i++)
-                        {
-                            if (Invest.Contains(AccountActivity[i].Code))
-                            {
-                                FIAccountREAddfour.Add(AccountActivity[i]);
+                        //List<string> Invest = new List<string>
+                        //{
 
-                            }
-                        }
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitfour", Value = FIAccountREAddfour });
+                        //    "3635",
+                        //    "3636",
 
+
+                        //};
+                        //for (int i = 0; i < AccountActivity.Count; i++)
+                        //{
+                        //    if (Invest.Contains(AccountActivity[i].Code))
+                        //    {
+                        //        FIAccountREAddfour.Add(AccountActivity[i]);
+
+                        //    }
+                        //}
+                        //report.DataSources.Add(new ReportDataSource() { Name = "AccountProfitfour", Value = FIAccountREAddfour });
+                        #endregion
+                    }
+                    break;
+                case "AccountCashFlowsReport":
+                    {
+                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
+                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
+                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = AccountSuppliers });
                     }
                     break;
                 case "AccountCreditAccountsReport":
@@ -1495,13 +1517,6 @@ namespace Business.FI.Account
                         report.DataSources.Add(new ReportDataSource() { Name = "DebtInstrumentsToStocks", Value = debtInstrumentsToStocks });
                         report.DataSources.Add(new ReportDataSource() { Name = "TreasuryShares", Value = treasuryShares });
                         report.DataSources.Add(new ReportDataSource() { Name = "PropertyRights", Value = propertyRights });
-                    }
-                    break;
-                case "AccountCashFlowsReport":
-                    {
-                        List<FiAccountItemBalancesViewModel> AccountSuppliers;
-                        AccountSuppliers = await GetPublicPrivateReportData(fiscalYearId);
-                        report.DataSources.Add(new ReportDataSource() { Name = "AccountRE", Value = AccountSuppliers });
                     }
                     break;
                 case "AccountDebitAccountsReport":

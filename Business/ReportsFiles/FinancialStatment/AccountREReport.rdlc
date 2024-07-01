@@ -13,6 +13,7 @@
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -24,7 +25,7 @@
         <rd:DefaultName>Textbox47</rd:DefaultName>
         <Top>3.94465cm</Top>
         <Left>15.15606cm</Left>
-        <Height>0.67938cm</Height>
+        <Height>0.83813cm</Height>
         <Width>3.69222cm</Width>
         <Style>
           <Border>
@@ -47,6 +48,7 @@
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -58,7 +60,7 @@
         <rd:DefaultName>Textbox47</rd:DefaultName>
         <Top>3.94465cm</Top>
         <Left>8.75289cm</Left>
-        <Height>0.67938cm</Height>
+        <Height>0.83813cm</Height>
         <Width>4.98836cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -82,6 +84,7 @@
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -93,7 +96,7 @@
         <rd:DefaultName>Textbox47</rd:DefaultName>
         <Top>3.94465cm</Top>
         <Left>0.86847cm</Left>
-        <Height>0.67938cm</Height>
+        <Height>0.83813cm</Height>
         <Width>5.38555cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
@@ -110,27 +113,27 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.57554cm</Width>
+              <Width>3.44604cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.66601cm</Width>
+              <Width>1.70826cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.22201cm</Width>
+              <Width>5.1934cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.2028cm</Width>
+              <Width>3.24505cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.19453cm</Width>
+              <Width>3.23678cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.29363cm</Width>
+              <Width>3.33588cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.72402cm</Height>
+              <Height>0.88277cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -141,10 +144,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>سنة المقارنة</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -179,8 +184,10 @@
                             <TextRun>
                               <Value>الدليل</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -215,8 +222,10 @@
                             <TextRun>
                               <Value>البيان</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -251,8 +260,10 @@
                             <TextRun>
                               <Value>التكلفة</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -287,8 +298,10 @@
                             <TextRun>
                               <Value>مجمع الإهلاك</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -323,8 +336,10 @@
                             <TextRun>
                               <Value>الصافي</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -351,7 +366,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.76536cm</Height>
+              <Height>0.92411cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -575,11 +590,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>VW_ACC_Balance_Part1</DataSetName>
+        <DataSetName>FixedAssest</DataSetName>
         <Top>0.1189cm</Top>
         <Left>0.3175cm</Left>
-        <Height>1.48938cm</Height>
-        <Width>20.15452cm</Width>
+        <Height>1.80688cm</Height>
+        <Width>20.16539cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -591,7 +606,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.57554cm</Width>
+              <Width>3.42221cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.68231cm</Width>
@@ -603,12 +618,12 @@
               <Width>4.45611cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.24572cm</Width>
+              <Width>4.39905cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.72402cm</Height>
+              <Height>0.77253cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -619,10 +634,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>سنة المقارنة</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -658,8 +675,10 @@
                             <TextRun>
                               <Value>الدليل</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -695,8 +714,10 @@
                             <TextRun>
                               <Value>البيان</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -732,8 +753,10 @@
                             <TextRun>
                               <Value>المبلغ الجزئي</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -769,8 +792,10 @@
                             <TextRun>
                               <Value>المبلغ الكلي</Value>
                               <Style>
-                                <FontFamily>Segoe UI</FontFamily>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -798,7 +823,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.76536cm</Height>
+              <Height>0.81387cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -811,6 +836,8 @@
                             <TextRun>
                               <Value />
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -845,6 +872,8 @@
                             <TextRun>
                               <Value>=Fields!Code.Value</Value>
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
 IIf(Fields!Code.Value.ToString().Length = 2, "Underline", 
@@ -882,6 +911,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default")))</TextDecoratio
                             <TextRun>
                               <Value>=Fields!Name.Value</Value>
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <TextDecoration>=IIf(Fields!Code.Value.ToString().Length = 0, "Underline",
 IIf(Fields!Code.Value.ToString().Length = 1, "Underline",
@@ -920,6 +951,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                             <TextRun>
                               <Value>=Fields!Total.Value</Value>
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -954,6 +987,8 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                             <TextRun>
                               <Value>=Fields!GrandTotal.Value</Value>
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1005,10 +1040,10 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
-        <DataSetName>VW_ACC_Balance_Part2</DataSetName>
-        <Top>2.01455cm</Top>
+        <DataSetName>RestFinicalCenter</DataSetName>
+        <Top>1.92578cm</Top>
         <Left>0.3012cm</Left>
-        <Height>1.48938cm</Height>
+        <Height>1.58639cm</Height>
         <Width>20.18169cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -1018,7 +1053,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.0287cm</Height>
+    <Height>6.06058cm</Height>
     <Style />
   </Body>
   <Width>21cm</Width>
@@ -1051,6 +1086,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <TextRun>
                   <Value>قطاع الشؤن المالية والادارية</Value>
                   <Style>
+                    <FontFamily>Times New Roman</FontFamily>
                     <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1065,6 +1101,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <TextRun>
                   <Value>ادارة الحسابات</Value>
                   <Style>
+                    <FontFamily>Times New Roman</FontFamily>
                     <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1100,7 +1137,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <TextRun>
                   <Value xml:space="preserve"> </Value>
                   <Style>
-                    <FontFamily>arial</FontFamily>
+                    <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1108,7 +1145,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                 <TextRun>
                   <Value>قائمة المركز المالي</Value>
                   <Style>
-                    <FontFamily>arial</FontFamily>
+                    <FontFamily>Times New Roman</FontFamily>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                     <Color>#1b77a3</Color>
@@ -1123,7 +1160,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.68474cm</Top>
           <Left>6.82525cm</Left>
-          <Height>0.73457cm</Height>
+          <Height>0.8404cm</Height>
           <Width>9.95768cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -1179,7 +1216,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!StartDate.Value, "NonCurrentAssetsFirst")</Value>
+                  <Value>=First(Fields!StartDate.Value, "Date")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -1251,7 +1288,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!EndDate.Value, "NonCurrentAssetsFirst")</Value>
+                  <Value>=First(Fields!EndDate.Value, "Date")</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -1338,6 +1375,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                   <Value>=Globals!PageNumber</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1371,6 +1409,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                   <Value>=Globals!TotalPages</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1406,6 +1445,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1441,6 +1481,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1492,7 +1533,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="VW_ACC_Balance_Part1">
+    <DataSet Name="FixedAssest">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1525,14 +1566,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>VW_ACC_Balance_Part1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>VW_ACC_Balance_Part1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="VW_ACC_Balance_Part2">
+    <DataSet Name="RestFinicalCenter">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1561,14 +1602,14 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>VW_ACC_Balance_Part2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>VW_ACC_Balance_Part2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="NonCurrentAssetsFirst">
+    <DataSet Name="Date">
       <Query>
         <DataSourceName>reportstr</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1621,7 +1662,7 @@ IIf(Fields!Code.Value.ToString().Length = 3, "None", "Default"))))</TextDecorati
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>reportstr</rd:DataSetName>
-        <rd:SchemaPath>E:\Core Water Project\New folder\IMS\Business\reportstr.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\ASW Project\Back-End\IMS-Git 7 5 2024\Business\reportstr.xsd</rd:SchemaPath>
         <rd:TableName>AccountProfit</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
