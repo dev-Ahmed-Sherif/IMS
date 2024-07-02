@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Entities.Helpers;
 using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProPurchaseOrderViewModels;
 using System;
@@ -13,8 +14,23 @@ namespace Entities.Profiles.Pro
     {
         public ProPurchaseOrderProfile()
         {
-            CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>();
-            CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>();
+            CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>()
+                .ForMember(dest => dest.DeliverDelayInDays, cfg => cfg.MapFrom(src => src.AdditionDate - src.StoreDeliverDate))
+                .AfterMap<ProPurchaseOrderInputVMAttachmentMapping>();
+
+            CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>()
+                .ForMember(
+                dest => dest.VendorsNames,
+                cfg => cfg.MapFrom(src =>
+                    src.Details
+                    .Select(e => e.QuotationDetails.Quotation.Vendor.Name)));
+        }
+        public class ProPurchaseOrderInputVMAttachmentMapping : IMappingAction<ProPurchaseOrderInputVM, ProPurchaseOrder>
+        {
+            public async void Process(ProPurchaseOrderInputVM source, ProPurchaseOrder destination, ResolutionContext context)
+            {
+                destination.Attachment = await FileHelper.UploadFile(source.Attachment);
+            }
         }
     }
 }

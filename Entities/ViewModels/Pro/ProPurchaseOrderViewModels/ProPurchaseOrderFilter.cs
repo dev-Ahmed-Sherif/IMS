@@ -20,5 +20,10 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         public int? VendorId { get; set; }
         [AllowNull]
         public int? StoreId { get; set; }
+        public DateTime? InspectionDate { get; set; }
+        public DateTime? AdditionDate { get; set; }
+        public DateTime? StoreDeliverDate { get; set; }
+        public bool? Delivered { get; set; }
+        public int? DeliverDelayInDays { get; set; }
     }
 }

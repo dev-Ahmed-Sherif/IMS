@@ -21,10 +21,6 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            //if (filter.VendorId.HasValue)
-            //{
-            //    result = result.Where(e => e.VendorId == filter.VendorId);
-            //}
             if (filter.StoreId.HasValue)
             {
                 result = result.Where(e => e.StoreId == filter.StoreId);
@@ -36,6 +32,30 @@ namespace DAL.Pro
             if (filter.EndDate.HasValue)
             {
                 result = result.Where(e => e.Date <= filter.EndDate);
+            }
+            if (filter.VendorId.HasValue)
+            {
+                result = result.Where(e => e.Details.Any(e => e.QuotationDetails.Quotation.VendorId == filter.VendorId));
+            }
+            if (filter.InspectionDate.HasValue)
+            {
+                result = result.Where(e => e.InspectionDate == filter.InspectionDate);
+            }
+            if (filter.AdditionDate.HasValue)
+            {
+                result = result.Where(e => e.AdditionDate == filter.AdditionDate);
+            }
+            if (filter.StoreDeliverDate.HasValue)
+            {
+                result = result.Where(e => e.StoreDeliverDate == filter.StoreDeliverDate);
+            }
+            if (filter.Delivered.HasValue)
+            {
+                result = result.Where(e => e.Delivered == filter.Delivered);
+            }
+            if (filter.DeliverDelayInDays.HasValue)
+            {
+                result = result.Where(e => e.DeliverDelayInDays == filter.DeliverDelayInDays);
             }
             return result;
         }

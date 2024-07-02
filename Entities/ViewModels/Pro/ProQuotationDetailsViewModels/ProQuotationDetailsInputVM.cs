@@ -11,10 +11,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
 {
-    public class ProQuotationDetailsInputVM : BaseViewModel
+    public class ProQuotationDetailsInputVM
     {
         [Required]
-        public int QuotationId { get; set; }
+        public int QuotationDetailsId { get; set; }
         [Required]
         public int TenderDetailsId { get; set; }
         [Required]

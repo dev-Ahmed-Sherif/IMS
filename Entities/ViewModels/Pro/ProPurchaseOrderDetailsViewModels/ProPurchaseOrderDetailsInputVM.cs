@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProPurchaseOrderDetailsViewModels
 {
-    public class ProPurchaseOrderDetailsInputVM : BaseViewModel
+    public class ProPurchaseOrderDetailsInputVM
     {
         [Required]
         public int PurchaseOrderId { get; set; }

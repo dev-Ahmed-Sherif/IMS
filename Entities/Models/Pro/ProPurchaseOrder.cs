@@ -10,19 +10,21 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
-    public class ProPurchaseOrder : EntityBase
+    public class ProPurchaseOrder : EntityBaseNotes
     {
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
         public DateTime Date { get; set; }
-        //public int VendorId { get; set; }
-        //[ForeignKey(nameof(VendorId))]
-        //public virtual ProSeller Vendor { get; set; }
         public int StoreId { get; set; }
         [ForeignKey(nameof(StoreId))]
         public virtual StrStore Store { get; set; }
-        [MaxLength(250)]
-        public string Notes { get; set; }
+        public string Attachment { get; set; }
+        public DateTime? InspectionDate { get; set; }
+        public DateTime? AdditionDate { get; set; }
+        public DateTime? StoreDeliverDate { get; set; }
+        public bool Delivered { get; set; }
+        public int DeliverDelayInDays { get; set; }
+        public ICollection<ProPurchaseOrderDetails> Details { get; set; }
     }
 }

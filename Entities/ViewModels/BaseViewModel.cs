@@ -8,5 +8,6 @@ namespace Entities.ViewModels
 {
     public class BaseViewModel
     {
+        public int Id { get; set; }
     }
 }

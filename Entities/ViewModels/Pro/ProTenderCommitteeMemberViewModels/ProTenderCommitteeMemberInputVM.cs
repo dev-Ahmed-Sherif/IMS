@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderComitteeMemberViewModels
 {
-    public class ProTenderCommitteeMemberInputVM : BaseViewModel
+    public class ProTenderCommitteeMemberInputVM
     {
         [Required]
         public int RoleId { get; set; }

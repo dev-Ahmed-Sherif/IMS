@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderOpeningDetailsViewModels
 {
-    public class ProTenderOpeningDetailsInputVM : BaseViewModel
+    public class ProTenderOpeningDetailsInputVM
     {
         [Required]
         public int QuotationId { get; set; }

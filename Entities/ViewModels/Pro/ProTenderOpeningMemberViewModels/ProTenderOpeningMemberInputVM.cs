@@ -10,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Entities.ViewModels.Pro.ProTenderOpeningMemberViewModels
 {
-    public class ProTenderOpeningMemberInputVM : BaseViewModel
+    public class ProTenderOpeningMemberInputVM
     {
         [Required]
         public int EmployeeId { get; set; }
