@@ -18,6 +18,6 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningDetailsViewModels
         [MaxLength(250)]
         public string Notes { get; set; }
         [Required]
-        public int TenderId { get; set; }
+        public int TenderOpeningId { get; set; }
     }
 }

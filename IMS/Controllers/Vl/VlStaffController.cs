@@ -1,50 +1,51 @@
 ﻿using AutoMapper;
 using Business.Pro;
-using Entities.ExtensionMethods;
 using Entities.Models.Pro;
 using Entities.ViewModels;
-using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
-
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Business.Vl;
+using Entities.ViewModels.VL.VlStaff;
+using Entities.Models.VL;
+using Entities.ExtensionMethods;
+using System.Data.Entity;
 
-namespace IMS.Controllers.PR
+namespace IMS.Controllers.Vl
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProTenderDetailsController : ControllerBase
+    public class VlStaffController : ControllerBase
     {
+
         readonly IMapper _mapper;
-        readonly ProTenderDetailsService _proTenderDetailsService;
-        public ProTenderDetailsController(
+        readonly VlStaffService _VlStaffService;
+        public VlStaffController(
             IMapper mapper,
-            ProTenderDetailsService proTenderDetailsService)
+            VlStaffService VlStaffService)
         {
             _mapper = mapper;
-            _proTenderDetailsService = proTenderDetailsService;
+            _VlStaffService = VlStaffService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProTenderDetailsOutputVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(VlStaffOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            ProTenderDetails model = await _proTenderDetailsService.GetById(id);
+            VlStaff model = await _VlStaffService.GetById(id);
             if (model == null) return NotFound();
-            return Ok(_mapper.Map<ProTenderDetailsOutputVM>(model));
+            return Ok(_mapper.Map<VlStaffOutputVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsOutputVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
+        [ProducesResponseType(typeof(PaginatedResult<VlStaffOutputVM>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] VlStaffFilter filter)
         {
-            IQueryable<ProTenderDetails> items = _proTenderDetailsService.GetFiltered(filter); ;
-            IQueryable<ProTenderDetailsOutputVM> result =
-                _mapper.ProjectTo<ProTenderDetailsOutputVM>(items);
+            IQueryable<VlStaff> items = _VlStaffService.GetFiltered(filter); ;
+            IQueryable<VlStaffOutputVM> result =
+                _mapper.ProjectTo<VlStaffOutputVM>(items);
 
-            PaginatedResult<ProTenderDetailsOutputVM> mappedResult = new()
+            PaginatedResult<VlStaffOutputVM> mappedResult = new()
             {
                 Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
                 Page = pagination.Index,
@@ -56,10 +57,10 @@ namespace IMS.Controllers.PR
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProTenderDetailsInputVM input)
+        public async Task<IActionResult> Add(VlStaffInputVM input)
         {
-            ProTenderDetails model = _mapper.Map<ProTenderDetails>(input);
-            int rowsAffected = await _proTenderDetailsService.Add(model);
+            VlStaff model = _mapper.Map<VlStaff>(input);
+            int rowsAffected = await _VlStaffService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -67,13 +68,13 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(int id, ProTenderDetailsInputVM input)
+        public async Task<IActionResult> Update(int id, VlStaffInputVM input)
         {
 
-            ProTenderDetails model = await _proTenderDetailsService.GetById(id);
+            VlStaff model = await _VlStaffService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
-            int rowsAffected = await _proTenderDetailsService.Update(model);
+            int rowsAffected = await _VlStaffService.Update(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -83,9 +84,9 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProTenderDetails model = await _proTenderDetailsService.GetById(id);
+            VlStaff model = await _VlStaffService.GetById(id);
             if (model == null) return NotFound();
-            int rowsAffected = await _proTenderDetailsService.SoftDelete(model);
+            int rowsAffected = await _VlStaffService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }

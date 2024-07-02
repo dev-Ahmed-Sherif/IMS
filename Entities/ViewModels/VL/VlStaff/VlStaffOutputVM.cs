@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.VL.VlStaff
 {
-    public class VlStaffOutput:BaseViewModel
+    public class VlStaffOutputVM:BaseViewModel
     {
         public int PositionId { get; set; }
         public string PositionName { get; set; }
