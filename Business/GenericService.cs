@@ -56,9 +56,9 @@ namespace Business
         {
             return _repository.GetAll().ToPaginatedResultUnMapped(pagination);
         }
-        virtual public IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null)
+        virtual public IQueryable<T> GetAll()
         {
-            return _repository.GetAll(predicate);
+            return _repository.GetAll();
         }
     }
 }

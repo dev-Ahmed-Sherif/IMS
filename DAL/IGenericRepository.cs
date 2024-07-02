@@ -13,7 +13,7 @@ namespace DAL
         void Add(T model);
         void AddRange(IEnumerable<T> modelsList);
         void SoftDelete(T model);
-        IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null);
+        IQueryable<T> GetAll();
         Task<T?> GetById(int id);
     }
 }

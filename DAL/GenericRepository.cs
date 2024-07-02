@@ -42,22 +42,20 @@ namespace DAL
         {
             _dbSet.RemoveRange(modelsList);
         }
-        public virtual EntityEntry<T> Update(T model)
+        public virtual void Update(T model)
         {
-            return _dbSet.Update(model);
+            _dbSet.Update(model);
         }
         public virtual void AddRange(IEnumerable<T> modelsList)
         {
             _dbSet.AddRange(modelsList);
         }
-        public virtual IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null)
+        public virtual IQueryable<T> GetAll()
         {
             IQueryable<T> result =
                 _dbSet
                 .OrderByDescending(e => e.CreationDate);
-
-            if (predicate == null) return result;
-            return result.Where(predicate);
+            return result;
         }
         public virtual async Task<T?> GetById(int id)
         {
