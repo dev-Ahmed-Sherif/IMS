@@ -12,6 +12,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Entities.ViewModels.Pro.ProVendorAttachments;
 using System.Collections.Generic;
+using Entities.Helpers;
+using System;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 
 namespace IMS.Controllers.PR
 {
@@ -39,29 +42,31 @@ namespace IMS.Controllers.PR
         }
         [HttpGet]
         [ProducesResponseType(typeof(List<ProVendorAttachmentOutputVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get()
+        public IActionResult Get(ProVendorAttachmentFilter filter)
         {
-            IQueryable<ProVendorAttachment> items = _ProVendorAttachmentService.GetAll();
-            return Ok(items.ToList());
+            IQueryable<ProVendorAttachment> items = _ProVendorAttachmentService.GetFiltered(filter);
+            List<ProVendorAttachmentOutputVM> result = _mapper.ProjectTo<ProVendorAttachmentOutputVM>(items).ToList();
+            return Ok(result);
         }
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProVendorAttachmentInputVM input)
+        public async Task<IActionResult> Add([FromForm] ProVendorAttachmentInputVM input)
         {
             ProVendorAttachment model = _mapper.Map<ProVendorAttachment>(input);
+
             int rowsAffected = await _ProVendorAttachmentService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProVendorAttachmentInputVM input)
+        public async Task<IActionResult> Update(int id, [FromForm] ProVendorAttachmentInputVM input)
         {
 
-            ProVendorAttachment model = await _ProVendorAttachmentService.GetById(input.Id);
+            ProVendorAttachment model = await _ProVendorAttachmentService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProVendorAttachmentService.Update(model);

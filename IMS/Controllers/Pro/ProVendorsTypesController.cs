@@ -52,16 +52,16 @@ namespace IMS.Controllers.Pro
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPost(nameof(BulkAdd))]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> BulkAdd(ProVendorsTypesBulkInputVM input)
-        {
-            List<ProVendorsTypes> models = _mapper.Map<List<ProVendorsTypes>>(input);
-            int rowsAffected = await _ProVendorsTypesService.AddRange(models);
-            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
-            return Ok();
-        }
+        //[HttpPost(nameof(BulkAdd))]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> BulkAdd(ProVendorsTypesBulkInputVM input)
+        //{
+        //    List<ProVendorsTypes> models = _mapper.Map<List<ProVendorsTypes>>(input);
+        //    int rowsAffected = await _ProVendorsTypesService.AddRange(models);
+        //    if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
+        //    return Ok();
+        //}
         [HttpPut]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

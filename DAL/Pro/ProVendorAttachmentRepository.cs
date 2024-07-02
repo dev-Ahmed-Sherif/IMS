@@ -1,4 +1,5 @@
 ﻿using Entities.Models.Pro;
+using Entities.ViewModels.Pro.ProVendorAttachments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,20 @@ namespace DAL.Pro
     {
         public ProVendorAttachmentRepository(AppDbContext dbContext) : base(dbContext)
         {
+        }
+        public IQueryable<ProVendorAttachment> Filter(ProVendorAttachmentFilter filter)
+        {
+            IQueryable<ProVendorAttachment> result = GetAll();
+
+            if (filter.VendorId.HasValue)
+            {
+                result = result.Where(e => e.VendorId == filter.VendorId);
+            }
+            if (!string.IsNullOrEmpty(filter.Name))
+            {
+                result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));
+            }
+            return result;
         }
     }
 }

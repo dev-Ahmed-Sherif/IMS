@@ -10,6 +10,8 @@ namespace Entities.ViewModels.Pro.ProVendorAttachments
 {
     public class ProVendorAttachmentInputVM : BaseViewModel
     {
+        [Required]
+        public int VendorId { get; set; }
         [Required, StringLength(100)]
         public string Name { get; set; }
         [Required]

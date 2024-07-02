@@ -61,13 +61,13 @@ namespace IMS.Controllers.Pro
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update([FromForm] ProTenderOpeningMemberInputVM input)
+        public async Task<IActionResult> Update(int id, [FromForm] ProTenderOpeningMemberInputVM input)
         {
-            ProTenderOpeningMember model = await _ProTenderOpeningMemberService.GetById(input.Id);
+            ProTenderOpeningMember model = await _ProTenderOpeningMemberService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProTenderOpeningMemberService.Update(model);
