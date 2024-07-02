@@ -15,7 +15,13 @@ namespace Entities.Profiles.Pro
         public ProPurchaseOrderProfile()
         {
             CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>()
-                .ForMember(dest => dest.DeliverDelayInDays, cfg => cfg.MapFrom(src => src.AdditionDate - src.StoreDeliverDate))
+                .ForMember(
+                dest => dest.DeliverDelayInDays, 
+                cfg => cfg.MapFrom(src => 
+                    src.AdditionDate !=
+                    src.StoreDeliverDate ?
+                    (src.AdditionDate - src.StoreDeliverDate).Value.TotalDays :
+                    0))
                 .AfterMap<ProPurchaseOrderInputVMAttachmentMapping>();
 
             CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>()
