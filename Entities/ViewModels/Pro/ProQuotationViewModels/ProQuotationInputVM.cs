@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Entities.ViewModels.Pro.ProQuotationViewModels
 {
-    public class ProQuotationInputVM : BaseViewModel
+    public class ProQuotationInputVM
     {
         [Required]
         public int TenderId { get; set; }

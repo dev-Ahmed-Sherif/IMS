@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
-    public class ProTenderOpeningInputVM : BaseViewModel
+    public class ProTenderOpeningInputVM
     {
         [Required]
         public int StatusId { get; set; }

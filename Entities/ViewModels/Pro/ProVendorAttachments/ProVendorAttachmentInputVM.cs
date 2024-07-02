@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProVendorAttachments
 {
-    public class ProVendorAttachmentInputVM : BaseViewModel
+    public class ProVendorAttachmentInputVM
     {
         [Required]
         public int VendorId { get; set; }

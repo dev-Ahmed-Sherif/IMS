@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProTenderDetailsViewModels
 {
-    public class ProTenderDetailsInputVM : BaseViewModel
+    public class ProTenderDetailsInputVM
     {
         [Required, MaxLength(50)]
         public string Name { get; set; }

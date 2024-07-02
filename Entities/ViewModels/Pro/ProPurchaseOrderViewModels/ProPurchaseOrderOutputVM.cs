@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,13 +14,16 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         public int TenderId { get; set; }
         public string TenderName { get; set; }
         public DateTime Date { get; set; }
-
-        public int VendorId { get; set; }
-        public string VendorName { get; set; }
         public int StoreId { get; set; }
         public string StoreName { get; set; }
 
         public string Notes { get; set; }
-
+        public string Attachment { get; set; }
+        public DateTime? InspectionDate { get; set; }
+        public DateTime? AdditionDate { get; set; }
+        public DateTime? StoreDeliverDate { get; set; }
+        public bool Delivered { get; set; }
+        public int DeliverDelayInDays { get; set; }
+        public string[] VendorsNames { get; set; }
     }
 }
