@@ -55,7 +55,7 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(ProPurchaseOrderInputVM input)
+        public async Task<IActionResult> Add([FromForm]ProPurchaseOrderInputVM input)
         {
             ProPurchaseOrder model = _mapper.Map<ProPurchaseOrder>(input);
             int rowsAffected = await _ProPurchaseOrderService.Add(model);
@@ -66,7 +66,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(int id, ProPurchaseOrderInputVM input)
+        public async Task<IActionResult> Update(int id, [FromForm] ProPurchaseOrderInputVM input)
         {
 
             ProPurchaseOrder model = await _ProPurchaseOrderService.GetById(id);
