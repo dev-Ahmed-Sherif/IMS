@@ -14,7 +14,7 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningDetailsViewModels
         [Required]
         public int QuotationId { get; set; }
         [Required]
-        public int StatusId { get; set; }
+        public bool Accepted { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
         [Required]

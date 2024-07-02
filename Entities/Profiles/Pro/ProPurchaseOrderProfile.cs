@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Helpers;
+using Entities.Models.Cc;
 using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProPurchaseOrderViewModels;
 using System;
@@ -25,17 +26,20 @@ namespace Entities.Profiles.Pro
                 .AfterMap<ProPurchaseOrderInputVMAttachmentMapping>();
 
             CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>()
-                .ForMember(
-                dest => dest.VendorsNames,
-                cfg => cfg.MapFrom(src =>
-                    src.Details
-                    .Select(e => e.QuotationDetails.Quotation.Vendor.Name)));
+                .BeforeMap<ProPurchaseOrderVendorsNamesMapping>();
         }
         public class ProPurchaseOrderInputVMAttachmentMapping : IMappingAction<ProPurchaseOrderInputVM, ProPurchaseOrder>
         {
             public async void Process(ProPurchaseOrderInputVM source, ProPurchaseOrder destination, ResolutionContext context)
             {
                 destination.Attachment = await FileHelper.UploadFile(source.Attachment);
+            }
+        }
+        public class ProPurchaseOrderVendorsNamesMapping : IMappingAction<ProPurchaseOrder, ProPurchaseOrderOutputVM>
+        {
+            public void Process(ProPurchaseOrder source, ProPurchaseOrderOutputVM destination, ResolutionContext context)
+            {
+                destination.VendorsNames = source.Details?.Select(e => e.QuotationDetails?.Quotation?.Vendor?.Name).ToHashSet();
             }
         }
     }

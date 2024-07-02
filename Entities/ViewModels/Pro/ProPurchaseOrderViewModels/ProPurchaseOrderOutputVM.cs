@@ -24,6 +24,6 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         public DateTime? StoreDeliverDate { get; set; }
         public bool Delivered { get; set; }
         public int DeliverDelayInDays { get; set; }
-        public string[] VendorsNames { get; set; }
+        public HashSet<string> VendorsNames { get; set; }
     }
 }

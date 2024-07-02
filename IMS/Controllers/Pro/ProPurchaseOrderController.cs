@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Entities.ExtensionMethods;
 using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
+using AutoMapper.QueryableExtensions;
 
 namespace IMS.Controllers.Pro
 {
@@ -40,22 +41,21 @@ namespace IMS.Controllers.Pro
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProPurchaseOrderFilter filter)
         {
             IQueryable<ProPurchaseOrder> items = _ProPurchaseOrderService.GetFiltered(filter);
-            IQueryable<ProPurchaseOrderOutputVM> result =
-                _mapper.ProjectTo<ProPurchaseOrderOutputVM>(items);
+            var result = items.ToPaginatedResultUnMapped(pagination).Select(_mapper.Map<ProPurchaseOrderOutputVM>).ToList();
 
             PaginatedResult<ProPurchaseOrderOutputVM> mappedResult = new()
             {
-                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Items = result,
                 Page = pagination.Index,
                 PageSize = pagination.Size,
-                TotalItems = await result.CountAsync(),
+                TotalItems = await items.CountAsync(),
             };
             return Ok(mappedResult);
         }
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add([FromForm]ProPurchaseOrderInputVM input)
+        public async Task<IActionResult> Add([FromForm] ProPurchaseOrderInputVM input)
         {
             ProPurchaseOrder model = _mapper.Map<ProPurchaseOrder>(input);
             int rowsAffected = await _ProPurchaseOrderService.Add(model);
