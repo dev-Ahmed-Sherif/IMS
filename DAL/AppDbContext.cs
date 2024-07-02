@@ -66,7 +66,6 @@ namespace DAL
                 .HasForeignKey(bi => bi.CreatedByID);
 
 
-
             modelBuilder.Entity<PrGroupRole>()
                 .HasOne(b => b.PR_Group)
                 .WithMany(ba => ba.PrGroupRole)
