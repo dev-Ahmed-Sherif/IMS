@@ -10,11 +10,14 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
     public class ProTenderOpeningFilter
     {
-        [AllowNull]
         public int? TenderId { get; set; }
+
         [AllowNull]
-        public int? SellerId { get; set; }
+        public int? QuotationId { get; set; }
         [AllowNull]
         public int? StatusId { get; set; }
+        public DateTime? Date { get; set; }
+        public string? Code { get; set; }
+
     }
 }

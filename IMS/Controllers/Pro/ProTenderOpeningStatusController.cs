@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Business.Pro;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Entities.ViewModels.Pro.ProTenderOpeningStatusViewModels;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 using System.Linq;
 using Entities.ExtensionMethods;
 
@@ -63,14 +63,14 @@ namespace IMS.Controllers.Pro
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderOpeningStatusGeneralVM input)
+        public async Task<IActionResult> Update(int id, ProTenderOpeningStatusGeneralVM input)
         {
 
-            ProTenderOpeningStatus model = await _proTenderOpeningStatusService.GetById(input.Id);
+            ProTenderOpeningStatus model = await _proTenderOpeningStatusService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderOpeningStatusService.Update(model);

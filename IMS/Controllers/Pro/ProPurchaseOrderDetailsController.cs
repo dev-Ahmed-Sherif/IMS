@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Entities.ExtensionMethods;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 
 namespace IMS.Controllers.Pro
 {
@@ -62,14 +62,14 @@ namespace IMS.Controllers.Pro
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProPurchaseOrderDetailsInputVM input)
+        public async Task<IActionResult> Update(int id, ProPurchaseOrderDetailsInputVM input)
         {
 
-            ProPurchaseOrderDetails model = await _ProPurchaseOrderDetailsService.GetById(input.Id);
+            ProPurchaseOrderDetails model = await _ProPurchaseOrderDetailsService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProPurchaseOrderDetailsService.Update(model);

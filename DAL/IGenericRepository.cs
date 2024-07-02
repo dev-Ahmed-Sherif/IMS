@@ -10,11 +10,10 @@ namespace DAL
 {
     public interface IGenericRepository<T> where T : EntityBase
     {
-        EntityEntry<T> Add(T model);
+        void Add(T model);
         void AddRange(IEnumerable<T> modelsList);
         void SoftDelete(T model);
         IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null);
         Task<T?> GetById(int id);
-        EntityEntry<T> Update(T model);
     }
 }

@@ -13,15 +13,14 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
     public class ProTenderCommitteeInputVM : BaseViewModel
     {
         [Required]
-        public int RoleId { get; set; }
-        [Required]
-        public bool Close { get; set; }
-        [MaxLength(50)]
+        public int StatusId { get; set; }
+        [MaxLength(250)]
         public string Notes { get; set; }
         //Navigation Properties
         [Required]
-        public int EmployeeId { get; set; }
-        [Required]
         public int TenderId { get; set; }
+
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

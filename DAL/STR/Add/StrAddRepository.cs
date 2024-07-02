@@ -49,7 +49,7 @@ namespace DAL.STR.Add
                 StoreId = sTR_Add.StoreId,
                 FiscalYearId = sTR_Add.FiscalYearId,
                 EmployeeId = sTR_Add.EmployeeId,
-                SellerId = sTR_Add.SellerId,
+                VendorId = sTR_Add.VendorId,
                 AddTypeId = sTR_Add.AddTypeId,
                 CommodityId = sTR_Add.CommodityId,
                 Type = sTR_Add.Type,
@@ -190,7 +190,7 @@ namespace DAL.STR.Add
             }
             _sTR_Add.EmployeeId = sTR_Add.EmployeeId;
             _sTR_Add.FiscalYearId = sTR_Add.FiscalYearId;
-            _sTR_Add.SellerId = sTR_Add.SellerId;
+            _sTR_Add.VendorId = sTR_Add.VendorId;
             _sTR_Add.ApprovalStatusId = sTR_Add.ApprovalStatusId;
             _sTR_Add.withdrawId = sTR_Add.withdrawId;
             _sTR_Add.CommodityId = sTR_Add.CommodityId;
@@ -270,9 +270,9 @@ namespace DAL.STR.Add
             {
                 query = query.Where(p => p.SourceStoreId == searchModel.SourceStoreId);
             }
-            if (searchModel.SellerId.HasValue)
+            if (searchModel.VendorId.HasValue)
             {
-                query = query.Where(p => p.SellerId == searchModel.SellerId);
+                query = query.Where(p => p.VendorId == searchModel.VendorId);
             }
             if (searchModel.SectionId.HasValue)
             {
@@ -289,7 +289,7 @@ namespace DAL.STR.Add
                 No = p.No,
                 Total = p.Total,
                 Notes = p.Notes,
-                SellerId = p.SellerId,
+                VendorId = p.VendorId,
                 SourceStoreId = p.SourceStoreId,
                 StoreId = p.StoreId,
                 EmployeeId = p.EmployeeId,
@@ -299,7 +299,7 @@ namespace DAL.STR.Add
                 EmployeeName = p.Employee.Name,
                 fiscalyear = p.fiscalyear.fiscalyear,
                 TransactionUserId = p.CreatedBy.Id,
-                SellerName = p.Seller.Name,
+                VendorName = p.Vendor.Name,
                 SourceStoreName = p.SourceStore.Name,
                 ApprovalStatusId = p.ApprovalStatusId,
                 ApprovalStatusName = p.ApprovalStatus.Name,

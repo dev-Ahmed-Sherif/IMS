@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
+    [Index(nameof(Code), IsUnique = true)]
     public class ProTenderOpening : EntityBase
     {
-        public int SellerId { get; set; }
         public int StatusId { get; set; }
         [ForeignKey(nameof(StatusId))]
         public virtual ProTenderOpeningStatus Status { get; set; }
@@ -19,7 +20,9 @@ namespace Entities.Models.Pro
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
-        [ForeignKey(nameof(SellerId))]
-        public virtual ProSeller Seller { get; set; }
+        public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
+        public virtual ICollection<ProTenderOpeningDetails> TenderOpeningDetails { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

@@ -11,15 +11,12 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
     public class ProTenderCommitteeFilter
     {
         [AllowNull]
-        public int? RoleId { get; set; }
-        [AllowNull]
-        public bool? Close { get; set; }
-        [AllowNull, MaxLength(50)]
-        public string Notes { get; set; }
-        //Navigation Properties
-        [AllowNull]
-        public int? EmployeeId { get; set; }
-        [AllowNull]
         public int? TenderId { get; set; }
+        [AllowNull]
+        public bool? Result { get; set; }
+        [AllowNull]
+        public DateTime? Date { get; set; }
+        [AllowNull]
+        public string? Code { get; set; }
     }
 }

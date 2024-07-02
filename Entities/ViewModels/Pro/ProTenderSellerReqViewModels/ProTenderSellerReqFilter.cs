@@ -6,14 +6,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
+namespace Entities.ViewModels.Pro.ProTenderVendorReqViewModels
 {
-    public class ProTenderSellerReqFilter
+    public class ProTenderVendorReqFilter
     {
         [AllowNull]
         public int? TenderId { get; set; }
         [AllowNull]
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         [AllowNull]
         public DateTime? StartSendDate { get; set; }
         [AllowNull]

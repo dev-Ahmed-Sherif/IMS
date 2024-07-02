@@ -32,7 +32,7 @@ namespace Entities.Models.STR.Add
         public virtual PrUser UpdateBy { get; set; }
 
         //---------------------------------------------------------------------------//
-        // Relation Foregin Key { Store,AddType,AddReceipt,Seller,Employee,FiscalYear }
+        // Relation Foregin Key { Store,AddType,AddReceipt,Vendor,Employee,FiscalYear }
         //---------------------------------------------------------------------------//
         public int? SourceStoreId { get; set; }
         [ForeignKey("SourceStoreId")]
@@ -42,8 +42,8 @@ namespace Entities.Models.STR.Add
         public virtual StrStore STR_Store { get; set; }
         public int? withdrawId { get; set; }
         public virtual StrWithDraw withdraw { get; set; }
-        public int? SellerId { get; set; }
-        public virtual ProSeller Seller { get; set; }
+        public int? VendorId { get; set; }
+        public virtual ProVendor Vendor { get; set; }
         public int? EmployeeId { get; set; }
         public virtual HrEmployee Employee { get; set; }
         public int FiscalYearId { get; set; }

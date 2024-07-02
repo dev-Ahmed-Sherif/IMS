@@ -530,14 +530,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="SellerName">
+                    <Textbox Name="VendorName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!SellerName.Value</Value>
+                              <Value>=Fields!VendorName.Value</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -550,7 +550,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>SellerName</rd:DefaultName>
+                      <rd:DefaultName>VendorName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1584,8 +1584,8 @@
           <DataField>EmployeeName</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="SellerName">
-          <DataField>SellerName</DataField>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="SourceStoreName">

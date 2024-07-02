@@ -1,5 +1,4 @@
-﻿using DAL.Migrations;
-using DAL.STR.General;
+﻿using DAL.STR.General;
 using Entities.ExtensionMethods.STR.StoreOpen;
 using Entities.Models.STR.StoreOpen;
 using Entities.ViewModels.STR.General;

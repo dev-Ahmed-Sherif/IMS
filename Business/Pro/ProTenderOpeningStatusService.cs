@@ -1,7 +1,7 @@
 ﻿using DAL;
 using DAL.Pro;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProTenderSellerReqViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using Entities.ViewModels;
 using System.Linq;
 using Entities.ViewModels.Pro.ProTenderOpeningStatusViewModels;

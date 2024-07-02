@@ -21,6 +21,10 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.QuotationDetailsId == filter.QuotationDetailsId);
             }
+            if (filter.CommitteeId.HasValue)
+            {
+                result = result.Where(e => e.CommitteeId == filter.CommitteeId);
+            }
             if (filter.TechnicalPass.HasValue)
             {
                 result = result.Where(e => e.TechnicalPass == filter.TechnicalPass);

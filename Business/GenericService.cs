@@ -33,6 +33,11 @@ namespace Business
             _repository.Add(model);
             return await _unitOfWork.SaveChangesAsync();
         }
+        virtual public async Task<int> AddRange(IEnumerable<T> models)
+        {
+            _repository.AddRange(models);
+            return await _unitOfWork.SaveChangesAsync();
+        }
         virtual public async Task<int> Update(T model)
         {
             _repository.Update(model);

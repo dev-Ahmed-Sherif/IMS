@@ -33,7 +33,7 @@ namespace Entities.ViewModels.STR.AddDetails
             //add header Data
             public string HeaderStoreName { get; set; }
             public string HeaderSourceName { get; set; }
-            //public string HeaderSellerName { get; set; }
+            //public string HeaderVendorName { get; set; }
             //public string HeaderSourceStoreName { get; set; }
             public string HeaderEmployeeName { get; set; }
             public string HeaderCreateUserName { get; set; }

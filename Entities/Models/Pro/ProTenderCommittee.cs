@@ -1,4 +1,5 @@
 ﻿using Entities.Models.HR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,24 +10,19 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Pro
 {
-    public class ProTenderCommittee : EntityBase
+    [Index(nameof(Code), IsUnique = true)]
+    public class ProTenderCommittee : EntityBaseNotes
     {
-        [Required]
-        public int RoleId { get; set; }
-        [ForeignKey(nameof(RoleId))]
-        public virtual ProTenderCommitteeRole Role { get; set; }
-        [Required]
-        public bool Close { get; set; }
-        [MaxLength(50)]
-        public string Notes { get; set; }
         //Navigation Properties
-        [Required]
-        public int EmployeeId { get; set; }
-        [ForeignKey(nameof(EmployeeId))]
-        public virtual HrEmployee Employee { get; set; }
         [Required]
         public int TenderId { get; set; }
         [ForeignKey(nameof(TenderId))]
         public virtual ProTender Tender { get; set; }
+        //ترسية أو إعادة طرح
+        public bool Result { get; set; }
+        public virtual ICollection<ProTenderCommitteeMember> TenderCommitteeMembers { get; set; }
+        public virtual ICollection<ProTenderSelection> TenderSelection { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
     }
 }

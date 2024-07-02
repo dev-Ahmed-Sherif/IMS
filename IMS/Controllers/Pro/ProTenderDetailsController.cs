@@ -4,7 +4,7 @@ using Entities.ExtensionMethods;
 using Entities.Models.Pro;
 using Entities.ViewModels;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
-using Entities.ViewModels.Pro.ProTenderSellerReqSendTypeViewModels;
+using Entities.ViewModels.Pro.ProTenderVendorReqSendTypeViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -63,14 +63,14 @@ namespace IMS.Controllers.PR
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(ProTenderDetailsInputVM input)
+        public async Task<IActionResult> Update(int id, ProTenderDetailsInputVM input)
         {
 
-            ProTenderDetails model = await _proTenderDetailsService.GetById(input.Id);
+            ProTenderDetails model = await _proTenderDetailsService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderDetailsService.Update(model);

@@ -2,6 +2,7 @@
 using Entities.Models.PR;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models.Pro
 {
@@ -18,8 +19,13 @@ namespace Entities.Models.Pro
         public virtual HrCityState CityState { get; set; }
         public int OperationTypeId { get; set; }
         public virtual ProOperationType OperationType { get; set; }
-        public int TenderTypeId { get; set; }
-        public virtual ProTenderType TenderType { get; set; }
+        public int BiddingMethodId { get; set; }
+        [ForeignKey(nameof(BiddingMethodId))]
+        public virtual ProTenderBiddingMethod BiddingMethod { get; set; }
+
+        public int TypeId { get; set; }
+        [ForeignKey(nameof(TypeId))]
+        public virtual ProType Type { get; set; }
 
         public decimal Value { get; set; }
         public int PlanTypeId { get; set; }

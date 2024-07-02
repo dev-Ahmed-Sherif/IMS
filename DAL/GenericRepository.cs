@@ -18,10 +18,10 @@ namespace DAL
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<T>();
         }
-        public virtual EntityEntry<T> Add(T model)
+        public virtual void Add(T model)
         {
             model.Id = default;
-            return _dbSet.Add(model);
+            _dbSet.Add(model);
         }
         public virtual void SoftDelete(T model)
         {

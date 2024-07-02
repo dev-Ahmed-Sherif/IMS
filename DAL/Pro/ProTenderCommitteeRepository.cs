@@ -1,6 +1,7 @@
 ﻿using Entities.Models.Pro;
 using Entities.ViewModels.Pro.ProTenderCommitteeViewModels;
 using Entities.ViewModels.Pro.ProTenderDetailsViewModels;
+using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 
 namespace DAL.Pro
@@ -13,23 +14,22 @@ namespace DAL.Pro
         public IQueryable<ProTenderCommittee> Filter(ProTenderCommitteeFilter filter)
         {
             IQueryable<ProTenderCommittee> result = GetAll();
-            if (filter.Close.HasValue)
+            if (filter.Result.HasValue)
             {
-                result = result.Where(e => e.Close == filter.Close);
+                result = result.Where(e => e.Result == filter.Result);
             }
             if (filter.TenderId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);
             }
-            if (filter.EmployeeId.HasValue)
+            if (filter.Date.HasValue)
             {
-                result = result.Where(e => e.EmployeeId == filter.EmployeeId);
+                result = result.Where(e => e.Date.Date == filter.Date.Value.Date);
             }
-            if (filter.RoleId.HasValue)
+            if (!filter.Code.IsNullOrEmpty())
             {
-                result = result.Where(e => e.RoleId == filter.RoleId);
+                result = result.Where(e => e.Code.Equals(filter.Code, System.StringComparison.OrdinalIgnoreCase));
             }
-
             return result;
         }
     }

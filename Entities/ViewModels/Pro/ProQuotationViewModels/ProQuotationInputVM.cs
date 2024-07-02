@@ -15,7 +15,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         [Required]
         public int TenderId { get; set; }
         [Required]
-        public int SellerId { get; set; }
+        public int VendorId { get; set; }
         [Required]
         public DateTime ReceiveDate { get; set; }
         [Required]
@@ -25,5 +25,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         [MaxLength(150)]
         public string Notes { get; set; }
         public IFormFile? Attachment { get; set; }
+        [Required]
+        public string Code { get; set; }
     }
 }

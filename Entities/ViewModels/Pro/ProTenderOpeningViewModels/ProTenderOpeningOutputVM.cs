@@ -9,13 +9,13 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningViewModels
 {
     public class ProTenderOpeningOutputVM : BaseViewModel
     {
-        public int SellerId { get; set; }
-        public string SellerName { get; set; }
         public int StatusId { get; set; }
         public string StatusName { get; set; }
         public string Notes { get; set; }
         public int TenderId { get; set; }
         public string TenderName { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; }
 
     }
 }

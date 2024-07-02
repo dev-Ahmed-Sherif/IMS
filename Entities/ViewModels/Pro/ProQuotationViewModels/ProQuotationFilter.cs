@@ -16,7 +16,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         [AllowNull]
         public int? TenderId { get; set; }
         [AllowNull]
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         [AllowNull]
         public DateTime? StartReceiveDate { get; set; }
         [AllowNull]
@@ -27,5 +27,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         public DateTime? StartValidationDate { get; set; }
         [AllowNull]
         public DateTime? EndValidationDate { get; set; }
+        [AllowNull]
+        public string? Code { get; set; }
     }
 }

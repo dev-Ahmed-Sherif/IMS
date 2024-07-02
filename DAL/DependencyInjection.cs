@@ -184,17 +184,22 @@ namespace DAL
                                                              //Pro
             services.AddScoped<ProOperationTypeRepository>();//07/11
             services.AddScoped<ProPlanTypeRepository>();//07/11
-            services.AddScoped<ProTenderTypeRepository>();//07/11
-            services.AddScoped<ProSupplierTypeRepository>();//07/11
+            services.AddScoped<ProTenderBiddingMethodRepository>();//07/11
             services.AddScoped<ProTenderRepository>();//07/11
-            services.AddScoped<ProSellerRepository>();//07/11
+            services.AddScoped<ProVendorsTypesRepository>();//07/11
+            services.AddScoped<ProVendorTypeRepository>();//07/11
+            services.AddScoped<ProVendorRepository>();//07/11
+            services.AddScoped<ProVendorAttachmentRepository>();//07/11
             services.AddScoped<ProTenderDetailsRepository>();
             services.AddScoped<ProTenderCommitteeRepository>();
+            services.AddScoped<ProTenderCommitteeMemberRepository>();
             services.AddScoped<ProTenderCommitteeRoleRepository>();
             services.AddScoped<ProTenderOpeningRepository>();
+            services.AddScoped<ProTenderOpeningMemberRepository>();
             services.AddScoped<ProTenderOpeningStatusRepository>();
-            services.AddScoped<ProTenderSellerReqRepository>();
-            services.AddScoped<ProTenderSellerReqSendTypeRepository>();
+            services.AddScoped<ProTenderOpeningDetailsRepository>();
+            services.AddScoped<ProTenderVendorReqRepository>();
+            services.AddScoped<ProTenderVendorReqSendTypeRepository>();
             services.AddScoped<ProPurchaseOrderRepository>();
             services.AddScoped<ProPurchaseOrderDetailsRepository>();
             services.AddScoped<ProTenderSelectionRepository>();

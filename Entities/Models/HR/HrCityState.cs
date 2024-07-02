@@ -27,9 +27,8 @@ namespace Entities.Models.HR
         //--------------------------------
         public virtual ICollection<ProTender> ProTender { get; set; }
 
-        public virtual ICollection<ProSeller> ProSeller { get; set; }
         //navigation
-        public virtual ICollection<ProContractorTypes> ProContractorTypes { get; set; }
+        public virtual ICollection<ProVendorsTypes> ProVendorsTypes { get; set; }
 
 
     }

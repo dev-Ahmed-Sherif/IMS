@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.ViewModels.Pro.ProTenderSellerReqViewModels
+namespace Entities.ViewModels.Pro.ProTenderVendorReqViewModels
 {
-    public class ProTenderSellerReqInputVM : BaseViewModel
+    public class ProTenderVendorReqInputVM : BaseViewModel
     {
         [Required]
         public int TenderId { get; set; }
         [Required]
-        public int SellerId { get; set; }
+        public int VendorId { get; set; }
         [Required]
         public DateTime SendDate { get; set; }
         [Required]

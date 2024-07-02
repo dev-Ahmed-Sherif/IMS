@@ -63,14 +63,14 @@ namespace IMS.Controllers.Vl
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(VlTypeGeneralVM input)
+        public async Task<IActionResult> Update(int id, VlTypeGeneralVM input)
         {
 
-            VlType model = await _VlTypeService.GetById(input.Id);
+            VlType model = await _VlTypeService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlTypeService.Update(model);

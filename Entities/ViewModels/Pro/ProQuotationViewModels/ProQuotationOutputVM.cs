@@ -14,13 +14,14 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
     {
         public int TenderId { get; set; }
         public string TenderName { get; set; }
-        public int SellerId { get; set; }
-        public string SellerName { get; set; }
+        public int VendorId { get; set; }
+        public string VendorName { get; set; }
         public DateTime ReceiveDate { get; set; }
         public int ReceiveTypeId { get; set; }
-       public string ReceiveTypeName { get; set; }
+        public string ReceiveTypeName { get; set; }
         public DateTime ValidationDate { get; set; }
         public string Notes { get; set; }
         public string Attachment { get; set; }
+        public string Code { get; set; }
     }
 }

@@ -63,14 +63,14 @@ namespace IMS.Controllers.Vl
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(VlGarageGeneralVM input)
+        public async Task<IActionResult> Update(int id, VlGarageGeneralVM input)
         {
 
-            VlGarage model = await _VlGarageService.GetById(input.Id);
+            VlGarage model = await _VlGarageService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlGarageService.Update(model);

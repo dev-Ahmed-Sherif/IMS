@@ -17,7 +17,7 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         [AllowNull]
         public DateTime? EndDate { get; set; }
         [AllowNull]
-        public int? SellerId { get; set; }
+        public int? VendorId { get; set; }
         [AllowNull]
         public int? StoreId { get; set; }
     }

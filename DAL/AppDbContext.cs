@@ -160,9 +160,9 @@ namespace DAL
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<StrAdd>()
-                .HasOne(b => b.Seller)
+                .HasOne(b => b.Vendor)
                 .WithMany(ba => ba.STR_Add)
-                .HasForeignKey(bi => bi.SellerId)
+                .HasForeignKey(bi => bi.VendorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<StrAdd>()
@@ -380,9 +380,9 @@ namespace DAL
                 .HasQueryFilter(e => !e.IsDeleted);
             modelBuilder.Entity<ProTenderSelection>()
                 .HasQueryFilter(e => !e.IsDeleted);
-            modelBuilder.Entity<ProTenderSellerReq>()
+            modelBuilder.Entity<ProTenderVendorReq>()
                 .HasQueryFilter(e => !e.IsDeleted);
-            modelBuilder.Entity<ProTenderSellerReqSendType>()
+            modelBuilder.Entity<ProTenderVendorReqSendType>()
                 .HasQueryFilter(e => !e.IsDeleted);
 
             modelBuilder.Entity<ProTender>()
@@ -474,7 +474,6 @@ namespace DAL
         public DbSet<FiAccountBalance> FiAccountBalances { get; set; }
 
         //Procurement
-        public DbSet<ProSeller> ProSeller { get; set; }
         //Human resources
         public DbSet<HrEmployee> HrEmployee { get; set; }
         public DbSet<HrMillitryState> HrMillitryState { get; set; }
@@ -577,25 +576,28 @@ namespace DAL
                                                                      //pro
         public DbSet<ProOperationType> ProOperationType { get; set; }//06/11
         public DbSet<ProPlanType> ProPlantType { get; set; }//06/11
-        public DbSet<ProTenderType> ProTenderType { get; set; }//06/11
-        public DbSet<ProSupplierType> ProSupplierTypes { get; set; }//06/11
+        public DbSet<ProTenderBiddingMethod> ProTenderBiddingMethods { get; set; }//06/11
+        public DbSet<ProVendorType> ProVendorTypes { get; set; }//06/11
         public DbSet<ProTender> ProTender { get; set; }//07/11
                                                        //Procurement
-                                                       // public DbSet<ProSeller> ProSeller { get; set; }
-        public DbSet<ProSellerTypes> ProSellerTypes { get; set; }//08/11
-        public DbSet<ProContractorTypes> ProContractorTypes { get; set; }//08/11
-        public DbSet<ProContractor> ProContractor { get; set; }//08/11
+                                                       // public DbSet<ProVendor> ProVendor { get; set; }
+        public DbSet<ProVendorsTypes> ProVendorsTypes { get; set; }//08/11
+        public DbSet<ProVendor> ProVendors { get; set; }//08/11
         public DbSet<ProPurchaseOrder> ProPurchaseOrders { get; set; }
         public DbSet<ProPurchaseOrderDetails> ProPurchaseOrderDetails { get; set; }
         public DbSet<ProQuotation> ProQuotations { get; set; }
         public DbSet<ProQuotationDetails> ProQuotationDetails { get; set; }
         public DbSet<ProTenderCommittee> ProTenderCommittees { get; set; }
+        public DbSet<ProTenderCommitteeMember> ProTenderCommitteeMembers { get; set; }
         public DbSet<ProTenderCommitteeRole> ProTenderCommitteeRoles { get; set; }
         public DbSet<ProTenderDetails> ProTenderDetails { get; set; }
         public DbSet<ProTenderOpening> ProTenderOpenings { get; set; }
+        public DbSet<ProTenderOpeningMember> ProTenderOpeningMembers { get; set; }
+        public DbSet<ProTenderOpeningDetails> ProTenderOpeningDetails { get; set; }
         public DbSet<ProTenderOpeningStatus> ProTenderOpeningStatuses { get; set; }
         public DbSet<ProTenderSelection> ProTenderSelections { get; set; }
-        public DbSet<ProTenderSellerReq> ProTenderSellerReqs { get; set; }
+        public DbSet<ProTenderVendorReq> ProTenderVendorReqs { get; set; }
+        public DbSet<ProType> ProTypes { get; set; }
 
         public DbSet<ImsSection> ImsSection { get; set; }
         public DbSet<Report> Reports { get; set; }
