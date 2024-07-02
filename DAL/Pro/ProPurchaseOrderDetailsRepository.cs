@@ -23,7 +23,7 @@ namespace DAL.Pro
             }
             if (filter.TenderDetailsId.HasValue)
             {
-                result = result.Where(e => e.TenderDetailsId == filter.TenderDetailsId);
+                result = result.Where(e => e.QuotationDetails.TenderDetailsId == filter.TenderDetailsId);
             }
             if (filter.QuotationDetailsId.HasValue)
             {

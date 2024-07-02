@@ -11,7 +11,6 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderDetailsViewModels
     {
 
         public int PurchaseOrderId { get; set; }
-
         public int TenderDetailsId { get; set; }
         public string TenderDetailsName { get; set; }
         public int QuotationDetailsId { get; set; }

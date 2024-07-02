@@ -14,8 +14,6 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderDetailsViewModels
         [Required]
         public int PurchaseOrderId { get; set; }
         [Required]
-        public int TenderDetailsId { get; set; }
-        [Required]
         public int QuotationDetailsId { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }

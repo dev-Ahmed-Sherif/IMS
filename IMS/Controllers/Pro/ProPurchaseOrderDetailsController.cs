@@ -42,7 +42,7 @@ namespace IMS.Controllers.Pro
             IQueryable<ProPurchaseOrderDetails> items = _ProPurchaseOrderDetailsService.GetFiltered(filter);
             IQueryable<ProPurchaseOrderDetailsOutputVM> result =
                 _mapper.ProjectTo<ProPurchaseOrderDetailsOutputVM>(items);
-
+            string query = result.ToQueryString();
             PaginatedResult<ProPurchaseOrderDetailsOutputVM> mappedResult = new()
             {
                 Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),

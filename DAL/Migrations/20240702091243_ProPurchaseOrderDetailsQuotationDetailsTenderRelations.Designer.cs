@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240702091243_ProPurchaseOrderDetailsQuotationDetailsTenderRelations")]
+    partial class ProPurchaseOrderDetailsQuotationDetailsTenderRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4312,8 +4315,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("PurchaseOrderId");
 
-                    b.HasIndex("QuotationDetailsId")
-                        .IsUnique();
+                    b.HasIndex("QuotationDetailsId");
 
                     b.ToTable("ProPurchaseOrderDetails");
                 });
@@ -4413,9 +4415,6 @@ namespace DAL.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("PurchaseOrderDetailsId")
-                        .HasColumnType("int");
 
                     b.Property<int>("QuotationId")
                         .HasColumnType("int");
@@ -4786,10 +4785,16 @@ namespace DAL.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("PurchaseOrderDetailsId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Qty")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TenderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TenderOpeningId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Total")
@@ -4800,7 +4805,11 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PurchaseOrderDetailsId");
+
                     b.HasIndex("TenderId");
+
+                    b.HasIndex("TenderOpeningId");
 
                     b.ToTable("ProTenderDetails");
                 });
@@ -11470,8 +11479,8 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Models.Pro.ProQuotationDetails", "QuotationDetails")
-                        .WithOne("PurchaseOrderDetails")
-                        .HasForeignKey("Entities.Models.Pro.ProPurchaseOrderDetails", "QuotationDetailsId")
+                        .WithMany()
+                        .HasForeignKey("QuotationDetailsId")
                         .IsRequired();
 
                     b.Navigation("PurchaseOrder");
@@ -11624,12 +11633,24 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderDetails", b =>
                 {
+                    b.HasOne("Entities.Models.Pro.ProPurchaseOrderDetails", "PurchaseOrderDetails")
+                        .WithMany()
+                        .HasForeignKey("PurchaseOrderDetailsId");
+
                     b.HasOne("Entities.Models.Pro.ProTender", "Tender")
                         .WithMany()
                         .HasForeignKey("TenderId")
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Pro.ProTenderOpening", "TenderOpening")
+                        .WithMany()
+                        .HasForeignKey("TenderOpeningId");
+
+                    b.Navigation("PurchaseOrderDetails");
+
                     b.Navigation("Tender");
+
+                    b.Navigation("TenderOpening");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderOpening", b =>
@@ -14083,11 +14104,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Models.Pro.ProPurchaseOrder", b =>
                 {
                     b.Navigation("Details");
-                });
-
-            modelBuilder.Entity("Entities.Models.Pro.ProQuotationDetails", b =>
-                {
-                    b.Navigation("PurchaseOrderDetails");
                 });
 
             modelBuilder.Entity("Entities.Models.Pro.ProTenderBiddingMethod", b =>
