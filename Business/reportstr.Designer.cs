@@ -20517,7 +20517,7 @@ namespace Business {
             
             private global::System.Data.DataColumn columnStale;
             
-            private global::System.Data.DataColumn columnNet;
+            private global::System.Data.DataColumn columnOpeningValue;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -20594,9 +20594,9 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NetColumn {
+            public global::System.Data.DataColumn OpeningValueColumn {
                 get {
-                    return this.columnNet;
+                    return this.columnOpeningValue;
                 }
             }
             
@@ -20637,7 +20637,7 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VW_ACC_Balance_Part1Row AddVW_ACC_Balance_Part1Row(string Num, string Code, string Name, string NetBasedOnDebit, string Stale, string Net) {
+            public VW_ACC_Balance_Part1Row AddVW_ACC_Balance_Part1Row(string Num, string Code, string Name, string NetBasedOnDebit, string Stale, string OpeningValue) {
                 VW_ACC_Balance_Part1Row rowVW_ACC_Balance_Part1Row = ((VW_ACC_Balance_Part1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Num,
@@ -20645,7 +20645,7 @@ namespace Business {
                         Name,
                         NetBasedOnDebit,
                         Stale,
-                        Net};
+                        OpeningValue};
                 rowVW_ACC_Balance_Part1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_ACC_Balance_Part1Row);
                 return rowVW_ACC_Balance_Part1Row;
@@ -20673,7 +20673,7 @@ namespace Business {
                 this.columnName = base.Columns["Name"];
                 this.columnNetBasedOnDebit = base.Columns["NetBasedOnDebit"];
                 this.columnStale = base.Columns["Stale"];
-                this.columnNet = base.Columns["Net"];
+                this.columnOpeningValue = base.Columns["OpeningValue"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20689,8 +20689,8 @@ namespace Business {
                 base.Columns.Add(this.columnNetBasedOnDebit);
                 this.columnStale = new global::System.Data.DataColumn("Stale", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStale);
-                this.columnNet = new global::System.Data.DataColumn("Net", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNet);
+                this.columnOpeningValue = new global::System.Data.DataColumn("OpeningValue", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOpeningValue);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -39729,17 +39729,17 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Net {
+            public string OpeningValue {
                 get {
                     try {
-                        return ((string)(this[this.tableVW_ACC_Balance_Part1.NetColumn]));
+                        return ((string)(this[this.tableVW_ACC_Balance_Part1.OpeningValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Net\' in table \'VW_ACC_Balance_Part1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'OpeningValue\' in table \'VW_ACC_Balance_Part1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVW_ACC_Balance_Part1.NetColumn] = value;
+                    this[this.tableVW_ACC_Balance_Part1.OpeningValueColumn] = value;
                 }
             }
             
@@ -39805,14 +39805,14 @@ namespace Business {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNetNull() {
-                return this.IsNull(this.tableVW_ACC_Balance_Part1.NetColumn);
+            public bool IsOpeningValueNull() {
+                return this.IsNull(this.tableVW_ACC_Balance_Part1.OpeningValueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNetNull() {
-                this[this.tableVW_ACC_Balance_Part1.NetColumn] = global::System.Convert.DBNull;
+            public void SetOpeningValueNull() {
+                this[this.tableVW_ACC_Balance_Part1.OpeningValueColumn] = global::System.Convert.DBNull;
             }
         }
         

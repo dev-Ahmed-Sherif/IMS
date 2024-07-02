@@ -14,5 +14,6 @@ namespace Entities.ReportViewModels
         public decimal NetBasedOnDebit { get; set; }
         public decimal Stale { get; set; }
         public decimal Net { get; set; }
+        public decimal OpeningValue { get; set; }
     }
 }
