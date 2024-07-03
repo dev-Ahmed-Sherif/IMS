@@ -30,9 +30,9 @@ namespace IMS.Controllers.Pro
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProPurchaseOrderOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProPurchaseOrder model = await _ProPurchaseOrderService.GetById(id);
+            ProPurchaseOrder model = _ProPurchaseOrderService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProPurchaseOrderOutputVM>(model));
         }
@@ -69,7 +69,7 @@ namespace IMS.Controllers.Pro
         public async Task<IActionResult> Update(int id, [FromForm] ProPurchaseOrderInputVM input)
         {
 
-            ProPurchaseOrder model = await _ProPurchaseOrderService.GetById(id);
+            ProPurchaseOrder model = _ProPurchaseOrderService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProPurchaseOrderService.Update(model);
@@ -82,7 +82,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProPurchaseOrder model = await _ProPurchaseOrderService.GetById(id);
+            ProPurchaseOrder model = _ProPurchaseOrderService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _ProPurchaseOrderService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

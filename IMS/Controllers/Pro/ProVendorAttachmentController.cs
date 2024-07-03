@@ -34,9 +34,9 @@ namespace IMS.Controllers.PR
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProVendorAttachmentOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProVendorAttachment model = await _ProVendorAttachmentService.GetById(id);
+            ProVendorAttachment model = _ProVendorAttachmentService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProVendorAttachmentOutputVM>(model));
         }
@@ -66,7 +66,7 @@ namespace IMS.Controllers.PR
         public async Task<IActionResult> Update(int id, [FromForm] ProVendorAttachmentInputVM input)
         {
 
-            ProVendorAttachment model = await _ProVendorAttachmentService.GetById(id);
+            ProVendorAttachment model = _ProVendorAttachmentService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProVendorAttachmentService.Update(model);
@@ -79,7 +79,7 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProVendorAttachment model = await _ProVendorAttachmentService.GetById(id);
+            ProVendorAttachment model = _ProVendorAttachmentService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _ProVendorAttachmentService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

@@ -29,9 +29,9 @@ namespace IMS.Controllers.Pro
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProQuotationReceiveTypeGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProQuotationReceiveType model = await _ProQuotationReceiveTypeService.GetById(id);
+            ProQuotationReceiveType model = _ProQuotationReceiveTypeService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProQuotationReceiveTypeGeneralVM>(model));
         }
@@ -68,7 +68,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(int id, ProQuotationReceiveTypeGeneralVM input)
         {
-            ProQuotationReceiveType model = await _ProQuotationReceiveTypeService.GetById(id);
+            ProQuotationReceiveType model = _ProQuotationReceiveTypeService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProQuotationReceiveTypeService.Update(model);
@@ -81,7 +81,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProQuotationReceiveType model = await _ProQuotationReceiveTypeService.GetById(id);
+            ProQuotationReceiveType model = _ProQuotationReceiveTypeService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _ProQuotationReceiveTypeService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

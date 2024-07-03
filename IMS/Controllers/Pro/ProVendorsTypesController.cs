@@ -29,9 +29,9 @@ namespace IMS.Controllers.Pro
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProVendorsTypesGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProVendorsTypes model = await _ProVendorsTypesService.GetById(id);
+            ProVendorsTypes model = _ProVendorsTypesService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProVendorsTypesGeneralVM>(model));
         }
@@ -39,7 +39,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProVendorsTypesGeneralVM>), StatusCodes.Status200OK)]
         public IActionResult Get()
         {
-            List<ProVendorsTypes> items = _ProVendorsTypesService.GetAll().ToList();
+            IEnumerable<ProVendorsTypes> items = _ProVendorsTypesService.GetAll();
             return Ok(items);
         }
         [HttpPost]
@@ -69,7 +69,7 @@ namespace IMS.Controllers.Pro
         public async Task<IActionResult> Update(ProVendorsTypesVM input)
         {
 
-            ProVendorsTypes model = await _ProVendorsTypesService.GetById(input.Id);
+            ProVendorsTypes model = _ProVendorsTypesService.GetById(input.Id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProVendorsTypesService.Update(model);
@@ -82,7 +82,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProVendorsTypes model = await _ProVendorsTypesService.GetById(id);
+            ProVendorsTypes model = _ProVendorsTypesService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _ProVendorsTypesService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

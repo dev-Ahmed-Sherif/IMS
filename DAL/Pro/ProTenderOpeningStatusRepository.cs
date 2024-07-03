@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderOpeningStatus> Filter(ProTenderOpeningStatusFilter filter)
         {
-            IQueryable<ProTenderOpeningStatus> result = GetAll();
+            IQueryable<ProTenderOpeningStatus> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name));

@@ -17,7 +17,7 @@ namespace DAL.VL
         }
         public IQueryable<VlModel> Filter(VlModelFilter filter)
         {
-            IQueryable<VlModel> result = GetAll();
+            IQueryable<VlModel> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

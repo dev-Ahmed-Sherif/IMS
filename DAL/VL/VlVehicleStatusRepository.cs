@@ -15,7 +15,7 @@ namespace DAL.VL
         }
         public IQueryable<VlVehicleStatus> Filter(VlVehicleStatusFilter filter)
         {
-            IQueryable<VlVehicleStatus> result = GetAll();
+            IQueryable<VlVehicleStatus> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

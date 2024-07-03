@@ -29,9 +29,9 @@ namespace IMS.Controllers.Pro
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProTenderCommitteeRoleGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProTenderCommitteeRole model = await _proTenderCommitteeRoleService.GetById(id);
+            ProTenderCommitteeRole model = _proTenderCommitteeRoleService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProTenderCommitteeRoleGeneralVM>(model));
         }
@@ -69,7 +69,7 @@ namespace IMS.Controllers.Pro
         public async Task<IActionResult> Update(int id, ProTenderCommitteeRoleGeneralVM input)
         {
 
-            ProTenderCommitteeRole model = await _proTenderCommitteeRoleService.GetById(id);
+            ProTenderCommitteeRole model = _proTenderCommitteeRoleService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderCommitteeRoleService.Update(model);
@@ -82,7 +82,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProTenderCommitteeRole model = await _proTenderCommitteeRoleService.GetById(id);
+            ProTenderCommitteeRole model = _proTenderCommitteeRoleService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _proTenderCommitteeRoleService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

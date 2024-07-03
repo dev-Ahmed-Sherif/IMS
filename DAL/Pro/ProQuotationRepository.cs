@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProQuotation> Filter(ProQuotationFilter filter)
         {
-            IQueryable<ProQuotation> result = GetAll();
+            IQueryable<ProQuotation> result = _dbSet;
             if (filter.TenderId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);

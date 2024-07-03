@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderVendorReqSendType> Filter(ProTenderVendorReqSendTypeFilter filter)
         {
-            IQueryable<ProTenderVendorReqSendType> result = GetAll();
+            IQueryable<ProTenderVendorReqSendType> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name));

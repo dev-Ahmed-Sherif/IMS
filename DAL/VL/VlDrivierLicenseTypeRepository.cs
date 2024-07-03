@@ -15,7 +15,7 @@ namespace DAL.VL
         }
         public IQueryable<VlDrivierLicenseType> Filter(VlDrivierLicenseTypeFilter filter)
         {
-            IQueryable<VlDrivierLicenseType> result = GetAll();
+            IQueryable<VlDrivierLicenseType> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

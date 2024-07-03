@@ -32,7 +32,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            VlGarage model = await _VlGarageService.GetById(id);
+            VlGarage model = _VlGarageService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<VlGarageGeneralVM>(model));
         }
@@ -70,7 +70,7 @@ namespace IMS.Controllers.Vl
         public async Task<IActionResult> Update(int id, VlGarageGeneralVM input)
         {
 
-            VlGarage model = await _VlGarageService.GetById(id);
+            VlGarage model = _VlGarageService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlGarageService.Update(model);
@@ -83,7 +83,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            VlGarage model = await _VlGarageService.GetById(id);
+            VlGarage model = _VlGarageService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _VlGarageService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

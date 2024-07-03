@@ -31,7 +31,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            ProQuotation model = await _ProQuotationService.GetById(id);
+            ProQuotation model = _ProQuotationService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProQuotationOutputVM>(model));
         }
@@ -68,7 +68,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(int id, [FromForm] ProQuotationInputVM input)
         {
-            ProQuotation model = await _ProQuotationService.GetById(id);
+            ProQuotation model = _ProQuotationService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _ProQuotationService.Update(model);
@@ -81,7 +81,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProQuotation model = await _ProQuotationService.GetById(id);
+            ProQuotation model = _ProQuotationService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _ProQuotationService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

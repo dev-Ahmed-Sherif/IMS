@@ -32,7 +32,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            VlStaffStatus model = await _VlStaffStatuseService.GetById(id);
+            VlStaffStatus model = _VlStaffStatuseService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<VlStaffStatusGeneralVM>(model));
         }
@@ -70,7 +70,7 @@ namespace IMS.Controllers.Vl
         public async Task<IActionResult> Update(int id, VlStaffStatusGeneralVM input)
         {
 
-            VlStaffStatus model = await _VlStaffStatuseService.GetById(id);
+            VlStaffStatus model = _VlStaffStatuseService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlStaffStatuseService.Update(model);
@@ -83,7 +83,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            VlStaffStatus model = await _VlStaffStatuseService.GetById(id);
+            VlStaffStatus model = _VlStaffStatuseService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _VlStaffStatuseService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

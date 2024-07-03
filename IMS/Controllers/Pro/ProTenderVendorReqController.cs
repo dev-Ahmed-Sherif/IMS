@@ -28,9 +28,9 @@ namespace IMS.Controllers.Pro
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProTenderVendorReqOutputVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            ProTenderVendorReq model = await _proTenderVendorReqService.GetById(id);
+            ProTenderVendorReq model = _proTenderVendorReqService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<ProTenderVendorReqOutputVM>(model));
         }
@@ -66,7 +66,7 @@ namespace IMS.Controllers.Pro
         public async Task<IActionResult> Update(int id, ProTenderVendorReqInputVM input)
         {
 
-            ProTenderVendorReq model = await _proTenderVendorReqService.GetById(id);
+            ProTenderVendorReq model = _proTenderVendorReqService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _proTenderVendorReqService.Update(model);
@@ -79,7 +79,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            ProTenderVendorReq model = await _proTenderVendorReqService.GetById(id);
+            ProTenderVendorReq model = _proTenderVendorReqService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _proTenderVendorReqService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

@@ -12,7 +12,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderSelection> Filter(ProTenderSelectionFilter filter)
         {
-            IQueryable<ProTenderSelection> result = GetAll();
+            IQueryable<ProTenderSelection> result = _dbSet;
             if (filter.TenderDetailsId.HasValue)
             {
                 result = result.Where(e => e.TenderDetailsId == filter.TenderDetailsId);

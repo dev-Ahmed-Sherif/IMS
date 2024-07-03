@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProPurchaseOrderDetails> Filter(ProPurchaseOrderDetailsFilter filter)
         {
-            IQueryable<ProPurchaseOrderDetails> result = GetAll();
+            IQueryable<ProPurchaseOrderDetails> result = _dbSet;
             if (filter.PurchaseOrderId.HasValue)
             {
                 result = result.Where(e => e.PurchaseOrderId == filter.PurchaseOrderId);

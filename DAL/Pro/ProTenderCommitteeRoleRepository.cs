@@ -13,7 +13,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderCommitteeRole> Filter(ProTenderCommitteeRoleFilter filter)
         {
-            IQueryable<ProTenderCommitteeRole> result = GetAll();
+            IQueryable<ProTenderCommitteeRole> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name));

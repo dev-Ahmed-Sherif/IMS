@@ -15,7 +15,7 @@ namespace DAL.VL
         }
         public IQueryable<VlItinerary> Filter(VlItineraryFilter filter)
         {
-            IQueryable<VlItinerary> result = GetAll();
+            IQueryable<VlItinerary> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

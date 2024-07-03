@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProQuotationReceiveType> Filter(ProQuotationReceiveTypeFilter filter)
         {
-            IQueryable<ProQuotationReceiveType> result = GetAll();
+            IQueryable<ProQuotationReceiveType> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name));

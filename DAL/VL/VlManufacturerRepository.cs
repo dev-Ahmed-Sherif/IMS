@@ -18,7 +18,7 @@ namespace DAL.VL
         }
         public IQueryable<VlManufacturer> Filter(VlManufacturerFilter filter)
         {
-            IQueryable<VlManufacturer> result = GetAll();
+            IQueryable<VlManufacturer> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

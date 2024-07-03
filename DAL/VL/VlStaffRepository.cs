@@ -16,7 +16,7 @@ namespace DAL.VL
         }
         public IQueryable<VlStaff> Filter(VlStaffFilter filter)
         {
-            IQueryable<VlStaff> result = GetAll();
+            IQueryable<VlStaff> result = _dbSet;
             if (filter.EmployeeId.HasValue)
             {
                 result = result.Where(e => e.EmployeeId == filter.EmployeeId);

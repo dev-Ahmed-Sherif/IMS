@@ -15,7 +15,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProVendorAttachment> Filter(ProVendorAttachmentFilter filter)
         {
-            IQueryable<ProVendorAttachment> result = GetAll();
+            IQueryable<ProVendorAttachment> result = _dbSet;
 
             if (filter.VendorId.HasValue)
             {

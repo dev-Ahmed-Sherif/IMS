@@ -13,7 +13,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderCommitteeMember> Filter(ProTenderCommitteeMemberFilter filter)
         {
-            IQueryable<ProTenderCommitteeMember> result = GetAll();
+            IQueryable<ProTenderCommitteeMember> result = _dbSet;
             if (filter.TenderCommitteeId.HasValue)
             {
                 result = result.Where(e => e.TenderCommitteeId == filter.TenderCommitteeId);

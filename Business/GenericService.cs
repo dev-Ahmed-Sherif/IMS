@@ -48,15 +48,11 @@ namespace Business
             _repository.SoftDelete(model);
             return await _unitOfWork.SaveChangesAsync();
         }
-        virtual public async Task<T> GetById(int id)
+        virtual public T? GetById(int id)
         {
-            return await _repository.GetById(id);
+            return _repository.GetById(id);
         }
-        virtual public IQueryable<T> GetPaginated(PaginationInputViewModel pagination)
-        {
-            return _repository.GetAll().ToPaginatedResultUnMapped(pagination);
-        }
-        virtual public IQueryable<T> GetAll()
+        virtual public IEnumerable<T> GetAll()
         {
             return _repository.GetAll();
         }

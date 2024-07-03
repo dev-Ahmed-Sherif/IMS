@@ -17,7 +17,7 @@ namespace DAL.VL
         }
         public IQueryable<VlGarage> Filter(VlGarageFilter filter)
         {
-            IQueryable<VlGarage> result = GetAll();
+            IQueryable<VlGarage> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

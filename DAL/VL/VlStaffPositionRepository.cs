@@ -16,7 +16,7 @@ namespace DAL.VL
     }
     public IQueryable<VlStaffPosition>Filter(VlStaffPositionFilter filter)
     {
-        IQueryable<VlStaffPosition> result = GetAll();
+        IQueryable<VlStaffPosition> result = _dbSet;
         if (!string.IsNullOrEmpty(filter.Name))
         {
             result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

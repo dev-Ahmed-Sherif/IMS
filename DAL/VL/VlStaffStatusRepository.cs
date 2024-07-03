@@ -16,7 +16,7 @@ namespace DAL.VL
         }
         public IQueryable<VlStaffStatus> Filter(VlStaffStatusFilter filter)
         {
-            IQueryable<VlStaffStatus> result = GetAll();
+            IQueryable<VlStaffStatus> result = _dbSet;
             if (!string.IsNullOrEmpty(filter.Name))
             {
                 result = result.Where(e => e.Name.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));

@@ -28,9 +28,9 @@ namespace IMS.Controllers.Vl
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(VlItineraryGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            VlItinerary model = await _VlItineraryService.GetById(id);
+            VlItinerary model = _VlItineraryService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<VlItineraryGeneralVM>(model));
         }
@@ -68,7 +68,7 @@ namespace IMS.Controllers.Vl
         public async Task<IActionResult> Update(int id, VlItineraryGeneralVM input)
         {
 
-            VlItinerary model = await _VlItineraryService.GetById(id);
+            VlItinerary model = _VlItineraryService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlItineraryService.Update(model);
@@ -81,7 +81,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            VlItinerary model = await _VlItineraryService.GetById(id);
+            VlItinerary model = _VlItineraryService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _VlItineraryService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

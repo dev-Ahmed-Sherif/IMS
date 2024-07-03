@@ -15,7 +15,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderDetails> Filter(ProTenderDetailsFilter filter)
         {
-            IQueryable<ProTenderDetails> result = GetAll();
+            IQueryable<ProTenderDetails> result = _dbSet;
             if (filter.TenderId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.TenderId);

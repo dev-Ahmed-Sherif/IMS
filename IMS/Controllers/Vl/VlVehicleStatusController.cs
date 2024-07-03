@@ -28,9 +28,9 @@ namespace IMS.Controllers.Vl
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(VlVehicleStatusGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            VlVehicleStatus model = await _VlVehicleStatusService.GetById(id);
+            VlVehicleStatus model = _VlVehicleStatusService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<VlVehicleStatusGeneralVM>(model));
         }
@@ -68,7 +68,7 @@ namespace IMS.Controllers.Vl
         public async Task<IActionResult> Update(int id, VlVehicleStatusGeneralVM input)
         {
 
-            VlVehicleStatus model = await _VlVehicleStatusService.GetById(id);
+            VlVehicleStatus model = _VlVehicleStatusService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
             int rowsAffected = await _VlVehicleStatusService.Update(model);
@@ -81,7 +81,7 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            VlVehicleStatus model = await _VlVehicleStatusService.GetById(id);
+            VlVehicleStatus model = _VlVehicleStatusService.GetById(id);
             if (model == null) return NotFound();
             int rowsAffected = await _VlVehicleStatusService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);

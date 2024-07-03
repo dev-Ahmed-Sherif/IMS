@@ -1,11 +1,7 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -50,16 +46,16 @@ namespace DAL
         {
             _dbSet.AddRange(modelsList);
         }
-        public virtual IQueryable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             IQueryable<T> result =
                 _dbSet
                 .OrderByDescending(e => e.CreationDate);
-            return result;
+            return result.ToList();
         }
-        public virtual async Task<T?> GetById(int id)
+        public virtual T? GetById(int id)
         {
-            return await _dbSet.FindAsync(id);
+            return _dbSet.FirstOrDefault(e => e.Id == id);
         }
 
     }

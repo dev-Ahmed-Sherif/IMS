@@ -16,7 +16,7 @@ namespace DAL.Pro
         }
         public IQueryable<ProTenderOpening> Filter(ProTenderOpeningFilter filter)
         {
-            IQueryable<ProTenderOpening> result = GetAll();
+            IQueryable<ProTenderOpening> result = _dbSet;
             if (filter.QuotationId.HasValue)
             {
                 result = result.Where(e => e.TenderId == filter.QuotationId);
