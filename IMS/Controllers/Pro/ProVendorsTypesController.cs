@@ -37,7 +37,7 @@ namespace IMS.Controllers.Pro
         }
         [HttpGet]
         [ProducesResponseType(typeof(PaginatedResult<ProVendorsTypesGeneralVM>), StatusCodes.Status200OK)]
-        public IActionResult Get([FromQuery] PaginationInputViewModel pagination)
+        public IActionResult Get()
         {
             List<ProVendorsTypes> items = _ProVendorsTypesService.GetAll().ToList();
             return Ok(items);

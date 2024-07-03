@@ -42,7 +42,7 @@ namespace IMS.Controllers.PR
         }
         [HttpGet]
         [ProducesResponseType(typeof(List<ProVendorAttachmentOutputVM>), StatusCodes.Status200OK)]
-        public IActionResult Get(ProVendorAttachmentFilter filter)
+        public IActionResult Get([FromQuery] ProVendorAttachmentFilter filter)
         {
             IQueryable<ProVendorAttachment> items = _ProVendorAttachmentService.GetFiltered(filter);
             List<ProVendorAttachmentOutputVM> result = _mapper.ProjectTo<ProVendorAttachmentOutputVM>(items).ToList();
