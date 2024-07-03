@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Business.Pro;
-using Entities.Models.Pro;
 using Entities.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +8,6 @@ using Business.Vl;
 using Entities.ViewModels.VL.VlStaff;
 using Entities.Models.VL;
 using Entities.ExtensionMethods;
-using System.Data.Entity;
 
 namespace IMS.Controllers.Vl
 {
@@ -47,10 +44,10 @@ namespace IMS.Controllers.Vl
 
             PaginatedResult<VlStaffOutputVM> mappedResult = new()
             {
-                Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
+                Items = result.ToPaginatedResultUnMapped(pagination).ToList(),
                 Page = pagination.Index,
                 PageSize = pagination.Size,
-                TotalItems = await result.CountAsync(),
+                TotalItems = result.Count(),
             };
             return Ok(mappedResult);
         }

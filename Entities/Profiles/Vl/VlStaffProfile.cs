@@ -18,7 +18,7 @@ namespace Entities.Profiles.Vl
         {
             CreateMap<VlStaff, VlStaffInputVM>().ReverseMap();
          
-            CreateMap<VlStaff, VlStaffOutputVM>();
+            CreateMap<VlStaff, VlStaffOutputVM>().ReverseMap();
         }
     }
 }

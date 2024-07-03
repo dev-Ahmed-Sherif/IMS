@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.VL.VlItineraryViewModels
 {
-    public class VlItineraryGeneralVM
+    public class VlItineraryGeneralVM :BaseViewModel
     {
         [StringLength(50)]
         public string Name { get; set; }

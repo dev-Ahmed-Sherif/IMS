@@ -2,7 +2,7 @@
 using DAL.Pro;
 using DAL;
 using Entities.Models.Pro;
-using Entities.ViewModels.Pro.ProQuotationDetailsViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
