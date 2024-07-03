@@ -38,7 +38,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProTenderOpeningMemberOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderOpeningMemberFilter filter)
         {
-            IQueryable<ProTenderOpeningMember> items = _ProTenderOpeningMemberService.GetPaginated(pagination);
+            IQueryable<ProTenderOpeningMember> items = _ProTenderOpeningMemberService.GetFiltered(filter);
             IQueryable<ProTenderOpeningMemberOutputVM> result =
                 _mapper.ProjectTo<ProTenderOpeningMemberOutputVM>(items);
 

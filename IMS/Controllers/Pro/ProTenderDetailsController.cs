@@ -40,7 +40,7 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(typeof(PaginatedResult<ProTenderDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProTenderDetailsFilter filter)
         {
-            IQueryable<ProTenderDetails> items = _proTenderDetailsService.GetFiltered(filter); ;
+            IQueryable<ProTenderDetails> items = _proTenderDetailsService.GetFiltered(filter);
             IQueryable<ProTenderDetailsOutputVM> result =
                 _mapper.ProjectTo<ProTenderDetailsOutputVM>(items);
 
