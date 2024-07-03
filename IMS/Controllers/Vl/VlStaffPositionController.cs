@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Entities.ViewModels.VL.VlStaffPosition;
 using Entities.ExtensionMethods;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace IMS.Controllers.Vl
 {

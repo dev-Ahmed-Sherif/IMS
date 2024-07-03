@@ -14,7 +14,7 @@ namespace Entities.Profiles.Vl
     {
         public VlStaffStatusProfile()
         {
-            CreateMap<VlModel, VlStaffStatusGeneralVM>().ReverseMap();
+            CreateMap<VlStaffStatus, VlStaffStatusGeneralVM>().ReverseMap();
         }
 
     }

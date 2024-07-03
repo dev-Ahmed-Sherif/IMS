@@ -8,6 +8,7 @@ using Business.Vl;
 using Entities.ViewModels.VL.VlStaff;
 using Entities.Models.VL;
 using Entities.ExtensionMethods;
+using Microsoft.EntityFrameworkCore;
 
 namespace IMS.Controllers.Vl
 {
@@ -44,10 +45,10 @@ namespace IMS.Controllers.Vl
 
             PaginatedResult<VlStaffOutputVM> mappedResult = new()
             {
-                Items = result.ToPaginatedResultUnMapped(pagination).ToList(),
+                Items =await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
                 Page = pagination.Index,
                 PageSize = pagination.Size,
-                TotalItems = result.Count(),
+                TotalItems =await result.CountAsync(),
             };
             return Ok(mappedResult);
         }

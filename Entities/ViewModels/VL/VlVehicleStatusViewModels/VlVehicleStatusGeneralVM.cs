@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.VL.VlVehicleStatusViewModels
 {
-    public class VlVehicleStatusGeneralVM
+    public class VlVehicleStatusGeneralVM:BaseViewModel
     {
         [StringLength(50)]
         public string Name { get; set; }
