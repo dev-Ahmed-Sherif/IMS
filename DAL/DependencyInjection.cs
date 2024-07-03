@@ -217,7 +217,9 @@ namespace DAL
             services.AddScoped<VlStaffRepository>();
             services.AddScoped<VlStaffStatusRepository>();
             services.AddScoped<VlStaffPositionRepository>();
-          
+            services.AddScoped<VlDrivierLicenseTypeRepository>();
+            services.AddScoped<VlVehicleStatusRepository>();
+            services.AddScoped<VlItineraryRepository>();
             #endregion
             return services;
         }
