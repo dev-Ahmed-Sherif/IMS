@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.VL.VlStaff
 {
-    public class VlStaffGeneral:BaseViewModel
+    public class VlStaffInputVM:BaseViewModel
     {
         public int PositionId { get; set; }
         public int StatusId { get; set; }

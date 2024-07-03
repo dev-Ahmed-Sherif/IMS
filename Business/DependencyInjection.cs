@@ -212,7 +212,7 @@ namespace Business
             services.AddScoped<ProTenderCommitteeRoleService>();
             services.AddScoped<ProTenderOpeningService>();
             services.AddScoped<ProTenderOpeningMemberService>();//07/11
-            services.AddScoped<ProTenderOpeningDetails>();//07/11
+            services.AddScoped<ProTenderOpeningDetailsService>();//07/11
             services.AddScoped<ProTenderOpeningStatusService>();
             services.AddScoped<ProTenderVendorReqService>();
             services.AddScoped<ProTenderVendorReqSendTypeService>();
@@ -230,6 +230,9 @@ namespace Business
             services.AddScoped<VlModelService>();
             services.AddScoped<VlTypeService>();
             services.AddScoped<VlManufacturerService>();
+            services.AddScoped<VlStaffService>();
+            services.AddScoped<VlStaffPositionService>();
+            services.AddScoped<VlStaffStatusService>();
 
             #endregion
             return services;

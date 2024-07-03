@@ -54,7 +54,7 @@ namespace IMS.Controllers.Pro
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add([FromForm] ProTenderOpeningMemberInputVM input)
+        public async Task<IActionResult> Add(ProTenderOpeningMemberInputVM input)
         {
             ProTenderOpeningMember model = _mapper.Map<ProTenderOpeningMember>(input);
             int rowsAffected = await _ProTenderOpeningMemberService.Add(model);
