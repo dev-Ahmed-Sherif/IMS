@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Models.VL;
-using Entities.ViewModels.VL.VlItineraryViewModels;
+using Entities.ViewModels.VL.VlDrivierLicenseTypeViewModels;
 using Entities.ViewModels.VL.VlModelViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Profiles.Vl
 {
-    public class VlItineraryProfile : Profile
+   public class VlDrivierLicenseTypeProfile : Profile
     {
-        public VlItineraryProfile()
+        public VlDrivierLicenseTypeProfile()
         {
-            CreateMap<VlItinerary, VlItineraryGeneralVM>().ReverseMap();
+            CreateMap<VlDrivierLicenseType, VlDrivierLicenseTypeGeneralVM>().ReverseMap();
         }
     }
 }

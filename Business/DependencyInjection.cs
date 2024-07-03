@@ -233,6 +233,9 @@ namespace Business
             services.AddScoped<VlStaffService>();
             services.AddScoped<VlStaffPositionService>();
             services.AddScoped<VlStaffStatusService>();
+            services.AddScoped<VlDrivierLicenseTypeService>();
+            services.AddScoped<VlVehicleStatusService>();
+            services.AddScoped<VlItineraryService>();
 
             #endregion
             return services;
