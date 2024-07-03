@@ -214,6 +214,10 @@ namespace DAL
             services.AddScoped<VlModelRepository>();
             services.AddScoped<VlTypeRepository>();
             services.AddScoped<VlManufacturerRepository>();
+            services.AddScoped<VlStaffRepository>();
+            services.AddScoped<VlStaffStatusRepository>();
+            services.AddScoped<VlStaffPositionRepository>();
+          
             #endregion
             return services;
         }

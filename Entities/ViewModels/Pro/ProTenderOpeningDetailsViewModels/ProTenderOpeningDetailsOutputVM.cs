@@ -15,7 +15,7 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningDetailsViewModels
         public bool Accepted { get; set; }
         public string Notes { get; set; }
         public int TenderOpeningId { get; set; }
-        public string TenderOpeningCode{ get; set; }
+       // public string TenderOpeningCode{ get; set; }
 
     }
 }
