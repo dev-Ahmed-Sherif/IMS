@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.ExtensionMethods;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace IMS.Controllers.Vl
 {

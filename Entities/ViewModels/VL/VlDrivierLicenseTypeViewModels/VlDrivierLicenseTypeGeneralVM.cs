@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.VL.VlDrivierLicenseTypeViewModels
 {
-   public class VlDrivierLicenseTypeGeneralVM
+   public class VlDrivierLicenseTypeGeneralVM:BaseViewModel
     {
         [StringLength(50)]
         public string Name { get; set; }
