@@ -13,6 +13,8 @@ namespace Entities.ViewModels.Pro.ProTenderOpeningDetailsViewModels
         [AllowNull]
         public int? QuotationId { get; set; }
         [AllowNull]
+        public int? TenderOpeningId { get; set; }
+        [AllowNull]
         public bool? Accepted { get; set; }
     }
 }

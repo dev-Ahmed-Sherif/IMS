@@ -394,6 +394,7 @@ namespace DAL
                     foreignKey.DeleteBehavior = DeleteBehavior.ClientSetNull;
             }
             ApplySoftDeleteFilter(modelBuilder);
+            ApplyCascadeDelete(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
         private static void ApplySoftDeleteFilter(ModelBuilder modelBuilder)
@@ -408,6 +409,19 @@ namespace DAL
                     var lambda = Expression.Lambda(Expression.Equal(property, falseConstant), parameter);
 
                     modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+                }
+            }
+        }
+
+        private static void ApplyCascadeDelete(ModelBuilder builder)
+        {
+            var models = builder.Model.GetEntityTypes();
+            foreach (var model in models)
+            {
+                var navigations = model.GetNavigations();
+                foreach (var item in navigations)
+                {
+                    item.ForeignKey.DeleteBehavior = DeleteBehavior.Cascade;
                 }
             }
         }

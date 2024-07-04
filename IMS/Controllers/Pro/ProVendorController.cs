@@ -1,4 +1,5 @@
-﻿using Business.Pro;
+﻿using Business.FI.Account;
+using Business.Pro;
 using Entities.ViewModels.Pro;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -68,6 +69,15 @@ namespace IMS.Controllers.Pro
         {
             var AllSTR_Add_Details = _VendorService.Search(searchModel);
             return Ok(AllSTR_Add_Details);
+        }
+        //-----------------------------------------------
+        // GET Pagenation { Data with ( page , pagesize)} 
+        //-----------------------------------------------
+        [HttpGet("get/by/pagination")]
+        public IActionResult getAllByPagination(int page, int pageSize)
+        {
+            var Pagination = _VendorService.GetAllByPagination(page, pageSize);
+            return Ok(Pagination);
         }
     }
 

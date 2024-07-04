@@ -1,5 +1,7 @@
 ﻿using DAL;
 using DAL.Pro;
+using static DAL.Pro.ProVendorRepository;
+using Entities.ViewModels.FI.Account;
 using Entities.ViewModels.Pro;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -48,6 +50,13 @@ namespace Business.Pro
         public List<ProVendorGetVM> Search(VendorSearchGeneral searchModel)
         {
             return _ProVendorRepository.Search(searchModel);
+        }
+        //----------------------------------------------------------
+        // GET Pagenation { Data with ( page , pagesize)} 
+        //----------------------------------------------------------
+        public PaginatedResult<ProVendorGetVM> GetAllByPagination(int page, int pageSize)
+        {
+            return _ProVendorRepository.GetAllByPagination(page, pageSize);
         }
     }
 }

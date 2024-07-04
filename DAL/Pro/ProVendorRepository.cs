@@ -1,5 +1,7 @@
-﻿using Entities.Helpers;
+﻿using Entities.ExtensionMethods;
+using Entities.Helpers;
 using Entities.Models.Pro;
+using Entities.ViewModels.FI.Account;
 using Entities.ViewModels.Pro;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -60,8 +62,22 @@ namespace DAL.Pro
         public string Delete(int VendorId)
         {
 
+
             var _Vendor = _context.ProVendors.Single(n => n.Id == VendorId);
 
+            //var DetailsToDelete = _context.ProVendorsTypes.Where(n => n.VendorId == VendorId).ToList();
+            //if (DetailsToDelete != null)
+            //{
+            //    _context.ProVendorsTypes.RemoveRange(DetailsToDelete);
+            //    _context.SaveChanges();
+            //}
+
+            //var DetailsToDeletes = _context.pro.Where(n => n.VendorId == VendorId).ToList();
+            //if (DetailsToDelete != null)
+            //{
+            //    _context.ProVendorsTypes.RemoveRange(DetailsToDelete);
+            //    _context.SaveChanges();
+            //}
             _context.ProVendors.Remove(_Vendor);
             _context.SaveChanges();
             return "Succeeded";
@@ -201,6 +217,49 @@ namespace DAL.Pro
 
             return results;
 
+        }
+        public PaginatedResult<ProVendorGetVM> GetAllByPagination(int page, int pageSize)
+        {
+            var totalCount = _context.ProVendors.Count();
+            List<ProVendorGetVM> Item = _context.ProVendors
+                .OrderByDescending(Item => Item.CreationDate)
+                .Skip((page) * pageSize)
+                .Take(pageSize)
+                .Select(n => new ProVendorGetVM
+                {
+                    Id = n.Id,
+                    Name = n.Name,
+                    Code = n.Code,
+                    Phone = n.Phone,
+                    Email = n.Email,
+                    CityId = n.CityId,
+                    CityStateId = n.CityStateId,
+                    Address = n.Address,
+                    CreateUserName = n.CreatedBy.Name,
+                    TransactionUserId = n.CreatedBy.Id,
+                    CityName = n.City.Name,
+                    CityStateName = n.CityState.Name,
+                    TheLevel = n.TheLevel,
+                    UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
+                })
+                .ToList();
+
+            var paginatedResult = new PaginatedResult<ProVendorGetVM>
+            {
+                Items = Item,
+                TotalItems = totalCount,
+                Page = page,
+                PageSize = pageSize
+            };
+
+            return paginatedResult;
+        }
+        public class PaginatedResult<T>
+        {
+            public List<T> Items { get; set; }
+            public int TotalItems { get; set; }
+            public int Page { get; set; }
+            public int PageSize { get; set; }
         }
 
     }

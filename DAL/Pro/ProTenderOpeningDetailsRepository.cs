@@ -20,6 +20,11 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.QuotationId == filter.QuotationId);
             }
+            if (filter.TenderOpeningId.HasValue)
+            {
+                result = result.Where(e => e.TenderOpeningId == filter.TenderOpeningId);
+            }
+
             if (filter.Accepted.HasValue)
             {
                 result = result.Where(e => e.Accepted== filter.Accepted);
