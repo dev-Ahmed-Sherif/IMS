@@ -18,3 +18,6 @@ List Nullable Columns
   [Table_NAME],[Column_Name]
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE IS_NULLABLE = 'YES';
+
+
+Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;User=Nazem;Password=Asd@12345;Integrated Security=False;Pooling=False; MultipleActiveResultSets=True;TrustServerCertificate=True;

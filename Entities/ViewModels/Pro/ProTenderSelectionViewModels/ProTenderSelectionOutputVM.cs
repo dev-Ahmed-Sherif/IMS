@@ -10,7 +10,7 @@ namespace Entities.ViewModels.Pro.ProTenderSelectionViewModels
 {
     public class ProTenderSelectionOutputVM : BaseViewModel
     {
-
+        public int TenderCommitteeId { get; set; }
         public int TenderDetailsId { get; set; }
         public string TenderDetailsName { get; set; }
         public int QuotationDetailsId { get; set; }

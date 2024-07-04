@@ -16,6 +16,8 @@ namespace Entities.ViewModels.Pro.ProTenderSelectionViewModels
         [Required]
         public int QuotationDetailsId { get; set; }
         [Required]
+        public int TenderCommitteeId { get; set; }
+        [Required]
         public bool TechnicalPass { get; set; }
         [Required]
         public int TechnicalScore { get; set; }

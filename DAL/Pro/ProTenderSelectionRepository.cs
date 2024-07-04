@@ -21,9 +21,9 @@ namespace DAL.Pro
             {
                 result = result.Where(e => e.QuotationDetailsId == filter.QuotationDetailsId);
             }
-            if (filter.CommitteeId.HasValue)
+            if (filter.TenderCommitteeId.HasValue)
             {
-                result = result.Where(e => e.CommitteeId == filter.CommitteeId);
+                result = result.Where(e => e.TenderCommitteeId == filter.TenderCommitteeId);
             }
             if (filter.TechnicalPass.HasValue)
             {

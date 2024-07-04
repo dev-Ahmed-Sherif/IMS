@@ -16,9 +16,9 @@ namespace Entities.Models.Pro
         public int? TenderDetailsId { get; set; }
         [ForeignKey(nameof(TenderDetailsId))]
         public virtual ProTenderDetails TenderDetails { get; set; }
-        public int? CommitteeId { get; set; }
-        [ForeignKey(nameof(CommitteeId))]
-        public virtual ProTenderCommittee Committee { get; set; }
+        public int? TenderCommitteeId { get; set; }
+        [ForeignKey(nameof(TenderCommitteeId))]
+        public virtual ProTenderCommittee TenderCommittee { get; set; }
         public bool TechnicalPass { get; set; }
         public int TechnicalScore { get; set; }
         public int FinancialScore { get; set; }
