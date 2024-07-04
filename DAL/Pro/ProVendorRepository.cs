@@ -33,6 +33,7 @@ namespace DAL.Pro
                 CreatedByID = Vendor.TransactionUserId,
                 CreationDate = DateTime.Now,
                 TheLevel = Vendor.TheLevel,
+                TypeId = Vendor.TypeId, 
             };
             _context.ProVendors.Add(_Vendor);
             await _context.SaveChangesAsync();
@@ -52,6 +53,7 @@ namespace DAL.Pro
             _Vendor.CityId = Vendor.CityId;
             _Vendor.CityStateId = Vendor.CityStateId;
             _Vendor.Address = Vendor.Address;
+            _Vendor.TypeId = Vendor.TypeId;
             _Vendor.UpdateByID = Vendor.TransactionUserId;
             _Vendor.LastUpdateDate = DateTime.Now;
             await _context.SaveChangesAsync();
@@ -101,6 +103,7 @@ namespace DAL.Pro
                 CreateUserName = n.CreatedBy.Name,
                 TransactionUserId = n.CreatedBy.Id,
                 TheLevel = n.TheLevel,
+                TypeId = n.TypeId,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).ToList();
         public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
@@ -119,19 +122,31 @@ namespace DAL.Pro
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
                 TheLevel = n.TheLevel,
+                TypeId = n.TypeId,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).Single(n => n.Id == VendorId);
 
         public List<ProVendorGetVM> GetByName(string VendorName)
         {
-            return _context.StrVendor
+            return _context.ProVendors
                 .Where(n => n.Name.Contains(VendorName))
                 .Select(n => new ProVendorGetVM
                 {
                     Id = n.Id,
                     Name = n.Name,
+                    Code = n.Code,
+                    Phone = n.Phone,
+                    Email = n.Email,
+                    CityId = n.CityId,
+                    CityStateId = n.CityStateId,
+                    Address = n.Address,
                     CreateUserName = n.CreatedBy.Name,
                     TransactionUserId = n.CreatedBy.Id,
+                    CityName = n.City.Name,
+                    CityStateName = n.CityState.Name,
+                    TheLevel = n.TheLevel,
+                    TypeId = n.TypeId,
+                    UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
                 })
                .ToList();
         }
@@ -211,6 +226,7 @@ namespace DAL.Pro
                 CityName = n.City.Name,
                 CityStateName = n.CityState.Name,
                 TheLevel = n.TheLevel,
+                TypeId = n.TypeId,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).ToList();
 
@@ -240,6 +256,7 @@ namespace DAL.Pro
                     CityName = n.City.Name,
                     CityStateName = n.CityState.Name,
                     TheLevel = n.TheLevel,
+                    TypeId = n.TypeId,
                     UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
                 })
                 .ToList();

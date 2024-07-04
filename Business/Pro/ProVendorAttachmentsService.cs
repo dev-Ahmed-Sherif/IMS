@@ -20,6 +20,7 @@ namespace Business.Pro
 
         public ProVendorAttachmentService(ProVendorAttachmentRepository repository, UnitOfWork unitOfWork, IMapper mapper) : base(repository, unitOfWork, mapper)
         {
+            _repository = repository;
         }
         public IQueryable<ProVendorAttachment> GetFiltered(ProVendorAttachmentFilter filter)
         {

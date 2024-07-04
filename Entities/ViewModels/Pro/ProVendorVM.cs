@@ -13,6 +13,7 @@ namespace Entities.ViewModels.Pro
         public int? CityStateId { get; set; }
         public string? Address { get; set; }
         public int TransactionUserId { get; set; }
+        public int? TypeId { get; set; }
     }
     public class ProVendorVM : ProVendorGeneralVM
     {
