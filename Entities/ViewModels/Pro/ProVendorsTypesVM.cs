@@ -24,4 +24,9 @@
         public string VendorTypeName { get; set; }
         public int VendorTypeCode { get; set; }
     }
+    public class ProVendorTypeFilter
+    {
+        public int VendorId { get; set; }
+        public string VendorTypeName { get; set; }
+    }
 }

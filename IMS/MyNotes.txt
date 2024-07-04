@@ -21,3 +21,6 @@ WHERE IS_NULLABLE = 'YES';
 
 
 Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;User=Nazem;Password=Asd@12345;Integrated Security=False;Pooling=False; MultipleActiveResultSets=True;TrustServerCertificate=True;
+
+
+dotnet ef dbcontext scaffold "Data Source=192.168.100.213;Initial Catalog=IMS-Nazem;User=Nazem;Password=Asd@12345;Integrated Security=False;Pooling=False; MultipleActiveResultSets=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer
