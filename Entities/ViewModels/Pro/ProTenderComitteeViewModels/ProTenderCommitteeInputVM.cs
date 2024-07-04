@@ -13,7 +13,7 @@ namespace Entities.ViewModels.Pro.ProTenderCommitteeViewModels
     public class ProTenderCommitteeInputVM
     {
         [Required]
-        public int StatusId { get; set; }
+        public bool Result { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
         //Navigation Properties
