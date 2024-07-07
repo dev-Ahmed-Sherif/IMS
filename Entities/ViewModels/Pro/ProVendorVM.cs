@@ -24,6 +24,8 @@ namespace Entities.ViewModels.Pro
         public string CreateUserName { get; set; }
         public string UpdateUserName { get; set; }
         public string CityName { get; set; }
+        public string ProTypeName { get; set; }
+
         public string CityStateName { get; set; }
     }
     public class VendorSearchGeneral
@@ -35,6 +37,7 @@ namespace Entities.ViewModels.Pro
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public int? CityId { get; set; }
+        public int? TypeId { get; set; }
         public int? CityStateId { get; set; }
         public string? Address { get; set; }
     }

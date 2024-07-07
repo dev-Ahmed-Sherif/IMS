@@ -104,6 +104,8 @@ namespace DAL.Pro
                 TransactionUserId = n.CreatedBy.Id,
                 TheLevel = n.TheLevel,
                 TypeId = n.TypeId,
+                ProTypeName=n.Type.Name,
+
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).ToList();
         public ProVendorGetVM GetById(int VendorId) => _context.ProVendors
@@ -123,6 +125,7 @@ namespace DAL.Pro
                 CityStateName = n.CityState.Name,
                 TheLevel = n.TheLevel,
                 TypeId = n.TypeId,
+                ProTypeName = n.Type.Name,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).Single(n => n.Id == VendorId);
 
@@ -146,6 +149,7 @@ namespace DAL.Pro
                     CityStateName = n.CityState.Name,
                     TheLevel = n.TheLevel,
                     TypeId = n.TypeId,
+                    ProTypeName = n.Type.Name,
                     UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
                 })
                .ToList();
@@ -191,6 +195,10 @@ namespace DAL.Pro
             {
                 query = query.Where(p => p.CityId == searchModel.CityId);
             }
+            if (searchModel.TypeId.HasValue)
+            {
+                query = query.Where(p => p.TypeId == searchModel.TypeId);
+            }
 
 
             if (searchModel.Code.HasValue)
@@ -227,6 +235,7 @@ namespace DAL.Pro
                 CityStateName = n.CityState.Name,
                 TheLevel = n.TheLevel,
                 TypeId = n.TypeId,
+                ProTypeName = n.Type.Name,
                 UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
             }).ToList();
 
@@ -257,6 +266,7 @@ namespace DAL.Pro
                     CityStateName = n.CityState.Name,
                     TheLevel = n.TheLevel,
                     TypeId = n.TypeId,
+                    ProTypeName = n.Type.Name,
                     UpdateUserName = n.UpdateBy != null ? n.UpdateBy.Name : "",
                 })
                 .ToList();
