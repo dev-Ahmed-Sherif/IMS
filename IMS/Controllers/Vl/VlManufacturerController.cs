@@ -11,6 +11,8 @@ using Entities.Models.VL;
 using Entities.ExtensionMethods;
 using Microsoft.EntityFrameworkCore;
 using Entities.ViewModels.VL.VlModelViewModels;
+using Entities.ViewModels.VL.VlManufacturerViewModels;
+using Entities.ViewModels.VL.VlManufacturer;
 
 namespace IMS.Controllers.Vl
 {
@@ -19,32 +21,32 @@ namespace IMS.Controllers.Vl
     public class VlManufacturerController : ControllerBase
     {
         readonly IMapper _mapper;
-        readonly VlModelService _VlModelService;
+        readonly VlManufacturerService _VlManufacturerService;
         public VlManufacturerController(
             IMapper mapper,
-            VlModelService VlModelService)
+            VlManufacturerService VlManufacturerService)
         {
             _mapper = mapper;
-            _VlModelService = VlModelService;
+            _VlManufacturerService = VlManufacturerService;
         }
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(VlModelGeneralVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(VlManufacturerGeneralVM), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetById(int id)
         {
-            VlModel model = _VlModelService.GetById(id);
+            VlManufacturer model = _VlManufacturerService.GetById(id);
             if (model == null) return NotFound();
             return Ok(_mapper.Map<VlModelGeneralVM>(model));
         }
         [HttpGet]
-        [ProducesResponseType(typeof(PaginatedResult<VlModelGeneralVM>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] VlModelFilter filter)
+        [ProducesResponseType(typeof(PaginatedResult<VlManufacturerGeneralVM>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] VlManufacturerFilter filter)
         {
-            IQueryable<VlModel> items = _VlModelService.GetFiltered(filter); ;
-            IQueryable<VlModelGeneralVM> result =
-                _mapper.ProjectTo<VlModelGeneralVM>(items);
+            IQueryable<VlManufacturer> items = _VlManufacturerService.GetFiltered(filter); ;
+            IQueryable<VlManufacturerGeneralVM> result =
+                _mapper.ProjectTo<VlManufacturerGeneralVM>(items);
 
-            PaginatedResult<VlModelGeneralVM> mappedResult = new()
+            PaginatedResult<VlManufacturerGeneralVM> mappedResult = new()
             {
                 Items = await result.ToPaginatedResultUnMapped(pagination).ToListAsync(),
                 Page = pagination.Index,
@@ -56,10 +58,10 @@ namespace IMS.Controllers.Vl
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add(VlModelGeneralVM input)
+        public async Task<IActionResult> Add(VlManufacturerGeneralVM input)
         {
-            VlModel model = _mapper.Map<VlModel>(input);
-            int rowsAffected = await _VlModelService.Add(model);
+            VlManufacturer model = _mapper.Map<VlManufacturer>(input);
+            int rowsAffected = await _VlManufacturerService.Add(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -67,13 +69,13 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update(int id, VlModelGeneralVM input)
+        public async Task<IActionResult> Update(int id, VlManufacturerGeneralVM input)
         {
 
-            VlModel model = _VlModelService.GetById(id);
+            VlManufacturer model = _VlManufacturerService.GetById(id);
             if (model == null) return NotFound();
             _mapper.Map(input, model);
-            int rowsAffected = await _VlModelService.Update(model);
+            int rowsAffected = await _VlManufacturerService.Update(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
@@ -83,9 +85,9 @@ namespace IMS.Controllers.Vl
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            VlModel model = _VlModelService.GetById(id);
+            VlManufacturer model = _VlManufacturerService.GetById(id);
             if (model == null) return NotFound();
-            int rowsAffected = await _VlModelService.SoftDelete(model);
+            int rowsAffected = await _VlManufacturerService.SoftDelete(model);
             if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
             return Ok(model.Id);
         }
