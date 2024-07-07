@@ -43,7 +43,7 @@ namespace IMS.Controllers.PR
         }
         [HttpGet]
         [ProducesResponseType(typeof(List<ProTypeOutputVM>), StatusCodes.Status200OK)]
-        public IActionResult Get([FromQuery] ProTypeFilter filter)
+        public IActionResult Get()
         {
             IEnumerable<ProType> items = _ProTypeService.GetAll();
             List<ProTypeOutputVM> result = items.Select(_mapper.Map<ProTypeOutputVM>).ToList();
