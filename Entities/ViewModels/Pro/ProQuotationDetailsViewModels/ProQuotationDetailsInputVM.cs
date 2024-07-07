@@ -14,7 +14,7 @@ namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
     public class ProQuotationDetailsInputVM
     {
         [Required]
-        public int QuotationDetailsId { get; set; }
+        public int QuotationId { get; set; }
         [Required]
         public int TenderDetailsId { get; set; }
         [Required]
