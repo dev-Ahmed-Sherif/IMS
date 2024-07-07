@@ -206,6 +206,8 @@ namespace DAL
             services.AddScoped<ProQuotationRepository>();
             services.AddScoped<ProQuotationDetailsRepository>();
             services.AddScoped<ProQuotationReceiveTypeRepository>();
+            services.AddScoped<ProTypeRepository>();
+
 
             //SE
             services.AddScoped<ImsSectionRepository>();

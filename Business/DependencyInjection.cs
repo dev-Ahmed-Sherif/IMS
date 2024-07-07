@@ -222,6 +222,8 @@ namespace Business
             services.AddScoped<ProQuotationService>();
             services.AddScoped<ProQuotationDetailsService>();
             services.AddScoped<ProQuotationReceiveTypeService>();
+            services.AddScoped<ProTypeService>();
+
             //SE
             services.AddScoped<ImsSectionService>();
             services.AddScoped<UnitOfWork>();

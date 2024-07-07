@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels.Pro.ProType
 {
-    public class ProTypeInputVM
+    public class ProTypeOutputVM : BaseViewModel
     {
         [Required, StringLength(50)]
         public string Name { get; set; }
