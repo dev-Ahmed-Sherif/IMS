@@ -16,7 +16,7 @@ namespace Business.Pro
         {
             _ProVendorRepository = ProVendorRepository;
         }
-        public async Task<string> Add(ProVendorVM Vendor)
+        public async Task<int> Add(ProVendorVM Vendor)
         {
             return await _ProVendorRepository.Add(Vendor);
         }

@@ -18,7 +18,7 @@ namespace DAL.Pro
         {
             _context = context;
         }
-        public async Task<string> Add(ProVendorGeneralVM Vendor)
+        public async Task<int> Add(ProVendorGeneralVM Vendor)
         {
 
             var _Vendor = new ProVendor()
@@ -33,11 +33,11 @@ namespace DAL.Pro
                 CreatedByID = Vendor.TransactionUserId,
                 CreationDate = DateTime.Now,
                 TheLevel = Vendor.TheLevel,
-                TypeId = Vendor.TypeId, 
+                TypeId = Vendor.TypeId,
             };
             _context.ProVendors.Add(_Vendor);
             await _context.SaveChangesAsync();
-            return "Succeeded";
+            return _Vendor.Id;
 
         }
 

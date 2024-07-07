@@ -17,12 +17,16 @@ namespace IMS.Controllers.Pro
         {
             _VendorService = VendorService;
         }
-
+        /// <summary>
+        /// Create Vendor In DB
+        /// </summary>
+        /// <param name="Vendor"></param>
+        /// <returns>VendorId</returns>
         [HttpPost("Add")]
-        public async Task<IActionResult> Add([FromBody] ProVendorVM Vendor)
+        public async Task<ActionResult<int>> Add([FromBody] ProVendorVM Vendor)
         {
-            string _response = await _VendorService.Add(Vendor);
-            return new JsonResult(_response);
+            int _response = await _VendorService.Add(Vendor);
+            return Ok(_response);
         }
 
         [HttpPut("update")]
