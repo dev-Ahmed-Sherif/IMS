@@ -18,7 +18,7 @@ namespace Entities.ViewModels.Pro.ProPurchaseOrderViewModels
         public string StoreName { get; set; }
 
         public string Notes { get; set; }
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
         public DateTime? InspectionDate { get; set; }
         public DateTime? AdditionDate { get; set; }
         public DateTime? StoreDeliverDate { get; set; }

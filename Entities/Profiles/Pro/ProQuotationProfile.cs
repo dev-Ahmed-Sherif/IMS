@@ -17,15 +17,7 @@ namespace Entities.Profiles.Pro
         public ProQuotationProfile()
         {
             CreateMap<ProQuotation, ProQuotationOutputVM>();
-            CreateMap<ProQuotationInputVM, ProQuotation>()
-                .AfterMap<ProQuotationInputMapping>();
-        }
-        public class ProQuotationInputMapping : IMappingAction<ProQuotationInputVM, ProQuotation>
-        {
-            public async void Process(ProQuotationInputVM source, ProQuotation destination, ResolutionContext context)
-            {
-                destination.Attachment = source.Attachment != null ? await FileHelper.UploadFile(source.Attachment) : "";
-            }
+            CreateMap<ProQuotationInputVM, ProQuotation>();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         public string ReceiveTypeName { get; set; }
         public DateTime ValidationDate { get; set; }
         public string Notes { get; set; }
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
         public string Code { get; set; }
     }
 }

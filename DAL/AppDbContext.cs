@@ -394,7 +394,7 @@ namespace DAL
                     foreignKey.DeleteBehavior = DeleteBehavior.ClientSetNull;
             }
             ApplySoftDeleteFilter(modelBuilder);
-            ApplyCascadeDelete(modelBuilder);
+            //ApplyCascadeDelete(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
         private static void ApplySoftDeleteFilter(ModelBuilder modelBuilder)

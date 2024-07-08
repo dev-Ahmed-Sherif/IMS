@@ -24,7 +24,7 @@ namespace Entities.Models.Pro
         [MaxLength(150)]
         public string Notes { get; set; }
         [Ignore, MaxLength(150)]
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
         [StringLength(50)]
         public string Code { get; set; }
     }

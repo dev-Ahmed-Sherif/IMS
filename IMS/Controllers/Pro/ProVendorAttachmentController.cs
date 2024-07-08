@@ -53,11 +53,8 @@ namespace IMS.Controllers.PR
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Add([FromForm] ProVendorAttachmentInputVM input)
         {
-            ProVendorAttachment model = _mapper.Map<ProVendorAttachment>(input);
-
-            int rowsAffected = await _ProVendorAttachmentService.Add(model);
-            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
-            return Ok(model.Id);
+            int modelId = await _ProVendorAttachmentService.Add(input);
+            return Ok(modelId);
         }
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]

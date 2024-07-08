@@ -21,7 +21,7 @@ namespace Entities.Models.Pro
         [MaxLength(250)]
         public string Notes { get; set; }
         [Ignore, MaxLength(150)]
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
         public int PurchaseOrderDetailsId { get; set; }
         public virtual ProPurchaseOrderDetails PurchaseOrderDetails { get; set; }
     }

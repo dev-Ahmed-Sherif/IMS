@@ -14,16 +14,9 @@ namespace Entities.Profiles.Pro
     {
         public ProVendorAttachmentProfile()
         {
-            CreateMap<ProVendorAttachmentInputVM, ProVendorAttachment>()
-                .AfterMap<ProVendorAttachmentMapping>();
+            CreateMap<ProVendorAttachmentInputVM, ProVendorAttachment>();
             CreateMap<ProVendorAttachment, ProVendorAttachmentOutputVM>();
         }
-        public class ProVendorAttachmentMapping : IMappingAction<ProVendorAttachmentInputVM, ProVendorAttachment>
-        {
-            public async void Process(ProVendorAttachmentInputVM source, ProVendorAttachment destination, ResolutionContext context)
-            {
-                destination.FileUrl = await FileHelper.UploadFile(source.File);
-            }
-        }
+        
     }
 }

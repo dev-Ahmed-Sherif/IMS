@@ -57,10 +57,8 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Add([FromForm] ProPurchaseOrderInputVM input)
         {
-            ProPurchaseOrder model = _mapper.Map<ProPurchaseOrder>(input);
-            int rowsAffected = await _ProPurchaseOrderService.Add(model);
-            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
-            return Ok(model.Id);
+            int modelId = await _ProPurchaseOrderService.Add(input);
+            return Ok(modelId);
         }
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]

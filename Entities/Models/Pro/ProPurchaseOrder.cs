@@ -19,7 +19,7 @@ namespace Entities.Models.Pro
         public int StoreId { get; set; }
         [ForeignKey(nameof(StoreId))]
         public virtual StrStore Store { get; set; }
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
         public DateTime? InspectionDate { get; set; }
         public DateTime? AdditionDate { get; set; }
         public DateTime? StoreDeliverDate { get; set; }

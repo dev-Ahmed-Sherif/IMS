@@ -15,25 +15,10 @@ namespace Entities.Profiles.Pro
     {
         public ProPurchaseOrderProfile()
         {
-            CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>()
-                .ForMember(
-                dest => dest.DeliverDelayInDays,
-                cfg => cfg.MapFrom(src =>
-                    src.AdditionDate !=
-                    src.StoreDeliverDate ?
-                    (src.StoreDeliverDate - src.AdditionDate).Value.TotalDays :
-                    0))
-                .AfterMap<ProPurchaseOrderInputVMAttachmentMapping>();
+            CreateMap<ProPurchaseOrderInputVM, ProPurchaseOrder>();
 
             CreateMap<ProPurchaseOrder, ProPurchaseOrderOutputVM>()
                 .BeforeMap<ProPurchaseOrderVendorsNamesMapping>();
-        }
-        public class ProPurchaseOrderInputVMAttachmentMapping : IMappingAction<ProPurchaseOrderInputVM, ProPurchaseOrder>
-        {
-            public async void Process(ProPurchaseOrderInputVM source, ProPurchaseOrder destination, ResolutionContext context)
-            {
-                destination.Attachment = await FileHelper.UploadFile(source.Attachment);
-            }
         }
         public class ProPurchaseOrderVendorsNamesMapping : IMappingAction<ProPurchaseOrder, ProPurchaseOrderOutputVM>
         {

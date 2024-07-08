@@ -39,7 +39,7 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(typeof(PaginatedResult<ProQuotationDetailsOutputVM>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromQuery] PaginationInputViewModel pagination, [FromQuery] ProQuotationDetailsFilter filter)
         {
-            IQueryable<ProQuotationDetails> items = _ProQuotationDetailsService.GetFiltered(filter); ;
+            IQueryable<ProQuotationDetails> items = _ProQuotationDetailsService.GetFiltered(filter);
             IQueryable<ProQuotationDetailsOutputVM> result =
                 _mapper.ProjectTo<ProQuotationDetailsOutputVM>(items);
 
@@ -57,10 +57,8 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Add([FromForm] ProQuotationDetailsInputVM input)
         {
-            ProQuotationDetails model = _mapper.Map<ProQuotationDetails>(input);
-            int rowsAffected = await _ProQuotationDetailsService.Add(model);
-            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
-            return Ok(model.Id);
+            int modelId = await _ProQuotationDetailsService.Add(input);
+            return Ok(modelId);
         }
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]

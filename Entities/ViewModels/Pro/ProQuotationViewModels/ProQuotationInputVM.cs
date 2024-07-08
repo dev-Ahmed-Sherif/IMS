@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Entities.ViewModels.Pro.ProQuotationViewModels
 {
@@ -24,7 +25,8 @@ namespace Entities.ViewModels.Pro.ProQuotationViewModels
         public DateTime ValidationDate { get; set; }
         [MaxLength(150)]
         public string Notes { get; set; }
-        public IFormFile? Attachment { get; set; }
+        [AllowNull]
+        public IFormFile Attachment { get; set; }
         [Required]
         public string Code { get; set; }
     }

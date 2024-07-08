@@ -8,6 +8,7 @@ using Entities.ViewModels.Pro;
 using Entities.ViewModels.Pro.ProTenderVendorReqViewModels;
 using Entities.ViewModels.Pro.ProVendorAttachments;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,21 @@ namespace Business.Pro
         public IQueryable<ProVendorAttachment> GetFiltered(ProVendorAttachmentFilter filter)
         {
             return _repository.Filter(filter);
+        }
+        public async Task<int> Add(ProVendorAttachmentInputVM input)
+        {
+            ProVendorAttachment model = _mapper.Map<ProVendorAttachment>(input);
+
+            if (input.File != null)
+            {
+                model.FileUrl = await FileHelper.UploadFile(input.File);
+            }
+            else
+            {
+                model.FileUrl = string.Empty;
+            }
+            await base.Add(model);
+            return model.Id;
         }
     }
 }

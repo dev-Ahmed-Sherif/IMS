@@ -21,6 +21,6 @@ namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
         public decimal TenderDetailsPrice { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
-        public string Attachment { get; set; }
+        public string AttachmentUrl { get; set; }
     }
 }

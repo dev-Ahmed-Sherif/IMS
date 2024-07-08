@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.ViewModels.Pro.ProQuotationViewModels;
 using AutoMapper;
+using Entities.Helpers;
 
 namespace Business.Pro
 {
@@ -25,6 +26,20 @@ namespace Business.Pro
         public IQueryable<ProQuotation> GetFiltered(ProQuotationFilter filter)
         {
             return _repository.Filter(filter);
+        }
+        public async Task<int> Add(ProQuotationInputVM input)
+        {
+            ProQuotation model = _mapper.Map<ProQuotation>(input);
+            if (input.Attachment != null)
+            {
+                model.AttachmentUrl = await FileHelper.UploadFile(input.Attachment);
+            }
+            else
+            {
+                model.AttachmentUrl = string.Empty;
+            }
+            await base.Add(model);
+            return model.Id;
         }
     }
 }

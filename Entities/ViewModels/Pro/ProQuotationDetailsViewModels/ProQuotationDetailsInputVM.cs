@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
 {
@@ -21,6 +22,7 @@ namespace Entities.ViewModels.Pro.ProQuotationDetailsViewModels
         public decimal Price { get; set; }
         [MaxLength(250)]
         public string Notes { get; set; }
-        public IFormFile? Attachment { get; set; }
+        [AllowNull]
+        public IFormFile Attachment { get; set; }
     }
 }

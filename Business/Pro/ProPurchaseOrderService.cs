@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.ViewModels.Pro.ProPurchaseOrderViewModels;
+using Entities.Helpers;
 
 namespace Business.Pro
 {
@@ -24,6 +25,26 @@ namespace Business.Pro
         public IQueryable<ProPurchaseOrder> GetFiltered(ProPurchaseOrderFilter filter)
         {
             return _repository.Filter(filter);
+        }
+        public async Task<int> Add(ProPurchaseOrderInputVM input)
+        {
+            ProPurchaseOrder model = _mapper.Map<ProPurchaseOrder>(input);
+            double deliverDelayInDays = 
+                input.AdditionDate != input.StoreDeliverDate ?
+                (input.StoreDeliverDate! - input.AdditionDate!).Value.TotalDays :
+                0;
+
+            model.DeliverDelayInDays = Convert.ToInt32(deliverDelayInDays);
+            if (input.Attachment != null)
+            {
+                model.AttachmentUrl = await FileHelper.UploadFile(input.Attachment);
+            }
+            else
+            {
+                model.AttachmentUrl = string.Empty;
+            }
+            await base.Add(model);
+            return model.Id;
         }
     }
 }
