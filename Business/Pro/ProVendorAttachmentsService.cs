@@ -42,5 +42,20 @@ namespace Business.Pro
             await base.Add(model);
             return model.Id;
         }
+        public async Task<int?> Update(int id, ProVendorAttachmentInputVM input)
+        {
+            ProVendorAttachment? model = _repository.GetById(id);
+            if (model == null) return null;
+            if (input.File != null)
+            {
+                model.FileUrl = await FileHelper.UploadFile(input.File);
+            }
+            else
+            {
+                model.FileUrl = string.Empty;
+            }
+            await base.Update(model);
+            return model.Id;
+        }
     }
 }

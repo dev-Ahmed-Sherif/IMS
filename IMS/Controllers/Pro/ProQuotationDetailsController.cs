@@ -66,12 +66,9 @@ namespace IMS.Controllers.Pro
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(int id, [FromForm] ProQuotationDetailsInputVM input)
         {
-            ProQuotationDetails model = _ProQuotationDetailsService.GetById(id);
-            if (model == null) return NotFound();
-            _mapper.Map(input, model);
-            int rowsAffected = await _ProQuotationDetailsService.Update(model);
-            if (rowsAffected <= 0) return StatusCode(StatusCodes.Status500InternalServerError);
-            return Ok(model.Id);
+            int? modelId = await _ProQuotationDetailsService.Update(id, input);
+            if (!modelId.HasValue) return NotFound();
+            return Ok(modelId);
         }
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]

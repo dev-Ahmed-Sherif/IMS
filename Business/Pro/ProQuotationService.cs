@@ -41,5 +41,20 @@ namespace Business.Pro
             await base.Add(model);
             return model.Id;
         }
+        public async Task<int?> Update(int id, ProQuotationInputVM input)
+        {
+            ProQuotation? model = _repository.GetById(id);
+            if (model == null) return null;
+            if (input.Attachment != null)
+            {
+                model.AttachmentUrl = await FileHelper.UploadFile(input.Attachment);
+            }
+            else
+            {
+                model.AttachmentUrl = string.Empty;
+            }
+            await base.Update(model);
+            return model.Id;
+        }
     }
 }

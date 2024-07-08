@@ -29,7 +29,7 @@ namespace Business.Pro
         public async Task<int> Add(ProPurchaseOrderInputVM input)
         {
             ProPurchaseOrder model = _mapper.Map<ProPurchaseOrder>(input);
-            double deliverDelayInDays = 
+            double deliverDelayInDays =
                 input.AdditionDate != input.StoreDeliverDate ?
                 (input.StoreDeliverDate! - input.AdditionDate!).Value.TotalDays :
                 0;
@@ -44,6 +44,27 @@ namespace Business.Pro
                 model.AttachmentUrl = string.Empty;
             }
             await base.Add(model);
+            return model.Id;
+        }
+        public async Task<int?> Update(int id, ProPurchaseOrderInputVM input)
+        {
+            ProPurchaseOrder model = _repository.GetById(id);
+            if (model == null) return null;
+            double deliverDelayInDays =
+                input.AdditionDate != input.StoreDeliverDate ?
+                (input.StoreDeliverDate! - input.AdditionDate!).Value.TotalDays :
+                0;
+
+            model.DeliverDelayInDays = Convert.ToInt32(deliverDelayInDays);
+            if (input.Attachment != null)
+            {
+                model.AttachmentUrl = await FileHelper.UploadFile(input.Attachment);
+            }
+            else
+            {
+                model.AttachmentUrl = string.Empty;
+            }
+            await base.Update(model);
             return model.Id;
         }
     }
