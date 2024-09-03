@@ -25,6 +25,6 @@ namespace Entities.Models.Pro
         public DateTime? StoreDeliverDate { get; set; }
         public bool Delivered { get; set; }
         public int DeliverDelayInDays { get; set; }
-        public ICollection<ProPurchaseOrderDetails> Details { get; set; }
+        public virtual ICollection<ProPurchaseOrderDetails> Details { get; set; }
     }
 }
